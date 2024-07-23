@@ -1,6 +1,7 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "Psychological Research in R"
+subtitle: "An R Intro for people whose dog regularly ate their statistics homework."
+author: "Anni Tave Overlander"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -15,41 +16,79 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# About
+# About... {-}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+**This book is still a work in progress! Most chapters are currently placeholders and will be filled over the next couple of weeks!**
 
-## Usage 
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+<!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$. -->
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+## ...this book {-}
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+> It's actually more of a course but book sounds really fancy.
 
-## Render book
+Welcome! 
+Chances are, you are a psychology student and either starting to learn R or looking to refresh your memory.
+Or perhaps you need to look up a specific step that you _can never quite remember_ (or is that just me?).
+Maybe you also came across this resource by pure chance - lucky you! 
 
-You can render the HTML version of this example book without changing anything:
+In any case I am glad you are here and hope you find both what you were and weren't looking for.
+This book is based on an in-person introductory R course from the [University of Konstanz](https://www.uni-konstanz.de/).
+I tried my very best to cover all the basics on working with R from the ground up. 
+Following the whole course should enable you to write your very own R Markdown report, taking full advantage of some of the most important and common features of R.
 
-1. Find the **Build** pane in the RStudio IDE, and
+That being said, this book is quite _opinionated_, meaning I included all the lovely things that _I_ like to work with.
+You might prefer other packages and that is completely okay - I still appreciate you reading my suggestions.
+As with anything in life, a lot can be learned from other peoples approaches to things. 
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
 
-Or build the book from the R console:
+<!-- Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading. -->
 
-```{r, eval=FALSE}
-bookdown::render_book()
-```
+<!-- Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`. -->
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+<!-- The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book. -->
 
-## Preview book
+## ...the author {-}
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+I am Tave and I am currently working on my Ph.D. in Psychological Methods.
+This online book is a little side project that is quite near and dear to my heart.
 
-```{r eval=FALSE}
-bookdown::serve_book()
-```
+In my experience, statistics and - goddess forbid - statistics programs can easily induce panic-like states in psychology students.
+And also in my experience, that can change over the course of one semester tops.
+Programming in R is a lot less scary than many may think and most of all, it can and _should be fun_! 
+<!-- LINK TO HILARY PARKERS TALK WHEN IT IS AVAILABLE! OR FONTI KAR -->
+It is a weird, powerful language and can assist you with many everyday tasks.
+
+
+I hope to alleviate some of the aveRsion over the course of this course and help you see R's advantages.
+
+Please feel free to contact me if you have any questions or comments! You can reach out via e-mail: [annika-tave.overlander@uni.kn](annika-tave.overlander@uni.kn) or you can submit a GitHub issue over at the repository for this book: [https://github.com/the-tave/psych_research_in_r](https://github.com/the-tave/psych_research_in_r).
+
+
+
+
+
+<!-- You can render the HTML version of this example book without changing anything: -->
+
+<!-- 1. Find the **Build** pane in the RStudio IDE, and -->
+
+<!-- 1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files. -->
+
+<!-- Or build the book from the R console: -->
+
+<!-- ```{r, eval=FALSE} -->
+<!-- bookdown::render_book() -->
+<!-- ``` -->
+
+<!-- To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>. -->
+
+<!-- ## Preview book -->
+
+<!-- As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console: -->
+
+<!-- ```{r eval=FALSE} -->
+<!-- bookdown::serve_book() -->
+<!-- ``` -->
 
 
 ```{r include=FALSE}

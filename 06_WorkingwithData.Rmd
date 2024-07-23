@@ -1,0 +1,198 @@
+
+```{r include=FALSE, warnings = FALSE}
+# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
+
+# library(knitr)
+# library(papaja)
+# library(ggplot2)
+library(dplyr)
+# library(unikn)
+library(wobblynameR)
+```
+
+# Working with existing Data
+
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+```
+
+Please also install the _wobblynameR_ package (only available on GitHub). For that you need the _devtools_ package first:
+
+1. install.packages("devtools")
+2. devtools::install_github("the-tave/wobblynameR")
+
+    
+## First Steps: Seminar Data
+
+<br>
+
+- Download the data frame from ILIAS and save it in the data subfolder in your R-Project.
+- Use the "Import Dataset" Menu under the _Environment_ tab ![Import Dataset](./img/import_dataset.png){height=40px}
+    - In that menu, we can select our data file & choose some basic aspects of reading in that data 
+
+<br>
+
+<i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Make sure you have the right package installed for reading in specific data types! Here: Please install the readr package with install.packages("readr")</i>
+
+
+### Reading in the data
+#### Generated Code
+
+```{r  eval = F}
+library(readr)
+PsychResearchR_data <- read_delim("data/PsychResearchR_data.csv", 
+    delim = ";", escape_double = FALSE, trim_ws = TRUE)
+View(PsychResearchR_data)
+```
+
+
+### Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i>
+
+
+
+1. Choose an appropriate name, e.g. `raw`
+2. Put all _library commands_ at the top of the script so you are ready to conduct all analyses
+3. You do not need the _View()_ command in your script
+4. If you are not sure about the state of your data, look at it first!
+    - View() opens the whole data in new tab; glimpse(), str() and head() give you a rough overview; names() shows you all variable names
+5. Some edits are already possible in the menu! Column types can (and sometimes should) be adjusted, e.g. recognizing dates
+6. Create a new dataset as a copy in which you do all further edits! E.g. `seminar` with proper varname prefix
+
+
+
+### Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i>
+#### Result
+
+```{r warnings = F}
+library(readr)
+library(wobblynameR)
+
+raw <- read_delim("./data/PsychResearchR_data.csv", 
+    delim = ";", escape_double = FALSE, 
+    col_types = cols(.wx.5.start_date = col_date(format = "%m/%d/%y"),
+                     .wx.7.end_date = col_date(format = "%m/%d/%y"), 
+                     ...32 = col_skip()),
+    trim_ws = TRUE)
+
+# Add "v" as varname prefix to all variables
+seminar <- namepref0(raw, "v")
+```
+
+### Choosing how to read in the data
+
+<br>
+
+Data Source | R command
+------|------
+WEXTOR (CSV) | `readr::read_delim("data.csv", delim = ";")`
+Excel (XLSX) | `xlsx::read.xlsx("data.xlsx", sheetIndex = 1)`
+R Data Source (RDS) | `readRDS("data.Rds")`
+SPSS (SAV) | `foreign::read.spss("data.sav")`
+
+
+## Working with the data: <br> Codebook
+
+
+
+- What variables are in the data? -> `names(seminar)`
+    - `r names(seminar)`
+- What can they tell us? Which analyses might be of interest?
+
+
+
+## Working with the data: <br> Descriptives
+
+
+
+- In any report, we need to give our readers/ listeners/... an overview of the data
+    - We need to know the sample to judge the results!
+    - A sample of e.g. 10 female psychology students probably shows different results -generally speaking - than a sample of 10 male soldiers
+- What are descriptives?
+    - Mean
+    - Median
+    - Mode
+    - Variability (standard deviation)
+    - Data Visualization...
+    
+
+
+### group_by & summarize 
+
+:::{.incremental}
+
+- With the dplyr-workflow, we can easily output group statistics
+- Keywords: **group_by()** & **summarize()**
+- The code is built like any other dplyr workflow with pipes ( %>% ) in between each:
+    1. Define/ name the data frame
+    2. group_by(_variable_name_)
+    3. in summarize, define a name for the statistic, use a =, use a function like mean() for the measure
+
+:::
+
+### Example: group_by & summarize
+
+```{r}
+iris %>% 
+  group_by(Species) %>% 
+  summarize(m_plength = mean(Petal.Length),
+            med_pwidth = median(Petal.Width),
+            m_slength = mean(Sepal.Length),
+            mode_swidth = getmode(Sepal.Width),
+            n = n())
+```
+    
+### Exercise: group_by & summarize
+
+<br> 
+Follow the structure to group the edited seminar data by belief in the soul and output a summary with 
+
+- mean age 
+- mean technological skill
+- mode music genre 
+- median volume of music 
+- grouped n (function _n()_)
+
+### Solution
+
+```{r}
+seminar %>% 
+  group_by(v11_soul) %>% 
+  summarize(m_age = mean(v02_age),
+            m_tech_skill = mean(v05_skill_tech),
+            mode_music = getmode(v07_genre),
+            median_volume = median(v08_loudness),
+            n = n())
+```
+
+
+### Exercise: In teams of 2
+
+<br>
+
+In teams of 2, think about your own thesis (if you don't have a topic yet, just think of something that you _might_ want to research): 
+
+- Which of our variables in the seminar data are similar to those that you want to analyze?
+- What can we do to prepare you for being able to conduct your analyses?
+- Write down your thoughts so we can use some ideas in our coming classes!
+
+ 
+## Wrap-Up & Further Resources 
+ 
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;"> 
+<li> Reading in data works with commands like readRDS() but also the "Import Dataset" Menu</li>
+<li> Use the menu for WEXTOR data to get an overview and reproducible code</li>
+<li> Get/ create a codebook for your data</li>
+<li> Always report descriptive data</li>
+<li> dplyr's `group_by()` and `summarize()` can output grouped descriptives</li>
+</ul>
+
+
+<br>
+
+<i class="fa-solid fa-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li> [Reading in Data in Different Formats](https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r)</li>
+<li> [Stats and R: Descriptives](https://statsandr.com/blog/descriptive-statistics-in-r/) </li>
+</ul>
+

@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Psychological Research in R</title>
+  <title>Chapter 12 Wrap Up | Psychological Research in R</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Psychological Research in R" />
+  <meta property="og:title" content="Chapter 12 Wrap Up | Psychological Research in R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Psychological Research in R" />
+  <meta name="twitter:title" content="Chapter 12 Wrap Up | Psychological Research in R" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -36,8 +36,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="wrap-up.html"/>
-
+<link rel="prev" href="taking-full-advantage-of-r-and-r-markdown.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -563,17 +563,190 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered hasAnchor">
-<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="wrap-up" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Wrap Up<a href="wrap-up.html#wrap-up" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./img/fontawesome.min.css">
+<div id="discussion-of-self-study-materials" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Discussion of Self-Study Materials<a href="wrap-up.html#discussion-of-self-study-materials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<ul>
+<li>Solutions to the quiz will be uploaded on ILIAS</li>
+<li>Specific questions, Fibonacci task, the template HTML and any additional questions</li>
+</ul>
+<div class="float">
+<img src="img/fibonacci.jpg" height="300" alt="Fibonacci Spiral" />
+<div class="figcaption">Fibonacci Spiral</div>
+</div>
+<div id="fibonacci-task" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Fibonacci Task<a href="wrap-up.html#fibonacci-task" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Thanks to whoever the rest of you copied! ;)</li>
+<li>Most of you used <code>numeric(15)</code> to create a variable with 15 zeros
+<ul>
+<li>This is fair enough, but can lead to errors: If it contains numbers already, it is harder to detect calculation mistakes (0 is often a valid possibility)</li>
+<li>Better to use NAs to create a placeholder variable: <code>rep(NA, X)</code></li>
+<li></li>
+</ul>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="wrap-up.html#cb234-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">15</span>)</span></code></pre></div>
+<pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA</code></pre></li>
+</ul>
+</div>
+<div id="fibonacci-task-1" class="section level3 hasAnchor" number="12.1.2">
+<h3><span class="header-section-number">12.1.2</span> Fibonacci Task<a href="wrap-up.html#fibonacci-task-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="wrap-up.html#cb236-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb236-2"><a href="wrap-up.html#cb236-2" tabindex="-1"></a></span>
+<span id="cb236-3"><a href="wrap-up.html#cb236-3" tabindex="-1"></a>fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="fu">rep</span>(<span class="cn">NA</span>, n<span class="dv">-2</span>))</span>
+<span id="cb236-4"><a href="wrap-up.html#cb236-4" tabindex="-1"></a></span>
+<span id="cb236-5"><a href="wrap-up.html#cb236-5" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n){</span>
+<span id="cb236-6"><a href="wrap-up.html#cb236-6" tabindex="-1"></a>  fibonacci[i] <span class="ot">&lt;-</span> fibonacci[i<span class="dv">-1</span>] <span class="sc">+</span> fibonacci[i<span class="dv">-2</span>]</span>
+<span id="cb236-7"><a href="wrap-up.html#cb236-7" tabindex="-1"></a>}</span>
+<span id="cb236-8"><a href="wrap-up.html#cb236-8" tabindex="-1"></a></span>
+<span id="cb236-9"><a href="wrap-up.html#cb236-9" tabindex="-1"></a>fibonacci</span></code></pre></div>
+<pre><code>##  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</code></pre>
+</div>
+<div id="alternative-with-while" class="section level3 hasAnchor" number="12.1.3">
+<h3><span class="header-section-number">12.1.3</span> Alternative with <code>while</code><a href="wrap-up.html#alternative-with-while" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="wrap-up.html#cb238-1" tabindex="-1"></a>fibonacci <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb238-2"><a href="wrap-up.html#cb238-2" tabindex="-1"></a></span>
+<span id="cb238-3"><a href="wrap-up.html#cb238-3" tabindex="-1"></a></span>
+<span id="cb238-4"><a href="wrap-up.html#cb238-4" tabindex="-1"></a><span class="cf">while</span>(<span class="fu">length</span>(fibonacci) <span class="sc">&lt;</span> <span class="dv">15</span>){</span>
+<span id="cb238-5"><a href="wrap-up.html#cb238-5" tabindex="-1"></a>  new_num <span class="ot">&lt;-</span> fibonacci[<span class="fu">length</span>(fibonacci)] <span class="sc">+</span> fibonacci[<span class="fu">length</span>(fibonacci) <span class="sc">-</span> <span class="dv">1</span>]</span>
+<span id="cb238-6"><a href="wrap-up.html#cb238-6" tabindex="-1"></a>  fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(fibonacci, new_num)</span>
+<span id="cb238-7"><a href="wrap-up.html#cb238-7" tabindex="-1"></a>}</span>
+<span id="cb238-8"><a href="wrap-up.html#cb238-8" tabindex="-1"></a></span>
+<span id="cb238-9"><a href="wrap-up.html#cb238-9" tabindex="-1"></a><span class="fu">print</span>(fibonacci)</span></code></pre></div>
+<pre><code>##  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</code></pre>
+</div>
+</div>
+<div id="template-html" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Template HTML<a href="wrap-up.html#template-html" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="float">
+<img src="img/Rmd-exc1.png" height="600" alt="Rmd Example Template" />
+<div class="figcaption">Rmd Example Template</div>
+</div>
+<pre><code>## 
+##  ----- 
+## What the duck is this? 
+##  ------ 
+##     \   
+##      \  
+##       \
+##          __
+##         /o \
+##       &lt;=   |         ==
+##         |__|        /===
+##         |   \______/  =
+##         \     ====   /
+##          \__________/     [ab]</code></pre>
+</div>
+<div id="lessons-from-the-user" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Lessons from the useR!<a href="wrap-up.html#lessons-from-the-user" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many people are working on many great projects.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="wrap-up.html#cb241-1" tabindex="-1"></a>ohwhaley<span class="sc">::</span><span class="fu">say</span>()</span></code></pre></div>
+<pre><code>## 
+##             ------ 
+##            How are you? I&#39;m whaley good! 
+##             ------ 
+##                \   
+##                 \  
+##                  \
+##      .-&#39;
+## &#39;--./ /     _.---.
+## &#39;-,  (__..-`       \
+##    \          .     |
+##     `,.__.   ,__.--/
+##      &#39;._/_.&#39;___.-`</code></pre>
+<p>R can be hard.</p>
+<p>… but it’s worth it.</p>
+<p>Data Analysis is important in so many fields.</p>
+<p>R is really fun!</p>
+<div id="work-with-a-scientifically-sound-ai" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Work with a scientifically sound AI<a href="wrap-up.html#work-with-a-scientifically-sound-ai" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="cs50.ai">cs50.ai</a></p>
+<div class="float">
+<img src="img/cs50ai.png" alt="CS50.ai example chat" />
+<div class="figcaption">CS50.ai example chat</div>
+</div>
+</div>
+</div>
+<div id="pub-quiz---which-function-is-missing-logos" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> “Pub” Quiz - Which function is missing? &amp; Logos<a href="wrap-up.html#pub-quiz---which-function-is-missing-logos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Work in groups of 2-3 and submit your answers via kahoot.</p>
+<p>You will see some code snippets where the function name is missing - which is it?</p>
+<p>Afterwards you need to judge which package logo is the right way round!</p>
+<p><small> Big Thanks to Deepansh Khurana for providing materials and inspiration! </small></p>
+<!-- LINK HERE  -->
+</div>
+<div id="outlook" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Outlook<a href="wrap-up.html#outlook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Keep teaching yourself R - you have a lot of great resources!</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="wrap-up.html#cb243-1" tabindex="-1"></a><span class="co"># Keep finding cool features (like the emphatic package)</span></span>
+<span id="cb243-2"><a href="wrap-up.html#cb243-2" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb243-3"><a href="wrap-up.html#cb243-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">|&gt;</span> </span>
+<span id="cb243-4"><a href="wrap-up.html#cb243-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Mean_Sepal_Length =</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">|&gt;</span> </span>
+<span id="cb243-5"><a href="wrap-up.html#cb243-5" tabindex="-1"></a>  emphatic<span class="sc">::</span><span class="fu">hl</span>(<span class="fu">c</span>(<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;violet&quot;</span>, <span class="st">&quot;hotpink&quot;</span>))</span></code></pre></div>
+<pre style=''>
+<span style='text-decoration:underline;'>       Species Mean_Sepal_Length</span><br/>1  <span style='color:#ffffff;'><span style='background-color:#a020f0;'>     setosa</span></span><span style='color:#ffffff;'><span style='background-color:#a020f0;'>             5.006</span></span><br/>2  <span style='color:#000000;'><span style='background-color:#ee82ee;'> versicolor</span></span><span style='color:#000000;'><span style='background-color:#ee82ee;'>             5.936</span></span><br/>3  <span style='color:#000000;'><span style='background-color:#ff69b4;'>  virginica</span></span><span style='color:#000000;'><span style='background-color:#ff69b4;'>             6.588</span></span><br/>
+</pre>
+<div id="anything-left-unclear" class="section level3 hasAnchor" number="12.5.1">
+<h3><span class="header-section-number">12.5.1</span> Anything left unclear?<a href="wrap-up.html#anything-left-unclear" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="float">
+<img src="img/hexagons.png" height="300" alt="Hex Logos" />
+<div class="figcaption">Hex Logos</div>
+</div>
+<i class="fa-solid fa-anchor" style="color: teal;"> Wrap-Up </i>
+<ul style="color: teal;">
+<li>
+R helps you to get an overview of your data
+</li>
+<li>
+R gives your tools for data analysis &amp; visualization
+</li>
+<li>
+R lets you create reports, presentations, app dashboards…
+</li>
+<li>
+Keep R weird! Do silly things in R!
+</li>
+<li>
+Use the slides from this course as templates to learn from. <i class="fa-solid fa-copy"  style="color: teal;"></i>
+</li>
+</ul>
+<p><br></p>
+<i class="fa-solid fa-book" style="color: orange;"> Further Resources </i>
+<ul style="color: orange;">
+<li>
+<a href="https://solo-fsw.shinyapps.io/NewStatLearning/">StatLearning Shiny App (Uni Leiden)</a>
+</li>
+<li>
+<a href="https://github.com/fontikar/ohwhaley">GitHub: Ohwhaley package</a>
+</li>
+<li>
+<a href="https://www.youtube.com/@useRConference_global">YouTube: useR! conference</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="thank-you-5" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> Thank you!<a href="wrap-up.html#thank-you-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="tenor-gif-embed" data-postid="11365139" data-share-method="host" data-aspect-ratio="1.42857" data-width="80%">
+<a href="https://tenor.com/view/hadley-wickham-rstats-typing-rcode-gif-11365139">Hadley Wickham GIF</a>from <a href="https://tenor.com/search/hadley-gifs">Hadley GIFs</a>
+</div>
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="wrap-up.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="taking-full-advantage-of-r-and-r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -604,7 +777,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/15_References.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/14_Wrap_Up.Rmd",
 "text": "Edit"
 },
 "history": {

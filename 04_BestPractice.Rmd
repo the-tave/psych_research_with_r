@@ -1,0 +1,293 @@
+
+```{r include=FALSE, warnings = FALSE}
+# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
+
+# library(knitr)
+# library(papaja)
+# library(ggplot2)
+library(dplyr)
+# library(unikn)
+```
+
+# Best Practice
+
+## What is Best Practice?
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+```{=html}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+```
+
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./img/fontawesome.min.css">
+```
+
+- "Many roads lead to Rome": You can achieve most things in many different ways
+- _Best Practice_ refers to the best/ easiest/ clearest way of working with R
+
+### Overview
+
+- Naming Variables
+- Creating data meaningfully
+- Working Directories
+- R Projects
+- Make R your own: ![Appearance](./img/appearance.png){#id .class .no-border width=auto height=40px}
+
+
+## Naming Things 
+
+
+- R is a so-called *object-oriented* language.
+    - All our data exist as "objects" 
+    - To *do* stuff with those objects  is called using a *function* or *command*
+- Naming of objects is an every-day aspect of working with R
+    - Proper naming makes our life so much easier!
+
+
+<!-- ## Market Analogy -->
+
+<!-- :::{.incremental} -->
+
+<!-- - Fruit Market: <i class="fa-solid fa-apple-whole" style="color: red;"></i>  <i class="fa-solid fa-apple-whole" style="color: yellow;"></i>  <i class="fa-solid fa-apple-whole" style="color: green;"></i>  <i class="fa-solid fa-apple-whole" style="color: orange;"></i> -->
+<!--     - If I ask for **an apple**, which one will I get? -->
+<!-- - Getting the right object depends on the proper specification, usually the **name** -->
+<!-- - Common source of errors in R, especially during the "steep phase" of the learning curve  -->
+
+<!-- ::: -->
+
+### Different Naming Conventions
+
+
+
+- R is case-sensitive
+    - $\rightarrow$ `abc` is a different object than `ABC`, which is different from `a_b_c`, which is different from `A.B.C` ...
+    -  All of these variants are possible!
+- Every programming language has slightly different conventions, e.g. Python usually uses `snake_case` <i class="fa-solid fa-worm" style="color: green;"></i>
+    - Also advisable for R :)
+- Avoid white spaces in all types of names
+    - Especially important in file names! R has problems finding files with names such as "My file with a really specific name.bib"
+    - Easy fix: "My_file_with_a_really_specific_name.bib"
+
+
+
+### Naming conventions in R
+
+
+
+- **Lower-case** variable names, e.g. `gender` instead of `Gender` or `GENDER`
+- **Underscore** to differentiate between different words in your object names if necessary, e.g. `music_preference`
+- **Avoid using numbers** in your names because likely either you or R will get confused with this at some point, e.g. `raw_data` instead of `data1`
+    - 1 (one) and the l (lower-case L) can look very similar
+- Use **abbreviations** where useful, e.g. `rt` instead of `reaction_times`
+- Use **names that will still make sense** to you in the future, i.e. avoid names like `asdf_data` or `blibblobfundata`
+
+
+### Exercise: Name Examples
+
+
+- `great variable`
+    -  <i class="fa-solid fa-circle-xmark" style="color: red;"></i> Spaces can technically work but are a hassle to access
+- `Areallysuperinsanelyverylongvariablename`
+    -  <i class="fa-solid fa-circle-xmark" style="color: red;"></i> Variables are supposed to _reduce_ workload
+- `Howaboutthis$`
+    - <i class="fa-solid fa-circle-xmark" style="color: red;"></i> Special characters should be avoided
+- `age_grouped`
+    - <i class="fa-solid fa-check" style="color: green;"></i>
+- `GenderRecoded`
+    - <i class="fa-solid fa-check" style="color: green;"></i>
+- `aMAZING¯vARIABLE¯nAME`
+    - <i class="fa-solid fa-circle-xmark" style="color: red;"></i>  Please just no. <i class="fa-solid fa-circle-xmark" style="color: red;"></i> 
+    
+
+## Scenario: Creating Data meaningfully
+
+Imagine we are going to measure some test scores at a school that are supposed to reflect the kids' IQ (mean 100, sd 15). <br> <br>
+In order to prepare for data analysis, we want to simulate what the data might look like beforehand. <br> <br>
+
+We are going to measure their age and IQ score and we will be assessing class 7a and 7b.
+
+## Exercise: Creating Data meaningfully
+
+Create **two data frames** - one for each class. <br>
+They should each contain **n = 20 entries** (for 20 kids) and **2 variables i.e. age and iq score**. <br> <br>
+We assume **age is a random number from 12 to 15** and **iq follows normal distribution with mean = 100, sd = 15**. <br>
+
+Afterwards, add a variable to code the **class** to each data frame and add them together **underneath each other**. <br>
+Use the functions on the board and look in the R help if you need more input on how to use them. 
+
+<!-- Board functions: data.frame, sample, rnorm, $, rbind, str -->
+
+### Solution I
+
+```{r}
+# Create the dataframes
+scores7a <- data.frame(age = sample(x = 12:15, size = 20, replace = T),
+                       iq = rnorm(n = 20, mean = 100, sd = 15))
+
+scores7b <- data.frame(age = sample(x = 12:15, size = 20, replace = T),
+                       iq = rnorm(n = 20, mean = 100, sd = 15))
+# Notice anything about the code?
+
+str(scores7a); str(scores7b)
+```
+
+### Solution II
+
+```{r}
+# Add information about the class
+scores7a$class <- "7a"
+scores7b$class <- "7b"
+
+# create big dataframe
+allscores <- rbind(scores7a, scores7b)
+
+# Check the overall data frame for plausibility
+str(allscores)
+table(allscores$class)
+```
+
+
+## Working Directories
+
+
+
+- A working directory corresponds to the folder on your computer that you are **working in** 
+    - If you save a script, it will be saved there
+- We usually work with data from other sources or different files
+    - e.g. WEXTOR data or bibfiles for bibliography
+- Check your working directory: `getwd()`
+- Manually set your working directory: `setwd()`
+    - Any file you want to use, e.g. containing data will be searched in that folder
+
+
+
+### Try it out!
+
+<br> 
+Execute the getwd() command in the console. <br>
+Which folder is R working in, is it the one you expected?
+
+### Cautionary Tale
+
+<br>
+
+
+
+- The file path in `getwd()` will always be _absolute_ $\rightarrow$ full file path from _your_ computer
+    - Sharing is difficult
+    - Working with that script on your other computer is difficult
+    - Nobody else can (easily) reproduce your code
+- It is easy to forget which folder you're working on and which one you want to be working on
+    - So R won't find files you're looking for and throw errors
+
+
+
+## R Projects
+
+<br>
+
+
+- Solution: Create an R Project for your project!
+    - Automatically sets your working directory to the folder you put the project in
+    - Makes sharing your project easy
+    - Saves you time and frustration, trust me
+    
+
+
+### Let's try that out!
+
+<br>
+
+Under `File` $\rightarrow$ `New project...`
+
+
+### Homework: Put it to the test
+
+```{r eval = F, include = F}
+data <- readr::read_csv("C:/Nextcloud/Lehre/Seminar_PsychResearchR/data.csv") %>% 
+  select(observing:gender) %>% 
+  mutate(gender = factor(gender, levels = c(1, 2, 3), labels = c("male", "female", "other")))
+
+saveRDS(data, "mindfulness_data.Rds")
+```
+
+1. Create a subfolder called "data" in your R project.
+2. Download the file "mindfulness_data.Rds" from ILIAS and save it in that folder.
+3. Now try to load it into your script and check whether it worked by typing:
+
+```{r}
+mindful <- readRDS("./data/mindfulness_data.Rds") # relative filepath
+str(mindful)
+```
+
+## Make R your own: Appearance
+
+<br>
+
+
+- There are many different "themes" for R Studio
+    - Control not only what the interface looks like but also how code is displayed
+    
+- Under `Tools` $\rightarrow$ `Global Options` $\rightarrow$ `Appearance`
+
+
+
+### Why?
+
+<br>
+
+
+
+- Honestly? Because It's fun.  <i class="fa-solid fa-crown" style="color: yellow;"></i> 
+- If a program is no fun, you won't like using it
+    - And if you don't like using it, you won't get the practice you need!
+    
+
+
+## Not-so-secret keyboard shortcuts to make your life easier
+
+| Function              | Shortcut PC / Mac                  |
+|-----------------------|------------------------------------|
+| Run current line      | Ctrl + Enter / Cmd + Return        |
+| Add \<-               | Alt + - / Option + -               |
+| Add %\>%              | Ctrl + Shift + M / Cmd + Shift + M |
+| Show help             | F1                                 |
+| Options for auto-fill | Tab                                |
+| Create New Script     | Ctrl + Shift + N / Cmd + Shift + N |
+| Comment out line      | Ctrl + Shift + C / Cmd + Shift + C |
+| Save your script      | Ctrl + S / Cmd + S                 |
+
+## Wrap-Up & Further Resources 
+ 
+ <br>
+ 
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;"> 
+<li> Stick to naming conventions for R objects and related files </li>
+<li> Make sure your working directory is correct </li>
+<li> Use R projects to organize your scripts easily </li>
+<li> Make R fun and appealing to use FOR YOU! </li>
+</ul>
+
+ <br>
+ 
+<i class="fa-solid fa-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li> [R Projects: A quick overview](https://thedavidchen.github.io/post/rstudio-why-use-projects/) </li>
+<li> [Starting your R projects](https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html) </li>
+<li> [RStudio Projects and Directories](https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/) (rather thorough) </li>
+</ul>
+
+<!-- ## Further Resources -->
+
+<!-- <br> -->
+
+<!-- <i class="fa-solid fa-book" style="color: orange;"></i> -->
+<!-- <ul style="color: orange;"> -->
+<!-- <li> [R Projects: A quick overview](https://thedavidchen.github.io/post/rstudio-why-use-projects/) </li> -->
+<!-- <li> [Starting your R projects](https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html) </li> -->
+<!-- </ul> -->
+
+![Naming Conventions](./img/varname.webp){#id .class width=auto height=400px}
+<figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/</figcaption>

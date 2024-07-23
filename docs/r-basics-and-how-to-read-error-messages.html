@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Psychological Research in R</title>
+  <title>Chapter 2 R Basics and how to read error messages | Psychological Research in R</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Psychological Research in R" />
+  <meta property="og:title" content="Chapter 2 R Basics and how to read error messages | Psychological Research in R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Psychological Research in R" />
+  <meta name="twitter:title" content="Chapter 2 R Basics and how to read error messages | Psychological Research in R" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -36,8 +36,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="wrap-up.html"/>
-
+<link rel="prev" href="intro-and-installation.html"/>
+<link rel="next" href="best-practice.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -563,17 +563,308 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered hasAnchor">
-<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="r-basics-and-how-to-read-error-messages" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> R Basics and how to read error messages<a href="r-basics-and-how-to-read-error-messages.html#r-basics-and-how-to-read-error-messages" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="float">
+<img src="img/iris.png" alt="Iris Flower" />
+<div class="figcaption">Iris Flower</div>
+</div>
+<div id="basics-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Basics<a href="r-basics-and-how-to-read-error-messages.html#basics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./img/fontawesome.min.css">
+<ul>
+<li>Assign variables with the <span class="math inline">\(\leftarrow\)</span> like so:
+<code>x &lt;- c(1, 2, 3)</code>
+<ul>
+<li>To avoid a cluttered work environment, <code>rm()</code> removes variables</li>
+</ul></li>
+<li>Execute a line of code with <code>ctrl + enter</code> in the editor
+<ul>
+<li>In console you just need to press <code>enter</code></li>
+</ul></li>
+<li>Text aka <em>strings</em> need to be put in quotes so it can be recognized as such
+<ul>
+<li><code>some_text &lt;- c("amazing", "wow")</code></li>
+</ul></li>
+<li>Comments can and should be added to your code using the <code>#</code></li>
+</ul>
+<div id="basic-functions-i" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Basic Functions I<a href="r-basics-and-how-to-read-error-messages.html#basic-functions-i" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-basics-and-how-to-read-error-messages.html#cb39-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb39-2"><a href="r-basics-and-how-to-read-error-messages.html#cb39-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)</span>
+<span id="cb39-3"><a href="r-basics-and-how-to-read-error-messages.html#cb39-3" tabindex="-1"></a><span class="fu">mean</span>(a)</span></code></pre></div>
+<pre><code>## [1] 2.5</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-basics-and-how-to-read-error-messages.html#cb41-1" tabindex="-1"></a><span class="fu">sd</span>(b)</span></code></pre></div>
+<pre><code>## [1] 2.581989</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-basics-and-how-to-read-error-messages.html#cb43-1" tabindex="-1"></a><span class="fu">min</span>(b)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+</div>
+<div id="basic-functions-ii" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Basic Functions II<a href="r-basics-and-how-to-read-error-messages.html#basic-functions-ii" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-basics-and-how-to-read-error-messages.html#cb45-1" tabindex="-1"></a><span class="fu">max</span>(b)</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-basics-and-how-to-read-error-messages.html#cb47-1" tabindex="-1"></a>a<span class="sc">+</span>b</span></code></pre></div>
+<pre><code>## [1]  6  9 12 15</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-basics-and-how-to-read-error-messages.html#cb49-1" tabindex="-1"></a><span class="fu">sum</span>(b)</span></code></pre></div>
+<pre><code>## [1] 32</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-basics-and-how-to-read-error-messages.html#cb51-1" tabindex="-1"></a><span class="fu">length</span>(a)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="basic-functions-iii" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Basic Functions III<a href="r-basics-and-how-to-read-error-messages.html#basic-functions-iii" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-basics-and-how-to-read-error-messages.html#cb53-1" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">9</span></span>
+<span id="cb53-2"><a href="r-basics-and-how-to-read-error-messages.html#cb53-2" tabindex="-1"></a>c <span class="co"># look at the variable</span></span></code></pre></div>
+<pre><code>## [1] 3 4 5 6 7 8 9</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-basics-and-how-to-read-error-messages.html#cb55-1" tabindex="-1"></a><span class="fu">range</span>(c)</span></code></pre></div>
+<pre><code>## [1] 3 9</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-basics-and-how-to-read-error-messages.html#cb57-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">20</span><span class="sc">:</span><span class="dv">25</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="basic-functions-iv" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Basic Functions IV<a href="r-basics-and-how-to-read-error-messages.html#basic-functions-iv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-basics-and-how-to-read-error-messages.html#cb58-1" tabindex="-1"></a>d <span class="co"># look at the variable</span></span></code></pre></div>
+<pre><code>##  [1] 10 11 12 13 14 15 20 21 22 23 24 25</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="r-basics-and-how-to-read-error-messages.html#cb60-1" tabindex="-1"></a>d[<span class="dv">1</span>] <span class="co"># index</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-basics-and-how-to-read-error-messages.html#cb62-1" tabindex="-1"></a>d[d<span class="sc">==</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-basics-and-how-to-read-error-messages.html#cb64-1" tabindex="-1"></a><span class="fu">which</span>(d<span class="sc">==</span><span class="dv">12</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="exercise-1" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Exercise<a href="r-basics-and-how-to-read-error-messages.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a vector x with the numbers from 50 to 100 and 150 to 200.</p>
+<p>Find its mean, standard deviation and its range.</p>
+<p>What is the 77th number of vector x?</p>
+<div id="solution-3" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Solution<a href="r-basics-and-how-to-read-error-messages.html#solution-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>x &lt;- c(50:100, 150:200)</code><br />
+</li>
+<li><code>mean(x), sd(x), range(x) %&gt;% round(2)</code>: , 52.38, 50, 200
+<ul>
+<li><code>%&gt;% round(2)</code> takes the numbers and rounds them up to two decimal points</li>
+</ul></li>
+<li><code>x[77]</code>: 175</li>
+</ul>
+</div>
+<div id="brainteaser-1" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i><a href="r-basics-and-how-to-read-error-messages.html#brainteaser-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We define two variables in the following way:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-basics-and-how-to-read-error-messages.html#cb66-1" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb66-2"><a href="r-basics-and-how-to-read-error-messages.html#cb66-2" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div>
+<p>Let’s say we want to access the number 5 in both variables.
+How come <code>e[5]</code> works but <code>f[5]</code> does not?</p>
+</div>
+</div>
+<div id="logic" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Logic<a href="r-basics-and-how-to-read-error-messages.html#logic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<ul>
+<li>next to numeric and string variables: <em>boolean</em>
+<ul>
+<li>either hold the value <strong>TRUE</strong> or <strong>FALSE</strong> (also 1 or 0 respectively)</li>
+</ul></li>
+<li>useful for filtering data
+<ul>
+<li>also for conditional operations and recoding</li>
+</ul></li>
+</ul>
+<div id="logical-examples-i" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Logical Examples I<a href="r-basics-and-how-to-read-error-messages.html#logical-examples-i" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-basics-and-how-to-read-error-messages.html#cb67-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span>; b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb67-2"><a href="r-basics-and-how-to-read-error-messages.html#cb67-2" tabindex="-1"></a>a <span class="sc">&lt;</span> b <span class="co"># smaller than</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-basics-and-how-to-read-error-messages.html#cb69-1" tabindex="-1"></a>a <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="co"># smaller/ equal</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-basics-and-how-to-read-error-messages.html#cb71-1" tabindex="-1"></a>a <span class="sc">&gt;</span> b <span class="co"># greater than</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="r-basics-and-how-to-read-error-messages.html#cb73-1" tabindex="-1"></a>a <span class="sc">&gt;=</span> <span class="dv">3</span> <span class="co"># greater/ equal</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="logical-examples-ii" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Logical Examples II<a href="r-basics-and-how-to-read-error-messages.html#logical-examples-ii" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="r-basics-and-how-to-read-error-messages.html#cb75-1" tabindex="-1"></a>a <span class="sc">==</span> b <span class="co"># double equal sign!!</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="r-basics-and-how-to-read-error-messages.html#cb77-1" tabindex="-1"></a>a <span class="sc">!=</span> b</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="r-basics-and-how-to-read-error-messages.html#cb79-1" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb79-2"><a href="r-basics-and-how-to-read-error-messages.html#cb79-2" tabindex="-1"></a>c</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="r-basics-and-how-to-read-error-messages.html#cb81-1" tabindex="-1"></a><span class="sc">!</span>c</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="putting-it-all-together" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Putting it all together…<a href="r-basics-and-how-to-read-error-messages.html#putting-it-all-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-2" class="section level4 hasAnchor" number="2.4.3.1">
+<h4><span class="header-section-number">2.4.3.1</span> Exercise<a href="r-basics-and-how-to-read-error-messages.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>We want to find out whether the average Petal Length and Sepal Length of iris flowers are different from each other.</strong></p>
+<p>Use what you know to “ask R” if those values are unequal!</p>
+<p>Hint: You will need logic, the mean()-function and square brackets. Use <strong>names(iris)</strong> to find all variable names in that data set.</p>
+</div>
+</div>
+<div id="solution-4" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Solution<a href="r-basics-and-how-to-read-error-messages.html#solution-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Square bracket indexing with the variable name in quotes
+<code>iris[ , "Sepal.Length"]</code><br />
+<code>iris[ , "Petal.Length"]</code></li>
+<li>now we add the mean function around both like this:
+<code>mean(iris[ , "Sepal.Length"])</code><br />
+<code>mean(iris[ , "Sepal.Length"])</code></li>
+<li>Finally we compare the two with the != operator:
+<code>mean(iris[ , "Sepal.Length"]) !=</code>
+<code>mean(iris[ , "Petal.Length"])</code><br />
+TRUE</li>
+</ul>
+</div>
+</div>
+<div id="reading-error-messages" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Reading Error Messages<a href="r-basics-and-how-to-read-error-messages.html#reading-error-messages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Mistakes happen to everyone</p></li>
+<li><p>Error messages are often frustrating but helpful</p></li>
+<li><p>Many common “beginner problems” are fairly easy to fix once you understand the error</p></li>
+<li><p>Try to think of error messages as invites to help R understand what you are trying to achieve!</p></li>
+<li><div class="float" id="id">
+<img src="img/nerfect.webp" class="class" height="200" alt="Pobody’s Nerfect" />
+<div class="figcaption">Pobody’s Nerfect</div>
+</div></li>
+</ul>
+<div id="error-unexpected-x-in-y" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> <em>Error: unexpected ‘X’ in “Y”</em><a href="r-basics-and-how-to-read-error-messages.html#error-unexpected-x-in-y" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Pretty straightforward: R expects a certain kind of symbol where ‘X’ is
+<ul>
+<li>Input did not match the expectation</li>
+</ul></li>
+<li>For example: Comma as a decimal separator
+<ul>
+<li>In almost all (american-built) coding, the decimal separator is a point</li>
+<li>Input: ’3,141’will receive the error message <em>Error: unexpected ‘,’ in “3,”</em></li>
+<li>R expected the input to be ‘3.141’</li>
+</ul></li>
+<li><span class="math inline">\(\rightarrow\)</span> <strong>Fix: Replace the ‘x’ in “Y” with something that R can understand.</strong></li>
+</ul>
+</div>
+<div id="error-object-a-not-found" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> <em>Error: object ‘A’ not found</em><a href="r-basics-and-how-to-read-error-messages.html#error-object-a-not-found" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Object you are trying to use cannot be found by R</p></li>
+<li><p>Most common cause: probably you misspelled the object name somewhere</p>
+<ul>
+<li>R is case-sensitive: was object <em>A</em> defined as <em>a</em>?</li>
+<li>Or maybe <em>vector</em> is spelled <em>vcteor</em> in your function?</li>
+</ul></li>
+<li><p>Maybe a variable was never defined but now you want to use it?</p>
+<ul>
+<li>Or it was defined in a (different) data frame?</li>
+</ul></li>
+<li><p><span class="math inline">\(\rightarrow\)</span> <strong>Fix: Make sure the object name is spelled correctly and was defined prior to using it in a function, calculation or elsewhere.</strong></p></li>
+<li><p>Also often appears with “function xyz not found”</p></li>
+<li><p>In this case, we probably forgot to load the package first, which contains that function</p></li>
+<li><p><strong>Fix: Figure out which package is needed and load it with the <code>library()</code> command</strong></p>
+<ul>
+<li>If you still encounter an error like “there is no package called ‘xyz’”, either the name of the package is misspelled or you need to install it first using <code>install.packages()</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="error-r-does-nothing-after-running-a-command" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> <em>Error</em>: R does nothing after running a command<a href="r-basics-and-how-to-read-error-messages.html#error-r-does-nothing-after-running-a-command" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>This is not an error message but still very common, especially at the beginning</li>
+<li>Usually, there is a <code>&gt;</code> symbol at the beginning of our console input line
+<ul>
+<li>If R is “unfinished” with a command, you see <code>+</code> instead</li>
+</ul></li>
+<li>This happens when R can`t work with the command because there is something missing
+<ul>
+<li>In most cases, this will be closing parentheses</li>
+</ul></li>
+<li><span class="math inline">\(\rightarrow\)</span> <strong>Fix: Click in your console and use the <code>Esc</code> button to cancel the command. Then, look at the code you were trying to run and see if there is some closing statement such as <code>)</code> missing and try again.</strong></li>
+</ul>
+</div>
+<div id="error-r-does-nothing-after-running-a-command-1" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> <em>Error</em>: R does nothing after running a command<a href="r-basics-and-how-to-read-error-messages.html#error-r-does-nothing-after-running-a-command-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>We have not talked about the %&gt;%-pipe in depth, but you will hopefully start to love this tool and use it a lot</li>
+<li>If we end a command with a %&gt;% R will show the same behavior of not executing the code
+<ul>
+<li><span class="math inline">\(\rightarrow\)</span> R expects something else after the pipe, so when there’s nothing, R is confused <img src="img/waitforit.gif" id="id" class="class" height="100" alt="Wait for it GIF" /></li>
+</ul></li>
+<li><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">When you need help figuring out how a function works, there are several ways to get it. Try typing <strong>?magrittr::`%&gt;%`</strong> into your console and hit enter!</i></li>
+</ul>
+</div>
+</div>
+<div id="exercise-3" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Exercise<a href="r-basics-and-how-to-read-error-messages.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Below is some code that has a few problems.</p>
+<p>Try to identify them and how they might be fixed. Feel free to test them out if you are not sure!</p>
+<p><code>Library(greatpackage)</code></p>
+<p><code>mean(coolvariable)</code></p>
+<p><code>a &lt;- c(1, 3, 6, 7</code></p>
+<p><code>b &lt;- c(2, 4; 6, 8)</code></p>
+<div id="solution-5" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Solution<a href="r-basics-and-how-to-read-error-messages.html#solution-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>Library(greatpackage)</code> - two problems:
+<ul>
+<li><code>library</code> should not be capitalized</li>
+<li>“greatpackage” does not exist and can thus not be loaded</li>
+</ul></li>
+<li><code>mean(coolvariable)</code>: coolvariable was not defined previously</li>
+<li><code>a &lt;- c(1, 3, 6, 7</code>: the command is not finished, it needs a closing parentheses</li>
+<li><code>b &lt;- c(2, 4; 6, 8)</code>: we need all commas to seperate numbers in a vector, not a semicolon</li>
+</ul>
+</div>
+</div>
+<div id="wrap-up-further-resources-1" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Wrap-Up &amp; Further Resources<a href="r-basics-and-how-to-read-error-messages.html#wrap-up-further-resources-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;">
+<li>
+Functions work with input inside round brackets, e.g. c(1, 2, 3)
+</li>
+<li>
+a point <strong>.</strong> is a decimal separator in numbers; a comma <strong>,</strong> seperates input in functions
+</li>
+<li>
+Logical operators compare data, e.g. 7 &gt; 6 would output TRUE
+</li>
+<li>
+<code>#</code> allows comments in the code
+</li>
+<li>
+Errors should be invitations to make your code more understandable for R
+</li>
+<li>
+<span class="math inline">\(\rightarrow\)</span> the better we understand the problem, the better we can fix it!
+</li>
+</ul>
+<p><br></p>
+<i class="fa-solid fa-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li>
+<a href="https://stackoverflow.com/">StackOverflow</a>
+</li>
+<li>
+<a href="https://katalog.uni-konstanz.de/libero/WebOpac.cls?VERSION=2&amp;ACTION=DISPLAY&amp;RSN=2222774&amp;DATA=KON&amp;TOKEN=nGIfSiZsIA5826&amp;Z=1&amp;SET=1">Discovering Statistics Using R</a> Book by Andy Field, available from KIM
+</li>
+</ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="wrap-up.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="intro-and-installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="best-practice.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -604,7 +895,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/15_References.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03_Basics.Rmd",
 "text": "Edit"
 },
 "history": {

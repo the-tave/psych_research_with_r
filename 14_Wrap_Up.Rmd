@@ -1,0 +1,152 @@
+
+# Wrap Up
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+```{=html}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+```
+
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./img/fontawesome.min.css">
+```
+
+
+## Discussion of Self-Study Materials
+
+<br>
+
+- Solutions to the quiz will be uploaded on ILIAS
+- Specific questions, Fibonacci task, the template HTML and any additional questions
+
+![Fibonacci Spiral](./img/fibonacci.jpg){height=300px}
+
+
+### Fibonacci Task
+
+- Thanks to whoever the rest of you copied! ;)
+- Most of you used `numeric(15)` to create a variable with 15 zeros
+    - This is fair enough, but can lead to errors: If it contains numbers already, it is harder to detect calculation mistakes (0 is often a valid possibility)
+    - Better to use NAs to create a placeholder variable: `rep(NA, X)` 
+    - 
+    ```{r}
+    rep(NA, 15)
+    ```
+    
+### Fibonacci Task
+
+```{r}
+n <- 15
+
+fibonacci <- c(1, 1, rep(NA, n-2))
+
+for(i in 3:n){
+  fibonacci[i] <- fibonacci[i-1] + fibonacci[i-2]
+}
+
+fibonacci
+```
+
+### Alternative with `while`
+
+```{r}
+fibonacci = c(1, 1)
+
+
+while(length(fibonacci) < 15){
+  new_num <- fibonacci[length(fibonacci)] + fibonacci[length(fibonacci) - 1]
+  fibonacci <- c(fibonacci, new_num)
+}
+
+print(fibonacci)
+```
+
+## Template HTML
+
+![Rmd Example Template](./img/Rmd-exc1.png){height=600px}
+
+
+```{r echo = F}
+cowsay::say("What the duck is this?", by = "duck")
+```
+
+
+## Lessons from the useR!
+
+Many people are working on many great projects.
+
+```{r}
+ohwhaley::say()
+```
+
+ R can be hard.
+
+... but it's worth it.
+
+ Data Analysis is important in so many fields.
+
+
+ R is really fun!
+
+
+### Work with a scientifically sound AI
+
+[cs50.ai](cs50.ai)
+
+![CS50.ai example chat](./img/cs50ai.png)
+
+## "Pub" Quiz - Which function is missing? & Logos
+
+Work in groups of 2-3 and submit your answers via kahoot. 
+
+You will see some code snippets where the function name is missing - which is it? 
+
+Afterwards you need to judge which package logo is the right way round!
+
+
+
+<small> Big Thanks to Deepansh Khurana for providing materials and inspiration! </small>
+
+<!-- LINK HERE  -->
+
+## Outlook
+
+Keep teaching yourself R - you have a lot of great resources!
+
+```{r}
+# Keep finding cool features (like the emphatic package)
+iris |> 
+  group_by(Species) |> 
+  summarize(Mean_Sepal_Length = mean(Sepal.Length)) |> 
+  emphatic::hl(c("purple", "violet", "hotpink"))
+```
+
+### Anything left unclear?
+
+![Hex Logos](./img/hexagons.png){height=300px}
+
+<i class="fa-solid fa-anchor" style="color: teal;"> Wrap-Up </i>
+<ul style="color: teal;"> 
+<li> R helps you to get an overview of your data </li>
+<li> R gives your tools for data analysis & visualization </li>
+<li> R lets you create reports, presentations, app dashboards... </li>
+<li> Keep R weird! Do silly things in R! </li>
+<li> Use the slides from this course as templates to learn from. <i class="fa-solid fa-copy"  style="color: teal;"></i> </li>
+</ul>
+
+
+
+<br>
+
+<i class="fa-solid fa-book" style="color: orange;"> Further Resources </i>
+<ul style="color: orange;">
+<li> [StatLearning Shiny App (Uni Leiden)](https://solo-fsw.shinyapps.io/NewStatLearning/)</li>
+<li> [GitHub: Ohwhaley package](https://github.com/fontikar/ohwhaley)</li>
+<li> [YouTube: useR! conference](https://www.youtube.com/@useRConference_global) </li>
+</ul>
+
+
+
+## Thank you!
+
+<div class="tenor-gif-embed" data-postid="11365139" data-share-method="host" data-aspect-ratio="1.42857" data-width="80%"><a href="https://tenor.com/view/hadley-wickham-rstats-typing-rcode-gif-11365139">Hadley Wickham GIF</a>from <a href="https://tenor.com/search/hadley-gifs">Hadley GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>

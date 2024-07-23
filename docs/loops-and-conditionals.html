@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Psychological Research in R</title>
+  <title>Chapter 6 Loops and Conditionals | Psychological Research in R</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Psychological Research in R" />
+  <meta property="og:title" content="Chapter 6 Loops and Conditionals | Psychological Research in R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Psychological Research in R" />
+  <meta name="twitter:title" content="Chapter 6 Loops and Conditionals | Psychological Research in R" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -36,8 +36,8 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="wrap-up.html"/>
-
+<link rel="prev" href="working-with-existing-data.html"/>
+<link rel="next" href="into-the-tidyverse-pretty-plots-with-ggplot2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -563,17 +563,396 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered hasAnchor">
-<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="loops-and-conditionals" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Loops and Conditionals<a href="loops-and-conditionals.html#loops-and-conditionals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<div id="what-is-a-loop" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> What is a loop?<a href="loops-and-conditionals.html#what-is-a-loop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Loops are automations that take care of repetitive tasks
+<ul>
+<li>Typically, we might go through data row by row and perform a task</li>
+</ul></li>
+<li>Loops can have different forms:
+<ul>
+<li><strong>for</strong>: loop over a pre-defined set of values, such as a number sequence</li>
+<li><strong>while</strong>: define constraints and keep loop running as long as they are met</li>
+<li><strong>repeat</strong>: loop repeats until broken (<em>I do not recommend this ever!</em>)</li>
+</ul></li>
+<li>For is most common, while is nice for more advanced simulations</li>
+</ul>
+<div id="what-are-conditionals" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> What are conditionals?<a href="loops-and-conditionals.html#what-are-conditionals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Conditionals define different actions for different conditions</li>
+<li>They follow intuitive language:
+<ul>
+<li><strong>if</strong>: define action to take when condition is met (logical)</li>
+<li><strong>else if</strong>: defince action for another condition</li>
+<li><strong>else</strong>: define action for everything else</li>
+</ul></li>
+<li><strong>ifelse</strong> is the shortcut-function we already got to know for recoding with <code>mutate()</code>
+<ul>
+<li>defines exactly 1 condition, 1 action, 1 alternative</li>
+<li>expandable version of ifelse is case_when</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="exercise-what-should-i-use" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Exercise: What should I use?<a href="loops-and-conditionals.html#exercise-what-should-i-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>I want to print numbers from 1 to 7!
+<ul>
+<li>for loop (but realistically <em>1:7</em> ;) )</li>
+</ul></li>
+<li>I need to simulate more data as long as my sample size is smaller than 200!
+<ul>
+<li>while loop</li>
+</ul></li>
+<li>I want to print the age of only the females in my sample!
+<ul>
+<li>if/ else</li>
+</ul></li>
+</ol>
+</div>
+<div id="for-loop" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> for-loop<a href="loops-and-conditionals.html#for-loop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>In a for loop, we need to define the range <em>for</em> which the loop should run</li>
+<li>We define an <em>iterating variable</em> that will change each time the loop runs and take on all values of the defined range
+<ul>
+<li>Typically, we call this variable “i”</li>
+</ul></li>
+<li>We define the range in round brackets and all actions the loop should take in curly brackets</li>
+</ul>
+<div id="example-1" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Example<a href="loops-and-conditionals.html#example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="loops-and-conditionals.html#cb125-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>){</span>
+<span id="cb125-2"><a href="loops-and-conditionals.html#cb125-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;The iteration is&quot;</span>, i))</span>
+<span id="cb125-3"><a href="loops-and-conditionals.html#cb125-3" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;The iteration is 1&quot;
+## [1] &quot;The iteration is 2&quot;
+## [1] &quot;The iteration is 3&quot;
+## [1] &quot;The iteration is 4&quot;</code></pre>
+</div>
+<div id="conditionals-if---else" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Conditionals: If - else<a href="loops-and-conditionals.html#conditionals-if---else" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="loops-and-conditionals.html#cb127-1" tabindex="-1"></a><span class="cf">if</span>(variable <span class="sc">==</span> <span class="st">&quot;value&quot;</span>){</span>
+<span id="cb127-2"><a href="loops-and-conditionals.html#cb127-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Do something&quot;</span>)</span>
+<span id="cb127-3"><a href="loops-and-conditionals.html#cb127-3" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(variable <span class="sc">==</span> <span class="st">&quot;other_value&quot;</span>){</span>
+<span id="cb127-4"><a href="loops-and-conditionals.html#cb127-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Do some other thing&quot;</span>)</span>
+<span id="cb127-5"><a href="loops-and-conditionals.html#cb127-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb127-6"><a href="loops-and-conditionals.html#cb127-6" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Do anything else&quot;</span>)</span>
+<span id="cb127-7"><a href="loops-and-conditionals.html#cb127-7" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="conditionals-if---else-1" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Conditionals: If - else<a href="loops-and-conditionals.html#conditionals-if---else-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="checking-numbers" class="section level4 hasAnchor" number="6.3.3.1">
+<h4><span class="header-section-number">6.3.3.1</span> Checking numbers |<a href="loops-and-conditionals.html#checking-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We want to test whether numbers in a loop are divisible by 3. If they are, we will display “Divisible by 3”, and if not, we will simply output the iteration number like before.</p>
+<p>For that we will use the modulo %% , which gives us the rest of a division. Let’s try it out!</p>
+</div>
+<div id="checking-numbers-1" class="section level4 hasAnchor" number="6.3.3.2">
+<h4><span class="header-section-number">6.3.3.2</span> Checking numbers ||<a href="loops-and-conditionals.html#checking-numbers-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="loops-and-conditionals.html#cb128-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>){</span>
+<span id="cb128-2"><a href="loops-and-conditionals.html#cb128-2" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>){</span>
+<span id="cb128-3"><a href="loops-and-conditionals.html#cb128-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Divisible by 3!&quot;</span>)</span>
+<span id="cb128-4"><a href="loops-and-conditionals.html#cb128-4" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb128-5"><a href="loops-and-conditionals.html#cb128-5" tabindex="-1"></a>    <span class="fu">print</span>(i) </span>
+<span id="cb128-6"><a href="loops-and-conditionals.html#cb128-6" tabindex="-1"></a>  }</span>
+<span id="cb128-7"><a href="loops-and-conditionals.html#cb128-7" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] &quot;Divisible by 3!&quot;
+## [1] 4</code></pre>
+</div>
+</div>
+<div id="exercise-5" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> Exercise<a href="loops-and-conditionals.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use a for-loop to display your favorite numbers.
+The numbers should be between 10 and 25.</p>
+<p>If the number is divisible completely by 5, you should output “Divisible by 5!”, if not please output the iteration number only.</p>
+</div>
+<div id="solution-9" class="section level3 hasAnchor" number="6.3.5">
+<h3><span class="header-section-number">6.3.5</span> Solution<a href="loops-and-conditionals.html#solution-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="loops-and-conditionals.html#cb130-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">25</span>){</span>
+<span id="cb130-2"><a href="loops-and-conditionals.html#cb130-2" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">%%</span> <span class="dv">5</span> <span class="sc">==</span> <span class="dv">0</span>){</span>
+<span id="cb130-3"><a href="loops-and-conditionals.html#cb130-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Divisible by 5!&quot;</span>)</span>
+<span id="cb130-4"><a href="loops-and-conditionals.html#cb130-4" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb130-5"><a href="loops-and-conditionals.html#cb130-5" tabindex="-1"></a>    <span class="fu">print</span>(i) </span>
+<span id="cb130-6"><a href="loops-and-conditionals.html#cb130-6" tabindex="-1"></a>  }</span>
+<span id="cb130-7"><a href="loops-and-conditionals.html#cb130-7" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Divisible by 5!&quot;
+## [1] 11
+## [1] 12
+## [1] 13
+## [1] 14
+## [1] &quot;Divisible by 5!&quot;
+## [1] 16
+## [1] 17
+## [1] 18
+## [1] 19
+## [1] &quot;Divisible by 5!&quot;
+## [1] 21
+## [1] 22
+## [1] 23
+## [1] 24
+## [1] &quot;Divisible by 5!&quot;</code></pre>
+</div>
+</div>
+<div id="same-function-different-variables" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Same function, different variables<a href="loops-and-conditionals.html#same-function-different-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="loops-and-conditionals.html#cb132-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;Sepal.Length&quot;</span>, <span class="st">&quot;Sepal.Width&quot;</span>, <span class="st">&quot;Petal.Length&quot;</span>, <span class="st">&quot;Petal.Width&quot;</span>)){</span>
+<span id="cb132-2"><a href="loops-and-conditionals.html#cb132-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">mean</span>(iris[ , i]))</span>
+<span id="cb132-3"><a href="loops-and-conditionals.html#cb132-3" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 5.843333
+## [1] 3.057333
+## [1] 3.758
+## [1] 1.199333</code></pre>
+<p><br></p>
+<p>Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>: What is the class() of i here?</p>
+<ul>
+<li>character</li>
+</ul>
+<div id="more-sophisticated" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> More sophisticated<a href="loops-and-conditionals.html#more-sophisticated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="loops-and-conditionals.html#cb134-1" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Sepal.Length&quot;</span>, <span class="st">&quot;Sepal.Width&quot;</span>, <span class="st">&quot;Petal.Length&quot;</span>, <span class="st">&quot;Petal.Width&quot;</span>)</span>
+<span id="cb134-2"><a href="loops-and-conditionals.html#cb134-2" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="loops-and-conditionals.html#cb134-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vector)){</span>
+<span id="cb134-4"><a href="loops-and-conditionals.html#cb134-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;The mean value of&quot;</span>, vector[i], <span class="st">&quot;is&quot;</span>, </span>
+<span id="cb134-5"><a href="loops-and-conditionals.html#cb134-5" tabindex="-1"></a>              <span class="fu">round</span>(<span class="fu">mean</span>(iris[ , vector[i]]), <span class="dv">2</span>)))</span>
+<span id="cb134-6"><a href="loops-and-conditionals.html#cb134-6" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;The mean value of Sepal.Length is 5.84&quot;
+## [1] &quot;The mean value of Sepal.Width is 3.06&quot;
+## [1] &quot;The mean value of Petal.Length is 3.76&quot;
+## [1] &quot;The mean value of Petal.Width is 1.2&quot;</code></pre>
+<p><br></p>
+<p>Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>: And what is the class() of i now?</p>
+<ul>
+<li>integer (numeric)</li>
+</ul>
+</div>
+<div id="with-saving-values" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> With saving values<a href="loops-and-conditionals.html#with-saving-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="loops-and-conditionals.html#cb136-1" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Sepal.Length&quot;</span>, <span class="st">&quot;Sepal.Width&quot;</span>, <span class="st">&quot;Petal.Length&quot;</span>, <span class="st">&quot;Petal.Width&quot;</span>)</span>
+<span id="cb136-2"><a href="loops-and-conditionals.html#cb136-2" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(vector)) <span class="co"># create &quot;empty&quot; vector to fill</span></span>
+<span id="cb136-3"><a href="loops-and-conditionals.html#cb136-3" tabindex="-1"></a></span>
+<span id="cb136-4"><a href="loops-and-conditionals.html#cb136-4" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vector)){</span>
+<span id="cb136-5"><a href="loops-and-conditionals.html#cb136-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;The mean value of&quot;</span>, vector[i], <span class="st">&quot;is&quot;</span>, </span>
+<span id="cb136-6"><a href="loops-and-conditionals.html#cb136-6" tabindex="-1"></a>              <span class="fu">round</span>(<span class="fu">mean</span>(iris[ , vector[i]]), <span class="dv">2</span>)))</span>
+<span id="cb136-7"><a href="loops-and-conditionals.html#cb136-7" tabindex="-1"></a>  means[i] <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(iris[ , vector[i]]), <span class="dv">2</span>)</span>
+<span id="cb136-8"><a href="loops-and-conditionals.html#cb136-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;The mean value of Sepal.Length is 5.84&quot;
+## [1] &quot;The mean value of Sepal.Width is 3.06&quot;
+## [1] &quot;The mean value of Petal.Length is 3.76&quot;
+## [1] &quot;The mean value of Petal.Width is 1.2&quot;</code></pre>
+</div>
+<div id="exercise-seminar-data" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Exercise: Seminar Data<a href="loops-and-conditionals.html#exercise-seminar-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br></p>
+<p>Please download an edited version of our seminar data from ILIAS. You will find it under <em>data</em> as a zip folder. The dataset in it should have “.Rds” as a file ending. Read it in using:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="loops-and-conditionals.html#cb138-1" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./data/seminar_data.Rds&quot;</span>)</span></code></pre></div>
+<p><strong>Create a for-loop that saves the means of age, body height and technological skill from that seminar data in a vector named “seminar_means”.</strong></p>
+<p>Hint: I renamed the variables to make them nicer to work with, so check out names(seminar)!</p>
+</div>
+<div id="solution-10" class="section level3 hasAnchor" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> Solution<a href="loops-and-conditionals.html#solution-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="loops-and-conditionals.html#cb139-1" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;v02_age&quot;</span>, <span class="st">&quot;v04_bodyheight&quot;</span>, <span class="st">&quot;v05_skill_tech&quot;</span>)</span>
+<span id="cb139-2"><a href="loops-and-conditionals.html#cb139-2" tabindex="-1"></a>seminar_means <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(vector)) <span class="co"># create &quot;empty&quot; vector to fill</span></span>
+<span id="cb139-3"><a href="loops-and-conditionals.html#cb139-3" tabindex="-1"></a></span>
+<span id="cb139-4"><a href="loops-and-conditionals.html#cb139-4" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vector)){</span>
+<span id="cb139-5"><a href="loops-and-conditionals.html#cb139-5" tabindex="-1"></a>  seminar_means[i] <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(seminar[ , vector[i]]), <span class="dv">2</span>)</span>
+<span id="cb139-6"><a href="loops-and-conditionals.html#cb139-6" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="checking-whats-going-on" class="section level3 hasAnchor" number="6.4.5">
+<h3><span class="header-section-number">6.4.5</span> Checking What’s Going On<a href="loops-and-conditionals.html#checking-whats-going-on" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="browser" class="section level4 hasAnchor" number="6.4.5.1">
+<h4><span class="header-section-number">6.4.5.1</span> browser()<a href="loops-and-conditionals.html#browser" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>In order to break our loop and enter a “debugging” mode, we can add browser() to any loop like so:</li>
+</ul>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="loops-and-conditionals.html#cb140-1" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;v02_age&quot;</span>, <span class="st">&quot;v04_bodyheight&quot;</span>, <span class="st">&quot;v05_skill_tech&quot;</span>)</span>
+<span id="cb140-2"><a href="loops-and-conditionals.html#cb140-2" tabindex="-1"></a>seminar_means <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(vector)) <span class="co"># create &quot;empty&quot; vector to fill</span></span>
+<span id="cb140-3"><a href="loops-and-conditionals.html#cb140-3" tabindex="-1"></a></span>
+<span id="cb140-4"><a href="loops-and-conditionals.html#cb140-4" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vector)){</span>
+<span id="cb140-5"><a href="loops-and-conditionals.html#cb140-5" tabindex="-1"></a>  seminar_means[i] <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(seminar[ , vector[i]]), <span class="dv">2</span>)</span>
+<span id="cb140-6"><a href="loops-and-conditionals.html#cb140-6" tabindex="-1"></a>  <span class="fu">browser</span>()</span>
+<span id="cb140-7"><a href="loops-and-conditionals.html#cb140-7" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li><p>The loop will run the first iteration until browser is called and then pause</p></li>
+<li><p>It allows you to check in the console whether all variables look the way you want them to without having to wait for the loop to run</p>
+<ul>
+<li>Or if there are errors/ warnings, you can check <em>when</em> they occur by moving the browser() to a different location in the code</li>
+</ul></li>
+<li><p>To continue with the next iteration while in browser, type “c” into the console, “Q” to quit</p>
+<ul>
+<li>The Esc key will also terminate the browser</li>
+</ul></li>
+<li><p><strong>Make sure you exit it</strong> before continuing with anything else</p></li>
+</ul>
+<!-- # Conditionals -->
+<!-- Let's go through the data set and print out every person's philosophy on the mind-body-problem. -->
+<!-- We want to get different output depending on whether the person believes in the existence of a soul. -->
+<!-- <br> -->
+<!-- What elements do we need? -->
+<!-- ## Elements -->
+<!-- ::: incremental -->
+<!-- - For each person: -->
+<!-- - Check _if_ they believe in the soul -->
+<!--     - If yes: Output "This person believes in the soul and"... -->
+<!--     - If no: Output "This person does not believe in the soul and"... -->
+<!--     - Else: Output "This person is unsure about the soul and"... -->
+<!-- - Then check _if_ their philosophy is monistic, dualistic or unclear analogously -->
+<!--     - If monistic: output "believes the m-b-relationship is monistic." -->
+<!--     - If dualistic: output "believes the m-b-relationship is dualistic." -->
+<!--     - Else: output "is unsure of the m-b-relationship." -->
+<!-- - Loop that over each person! -->
+<!-- ::: -->
+<!-- Write nrow() on the board -->
+</div>
+</div>
+</div>
+<div id="loop-with-conditional" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Loop with Conditional<a href="loops-and-conditionals.html#loop-with-conditional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In our seminar data, the <strong>average body height is 167.23 cm</strong>. We want to create a loop that goes through all rows (all seminar students) and outputs their height and whether it is above or below average.</p>
+<p>What do we need for that?</p>
+<div id="elements" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Elements<a href="loops-and-conditionals.html#elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>For each person:</li>
+<li>Check <em>if</em> their body height is above average
+<ul>
+<li>If yes: Output “This person is taller than average with …”</li>
+<li>Else: Output “This person is less tall than average with…”</li>
+</ul></li>
+<li>Then paste the person’s body height</li>
+<li>Loop that over each person!</li>
+</ul>
+<!-- Write nrow(), print(), paste() on the board -->
+</div>
+<div id="solution-11" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Solution<a href="loops-and-conditionals.html#solution-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="loops-and-conditionals.html#cb141-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(seminar)){</span>
+<span id="cb141-2"><a href="loops-and-conditionals.html#cb141-2" tabindex="-1"></a>  <span class="cf">if</span>(seminar<span class="sc">$</span>v04_bodyheight[i] <span class="sc">&gt;</span> <span class="fu">mean</span>(seminar<span class="sc">$</span>v04_bodyheight)) {</span>
+<span id="cb141-3"><a href="loops-and-conditionals.html#cb141-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;This person is taller than average with&quot;</span>, seminar<span class="sc">$</span>v04_bodyheight[i], <span class="st">&quot;cm.&quot;</span>))</span>
+<span id="cb141-4"><a href="loops-and-conditionals.html#cb141-4" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb141-5"><a href="loops-and-conditionals.html#cb141-5" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;This person is less tall than average with&quot;</span>, seminar<span class="sc">$</span>v04_bodyheight[i], <span class="st">&quot;cm.&quot;</span>))</span>
+<span id="cb141-6"><a href="loops-and-conditionals.html#cb141-6" tabindex="-1"></a>  }</span>
+<span id="cb141-7"><a href="loops-and-conditionals.html#cb141-7" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;This person is taller than average with 168 cm.&quot;
+## [1] &quot;This person is less tall than average with 160 cm.&quot;
+## [1] &quot;This person is taller than average with 171 cm.&quot;
+## [1] &quot;This person is less tall than average with 166 cm.&quot;
+## [1] &quot;This person is taller than average with 169 cm.&quot;
+## [1] &quot;This person is less tall than average with 164 cm.&quot;
+## [1] &quot;This person is less tall than average with 161 cm.&quot;
+## [1] &quot;This person is less tall than average with 166 cm.&quot;
+## [1] &quot;This person is taller than average with 183 cm.&quot;
+## [1] &quot;This person is taller than average with 172 cm.&quot;
+## [1] &quot;This person is less tall than average with 160 cm.&quot;
+## [1] &quot;This person is less tall than average with 164 cm.&quot;
+## [1] &quot;This person is taller than average with 170 cm.&quot;</code></pre>
+</div>
+<div id="and-a-more-complicated-outlook" class="section level3 hasAnchor" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> And a more complicated outlook…<a href="loops-and-conditionals.html#and-a-more-complicated-outlook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-happens-here" class="section level4 hasAnchor" number="6.5.3.1">
+<h4><span class="header-section-number">6.5.3.1</span> What happens here?<a href="loops-and-conditionals.html#what-happens-here" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="loops-and-conditionals.html#cb143-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(seminar)){</span>
+<span id="cb143-2"><a href="loops-and-conditionals.html#cb143-2" tabindex="-1"></a>  <span class="cf">if</span>(seminar<span class="sc">$</span>v11_soul[i] <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>){ <span class="co"># Check soul belief</span></span>
+<span id="cb143-3"><a href="loops-and-conditionals.html#cb143-3" tabindex="-1"></a>    text1 <span class="ot">&lt;-</span> <span class="st">&quot;This person belives in the soul and&quot;</span></span>
+<span id="cb143-4"><a href="loops-and-conditionals.html#cb143-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (seminar<span class="sc">$</span>v11_soul[i] <span class="sc">==</span> <span class="st">&quot;no&quot;</span>) {</span>
+<span id="cb143-5"><a href="loops-and-conditionals.html#cb143-5" tabindex="-1"></a>    text1 <span class="ot">&lt;-</span> <span class="st">&quot;This person does not belive in the soul and&quot;</span></span>
+<span id="cb143-6"><a href="loops-and-conditionals.html#cb143-6" tabindex="-1"></a>  } <span class="cf">else</span> { text1 <span class="ot">&lt;-</span> <span class="st">&quot;This person is unsure about the soul and&quot;</span> }</span>
+<span id="cb143-7"><a href="loops-and-conditionals.html#cb143-7" tabindex="-1"></a>  </span>
+<span id="cb143-8"><a href="loops-and-conditionals.html#cb143-8" tabindex="-1"></a>  <span class="cf">if</span>(seminar<span class="sc">$</span>v12_soul_phil[i] <span class="sc">==</span> <span class="st">&quot;monism&quot;</span>){  <span class="co"># Check mind-body-philosophy</span></span>
+<span id="cb143-9"><a href="loops-and-conditionals.html#cb143-9" tabindex="-1"></a>    text2 <span class="ot">&lt;-</span> <span class="st">&quot;believes the m-b-relationship is monistic.&quot;</span></span>
+<span id="cb143-10"><a href="loops-and-conditionals.html#cb143-10" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (seminar<span class="sc">$</span>v12_soul_phil[i] <span class="sc">==</span> <span class="st">&quot;dualism&quot;</span>) {</span>
+<span id="cb143-11"><a href="loops-and-conditionals.html#cb143-11" tabindex="-1"></a>    text2 <span class="ot">&lt;-</span> <span class="st">&quot;believes the m-b-relationship is dualistic.&quot;</span></span>
+<span id="cb143-12"><a href="loops-and-conditionals.html#cb143-12" tabindex="-1"></a>  } <span class="cf">else</span> { text2 <span class="ot">&lt;-</span> <span class="st">&quot;is unsure of the m-b-relationship.&quot;</span> }</span>
+<span id="cb143-13"><a href="loops-and-conditionals.html#cb143-13" tabindex="-1"></a>  </span>
+<span id="cb143-14"><a href="loops-and-conditionals.html#cb143-14" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(text1, text2)) <span class="co"># Print text</span></span>
+<span id="cb143-15"><a href="loops-and-conditionals.html#cb143-15" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+</div>
+<div id="result-1" class="section level3 hasAnchor" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> Result<a href="loops-and-conditionals.html#result-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>## [1] &quot;This person belives in the soul and believes the m-b-relationship is dualistic.&quot;
+## [1] &quot;This person belives in the soul and is unsure of the m-b-relationship.&quot;
+## [1] &quot;This person belives in the soul and believes the m-b-relationship is monistic.&quot;
+## [1] &quot;This person is unsure about the soul and is unsure of the m-b-relationship.&quot;
+## [1] &quot;This person belives in the soul and is unsure of the m-b-relationship.&quot;
+## [1] &quot;This person does not belive in the soul and believes the m-b-relationship is monistic.&quot;
+## [1] &quot;This person is unsure about the soul and is unsure of the m-b-relationship.&quot;
+## [1] &quot;This person is unsure about the soul and is unsure of the m-b-relationship.&quot;
+## [1] &quot;This person does not belive in the soul and is unsure of the m-b-relationship.&quot;
+## [1] &quot;This person belives in the soul and believes the m-b-relationship is monistic.&quot;
+## [1] &quot;This person is unsure about the soul and believes the m-b-relationship is dualistic.&quot;
+## [1] &quot;This person belives in the soul and believes the m-b-relationship is dualistic.&quot;
+## [1] &quot;This person is unsure about the soul and is unsure of the m-b-relationship.&quot;</code></pre>
+</div>
+</div>
+<div id="wrap-up-further-resources-5" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Wrap-Up &amp; Further Resources<a href="loops-and-conditionals.html#wrap-up-further-resources-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;">
+<li>
+For-Loops must have a defined sequence to run over, e.g. 1 to 4
+</li>
+<li>
+For-loops are the most common in R and are fit for most tasks
+</li>
+<li>
+Loops are a powerful tool to e.g. easily perform the same task many times
+</li>
+<li>
+Conditionals give you control over different operations depending on your data
+</li>
+<li>
+In combination, loops and conditionals are most useful
+</li>
+<li>
+Don’t forget to play and create fun loops!
+</li>
+</ul>
+<p><br></p>
+<i class="fa-solid fa-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li>
+<a href="https://www.w3schools.com/r/r_for_loop.asp/">For loops (W3 Schools)</a>
+</li>
+<li>
+<a href="https://www.r-bloggers.com/2015/12/how-to-write-the-first-for-loop-in-r/">For loops (R bloggers)</a>
+</li>
+<li>
+<a href="https://www.datamentor.io/r-programming/for-loop">For loops (DataMentor)</a> Here are also links the the other types of loop and a visualization
+</li>
+<li>
+<a href="https://www.datacamp.com/tutorial/tutorial-on-loops-in-r">Loops in R (datacamp)</a>Very thorough! :)
+</li>
+<br>
+<li>
+<a href="https://sjspielman.github.io/datascience_for_biologists/exercises/dplyr.html">dplyr Exercises</a> Great to keep practicing over the holidays :)
+</li>
+</ul>
+<p><a href="https://lightbot.com/hour-of-code.html">Lightbot</a></p>
+<div class="float" id="id">
+<img src="img/forbeep.png" class="class" height="600" alt="For Loop Meme" />
+<div class="figcaption">For Loop Meme</div>
+</div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="wrap-up.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="working-with-existing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -604,7 +983,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/15_References.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/07_Loops-Conditionals.Rmd",
 "text": "Edit"
 },
 "history": {

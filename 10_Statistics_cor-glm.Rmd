@@ -1,0 +1,351 @@
+
+```{r  include=FALSE, warnings = FALSE}
+# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
+
+# library(knitr)
+# library(papaja)
+library(ggplot2)
+library(dplyr)
+# library(unikn)
+library(MASS)
+```
+
+# Creating and interpreting statistics: correlation & regression
+
+## Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i>
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+```{=html}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+```
+
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+
+```
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+
+<br>
+
+- What is a correlation?
+- What is the _general linear model_, a.k.a. regression model?
+- What do they have in common? What makes them different?
+
+
+- They both give us measures of **association**
+- The association can be positive (the larger x, the larger y) or negative (the larger x, the smaller y)
+- **Correlation does not imply causation**
+    - Correlation coefficient r only tells us about association, nothing about causal relation
+    - Regression model can check whether Y changes on the basis of X
+    
+```{r fig.height=2.5, echo = F}
+ggplot(Orange, aes(x = age, y = circumference, color = age)) +
+  geom_jitter(size = 3) +
+  theme_minimal() + 
+  labs(x = "Tree Age", y = "Trunk Circumference") +
+  scale_color_distiller(palette = 7) + theme(legend.position = "none")
+```
+
+### Pre-Requisites
+
+<br>
+
+- Load the seminar data using
+    - Please make sure you are using the R dataset from the <br>
+    zip folder in ILIAS, not the original csv file we first used!
+
+```{r}
+seminar <- readRDS("./data/seminar_data.Rds") # the filepath might need adjustment for you
+```
+
+- Some of you were having trouble loading the data - please repeat the different types of data in R and the different commands used to load them! (from week 6)
+- **Who is having trouble opening the slides as HTML?**
+
+## Correlation
+
+<br>
+
+- The pearson correlation coefficient r measures association between two numeric variables
+- The variables need to 
+    - be _continuous_ & interval-scaled
+    - be _normally distributed_ & should have _no outliers_
+    - have a _linear relationship_
+- Its range is from -1 to 1
+    - The closer to 0, the weaker the correlation
+    
+### Guess the correlation!
+
+```{r echo = F}
+r <- .3
+data <- mvrnorm(n=100, mu=c(0, 0), Sigma=matrix(c(1, r, r, 1), nrow=2), empirical=TRUE)
+ggplot() + geom_jitter(aes(data[, 1], data[, 2])) + xlab("X") + ylab("Y") +theme_minimal()
+```
+
+- r = `r r`
+
+
+## Correlation in R
+
+- Two main functions:
+    - `cor()` calculates the correlation
+    - `cor.test()` calculates correlation and significance
+- As input they both need only an x and a y variable
+    - You can specify some other aspects of the calculation, such as statistical method (e.g. "spearman") or how to deal with missing data
+    
+### Example
+    
+```{r}
+x <- 1:10 
+y <- sample(x, 10)
+cor(x, y)
+cor.test(x, y)
+```
+
+### Handling missing data
+
+- Many functions have an option for missing data or `NA`s
+    - You can often add the argument `na.rm = TRUE` to a function for "NA remove"
+- In the `cor()` function, we define to only use complete observations
+- 
+  ```{r}
+  k <- c(1, 2, 3, 4, 5)
+  m <- c(1, 3, 2, 5, NA) # same length but 1 data point is missing
+  cor(k, m)
+  ```
+  
+### Handling missing data
+ 
+- With `use = "complete.obs"` we define to only use pairs of observations that are not missing
+-
+  ```{r}
+  cor(k, m, use = "complete.obs")
+  ```
+  
+-
+  ```{r}
+  cor(k[1:4], m[1:4])
+  ```
+
+### Exercise: 
+#### Is technology skill associated with seminar motivation? <i class="fa-solid fa-computer" style="color: #ff6600;"></i> <i class="fa-solid fa-child-reaching" style="color: #ff6600;"></i>
+
+<br> 
+
+Calculate a correlation test using `cor.test()` to analyze the question. 
+
+<br>
+
+Try to formulate an interpretation as you would report it in a thesis or paper!
+
+### Solution <i class="fa-solid fa-computer" style="color: #ff6600;"></i> <i class="fa-solid fa-child-reaching" style="color: #ff6600;"></i>
+
+```{r}
+cor.test(seminar$v05_skill_tech, seminar$v10_motivation)
+```
+
+"With r = `r round(cor(seminar$v05_skill_tech, seminar$v10_motivation), 3)` there is a positive association of moderate strength between previous technological skill and motivation for the seminaR. This association is not significant (p = `r round(cor.test(seminar$v05_skill_tech, seminar$v10_motivation)$p.value, 3)`), likely due to the small sample size."
+
+### Quiz
+#### Look at our seminar dataset by entering `str(seminar)` in the console. Which of these correlations would work?
+
+- `cor(seminar$v02_age, seminar$v04_bodyheight`
+    - <i class="fa-solid fa-xmark" style="color:#ff0000"></i> Closing bracket missing!
+- `cor(seminar$v02_age, seminar$v08_loudness)`
+    - <i class="fa-solid fa-check" style="color:#7cfc00"></i>
+- `cor(seminar$v08_loudness, seminar$v06_loc)`
+    - <i class="fa-solid fa-xmark" style="color:#ff0000"></i>
+    - _v06_loc_ has numbers, but they are recognized as characters! 
+    
+
+## Linear Regression
+
+- Linear regression also works on numerical, normally distributed data
+- We assume an association, and regression can help to look for causation
+    - There is one **dependent variable** y and one **independent variable** x
+    - In multiple linear regression, there can be several x
+- Formula: $$ y = \beta_0 + \beta x + \epsilon $$
+- What we are essentially doing is building a model for our data and checking how well it actually fits!
+
+
+### Build the model
+
+- The R function for regression analysis is `lm()` for _linear model_
+- It needs a "formula" as input - similar to the formula in the `t.test()`, we need the ~
+    - Read Y ~ X as "Y on the basis of/ given X"
+    - Our dependent variable Y goes first and our independent variable(s) go after the ~
+- If the variables come from a data set, we need to specify data as well
+
+### Visual Inspection
+
+```{r fig.height=2.5}
+ggplot(Orange, aes(x = age, y = circumference, color = age)) + geom_jitter(size = 3) +
+  geom_smooth(method = "lm", se=FALSE, color="lightgray", 
+              linewidth = .7, formula = y ~ x) + theme_minimal() + labs(x = "Tree Age", y = "Trunk Circumference", title = "Do trees get thicker with age?") + scale_color_distiller(palette = 7) + theme(legend.position = "none")
+```
+
+- What could be problematic here?
+    - Heteroscedasticity
+
+### Build the model
+#### Do trees get thicker with age?
+
+```{r}
+Treelm <- lm(formula = circumference ~ age, data = Orange)
+Treelm
+```
+  
+
+- The lm alone gives us the mathematical formula
+- To look at the statistical results, we need to use another function such as `print()` or `summary()`
+
+### Analyze the model
+
+```{r}
+summary(Treelm)
+```
+
+- Interpretation?
+    - Trees get larger circumferences the older they are, but this might be modulated by their Species, environment or other factors
+
+### Exercise <i class="fa-regular fa-hourglass-half"  style="color: #dcdcdc;"></i> <i class="fa-solid fa-laptop-code"  style="color: #dcdcdc;"></i>
+
+<br>
+
+Does the age of a person have an influence on how long they took to complete the seminar survey (session length)?
+
+<br>
+
+Use the `lm()` function and report the significance level of the predictor as well as the model equation.
+
+### Solution
+
+```{r}
+age_sess <- lm(session_length ~ v02_age, data = seminar)
+summary(age_sess)
+```
+
+###  Interpretation
+
+<br>
+
+"The age of a person does not significantly predict the time it took them to complete the survey (p = .148). The model equation is 182.7 -4.19X with age explaining about 18% of the variance in session length for the survey."
+
+```{r fig.height=3, echo = F}
+ggplot(seminar, aes(x = v02_age, y = session_length)) +
+ geom_point(size = 3) +
+ geom_smooth(method = "lm", se=FALSE, color="lightgray", linewidth = .7, formula = y ~ x) +
+ theme_minimal()
+```
+
+### A word to the wise
+
+- There is also a function called `glm()` for general linear model
+- In the cases I showed you, both perform the same tasks
+- The `glm()` can also handle other more advanced statistical analyses, including logistic regression
+- However, the `lm()` function will output the coefficient of determination $R^2$
+    - It tell us the proportion of the variation in the dependent variable that is predictable from the independent variable(s)
+    - We _could_ also calculate it by hand using the `cor()` function and squaring the result
+
+## ANOVA Exercise
+
+Reminder: There are generally 3 steps to an ANOVA
+
+```{r eval = F}
+car::leveneTest(v08_loudness ~ v11_soul, data = seminar) # 1.
+model <- aov(v08_loudness ~ v11_soul, data = seminar) # 2.
+summary(model)
+TukeyHSD(model) # 3.
+```
+
+
+1. Check assumptions with Levene Test
+2. Build the model to perform an omnibus ANOVA
+3. Perform post-hoc tests to check pairwise differences (usually only if the omnibus ANOVA is significant)
+
+### Exercise:
+#### Does the preferred music volume depend on someone's soul philosophy? <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+
+<br>
+
+Perform an ANOVA on our seminar data to explore the question (v08 & v12). 
+
+<br>
+
+Look for pairwise differences even if the overall ANOVA does not reach significance.
+
+### Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+
+```{r}
+car::leveneTest(v08_loudness ~ v12_soul_phil, data = seminar)
+model <- aov(v08_loudness ~ v12_soul_phil, data = seminar)
+summary(model)
+```
+
+### Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+#### Pairwise Comparison
+
+```{r}
+TukeyHSD(model)
+```
+
+
+### If there is still time: <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+
+<br>
+
+Choose and create an appropriate visualization for this data!
+
+### Data Viz <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+
+```{r fig.height=4}
+ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness, 
+                    color = v12_soul_phil, fill = v12_soul_phil)) +
+  geom_boxplot(alpha = .7) + theme_minimal() + theme(legend.position = "none") +
+  labs(x = "Soul Philosophy", y = "Preferred Volume (arbitrary units)") +
+  scale_color_brewer(palette = 4) + scale_fill_brewer(palette = 4)
+```
+
+
+
+
+<!-- ```{r} -->
+<!-- model <- data.frame(age = Orange$age, -->
+<!--                     circ = (17.3997 + Orange$age * 0.107)) -->
+<!-- ggplot(model, aes(x = age, y = circ, color = age)) + -->
+<!--   geom_jitter(size = 3) + -->
+<!--   geom_smooth(method = "lm", se=FALSE, color="lightgray", linewidth = .7, formula = y ~ x) + -->
+<!--   theme_minimal() +  -->
+<!--   labs(x = "Tree Age", y = "Trunk Circumference") + -->
+<!--   scale_color_distiller(palette = 7) + theme(legend.position = "none") -->
+<!-- ``` -->
+
+
+## Wrap-Up & Further Resources 
+ 
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;"> 
+<li> Correlation coefficient _r_ can be determined using `cor(x,y)`</li>
+<li> $R^2$ is the coefficient of determination in a linear model (calculate by hand or in the model formula)</li>
+<li> The linear model function `lm()` is used to build models for linear regression</li>
+<li> Problems such as overfitting or heteroscedasticity reduce the interpretability of the model results</li>
+</ul>
+
+
+
+<br>
+
+<i class="fa-solid fa-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li> [Guess the Correlation](https://www.guessthecorrelation.com/)</li>
+<li> [Explanation: Correlation](https://statisticsbyjim.com/basics/correlation-coefficient-formula/)</li>
+<li> [Linear Regression in R](https://www.datacamp.com/tutorial/linear-regression-R)</li>
+<li> [lm() cheatsheet](https://www.codecademy.com/learn/learn-linear-regression-in-r/modules/linear-regression-in-r/cheatsheet/)</li>
+</ul>
+
+## Thank you!
+
+```{r fig.heit = 2.5}
+ggplot(Orange, aes(x = age, y = circumference, color = Tree)) +
+  geom_point(size = 3) + labs(x = "Tree Age", y = "Trunk Circumference") +
+  geom_line(aes(color = Tree)) + theme_minimal() + theme(legend.position = "none")
+```

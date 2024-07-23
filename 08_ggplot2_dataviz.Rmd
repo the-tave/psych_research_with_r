@@ -1,0 +1,384 @@
+
+```{r include=FALSE, warnings = FALSE}
+# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
+
+# library(knitr)
+library(papaja)
+library(ggplot2)
+library(dplyr)
+library(unikn)
+
+seminar <- readRDS("./data/seminar_data.Rds")
+```
+
+# Into the `tidyverse`: Pretty plots with `ggplot2`
+
+## Data Visalization <i class="fa-solid fa-chart-line" style="color: darkred;"></i>
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+```{=html}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+```
+
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./img/fontawesome.min.css">
+```
+
+<br>
+
+- What is data visualization?
+- When and why do we need it?
+- What do we want to accomplish?
+
+```{r echo = F, fig.height=3}
+library(flametree)
+ft <- flametree_grow(
+  seed = 1, 
+  time = 9, 
+  angle = c(-15, 15, 30)
+) 
+
+# ft |> 
+#   flametree_plot(
+#     background = "white", 
+#     palette = c("black", "#f652a0")
+#   )
+
+cowplot::plot_grid(ft |> 
+  flametree_plot(
+    background = "white", 
+    palette = c("black", "#f652a0")
+  ),
+  ft |> 
+  flametree_plot(
+    background = "white", 
+    palette = usecol(c(Seegruen, "lightgray", Pinky), n = 10)
+  ),
+  ft |> 
+  flametree_plot(
+    background = "white", 
+    palette = usecol(c(Bordeaux, "lightgray", Petrol), n = 10)
+  ),
+  nrow = 1)
+```
+
+### Data Viz has many many applications <i class="fa-solid fa-chart-line" style="color: darkred;"></i>
+
+<br>
+
+- Our readers/ listeners can follow us better with data viz
+- Statistics are much easier to understand with a visual representation
+- Mostly, we want to be able to _see_ our data `r paste("¯\\\\_(ツ)\\_/¯")`
+    - Having a visual representation can be helpful in understanding relationships between variables
+    - Many common statistics make assumptions about the _distribution_ of our data, so we need to check/test that!
+    
+### Example: Sine & Cosine
+
+- ...are trigonometric angle functions with a special relationship
+- This relationship cannot be found with common statistics - the correlation
+
+```{r echo = F, fig.height=4}
+x <- sin(1:500)
+y <- cos(1:500)
+
+ggplot()+
+  geom_line(aes(x = 1:50, y = y[1:50]))+
+  theme_apa() +
+  labs(title = "Cosine Function", x = "X", y = "Cosine")
+```
+
+
+
+```{r echo = F, fig.height = 5.2, fig.width = 5}
+ggplot()+
+  geom_point(aes(x, y))+
+  theme_apa()+
+  labs(x = "Sine", y = "Cosine",
+       caption = paste("Correlation =", round(cor(x,y), 3)))
+```
+
+- Data Viz helps us not to make wrong assumptions about our data!
+
+<!-- Write "Packages for today" on the board: ggplot2, papaja, unikn -->
+
+## What is `ggplot2`?
+
+<br>
+
+- Probably the best data visualization package in R
+
+- Powerful tool for visualizing data
+
+- Part of the `tidyverse` <i>&hearts;</i>
+
+<br>
+
+- `library(ggplot2)` 
+<!-- `install.packages("ggplot2")` $\rightarrow$ -->
+
+### Most important `ggplot2` functions
+#### `ggplot()`
+
+- The main function for "opening the canvas"
+- This function prepares R for the plot definition
+- Commonly, we define the data set and which variables to plot in this function
+- Needs the _aesthetics_ function `aes()` as input
+- <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">It's important to remember that the package is
+called _ggplot**2**_ while the function call is _ggplot_!</i>
+    
+### `geom_XYZ()`
+
+- Defines the actual type of plot = _geometric objects_
+- When data is pre-defined, this function does not _need_ additional input
+- Can handle some "pretty makers", such as `alpha`, which defines color opacity
+- _geom_bar, geom_boxplot, geom_density, geom_jitter, geom_histogram_
+    
+<!-- ## First example <i> &#127800;</i> -->
+
+<!-- ```{r echo = F} -->
+<!-- p <- ggplot(iris, aes(x = Petal.Width)) -->
+<!-- cowplot::plot_grid( -->
+<!--   p + geom_density() + labs(title = "ggplot(iris, aes(x = Petal.Width)) +", subtitle = "geom_density()", caption = ""), -->
+<!--   p + geom_bar() + geom_line(stat = 'count') + labs(title = "", subtitle = "geom_bar() + geom_line()*", caption = "*geom_line(stat = 'count')") -->
+<!-- ) -->
+<!-- ``` -->
+    
+## Example: Basic Bar Plot
+
+```{r fig.height=4.5, fig.width=8, fig.align='left'}
+ggplot(iris) + 
+  geom_bar(aes(x = Petal.Width)) 
+```
+
+### Making Plots Prettier
+
+- color
+    - visual property of the geometric object
+    - which color for the outlines
+    - `colors()`
+- fill
+    - visual property of the geometric object
+    - which color to fill
+- labs
+- theme
+    - `install.packages("papaja")` $\rightarrow$ `library(papaja)`
+
+### Example: Bar Plot with color and fill
+
+```{r fig.height=4.5, fig.width=8, fig.align='left'}
+ggplot(iris) + 
+  geom_bar(aes(x = Petal.Width), color = "deepskyblue3", fill = "deepskyblue")
+```
+
+- <i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What could cause this distribution?
+
+### Example: Bar Plot with color and fill
+
+```{r fig.height=4.5,  fig.width=9.15, fig.align='left'}
+ggplot(iris) + 
+  geom_bar(aes(x = Petal.Width, color = Species, fill = Species))
+```
+
+- <i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What do you notice about the code compared to before?
+
+### Static vs. Dynamic Aesthetics
+
+- **Static Aesthetics**: Fixed values applied to all elements of the plot
+    - Example: _color = "deepskyblue3"_
+    - Means every element will have the same color.
+- **Dynamic Aesthetics**: These map a variable in your data to an aesthetic, which allows different elements to have different colors based on the data
+    - Example: _aes(color = Species)_
+    - Means the color will vary according to the Species variable in the data set.
+    
+### Exercise
+
+<br>
+
+Create a **density plot** that shows _Sepal.Length_ from the `iris` data set. <br>
+_Fill_ in the color depending on the Species and _color_ the outlines with "white". <br>
+Make sure everything is visible and legible, so try to use an _alpha_ of around 0.6.
+
+```{r eval = F}
+ggplot(data) + 
+  geom_XYZ(aes(), alpha = ?)
+```
+
+### Solution
+
+```{r fig.height=4.5,  fig.width=9.15, fig.align='left'}
+ggplot(iris) + 
+  geom_density(aes(x = Sepal.Length, fill = Species), 
+               color = "white", alpha = .6)
+```
+
+## Adding labels and themes
+
+- A good plot should be self explanatory and clear
+- We need labels to tell others what our plot shows
+    - Especially when using color for another variable, it needs to be clear what each color means
+- Also the gray-ish default background is ok, but neither very pretty nor very clear
+    - It is sometimes advisable to keep grid lines visible, but sometimes they can be distracting and unnecessary
+    - ggplot2 has a lot of built-in theme options, but there are many packages that provide their own themes
+    - Usually _my preference_ is `papaja::theme_apa()`, which adheres to APA guidelines
+    
+    
+### Same example with added theme
+    
+```{r fig.height=3.5,  fig.width=9.15, fig.align='left'}
+ggplot(iris) + 
+  geom_bar(aes(x = Petal.Width, color = Species, fill = Species)) +
+  theme_apa()
+```
+
+- What labels should we use in this plot?
+
+### Same example with added theme and labels
+
+```{r fig.height=3.6,  fig.width=9.15, fig.align='left'}
+ggplot(iris) + 
+  geom_bar(aes(x = Petal.Width, color = Species, fill = Species)) +
+  theme_apa() +
+  labs(x = "Petal Width", y = "Flower Count",
+       title = "Size of Iris Flowers")
+```
+
+## Bivariate Visualizations
+
+- The bar plot shows the distribution of a single variable
+    - We can add color to show groups
+- Showing the relationship of two variables to each other is crucial for understanding our data
+    - We can still add color to make existing groups clearer or add a third variable
+- For a broad overview of which visualization (and statistic) to use for which type of data, visit the [Statistics Picker](https://the-tave.shinyapps.io/Statistics-Picker/) (currently only available in German)
+    - Most common are boxplots, scatterplots & line graphs
+    
+### Boxplot Example
+
+As suggested by one of you, we will look at the relationship of preferred music genre and music volume in our course:
+
+```{r fig.height=2.6,  fig.width=9.15}
+# seminar <- readRDS("./data/seminar_data.Rds")
+ggplot(seminar, aes(x=v07_genre, y=v08_loudness, colour=v07_genre, fill=v07_genre)) +
+  geom_boxplot(alpha = 0.7) + theme_apa() +
+  labs(x = "Preferred Music Genre", y = "Loudness (arbitrary units)", 
+       color = "Genre", fill = "Genre")
+```
+
+
+### Exercise: Boxplot
+
+<!-- Same exercise plot from before but x should now be species and y should be the Sepal.Length -->
+
+<br>
+
+Create a **box plot** that shows _Sepal.Length_ from the `iris` data set grouped by the _Species_. <br>
+_Fill_ and _color_ depending on the Species. <br>
+Make sure everything is visible and legible, so try to use an _alpha_ of around 0.7. <br>
+Try to add _labels_ and a _theme_. 
+
+### Solution: Boxplot
+
+```{r fig.height=4.5,  fig.width=9.15, fig.align='left'}
+ggplot(iris) + 
+  geom_boxplot(aes(x = Species, y = Sepal.Length,
+                   color = Species, fill = Species), alpha = .6) +
+  theme_minimal() + labs(x = "Species", y = "Sepal Length")
+```
+
+### Inspiration: colors and palettes
+
+- These plots have all used the default colors from ggplot2
+- There are many options for customization, either:
+    - Use the "brewer" palettes from `ggplot2` with `scale_color_brewer()` or `scale_fill_brewer()`
+    - Choose single colors (static aesthetics), check `colors()` for R color names
+    - Create a color palette with all colors that you need and use it with `scale_color_manual()` or `scale_fill_manual()`
+    - Use a predefined color palette from packages like `viridis` or `unikn` or `RColorBrewer`...
+- Have fun with it! 
+
+### Use: colors and palettes
+
+```{r echo = F, fig.height=5,  fig.width=10}
+boxy <- ggplot(seminar, aes(x = v07_genre, y = v08_loudness, colour = v07_genre, fill = v07_genre)) +
+  geom_boxplot(alpha = 0.7) +
+  theme_apa() +
+  theme(legend.position = "none")
+
+cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() + 
+                     labs(x = "", y = "Preferred Music Volume (arbitrary units)", title = "brewer"),
+                   boxy + scale_color_viridis_d(option = "inferno") + scale_fill_viridis_d(option = "inferno") + 
+                     labs(x = "Preferred Music Genre", y = "", title = "viridis"),
+                   boxy + scale_color_manual(values = c("#900C3F", "#1D3557", "#FF5733")) + 
+                     scale_fill_manual(values = c("#900C3F", "#1D3557", "#FF5733")) +
+                     labs(x="", y="", title = "manual"),
+                   nrow = 1)
+```
+
+- <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Showing plots together like this is easy with `cowplot::plot_grid()`!</i>
+
+## Wrap-Up & Further Resources 
+
+ <br>
+ 
+<i class="icon-anchor" style="color: teal;"></i>
+<ul style="color: teal;"> 
+<li> `ggplot2` is a powerful tool for visualizing data </li>
+<li>Plot commands are added together with + and executed as one </li>
+<li>A basic plot is created with ggplot() + geom_XYZ(), e.g. geom_bar</li>
+<li>color & fill give you nice color options (static & dynamic)</li>
+<li>labs() adds labels to the plot (i.e. x, y, title, ...)</li>
+<li>Themes control the background of the plot, e.g. papaja::theme_apa() or theme_minimal()</li>
+<li>Color palettes are a great way of elevating a visualization</li>
+</ul>
+
+
+<br>
+
+<i class="icon-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li> [ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplot2.html)  </li>
+<li> [R Graphics Cookbook](https://r-graphics.org/) </li>
+<li> [unikn](https://hneth.github.io/unikn/index.html) </li>
+<li> [viridis](https://sjmgarnier.github.io/viridisLite/reference/viridis.html) </li>
+<li> [papaja](https://www.rdocumentation.org/packages/papaja/versions/0.1.2) </li>
+<li> [Beautiful Plotting Guide](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) Very extensive, I still profit from this guide a lot :) </li>
+<li> [More color palettes explained](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually) </li>
+</ul>
+
+## Thank you!
+
+```{r unikn-plot, echo = F, fig.width=9, fig.height=6}
+
+# 0. Create data: ---- 
+
+# Example based on https://www.r-graph-gallery.com/137-spring-shapes-data-art/
+n <- 50
+groups <- 1:n
+df <- data.frame()
+
+set.seed(3)
+for (i in seq(1:30)){
+  data = data.frame(matrix(0, n, 3))
+  data[, 1] <- i
+  data[, 2] <- sample(groups, nrow(data))
+  data[, 3] <- prop.table(sample(c(rep(0, 100), c(1:n)), nrow(data)))
+  df = rbind(df, data)}
+
+names(df) <- c("X","Group","Y")
+
+df$Group <- as.factor(df$Group)  # Group as factor
+df <- df[c(2, 1, 3)]             # order of variables
+df <- df[order(df$X, df$Group) , ] # order of rows
+rownames(df) <- NULL
+
+my_data <- df  # copy
+
+# Mix a color gradient: 
+my_col <- usecol(c(Bordeaux, "white", Petrol), n = 50)
+
+ggplot(my_data, aes(x = X, y = Y, fill = Group)) + 
+  geom_area(color = "white", linewidth = .01) +
+  scale_fill_manual(values = my_col) +
+  theme_void() +
+  theme(legend.position = "none")
+
+```

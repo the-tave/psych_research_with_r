@@ -1,0 +1,317 @@
+
+```{r setup, include=FALSE, warnings = FALSE}
+knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
+
+# library(knitr)
+# library(papaja)
+# library(ggplot2)
+library(dplyr)
+# library(unikn)
+```
+
+# Intro and Installation
+
+## What is R? What is R Studio?
+<!-- Remove Image and plot borders -->
+
+<!-- Include jQuery -->
+<!-- ```{=html} -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+
+<!-- <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script> -->
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+<!-- ``` -->
+
+<!-- ```{=html} -->
+<!-- <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script> -->
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+<!-- ``` -->
+
+- First of all, R is a programming language for statistical and data analysis.
+
+- **Open** source $\rightarrow$ anyone can contribute
+- **Use**: 
+    - **Base R**: functions that R understands without any further instructions
+    - **Packages**: think of them as new tricks that you can teach your R
+- More than anything else, R follows instructions, so we need to learn how to give them
+
+### Installing R and R Studio
+
+- Download & Install the newest `r version$version.string` at [https://cloud.r-project.org/](https://cloud.r-project.org/)
+- Download and install R Studio at [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+
+### R Studio
+
+- R as a language can be used on its own - but that's no fun.
+
+![R GUI on its own](./img/RGUI.png){#id .class width=auto height=260px}
+
+- That's why we use R Studio as a user interface to run R.
+- Think of it as dipping your fingers in a pot of ink to write versus using a pen and paper - you will still write with the same ink, but the whole process is just nicer. <i class="fa-solid fa-feather-pointed" style="color: darkgray;"></i>
+
+### R Studio Layout
+
+![R Studio - typical layout](./img/rstudio.png){#id .class width=auto height=560px}
+
+### Workflow
+
+
+- Instructions or *commands* through the **Console** (bottom left tile) or in a Script in the **Editor** (top left tile).
+  
+-   **Console**: quickly try a command, install a package or to gather information about things like your working directory (we'll get to that later)
+    - These are things that we do maybe once per session but usually don't need to reproduce.
+-   **Editor**: pretty much everything else
+    - Create ***Scripts*** where we can save all the code that we write to use and find again
+
+
+### New Script
+
+- For most things - especially during the learning phase - it makes sense to write a Script in the Editor in order to be able to save and access the work.
+- To do so, simply click the !["New Script" button](./img/newfile.png){#id .class .no-border width=auto height=36px} button and choose 'R Script'.
+
+## Basics 
+
+```{r basicbasics}
+1+2
+2-3
+3*4
+4/3
+```
+
+### Advanced Math
+
+```{r basicbasics2}
+5^2 # power
+sqrt(64) # square root
+sum(1, 2, 3) # sum
+pi # constant
+```
+                                                                                                                                                         
+    
+### Assigning Variables
+
+```{r basicbasics3}
+a <- 3
+b <- 4
+a*b+5
+```
+
+- R can be used as a calculator to perform basic & advanced math
+- Variables that contain numbers (such as `a & b`) can be used in their place in a calculation
+
+### Variables
+
+
+
+- `a & b` only contain numbers $\rightarrow$ called **numeric**
+    - check this property of a variable, e.g. `a` using the function `class(a)`, which gives us "`r class(a)`" as output
+    
+- Usually we don't just want to work with single values but with **data frames** or **vectors** ![Vector](./img/vector.png){#id .class .no-border width=auto height=40px} 
+    - can contain different classes of variables and several values
+    
+
+### Vectors
+
+```{r advancedbasics}
+c <- c(6, 7, 8)
+class(c)
+d <- c("sunny", "rainy", "foggy")
+class(d)
+```
+
+- Notice that we did not just add all values one after the other, but followed a certain notation that begins with the function `c()` $\rightarrow$ _combine_ or _concatenate_
+
+### Data Frames
+
+```{r advancedbasics2}
+e <- data.frame(c,d)
+class(e)
+```
+
+- There are several ways of adding variables to a data frame, but the `data.frame()` command is the simplest. 
+
+<i class="fa-solid fa-lightbulb" style="color: purple;"></i>
+<i style="color: purple;"> All values in a variable should have the same class. 
+Go ahead and try out `hm <- c(3, "sunny", 5.2)` and check the class. 
+What happened - did you expect that?</i>
+
+![Happy T-Rex](./img/trex.png){#id .class width=auto height=400px}
+
+## Working with Data Frames
+
+```{r e-df}
+e
+```
+
+- We usually want to access either certain **rows** or **columns** from data frames
+- Base R uses square brackets `[]`: "take this data, but only certain rows/columns/cells"
+- Remember: The brackets understand the first input as rows and the second as columns - _rows right away_ 
+    - German: Zuerst Zeilen, Später Spalten
+
+### Square Brackets
+
+```{r brackets}
+e[1, ] # first row
+e[ , 1] # first column
+
+weather <- e[ , 2]; weather
+
+e[1, 1]*e[2, 1] # certain cells
+```
+
+### Data Sets in Base R
+
+
+- Data set `e` contains three numbers in column c and different strings in column d
+- Any row, column or cell can be selected
+- Values can also be re-assigned
+    - e.g. to a new variable named "weather" 
+- Calculations can be performed on single cells in the data frame (only if they contain numerics)
+
+
+### Square Brackets
+
+<br>
+
+<i class="fa-solid fa-lightbulb" style="color: purple;"></i>
+<i style="color: purple;">
+With square brackets we can only index rows and columns that are present in the data.
+That maybe sounds obvious, but can easily lead to confusion because of error messages! <br>
+What happens when you try to index `e[,3]`?
+</i>
+
+### Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>
+
+<br>
+
+Use the data frame `e` that we have created.
+
+1. With the square bracket indexing you can also use a variable name in quotes to index the right column. \
+Create vector that contains the second row from column "c" and the third row from column "d".
+
+2. What is the first row of column one to the power of the third row of column one?
+
+### Solution: 1
+
+<br>
+
+Creating a new vector from certain columns in e
+
+```{r}
+newvector <- c(e[2, "c"], e[3, "d"])
+newvector
+```
+
+### Solution: 2
+
+First row of column one to the power of the third row of column one in data set e
+
+```{r}
+e[1, 1]^e[3, 1]
+```
+
+### Base R vs. Packages
+
+<br>
+
+
+- Base R is important to learn, you can do anything in base R
+    - Anything you can do in R without loading anything is base R
+    - E.g. [ ], the c()-function, sqrt()-function...
+
+- Using packages is just more intuitive and fun, usually
+
+
+## Installing Packages 
+
+![Hexagon Package logos](./img/hexagons.png)
+
+<br>
+
+- Most packages are available on CRAN - the Comprehensive R Archive Network.
+- Easily install the package you wantwith the command \
+`install.packages("packagename")`
+- Important: Package name must be in quotes for the installation
+    - Loading it into a script works without quotes using `library(packagename)`
+    
+### Tidyverse
+
+
+- Packages usually serve quite specific purposes, e.g.
+    - `dplyr`: makes data handling easier and more intuitive 
+    - `ggplot2`, which allows us to create beautiful, publication-ready plots and visualizations
+- `tidyverse`: "meta package" which automatically loads those two and several other packages 
+    - Makes the functions from those many different packages available at once
+    - Quite convenient when we want to use a lot of those packages in the same session or script
+    - Also takes a lot longer to load (sometimes not actually necessary)
+    
+    
+### Using the `tidyverse`
+
+<br> 
+
+- Please install the `tidyverse`, using \
+`install.packages("tidyverse")` **in the console **
+- Then load it **into your script** with \
+`library(tidyverse)`
+- Test whether it works by typing \
+`iris %>% pull(Sepal.Length) %>% mean()` 
+
+### Explanation
+#### `iris %>% pull(Sepal.Length) %>% mean()` 
+
+- $\rightarrow$ This line of code takes the data set `iris` (included in R by default)
+    - "pulls" the variable `Sepal.Length` out of the data and 
+    - runs the `mean()` function on it, to calculate the average sepal length, 
+    - should be `r iris %>% pull(Sepal.Length) %>% mean()`.
+    
+### Exercise
+
+Using a package can be made explicit by typing `packagename::functionname()`. \
+Accessing "Help" pages is done by typing "?functionname" or "?packagename::functionname()".
+
+
+
+- <i class="fa-solid fa-lightbulb" style="color: yellow;"></i> Find Help on the function `select()` from the package `dplyr`
+    - What does it do?
+- Try selecting only the "Species" Variable inside the "iris" data set (it is basically in your environment even if it is not explicitly shown)
+    - What are the species called?
+    - How many different species are there?
+    - What would you need to make the output clearer?
+
+
+### Solution
+
+
+
+- The "select" function works similar to the square brackets, but it makes it a little more intuitive
+    - You can select a variable by name or position in the data frame
+    - You cannot select rows, only columns i.e. variables
+- Selecting the Species variable from iris data works with `select(iris, Species)` and outputs the variable as a one-column-dataframe
+    - The species are called _setosa, versicolor & virginica_
+    - There are 3 _unique_ species in the data set
+    - You can use the function `unique()` like so: `unique(select(iris, Species))`
+
+
+
+ 
+## Wrap-Up & Further Resources
+ 
+ <br>
+ 
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;"> 
+<li> R is a powerful language, R Studio is its user interface</li>
+<li> R can be a calculator and perform basic and advanced math</li>
+<li> We mostly work with variables and data frames </li>
+<li> Packages make working with R easier and more fun!</li>
+</ul>
+
+<br>
+
+<i class="fa-solid fa-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li> [Tadaa Data: R für Psychos (german)](https://r-intro.tadaa-data.de/index.html)</li>
+<li> [Intro to R](https://www.kaggle.com/code/hamelg/intro-to-r-part-4-variables) </li>
+<li> [Tidyverse](https://www.tidyverse.org/)</li>
+</ul>

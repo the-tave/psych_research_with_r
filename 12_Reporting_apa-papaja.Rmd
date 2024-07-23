@@ -1,0 +1,243 @@
+
+```{r include=FALSE, warnings = FALSE}
+# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
+
+# library(knitr)
+# library(papaja)
+# library(ggplot2)
+library(dplyr)
+# library(unikn)
+seminar <- readRDS("./data/seminar_data.Rds")
+seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
+```
+
+# Taking full Advantage of R and R Markdown
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+```{=html}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+```
+
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./img/fontawesome.min.css">
+```
+
+![Happy Papaya Logo](./img/papaja.png)
+
+
+
+## Quiz - Rmd specific
+
+1. What do I need to do to make my text **_look like this_**?
+    - \*\*\_look like this\_\*\*
+2. I want to add a subtitle to my document, where might I do that?
+    - Add 'subtitle: "A great subtitle" ' to the **YAML header**
+3. How do I generate a section header in my document?
+    - With the pound sign \# Header
+4. Oh no, my header isn't showing up right! What could have happened?
+    - There needs to be a space between the \# and the header
+
+### Quiz - general R
+
+1. What package contains the functions `select, filter & mutate`?
+    - `dplyr` (or `tidyverse`)
+2. Assume I have created some R project and I read a file with the following command - what does this tell you about the folder on my computer?
+    ```{r eval = F}
+    greatdata <- readr::read_csv(file = "./data/somefile.CSV")
+    ```
+    - The folder containing the R project contains a subfolder called "data" and in there is a CSV file called "somefile.csv".
+
+### Quiz - general R
+
+3. I want to load a csv file into R with `readRDS()`. Why isn't it working?
+    - The read commands are specific to the file format. readRDS() is for R files, read.csv() or readr::read_csv() are needed for csv files
+4. What do you know when you look at the command `bigfive$extraversion`?
+    - There is a data set called `bigfive` and we're accessing a variable called `extraversion`
+
+### Quiz - general R
+
+5. What keywords for loops and conditionals do you remember?
+    - _for, while, if, else, ifelse_...
+6. I want to calculate a t-test on soul-belief (yes or no) and age in our seminar data. Why won't this command work?
+    ```{r eval = F}
+    t.test(v02_age, soul_dummy, data = seminar)
+    ```
+    - When we have a grouping variable like soul_dummy, we need to use formula notation: `v02_age ~ soul_dummy`
+     
+## Back to Rmd: Last session
+
+<br>
+
+- First off: the option of formatting the table of contents to float in html is **toc_float: true**
+- Create Rmd: ![Create a demo Rmd](./img/rmd-click.png){height=100px} or File > New File > R Markdown
+- **YAML header** defines format of the document as well as key info such as title, date, etc.
+- Text formatting:
+    - _italics_ with \_italics\_
+    - **bold** with \*\*bold\*\*
+    - Unordered lists are created with \-
+    - Ordered lists with 1., 2. ...
+    
+### Last session
+
+- Code chunks are inserted via the menu Code > Insert Chunk and should look like this:
+- \```{r} <br>
+  \# _code goes here_ <br>
+  \```
+    - keyboard shortcut ctrl + alt + i / command + option + i
+    - Chunk options can specify how to treat code, e.g. `echo = FALSE` only shows output but does not "echo" the actual code
+- Indentation and spacing is very important! In the text, it is better to add more. In the YAML header, it may not be recognized properly with improper spacing
+
+### Including Links & Images
+
+- An image to R Markdown is essentially a **link to an image file on your computer**
+    - That's why they share similar notation
+- **Web Link:** 
+    - 
+      ```{md}
+      [Google Link](www.google.com)
+      ```
+    - Becomes: [Google Link](https://www.google.com/) (clickable Link)
+- **Image:** 
+    - 
+      ```{md}
+      ![image description](C:/path/to/your/image.png)
+      ```
+    - Different file formats, such as JPG, PNG, SVG or GIF
+    
+
+- When including an image, make sure you are using the right file path, image name & file extension! So that...
+- 
+  ```{md}
+  ![RMarkdown Logo]("./img/rmd.png")
+  ```
+- ...becomes...
+- ![RMarkdown Logo](./img/rmd.png)
+
+### Inline Code
+
+- To simply include variables or values in text, we can use inline code \`_r  code_ \`
+- Simply type one back tick ` and r - the program will auto complete the command
+- Examples:
+    - The average sepal length of iris flowers is <br>
+    \`_r mean(iris\$Sepal.Length)_\`  $\rightarrow$ `r round(mean(iris$Sepal.Length), 3)`
+    
+
+## Taking full advantage of R
+
+<br>
+
+1. Conduct Analysis, e.g. an ANOVA
+2. Write about your analysis & report results (with proper statistics)
+3. Choose and create an appropriate visualization, e.g. a boxplot 
+
+### Walkthrough
+
+We will use the package `palmerpenguins` (`install.packages("palmerpenguins")`) and see whether penguins from different islands have different body mass.
+
+```{r }
+library(palmerpenguins)
+
+# Test assumption of homoscedasticity
+car::leveneTest(aov(bill_length_mm ~ species, data = penguins)) # yay
+```
+
+```{r results='hide'}
+# Run & save ANOVA
+penguinmodel <- aov(bill_length_mm ~ species, data = penguins)
+```
+
+### Walkthrough
+
+```{r}
+# Run & save post-hoc Tests
+TukeyHSD(penguinmodel)
+```
+
+- For anova, we want to report the full statistics, a.k.a "full_result" from `papaja::apa_print()`
+- 
+  ```{r eval = F}
+  library(papaja)
+  apa_result <- apa_print(penguinmodel)$full_result
+  ```
+```{r echo = F}
+suppressMessages(library(papaja))
+suppressMessages(apa_result <- apa_print(penguinmodel)$full_result)
+```
+
+
+### Walkthrough
+
+Create a boxplot and add results right in the caption!
+
+```{r fig.height = 3, warning=F}
+library(ggplot2)
+ggplot(penguins, aes(x=species, y=bill_length_mm, color=species, fill=species), na.rm=T) +
+  geom_boxplot(alpha = .7) + theme_apa() + theme(legend.position = "none") +
+  labs(x = "Penguin Species", y = "Bill Length (mm)", 
+       caption = latex2exp::TeX(unlist(apa_result))) +
+  scale_color_brewer(palette = 5) +
+  scale_fill_brewer(palette = 5)
+```
+
+### Walkthrough
+
+- Note that it is a little complex to include the result right in the caption
+    - ggplot2 cannot handle $\LaTeX$ notation so we need to use package latex2exp
+    - the TeX function from that package cannot handle the list-output from apa_print()$full_result so we need to "unlist" that
+- Using RMarkdown, it is much easier to include the statistic right in the text with inline code:
+    - \`*r apa_print(penguinmodel)$full\_result*\`  <br> 
+    - $\rightarrow$ <span style="font-size: 24px"> `r apa_print(penguinmodel)$full_result` </span>
+
+## Exercise
+
+<br>
+
+Create an R Markdown Document that includes the same type of analyses of variance with all steps that we have conducted before.
+Please use the `penguins` dataset from the `palmerpenguins` package and take "species" as the independet variable and "flipper_length_mm" as the dependent variable.
+
+### Exercise
+#### Code Solution
+
+```{r eval = F}
+leveneTest(aov(flipper_length_mm ~ species, data = penguins))
+penguinmodel2 <- aov(bill_length_mm ~ species, data = penguins)
+posthoc <- TukeyHSD(penguinmodel2)
+apa_result <- apa_print(penguinmodel2)$full_result
+
+ggplot(penguins) +
+  geom_boxplot(aes(x = species, y = flipper_length_mm, color = species, fill = species), 
+               alpha = .7, na.rm = TRUE) +
+  theme_apa() + 
+  theme(legend.position = "none") +
+  labs(x = "Penguin Species", y = "Flipper Length (mm)") +
+  scale_color_brewer(palette = 5) +
+  scale_fill_brewer(palette = 5)
+```
+
+ 
+## Wrap-Up & Further Resources 
+ 
+<i class="fa-solid fa-anchor" style="color: teal;"> Wrap-Up </i>
+<ul style="color: teal;"> 
+<li> Rmd offers many options for customization</li>
+<li> Analyses can be conducted and reported in the same document</li>
+<li> We can profit from many automatizations, e.g. chapter numbering</li>
+<li> Single values/ results can be reported with inline code</li>
+</ul>
+
+
+<br>
+
+<i class="fa-solid fa-book" style="color: orange;"> Further Resources </i>
+<ul style="color: orange;">
+<li> [MarkdownGuide](https://www.markdownguide.org/basic-syntax/)</li>
+<li> [Another Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)</li>
+<li> [ggsignif package example](https://statisticsglobe.com/ggsignif-package-r) </li>
+<li> [Bibliography and Citation](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html)</li>
+</ul>
+
+
+## Thank you!
+
+![Palmer Penguins](./img/palmer_penguins.png){#id .class width=auto height=450px}

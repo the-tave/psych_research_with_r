@@ -147,6 +147,4 @@ iris |>
 
 
 
-## Thank you!
-
 <div class="tenor-gif-embed" data-postid="11365139" data-share-method="host" data-aspect-ratio="1.42857" data-width="80%"><a href="https://tenor.com/view/hadley-wickham-rstats-typing-rcode-gif-11365139">Hadley Wickham GIF</a>from <a href="https://tenor.com/search/hadley-gifs">Hadley GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>

@@ -344,7 +344,6 @@ When you click the "knit"-button below the main menu, you will need to save the 
 Try to play around with the text and read the demo content - it explains the basic functions!
 
 
-## Thank you!
 
 <br>
 

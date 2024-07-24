@@ -118,7 +118,6 @@ SPSS (SAV) | `foreign::read.spss("data.sav")`
 
 ### group_by & summarize 
 
-:::{.incremental}
 
 - With the dplyr-workflow, we can easily output group statistics
 - Keywords: **group_by()** & **summarize()**
@@ -127,7 +126,6 @@ SPSS (SAV) | `foreign::read.spss("data.sav")`
     2. group_by(_variable_name_)
     3. in summarize, define a name for the statistic, use a =, use a function like mean() for the measure
 
-:::
 
 ### Example: group_by & summarize
 
@@ -163,17 +161,6 @@ seminar %>%
             median_volume = median(v08_loudness),
             n = n())
 ```
-
-
-### Exercise: In teams of 2
-
-<br>
-
-In teams of 2, think about your own thesis (if you don't have a topic yet, just think of something that you _might_ want to research): 
-
-- Which of our variables in the seminar data are similar to those that you want to analyze?
-- What can we do to prepare you for being able to conduct your analyses?
-- Write down your thoughts so we can use some ideas in our coming classes!
 
  
 ## Wrap-Up & Further Resources 

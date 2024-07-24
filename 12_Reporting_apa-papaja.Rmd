@@ -94,23 +94,17 @@ seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
     - That's why they share similar notation
 - **Web Link:** 
     - 
-      ```{md}
-      [Google Link](www.google.com)
-      ```
+      "[Google Link](www.google.com)"
+
     - Becomes: [Google Link](https://www.google.com/) (clickable Link)
 - **Image:** 
-    - 
-      ```{md}
-      ![image description](C:/path/to/your/image.png)
-      ```
+    - "![image description](C:/path/to/your/image.png)"
     - Different file formats, such as JPG, PNG, SVG or GIF
     
 
 - When including an image, make sure you are using the right file path, image name & file extension! So that...
-- 
-  ```{md}
-  ![RMarkdown Logo]("./img/rmd.png")
-  ```
+- "![RMarkdown Logo]("./img/rmd.png")"
+
 - ...becomes...
 - ![RMarkdown Logo](./img/rmd.png)
 
@@ -237,7 +231,5 @@ ggplot(penguins) +
 <li> [Bibliography and Citation](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html)</li>
 </ul>
 
-
-## Thank you!
 
 ![Palmer Penguins](./img/palmer_penguins.png){#id .class width=auto height=450px}

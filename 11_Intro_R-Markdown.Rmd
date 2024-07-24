@@ -193,6 +193,5 @@ mean(y)
 
 </ul>
 
-## Thank you!
 
 ![Shakespeare writing RMarkdown](img/shakespeare.jpg){height=550px}

@@ -262,13 +262,13 @@ str(mindful)
  
  <br>
  
-<i class="fa-solid fa-anchor" style="color: teal;"></i>
-<ul style="color: teal;"> 
-<li> Stick to naming conventions for R objects and related files </li>
-<li> Make sure your working directory is correct </li>
-<li> Use R projects to organize your scripts easily </li>
-<li> Make R fun and appealing to use FOR YOU! </li>
-</ul>
+> <i class="fa-solid fa-anchor" style="color: teal;"></i>
+> <ul style="color: teal;"> 
+> <li> Stick to naming conventions for R objects and related files </li>
+> <li> Make sure your working directory is correct </li>
+> <li> Use R projects to organize your scripts easily </li>
+> <li> Make R fun and appealing to use FOR YOU! </li>
+> </ul>
 
  <br>
  

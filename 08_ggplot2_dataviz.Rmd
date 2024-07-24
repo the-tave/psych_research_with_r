@@ -344,7 +344,6 @@ cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() +
 <li> [More color palettes explained](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually) </li>
 </ul>
 
-## Thank you!
 
 ```{r unikn-plot, echo = F, fig.width=9, fig.height=6}
 

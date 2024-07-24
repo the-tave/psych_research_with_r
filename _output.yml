@@ -3,10 +3,11 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">A Minimal Book Example</a></li>
+        <li><a href="./">Psychological Research in R/a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
+      extra_dependencies: awesomebox
+    edit: https://github.com/the-tave/psych_research_in_r/issues/%s
     download: ["pdf", "epub"]
 # bookdown::pdf_book:
 #   includes:
@@ -14,4 +15,4 @@ bookdown::gitbook:
 #   latex_engine: xelatex
 #   citation_package: natbib
 #   keep_tex: yes
-# bookdown::epub_book: default
+bookdown::epub_book: default

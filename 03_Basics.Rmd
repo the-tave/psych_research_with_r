@@ -11,7 +11,7 @@ library(dplyr)
 
 # R Basics and how to read error messages
 
-![Iris Flower](./img/iris.png)
+![Iris Flower](img/iris.png)
 
 ## Basics
 <!-- Remove Image and plot borders -->

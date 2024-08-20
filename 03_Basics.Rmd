@@ -22,14 +22,19 @@ library(dplyr)
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="./img/fontawesome.min.css">
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
 
-
-
-- Assign variables with the $\leftarrow$ like so:  \newline 
+R is an object-based language. 
+The great advantage of that is we can assign values, vectors, text, matrices or almost anything else to variables and access them more easily later.
+To do that, we use the $\leftarrow$ like so:  \newline 
 `x <- c(1, 2, 3)`
-    - To avoid a cluttered work environment, `rm()` removes variables
+Go ahead and try it out! 
+If you had too much fun assigning variables, you can remove them again from your work environment using the `rm()` command in the Console.
+So, if you assign the values 1, 2 and 3 to `x`, you can type `rm(x)` into the console, hit enter and x has disappeared from your environment! 
+
+
+
 - Execute a line of code with `ctrl + enter` in the editor
     - In console you just need to press `enter`
 - Text aka _strings_ need to be put in quotes so it can be recognized as such

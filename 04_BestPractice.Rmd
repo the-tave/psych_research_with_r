@@ -1,27 +1,7 @@
 
-```{r include=FALSE, warnings = FALSE}
-# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
-
-# library(knitr)
-# library(papaja)
-# library(ggplot2)
-library(dplyr)
-# library(unikn)
-```
-
 # Best Practice
 
 ## What is Best Practice?
-<!-- Remove Image and plot borders -->
-<!-- Include jQuery -->
-```{=html}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-```
-
-```{=html}
-<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="./img/fontawesome.min.css">
-```
 
 - "Many roads lead to Rome": You can achieve most things in many different ways
 - _Best Practice_ refers to the best/ easiest/ clearest way of working with R
@@ -35,56 +15,52 @@ library(dplyr)
 - Make R your own: ![Appearance](./img/appearance.png){#id .class .no-border width=auto height=40px}
 
 
-## Naming Things 
+## Naming Conventions 
+
+R is a so-called *object-oriented* language.
+What that means for us is mostly that all our data exist as "objects" as far is R is concerned.
+Just like in real life, we can *do* stuff with those objects now, which is called using a *function* or *command*.
+Which brings me to the importance of proper names for all your variables, data sets, functions...
+Everything.
+
+If we go to the market and I tell you to get me an apple, you will probably be confused if there are many types of apples, maybe different colors, maybe different breeds.
+Basically, if I don't specify which apple I want, you are not able to pick out the right one.
+The same is true for R: If you try to call a function but fail to specify what object to use the function on, R is confused and throws you an error.
+
+Now, this may seem pretty obvious but it is a pretty common source of errors, especially during the "steep phase" of the learning curve.
+In R, `abc` is a different object than `ABC`, which is different from `a_b_c`, which is different from `A.B.C`. All of these variants are possible ways of naming your objects in R.
+However, it makes everyone's life significantly easier to stick to some naming-guidelines.
+
+- Preferably use **lower-case** variable names, e.g. `gender` instead of `Gender` or `GENDER`.
+- Preferably use an **underscore** to differentiate between different words in your object names if necessary, e.g. `music_preference`.
+- **Avoid using numbers** in your names because likely either you or R will get confused with this at some point, e.g. `raw_data` instead of `data1`[^1].
+- Use **abbreviations** where useful, e.g. `rt` instead of `reaction_times`.
+- Use **names that will still make sense** to you in the future, i.e. avoid names like `asdf_data` or `blibblobfundata`. The best case scenario would be that your variable names also makes sense to other people if they try to understand your code!
+
+[^1]: Additionally, the 1 (one) and the l (lower-case L) can look very similar, which makes thing just even worse when trying to figure out an error.
+
+I will admit that some of these pieces of advice are more opinionated personal experience than objective facts.
+The more you work with variables and maybe also code from other people, you may form your own opinions on what the best naming conventions are for you.
+I strongly suggest finding a way that works for you and sticking with it.
+As I described above, I personally will try to stick to *lower_snake_case* to name my variables because it is usually very clear, easy to read by humans and computers and would also be usable in any other programming language. <i class="fa-solid fa-worm" style="color: green;"></i>
+
+Another thing that can take some time to get used to is avoiding white spaces in file names and any other names, for that matter.
+R has problems finding files with names such as "My file with a really specific name.bib", which can easily be avoided by sticking to snake_case: "My_file_with_a_really_specific_name.bib". 
+The same goes for variables: In my first class, we discovered that it is possible in R to set a variable name with a space. 
+Just because it's possible does not mean anybody should do it. Ever. 
+
+You can try it out: Enter `"hi there" <- 5` in your console to assign the value 5 to a variable named `hi there`. 
+You will see it appear in your working environment, but accessing the variable is virtually impossible.
+If you just type `hi there` in the console and hit Enter, R will give you an error à la _"unexpected symbol"_.
+But if you type `"hi there"`, it will echo the text back to you.
 
 
-- R is a so-called *object-oriented* language.
-    - All our data exist as "objects" 
-    - To *do* stuff with those objects  is called using a *function* or *command*
-- Naming of objects is an every-day aspect of working with R
-    - Proper naming makes our life so much easier!
+![Naming Conventions](./img/varname.webp){#id height=400px}
+<figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/</figcaption>
 
-
-<!-- ## Market Analogy -->
-
-<!-- :::{.incremental} -->
-
-<!-- - Fruit Market: <i class="fa-solid fa-apple-whole" style="color: red;"></i>  <i class="fa-solid fa-apple-whole" style="color: yellow;"></i>  <i class="fa-solid fa-apple-whole" style="color: green;"></i>  <i class="fa-solid fa-apple-whole" style="color: orange;"></i> -->
-<!--     - If I ask for **an apple**, which one will I get? -->
-<!-- - Getting the right object depends on the proper specification, usually the **name** -->
-<!-- - Common source of errors in R, especially during the "steep phase" of the learning curve  -->
-
-<!-- ::: -->
-
-### Different Naming Conventions
-
-
-
-- R is case-sensitive
-    - $\rightarrow$ `abc` is a different object than `ABC`, which is different from `a_b_c`, which is different from `A.B.C` ...
-    -  All of these variants are possible!
-- Every programming language has slightly different conventions, e.g. Python usually uses `snake_case` <i class="fa-solid fa-worm" style="color: green;"></i>
-    - Also advisable for R :)
-- Avoid white spaces in all types of names
-    - Especially important in file names! R has problems finding files with names such as "My file with a really specific name.bib"
-    - Easy fix: "My_file_with_a_really_specific_name.bib"
-
-
-
-### Naming conventions in R
-
-
-
-- **Lower-case** variable names, e.g. `gender` instead of `Gender` or `GENDER`
-- **Underscore** to differentiate between different words in your object names if necessary, e.g. `music_preference`
-- **Avoid using numbers** in your names because likely either you or R will get confused with this at some point, e.g. `raw_data` instead of `data1`
-    - 1 (one) and the l (lower-case L) can look very similar
-- Use **abbreviations** where useful, e.g. `rt` instead of `reaction_times`
-- Use **names that will still make sense** to you in the future, i.e. avoid names like `asdf_data` or `blibblobfundata`
 
 
 ### Exercise: Name Examples
-
 
 - `great variable`
     -  <i class="fa-solid fa-circle-xmark" style="color: red;"></i> Spaces can technically work but are a hassle to access
@@ -107,7 +83,7 @@ In order to prepare for data analysis, we want to simulate what the data might l
 
 We are going to measure their age and IQ score and we will be assessing class 7a and 7b.
 
-## Exercise: Creating Data meaningfully
+### Exercise: Creating Data meaningfully
 
 Create **two data frames** - one for each class. <br>
 They should each contain **n = 20 entries** (for 20 kids) and **2 variables i.e. age and iq score**. <br> <br>
@@ -118,7 +94,7 @@ Use the functions on the board and look in the R help if you need more input on 
 
 <!-- Board functions: data.frame, sample, rnorm, $, rbind, str -->
 
-### Solution I
+### Solution 
 
 ```{r}
 # Create the dataframes
@@ -132,7 +108,6 @@ scores7b <- data.frame(age = sample(x = 12:15, size = 20, replace = T),
 str(scores7a); str(scores7b)
 ```
 
-### Solution II
 
 ```{r}
 # Add information about the class
@@ -288,6 +263,3 @@ str(mindful)
 <!-- <li> [R Projects: A quick overview](https://thedavidchen.github.io/post/rstudio-why-use-projects/) </li> -->
 <!-- <li> [Starting your R projects](https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html) </li> -->
 <!-- </ul> -->
-
-![Naming Conventions](./img/varname.webp){#id .class width=auto height=400px}
-<figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/</figcaption>

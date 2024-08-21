@@ -1,14 +1,4 @@
 
-```{r include=FALSE, warnings = FALSE}
-# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
-
-# library(knitr)
-# library(papaja)
-# library(ggplot2)
-library(dplyr)
-# library(unikn)
-```
-
 # R Basics and how to read error messages
 
 ![Iris Flower](img/iris.png)
@@ -25,15 +15,19 @@ library(dplyr)
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
 
-R is an object-based language. 
+
+```{r}
+library(dplyr)
+```
+
+
+R is an object-based language.
 The great advantage of that is we can assign values, vectors, text, matrices or almost anything else to variables and access them more easily later.
-To do that, we use the $\leftarrow$ like so:  \newline 
+To do that, we use the $\leftarrow$ like so:  \newline
 `x <- c(1, 2, 3)`
-Go ahead and try it out! 
+Go ahead and try it out!
 If you had too much fun assigning variables, you can remove them again from your work environment using the `rm()` command in the Console.
-So, if you assign the values 1, 2 and 3 to `x`, you can type `rm(x)` into the console, hit enter and x has disappeared from your environment! 
-
-
+So, if you assign the values 1, 2 and 3 to `x`, you can type `rm(x)` into the console, hit enter and x has disappeared from your environment!
 
 - Execute a line of code with `ctrl + enter` in the editor
     - In console you just need to press `enter`
@@ -165,52 +159,87 @@ Hint: You will need logic, the mean()-function and square brackets. Use **names(
 
 ## Reading Error Messages
 
+Even the most advanced R coder will encounter the occasional error message.
+While they are quite helpful and usually lead to being able to solve problems, it can be challenging to learn how to properly read the message in order to actually understand what the problem is.
+Therefore, we will look at some of the most common wordings to decipher what R needs so it can understand what we want to do.
 
-- Mistakes happen to everyone
-- Error messages are often frustrating but helpful 
-- Many common "beginner problems" are fairly easy to fix once you understand the error
-- Try to think of error messages as invites to help R understand what you are trying to achieve!
+Think of error messages not as discouraging faults of your program but rather as invites to help you help R understand what you are trying to achieve.
+
+#### _Error: unexpected 'X' in "Y"_ {-}
+
+This message is fairly straightforward: 
+R expected a certain kind of symbol at the place where we put 'X' and is now confused because our input did not match the expectation.
+
+For most Europeans, for example, the most commonly used decimal separator will be a comma.
+Since R is an american-built language, however, it expects decimals to be separated with a decimal point while commas indicate separate inputs to a function.
+Therefore, when we accidentally input a decimal as '3,141', we will receive the error message _Error: unexpected ',' in "3,"_ because R expected the input to be something like '3.141'.
+
+**Fix: Replace the 'x' in "Y" with something that R can understand.** Or alternatively: Make sure that we meant the input like that. 
+
+#### _Error: object 'A' not found_ {-}
+
+This, too, is pretty understandable message:
+The object that you are trying to access and use cannot be found by R.
+The most common cause for this error message is probably simply that you misspelled the object name somewhere.
+R is case-sensitive, so maybe object _A_ was defined as object _a_?
+Maybe the object _vector_ is spelled _vcteor_ in your function?
+
+Moreover, sometimes our thoughts are two steps ahead of our code.
+When figuring out how to get a program to work, sometimes we presume that a variable exists just because we need it and forget to define the variable up front.
+The same goes if we try to access a variable in a data frame that was maybe defined in a different data frame or as its own vector - it simply cannot be found because we are having R look in the wrong place.
+
+**Fix: Make sure the object name is spelled correctly and was defined prior to using it in a function, calculation or elsewhere.**
+
+This error message also often appears with "function xyz not found".
+In this case, we probably forgot to load the package first, which contains that function.
+Thus, the fix will likely be to figure out which package contains the function we are trying to use and load it with the `library()` command.
+
+
+<!-- - Mistakes happen to everyone -->
+<!-- - Error messages are often frustrating but helpful  -->
+<!-- - Many common "beginner problems" are fairly easy to fix once you understand the error -->
+<!-- - Try to think of error messages as invites to help R understand what you are trying to achieve! -->
 
 - ![Pobody's Nerfect](./img/nerfect.webp){#id .class width=auto height=200px}
 
 
 
-### _Error: unexpected 'X' in "Y"_ 
+<!-- ### _Error: unexpected 'X' in "Y"_  -->
 
 
 
-- Pretty straightforward: R expects a certain kind of symbol where 'X' is
-    - Input did not match the expectation
-    
-- For example: Comma as a decimal separator 
-    - In almost all (american-built) coding, the decimal separator is a point
-    - Input: '3,141'will receive the error message _Error: unexpected ',' in "3,"_ 
-    - R expected the input to be '3.141'
+<!-- - Pretty straightforward: R expects a certain kind of symbol where 'X' is -->
+<!--     - Input did not match the expectation -->
 
-- $\rightarrow$ **Fix: Replace the 'x' in "Y" with something that R can understand.**
+<!-- - For example: Comma as a decimal separator  -->
+<!--     - In almost all (american-built) coding, the decimal separator is a point -->
+<!--     - Input: '3,141'will receive the error message _Error: unexpected ',' in "3,"_  -->
+<!--     - R expected the input to be '3.141' -->
 
-
-
-### _Error: object 'A' not found_ 
+<!-- - $\rightarrow$ **Fix: Replace the 'x' in "Y" with something that R can understand.** -->
 
 
 
-- Object you are trying to use cannot be found by R
-- Most common cause: probably you misspelled the object name somewhere
-    - R is case-sensitive: was object _A_ defined as _a_?
-    - Or maybe _vector_ is spelled _vcteor_ in your function?
-- Maybe a variable was never defined but now you want to use it?
-    - Or it was defined in a (different) data frame?
-
-- $\rightarrow$ **Fix: Make sure the object name is spelled correctly and was defined prior to using it in a function, calculation or elsewhere.**
+<!-- ### _Error: object 'A' not found_  -->
 
 
 
+<!-- - Object you are trying to use cannot be found by R -->
+<!-- - Most common cause: probably you misspelled the object name somewhere -->
+<!--     - R is case-sensitive: was object _A_ defined as _a_? -->
+<!--     - Or maybe _vector_ is spelled _vcteor_ in your function? -->
+<!-- - Maybe a variable was never defined but now you want to use it? -->
+<!--     - Or it was defined in a (different) data frame? -->
 
-- Also often appears with "function xyz not found"
-- In this case, we probably forgot to load the package first, which contains that function
-- **Fix: Figure out which package is needed and load it with the `library()` command**
-    - If you still encounter an error like "there is no package called ‘xyz’", either the name of the package is misspelled or you need to install it first using `install.packages()`
+<!-- - $\rightarrow$ **Fix: Make sure the object name is spelled correctly and was defined prior to using it in a function, calculation or elsewhere.** -->
+
+
+
+
+<!-- - Also often appears with "function xyz not found" -->
+<!-- - In this case, we probably forgot to load the package first, which contains that function -->
+<!-- - **Fix: Figure out which package is needed and load it with the `library()` command** -->
+<!--     - If you still encounter an error like "there is no package called ‘xyz’", either the name of the package is misspelled or you need to install it first using `install.packages()` -->
     
 
 ### _Error_: R does nothing after running a command
@@ -227,16 +256,11 @@ Hint: You will need logic, the mean()-function and square brackets. Use **names(
 
 
 
-### _Error_: R does nothing after running a command
-
-
-
 - We have not talked about the %>%-pipe in depth, but you will hopefully start to love this tool and use it a lot
 - If we end a command with a %>% R will show the same behavior of not executing the code
     - $\rightarrow$ R expects something else after the pipe, so when there's nothing, R is confused ![Wait for it GIF](./img/waitforit.gif){#id .class width=auto height=100px}
 
 - <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">When you need help figuring out how a function works, there are several ways to get it. Try typing **?magrittr::\`%>%\`** into your console and hit enter!</i>
-
 
 
 ## Exercise
@@ -247,22 +271,36 @@ Try to identify them and how they might be fixed. Feel free to test them out if 
 
 `Library(greatpackage)` 
 
+`r hide("Solution")`
+
+- `library` should not be capitalized
+- "greatpackage" does not exist and can thus not be loaded
+
+`r unhide()`
+
 `mean(coolvariable)` 
+
+`r hide("Solution")`
+
+coolvariable was not defined previously
+
+`r unhide()`
 
 `a <- c(1, 3, 6, 7` 
 
+`r hide("Solution")`
+
+the command is not finished, it needs a closing parentheses
+
+`r unhide()`
+
 `b <- c(2, 4; 6, 8)`
 
-### Solution
+`r hide("Solution")`
 
+we need all commas to separate numbers in a vector, not a semicolon
 
-
-- `Library(greatpackage)` - two problems:
-    - `library` should not be capitalized
-    - "greatpackage" does not exist and can thus not be loaded
-- `mean(coolvariable)`: coolvariable was not defined previously
-- `a <- c(1, 3, 6, 7`: the command is not finished, it needs a closing parentheses
-- `b <- c(2, 4; 6, 8)`: we need all commas to seperate numbers in a vector, not a semicolon
+`r unhide()`
 
 
 ## Wrap-Up & Further Resources

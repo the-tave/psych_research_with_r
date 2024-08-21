@@ -1,30 +1,8 @@
 
-```{r include=FALSE, warnings = FALSE}
-# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
-
-# library(knitr)
-# library(papaja)
-# library(ggplot2)
-library(dplyr)
-# library(unikn)
-```
-
 # Into the `tidyverse`: Data munging with `dplyr`
 
 
 ## Working with packages <i class="fa-solid fa-dragon" style="color: darkred;"></i>
-<!-- Remove Image and plot borders -->
-<!-- Include jQuery -->
-```{=html}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-```
-
-```{=html}
-<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="./img/fontawesome.min.css">
-```
-
-
 
 - install packages with `install.packages()` 
     - Only once in the console!

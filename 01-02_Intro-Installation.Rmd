@@ -1,5 +1,5 @@
 
-```{r setup, include=FALSE, warnings = FALSE}
+```{r overallsetup, include=FALSE, warnings = FALSE}
 knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
 
 # library(knitr)
@@ -7,6 +7,7 @@ knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
 # library(ggplot2)
 library(dplyr)
 # library(unikn)
+library(webexercises)
 ```
 
 # Intro and Installation

@@ -3,26 +3,16 @@
 # knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
 
 # library(knitr)
-library(papaja)
-library(ggplot2)
-library(dplyr)
-library(unikn)
+# library(papaja)
+# library(ggplot2)
+# library(dplyr)
+# library(unikn)
 
-seminar <- readRDS("./data/seminar_data.Rds")
+# seminar <- readRDS("./data/seminar_data.Rds")
 seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 ```
 
 # Creating and interpreting statistics: Chi$^2$ & t-test & ANOVA
-<!-- Remove Image and plot borders -->
-<!-- Include jQuery -->
-```{=html}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-```
-
-```{=html}
-<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="./img/fontawesome.min.css">
-```
 
 <br>
 

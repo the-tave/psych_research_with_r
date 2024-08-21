@@ -1,5 +1,7 @@
 bookdown::gitbook:
-  css: style.css
+  css:
+  - style.css
+  - www/webex.css
   config:
     toc:
       before: |
@@ -8,11 +10,10 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
       extra_dependencies: awesomebox
     edit: https://github.com/the-tave/psych_research_in_r/issues/%s
-    download: ["pdf", "epub"]
-# bookdown::pdf_book:
-#   includes:
-#     in_header: preamble.tex
-#   latex_engine: xelatex
-#   citation_package: natbib
-#   keep_tex: yes
+    download:
+    - pdf
+    - epub
+  includes:
+    after_body: www/webex.js
+  md_extensions: -smart
 bookdown::epub_book: default

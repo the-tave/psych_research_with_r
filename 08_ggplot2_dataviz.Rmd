@@ -5,7 +5,6 @@
 # library(knitr)
 library(papaja)
 library(ggplot2)
-library(dplyr)
 library(unikn)
 
 seminar <- readRDS("./data/seminar_data.Rds")
@@ -14,16 +13,6 @@ seminar <- readRDS("./data/seminar_data.Rds")
 # Into the `tidyverse`: Pretty plots with `ggplot2`
 
 ## Data Visalization <i class="fa-solid fa-chart-line" style="color: darkred;"></i>
-<!-- Remove Image and plot borders -->
-<!-- Include jQuery -->
-```{=html}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-```
-
-```{=html}
-<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="./img/fontawesome.min.css">
-```
 
 <br>
 

@@ -1,20 +1,5 @@
 
-```{r include=FALSE, warnings = FALSE}
-# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
-
-# library(knitr)
-# library(papaja)
-# library(ggplot2)
-library(dplyr)
-# library(unikn)
-library(wobblynameR)
-```
-
 # Working with existing Data
-
-```{=html}
-<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-```
 
 Please also install the _wobblynameR_ package (only available on GitHub). For that you need the _devtools_ package first:
 

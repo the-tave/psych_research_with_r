@@ -6,7 +6,9 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./"> Psychological Research in R </a></li>
+        <li>
+        <a href="./"><i class="fa-solid fa-mug-hot" style="color: #650279;"></i> Psychological Research in R 
+        <i class="fa-solid fa-mug-hot" style="color: #650279;"></i></a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
       # extra_dependencies: awesomebox

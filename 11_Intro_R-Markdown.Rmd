@@ -1,6 +1,12 @@
 
 # Intro to R Markdown
 
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+```
+
+
 ![R Markdown Logo](./img/rmd.png)
 
 ## Creating whole documents in R

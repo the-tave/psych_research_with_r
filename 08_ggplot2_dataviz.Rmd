@@ -12,6 +12,12 @@ seminar <- readRDS("./data/seminar_data.Rds")
 
 # Into the `tidyverse`: Pretty plots with `ggplot2`
 
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+```
+
+
 ## Data Visalization <i class="fa-solid fa-chart-line" style="color: darkred;"></i>
 
 <br>
@@ -308,7 +314,7 @@ cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() +
 
  <br>
  
-<i class="icon-anchor" style="color: teal;"></i>
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 
 <li> `ggplot2` is a powerful tool for visualizing data </li>
 <li>Plot commands are added together with + and executed as one </li>
@@ -322,7 +328,7 @@ cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() +
 
 <br>
 
-<i class="icon-book" style="color: orange;"></i>
+<i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li> [ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplot2.html)  </li>
 <li> [R Graphics Cookbook](https://r-graphics.org/) </li>

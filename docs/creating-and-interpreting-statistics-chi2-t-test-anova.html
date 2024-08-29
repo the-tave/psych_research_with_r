@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Creating and interpreting statistics: Chi\(^2\) &amp; t-test &amp; ANOVA | Psychological Research in R" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Anni Tave Overlander" />
 
 
-<meta name="date" content="2024-08-21" />
+<meta name="date" content="2024-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Psychological Research in R/a></li>
+<li><a href="./"> Psychological Research in R </a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About...</a>
@@ -521,7 +521,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="creating-and-interpreting-statistics-chi2-t-test-anova" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Creating and interpreting statistics: Chi<span class="math inline">\(^2\)</span> &amp; t-test &amp; ANOVA<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#creating-and-interpreting-statistics-chi2-t-test-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><br></p>
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 <ul>
 <li>Re-cap of statistics: t-test, Chi<span class="math inline">\(^2\)</span> and ANOVA</li>
 <li>Learn how to calculate in R</li>
@@ -895,15 +896,17 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 <pre><code>## [1] &quot;$\\Delta M = 10.50$, 95\\% CI $[-109.56, \\infty]$, $t(1.28) = 0.39$, $p = .377$&quot;</code></pre>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb176-1" tabindex="-1"></a><span class="co"># ANOVA</span></span>
 <span id="cb176-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb176-2" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(model)<span class="sc">$</span>full_result</span></code></pre></div>
+<pre><code>## For one-way between subjects designs, generalized eta squared is
+##   equivalent to eta squared. Returning eta squared.</code></pre>
 <pre><code>## $as_factorv07_genre
-## [1] &quot;$F(2, 10) = 2.56$, $\\mathit{MSE} = 120.80$, $p = .126$, $\\hat{\\eta}^2_G = .339$&quot;</code></pre>
+## [1] &quot;$F(2, 10) = 2.56$, $p = .126$, $\\hat{\\eta}^2_G = .339$, 90\\% CI $[.000, .602]$&quot;</code></pre>
 </div>
 <div id="usage-in-r-markdown" class="section level3 hasAnchor" number="8.5.2">
 <h3><span class="header-section-number">8.5.2</span> Usage in R Markdown<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#usage-in-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>This presentation is based on R Markdown, so we can make use of the pretty printing options right here</p></li>
 <li><p>By using <code>apa_print(model)$full_result</code>, we can automatically report results inside our documents:</p></li>
-<li><p>"In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (<span class="math inline">\(F(2, 10) = 2.56\)</span>, <span class="math inline">\(\mathit{MSE} = 120.80\)</span>, <span class="math inline">\(p = .126\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .339\)</span>). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (<span class="math inline">\(F(2, 127) = 47.76\)</span>, <span class="math inline">\(\mathit{MSE} = 76.90\)</span>, <span class="math inline">\(p &lt; .001\)</span>), which is also supported by the large effect size (<span class="math inline">\(\hat{\eta}^2_G = .429\)</span>)."</p></li>
+<li><p>"In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (<span class="math inline">\(F(2, 10) = 2.56\)</span>, <span class="math inline">\(p = .126\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .339\)</span>, 90% CI <span class="math inline">\([.000, .602]\)</span>). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (<span class="math inline">\(F(2, 127) = 47.76\)</span>, <span class="math inline">\(p &lt; .001\)</span>), which is also supported by the large effect size (<span class="math inline">\(\hat{\eta}^2_G = .429\)</span>, 90% CI <span class="math inline">\([.322, .516]\)</span>)."</p></li>
 </ul>
 </div>
 </div>
@@ -1224,8 +1227,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection",
-"extra_dependencies": "awesomebox"
+"collapse": "section"
 }
 });
 });

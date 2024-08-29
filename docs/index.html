@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Psychological Research in R" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Anni Tave Overlander" />
 
 
-<meta name="date" content="2024-08-21" />
+<meta name="date" content="2024-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Psychological Research in R/a></li>
+<li><a href="./"> Psychological Research in R </a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About...</a>
@@ -523,19 +523,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">Psychological Research in R</h1>
 <h2 class="subtitle"><em>An R Intro for people whose dog regularly ate their statistics homework.</em></h2>
 <p class="author"><em>Anni Tave Overlander</em></p>
-<p class="date"><em>2024-08-21</em></p>
+<p class="date"><em>2024-08-29</em></p>
 </div>
 <div id="about..." class="section level1 unnumbered hasAnchor">
 <h1>About...<a href="index.html#about..." class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>This book is still a work in progress! Most chapters are currently placeholders and will be filled over the next couple of weeks!</strong></p>
-<!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$. -->
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 <div id="this-book" class="section level2 unnumbered hasAnchor">
 <h2>...this book<a href="index.html#this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>This book is still a work in progress! Most chapters are currently placeholders and will be filled over the next couple of weeks!</strong></p>
 <blockquote>
-<p>It's actually more of a course but book sounds really fancy.</p>
+<p>It's completely based on a course, so you can either look up specific facts or go through each chapter as you would a lesson.</p>
 </blockquote>
-<p>Welcome!
-Chances are, you are a psychology student and either starting to learn R or looking to refresh your memory.
+<p>Welcome!</p>
+<p>Chances are, you are a psychology student and either starting to learn R or looking to refresh your memory.
 Or perhaps you need to look up a specific step that you <em>can never quite remember</em> (or is that just me?).
 Maybe you also came across this resource by pure chance - lucky you!</p>
 <p>In any case I am glad you are here and hope you find both what you were and weren't looking for.
@@ -545,6 +546,8 @@ Following the whole course should enable you to write your very own R Markdown r
 <p>That being said, this book is quite <em>opinionated</em>, meaning I included all the lovely things that <em>I</em> like to work with.
 You might prefer other packages and that is completely okay - I still appreciate you reading my suggestions.
 As with anything in life, a lot can be learned from other peoples approaches to things.</p>
+<p>Each chapter will end with a "Wrap-up <i class="fa-solid fa-anchor" style="color: teal;"></i> and Further Resources <i class="fa-solid fa-book" style="color: orange;"></i>"-section, i.e. a little collection of facts you should now know and some links for further reading.
+Also, in most chapters you will find some exercises or hidden code snippets, so you can test your skills as you go along.</p>
 <!-- Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading. -->
 <!-- Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`. -->
 <!-- The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book. -->
@@ -836,8 +839,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection",
-"extra_dependencies": "awesomebox"
+"collapse": "section"
 }
 });
 });

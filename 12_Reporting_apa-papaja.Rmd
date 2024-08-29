@@ -1,6 +1,12 @@
 
 # Taking full Advantage of R and R Markdown
 
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+```
+
+
 ![Happy Papaya Logo](./img/papaja.png)
 
 
@@ -190,7 +196,7 @@ ggplot(penguins) +
  
 ## Wrap-Up & Further Resources 
  
-<i class="fa-solid fa-anchor" style="color: teal;"> Wrap-Up </i>
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 
 <li> Rmd offers many options for customization</li>
 <li> Analyses can be conducted and reported in the same document</li>
@@ -201,7 +207,7 @@ ggplot(penguins) +
 
 <br>
 
-<i class="fa-solid fa-book" style="color: orange;"> Further Resources </i>
+<i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li> [MarkdownGuide](https://www.markdownguide.org/basic-syntax/)</li>
 <li> [Another Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)</li>

@@ -1,6 +1,12 @@
 
 # Wrap Up
 
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+```
+
+
 ## Discussion of Self-Study Materials
 
 <br>

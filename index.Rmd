@@ -21,16 +21,20 @@ geometry: footnotesep=20pt
 
 # About... {-}
 
-**This book is still a work in progress! Most chapters are currently placeholders and will be filled over the next couple of weeks!**
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+```
 
-
-<!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$. -->
 
 ## ...this book {-}
 
-> It's actually more of a course but book sounds really fancy.
+**This book is still a work in progress! Most chapters are currently placeholders and will be filled over the next couple of weeks!**
+
+> It's completely based on a course, so you can either look up specific facts or go through each chapter as you would a lesson.
 
 Welcome! 
+
 Chances are, you are a psychology student and either starting to learn R or looking to refresh your memory.
 Or perhaps you need to look up a specific step that you _can never quite remember_ (or is that just me?).
 Maybe you also came across this resource by pure chance - lucky you! 
@@ -44,6 +48,8 @@ That being said, this book is quite _opinionated_, meaning I included all the lo
 You might prefer other packages and that is completely okay - I still appreciate you reading my suggestions.
 As with anything in life, a lot can be learned from other peoples approaches to things. 
 
+Each chapter will end with a "Wrap-up <i class="fa-solid fa-anchor" style="color: teal;"></i> and Further Resources <i class="fa-solid fa-book" style="color: orange;"></i>"-section, i.e. a little collection of facts you should now know and some links for further reading.
+Also, in most chapters you will find some exercises or hidden code snippets, so you can test your skills as you go along.
 
 <!-- Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading. -->
 

@@ -15,7 +15,7 @@ brainteaser
 logic
 logical-examples-i
 logical-examples-ii
-putting-it-all-together
+putting-it-all-together...
 exercise-1
 solution-1
 reading-error-messages
@@ -48,7 +48,7 @@ the-tidyverse
 what-is-dplyr
 most-important-dplyr-functions
 intro-to-the-exercise
-imagine
+imagine...
 first-example
 filter
 select
@@ -102,7 +102,7 @@ browser
 loop-with-conditional
 elements
 solution-8
-and-a-more-complicated-outlook
+and-a-more-complicated-outlook...
 what-happens-here
 result-1
 wrap-up-further-resources-4

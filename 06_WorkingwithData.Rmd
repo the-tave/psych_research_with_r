@@ -1,6 +1,12 @@
 
 # Working with existing Data
 
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+```
+
+
 Please also install the _wobblynameR_ package (only available on GitHub). For that you need the _devtools_ package first:
 
 1. install.packages("devtools")

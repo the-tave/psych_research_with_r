@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Taking full Advantage of R and R Markdown | Psychological Research in R" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Anni Tave Overlander" />
 
 
-<meta name="date" content="2024-08-21" />
+<meta name="date" content="2024-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Psychological Research in R/a></li>
+<li><a href="./"> Psychological Research in R </a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About...</a>
@@ -521,6 +521,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="taking-full-advantage-of-r-and-r-markdown" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">Chapter 11</span> Taking full Advantage of R and R Markdown<a href="taking-full-advantage-of-r-and-r-markdown.html#taking-full-advantage-of-r-and-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 <div class="float">
 <img src="img/papaja.png" alt="Happy Papaya Logo" />
 <div class="figcaption">Happy Papaya Logo</div>
@@ -553,7 +555,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>dplyr</code> (or <code>tidyverse</code>)</li>
 </ul></li>
 <li><p>Assume I have created some R project and I read a file with the following command - what does this tell you about the folder on my computer?</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb213-1" tabindex="-1"></a>greatdata <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./data/somefile.CSV&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb214-1" tabindex="-1"></a>greatdata <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./data/somefile.CSV&quot;</span>)</span></code></pre></div>
 <ul>
 <li>The folder containing the R project contains a subfolder called "data" and in there is a CSV file called "somefile.csv".</li>
 </ul></li>
@@ -580,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>for, while, if, else, ifelse</em>...</li>
 </ul></li>
 <li><p>I want to calculate a t-test on soul-belief (yes or no) and age in our seminar data. Why won't this command work?</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb214-1" tabindex="-1"></a><span class="fu">t.test</span>(v02_age, soul_dummy, <span class="at">data =</span> seminar)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb215-1" tabindex="-1"></a><span class="fu">t.test</span>(v02_age, soul_dummy, <span class="at">data =</span> seminar)</span></code></pre></div>
 <ul>
 <li>When we have a grouping variable like soul_dummy, we need to use formula notation: <code>v02_age ~ soul_dummy</code></li>
 </ul></li>
@@ -676,21 +678,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="walkthrough" class="section level3 hasAnchor" number="11.3.1">
 <h3><span class="header-section-number">11.3.1</span> Walkthrough<a href="taking-full-advantage-of-r-and-r-markdown.html#walkthrough" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We will use the package <code>palmerpenguins</code> (<code>install.packages("palmerpenguins")</code>) and see whether penguins from different islands have different body mass.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb215-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb215-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb215-2" tabindex="-1"></a></span>
-<span id="cb215-3"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb215-3" tabindex="-1"></a><span class="co"># Test assumption of homoscedasticity</span></span>
-<span id="cb215-4"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb215-4" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)) <span class="co"># yay</span></span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb216-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb216-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb216-2" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb216-3" tabindex="-1"></a><span class="co"># Test assumption of homoscedasticity</span></span>
+<span id="cb216-4"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb216-4" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)) <span class="co"># yay</span></span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   2  2.2425 0.1078
 ##       339</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb217-1" tabindex="-1"></a><span class="co"># Run &amp; save ANOVA</span></span>
-<span id="cb217-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb217-2" tabindex="-1"></a>penguinmodel <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb218-1" tabindex="-1"></a><span class="co"># Run &amp; save ANOVA</span></span>
+<span id="cb218-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb218-2" tabindex="-1"></a>penguinmodel <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span></code></pre></div>
 </div>
 <div id="walkthrough-1" class="section level3 hasAnchor" number="11.3.2">
 <h3><span class="header-section-number">11.3.2</span> Walkthrough<a href="taking-full-advantage-of-r-and-r-markdown.html#walkthrough-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb218-1" tabindex="-1"></a><span class="co"># Run &amp; save post-hoc Tests</span></span>
-<span id="cb218-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb218-2" tabindex="-1"></a><span class="fu">TukeyHSD</span>(penguinmodel)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb219-1" tabindex="-1"></a><span class="co"># Run &amp; save post-hoc Tests</span></span>
+<span id="cb219-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb219-2" tabindex="-1"></a><span class="fu">TukeyHSD</span>(penguinmodel)</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -703,20 +705,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Gentoo-Chinstrap -1.328945 -2.381868 -0.2760231 0.0088993</code></pre>
 <ul>
 <li>For anova, we want to report the full statistics, a.k.a "full_result" from <code>papaja::apa_print()</code></li>
-<li><div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb220-1" tabindex="-1"></a><span class="fu">library</span>(papaja)</span>
-<span id="cb220-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb220-2" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel)<span class="sc">$</span>full_result</span></code></pre></div></li>
+<li><div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-1" tabindex="-1"></a><span class="fu">library</span>(papaja)</span>
+<span id="cb221-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-2" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel)<span class="sc">$</span>full_result</span></code></pre></div></li>
 </ul>
 </div>
 <div id="walkthrough-2" class="section level3 hasAnchor" number="11.3.3">
 <h3><span class="header-section-number">11.3.3</span> Walkthrough<a href="taking-full-advantage-of-r-and-r-markdown.html#walkthrough-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Create a boxplot and add results right in the caption!</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb221-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-2" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x=</span>species, <span class="at">y=</span>bill_length_mm, <span class="at">color=</span>species, <span class="at">fill=</span>species), <span class="at">na.rm=</span>T) <span class="sc">+</span></span>
-<span id="cb221-3"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb221-4"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bill Length (mm)&quot;</span>, </span>
-<span id="cb221-5"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-5" tabindex="-1"></a>       <span class="at">caption =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="fu">unlist</span>(apa_result))) <span class="sc">+</span></span>
-<span id="cb221-6"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-6" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb221-7"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb221-7" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb222-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-2" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x=</span>species, <span class="at">y=</span>bill_length_mm, <span class="at">color=</span>species, <span class="at">fill=</span>species), <span class="at">na.rm=</span>T) <span class="sc">+</span></span>
+<span id="cb222-3"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb222-4"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bill Length (mm)&quot;</span>, </span>
+<span id="cb222-5"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-5" tabindex="-1"></a>       <span class="at">caption =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="fu">unlist</span>(apa_result))) <span class="sc">+</span></span>
+<span id="cb222-6"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-6" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb222-7"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-7" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 </div>
 <div id="walkthrough-3" class="section level3 hasAnchor" number="11.3.4">
@@ -730,7 +732,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using RMarkdown, it is much easier to include the statistic right in the text with inline code:
 <ul>
 <li>`<em>r apa_print(penguinmodel)$full_result</em>` <br></li>
-<li><span class="math inline">\(\rightarrow\)</span> <span style="font-size: 24px"> <span class="math inline">\(F(2, 339) = 410.60\)</span>, <span class="math inline">\(\mathit{MSE} = 8.76\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .708\)</span> </span></li>
+<li><span class="math inline">\(\rightarrow\)</span> <span style="font-size: 24px"> <span class="math inline">\(F(2, 339) = 410.60\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .708\)</span>, 90% CI <span class="math inline">\([.669, .740]\)</span> </span></li>
 </ul></li>
 </ul>
 </div>
@@ -744,25 +746,25 @@ Please use the <code>penguins</code> dataset from the <code>palmerpenguins</code
 <h3><span class="header-section-number">11.4.1</span> Exercise<a href="taking-full-advantage-of-r-and-r-markdown.html#exercise-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="code-solution" class="section level4 hasAnchor" number="11.4.1.1">
 <h4><span class="header-section-number">11.4.1.1</span> Code Solution<a href="taking-full-advantage-of-r-and-r-markdown.html#code-solution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-1" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins))</span>
-<span id="cb222-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-2" tabindex="-1"></a>penguinmodel2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
-<span id="cb222-3"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-3" tabindex="-1"></a>posthoc <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(penguinmodel2)</span>
-<span id="cb222-4"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-4" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel2)<span class="sc">$</span>full_result</span>
-<span id="cb222-5"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-5" tabindex="-1"></a></span>
-<span id="cb222-6"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-6" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
-<span id="cb222-7"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-7" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm, <span class="at">color =</span> species, <span class="at">fill =</span> species), </span>
-<span id="cb222-8"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-8" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb222-9"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-9" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span> </span>
-<span id="cb222-10"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb222-11"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flipper Length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb222-12"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-12" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb222-13"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb222-13" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-1" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins))</span>
+<span id="cb223-2"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-2" tabindex="-1"></a>penguinmodel2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
+<span id="cb223-3"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-3" tabindex="-1"></a>posthoc <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(penguinmodel2)</span>
+<span id="cb223-4"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-4" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel2)<span class="sc">$</span>full_result</span>
+<span id="cb223-5"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-5" tabindex="-1"></a></span>
+<span id="cb223-6"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-6" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
+<span id="cb223-7"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-7" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm, <span class="at">color =</span> species, <span class="at">fill =</span> species), </span>
+<span id="cb223-8"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-8" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb223-9"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-9" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span> </span>
+<span id="cb223-10"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb223-11"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flipper Length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb223-12"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-12" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb223-13"><a href="taking-full-advantage-of-r-and-r-markdown.html#cb223-13" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
 <div id="wrap-up-further-resources-9" class="section level2 hasAnchor" number="11.5">
 <h2><span class="header-section-number">11.5</span> Wrap-Up &amp; Further Resources<a href="taking-full-advantage-of-r-and-r-markdown.html#wrap-up-further-resources-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<i class="fa-solid fa-anchor" style="color: teal;"> Wrap-Up </i>
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;">
 <li>
 Rmd offers many options for customization
@@ -778,7 +780,7 @@ Single values/ results can be reported with inline code
 </li>
 </ul>
 <p><br></p>
-<i class="fa-solid fa-book" style="color: orange;"> Further Resources </i>
+<i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li>
 <a href="https://www.markdownguide.org/basic-syntax/">MarkdownGuide</a>
@@ -1060,8 +1062,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection",
-"extra_dependencies": "awesomebox"
+"collapse": "section"
 }
 });
 });

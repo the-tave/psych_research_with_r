@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Creating and interpreting statistics: correlation &amp; regression | Psychological Research in R" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Anni Tave Overlander" />
 
 
-<meta name="date" content="2024-08-21" />
+<meta name="date" content="2024-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Psychological Research in R/a></li>
+<li><a href="./"> Psychological Research in R </a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About...</a>
@@ -521,6 +521,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="creating-and-interpreting-statistics-correlation-regression" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">Chapter 9</span> Creating and interpreting statistics: correlation &amp; regression<a href="creating-and-interpreting-statistics-correlation-regression.html#creating-and-interpreting-statistics-correlation-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 <div id="statistics-re-cap" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i><a href="creating-and-interpreting-statistics-correlation-regression.html#statistics-re-cap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
@@ -547,7 +549,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 zip folder in ILIAS, not the original csv file we first used!</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb178-1" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./data/seminar_data.Rds&quot;</span>) <span class="co"># the filepath might need adjustment for you</span></span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb179-1" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;./data/seminar_data.Rds&quot;</span>) <span class="co"># the filepath might need adjustment for you</span></span></code></pre></div>
 <ul>
 <li>Some of you were having trouble loading the data - please repeat the different types of data in R and the different commands used to load them! (from week 6)</li>
 <li><strong>Who is having trouble opening the slides as HTML?</strong></li>
@@ -593,11 +595,11 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </ul>
 <div id="example-2" class="section level3 hasAnchor" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Example<a href="creating-and-interpreting-statistics-correlation-regression.html#example-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb179-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
-<span id="cb179-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb179-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">10</span>)</span>
-<span id="cb179-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb179-3" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb180-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
+<span id="cb180-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb180-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">10</span>)</span>
+<span id="cb180-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb180-3" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span></code></pre></div>
 <pre><code>## [1] 0.1272727</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb181-1" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb182-1" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -618,9 +620,9 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 <li>You can often add the argument <code>na.rm = TRUE</code> to a function for "NA remove"</li>
 </ul></li>
 <li>In the <code>cor()</code> function, we define to only use complete observations</li>
-<li><div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb183-1" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb183-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb183-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="cn">NA</span>) <span class="co"># same length but 1 data point is missing</span></span>
-<span id="cb183-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb183-3" tabindex="-1"></a><span class="fu">cor</span>(k, m)</span></code></pre></div>
+<li><div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb184-1" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb184-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb184-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="cn">NA</span>) <span class="co"># same length but 1 data point is missing</span></span>
+<span id="cb184-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb184-3" tabindex="-1"></a><span class="fu">cor</span>(k, m)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre></li>
 </ul>
 </div>
@@ -628,9 +630,9 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 <h3><span class="header-section-number">9.3.3</span> Handling missing data<a href="creating-and-interpreting-statistics-correlation-regression.html#handling-missing-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>With <code>use = "complete.obs"</code> we define to only use pairs of observations that are not missing</li>
-<li><div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb185-1" tabindex="-1"></a><span class="fu">cor</span>(k, m, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<li><div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb186-1" tabindex="-1"></a><span class="fu">cor</span>(k, m, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8315218</code></pre></li>
-<li><div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb187-1" tabindex="-1"></a><span class="fu">cor</span>(k[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], m[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<li><div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb188-1" tabindex="-1"></a><span class="fu">cor</span>(k[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], m[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
 <pre><code>## [1] 0.8315218</code></pre></li>
 </ul>
 </div>
@@ -646,7 +648,7 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </div>
 <div id="solution-12" class="section level3 hasAnchor" number="9.3.5">
 <h3><span class="header-section-number">9.3.5</span> Solution <i class="fa-solid fa-computer" style="color: #ff6600;"></i> <i class="fa-solid fa-child-reaching" style="color: #ff6600;"></i><a href="creating-and-interpreting-statistics-correlation-regression.html#solution-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb189-1" tabindex="-1"></a><span class="fu">cor.test</span>(seminar<span class="sc">$</span>v05_skill_tech, seminar<span class="sc">$</span>v10_motivation)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb190-1" tabindex="-1"></a><span class="fu">cor.test</span>(seminar<span class="sc">$</span>v05_skill_tech, seminar<span class="sc">$</span>v10_motivation)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -708,9 +710,9 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </div>
 <div id="visual-inspection" class="section level3 hasAnchor" number="9.4.2">
 <h3><span class="header-section-number">9.4.2</span> Visual Inspection<a href="creating-and-interpreting-statistics-correlation-regression.html#visual-inspection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb191-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> age)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb191-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb191-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">&quot;lightgray&quot;</span>, </span>
-<span id="cb191-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb191-3" tabindex="-1"></a>              <span class="at">linewidth =</span> .<span class="dv">7</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Do trees get thicker with age?&quot;</span>) <span class="sc">+</span> <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb192-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> age)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb192-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb192-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">&quot;lightgray&quot;</span>, </span>
+<span id="cb192-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb192-3" tabindex="-1"></a>              <span class="at">linewidth =</span> .<span class="dv">7</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Do trees get thicker with age?&quot;</span>) <span class="sc">+</span> <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 <ul>
 <li>What could be problematic here?
@@ -723,8 +725,8 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 <h3><span class="header-section-number">9.4.3</span> Build the model<a href="creating-and-interpreting-statistics-correlation-regression.html#build-the-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="do-trees-get-thicker-with-age" class="section level4 hasAnchor" number="9.4.3.1">
 <h4><span class="header-section-number">9.4.3.1</span> Do trees get thicker with age?<a href="creating-and-interpreting-statistics-correlation-regression.html#do-trees-get-thicker-with-age" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb192-1" tabindex="-1"></a>Treelm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> circumference <span class="sc">~</span> age, <span class="at">data =</span> Orange)</span>
-<span id="cb192-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb192-2" tabindex="-1"></a>Treelm</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb193-1" tabindex="-1"></a>Treelm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> circumference <span class="sc">~</span> age, <span class="at">data =</span> Orange)</span>
+<span id="cb193-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb193-2" tabindex="-1"></a>Treelm</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = circumference ~ age, data = Orange)
@@ -740,7 +742,7 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </div>
 <div id="analyze-the-model" class="section level3 hasAnchor" number="9.4.4">
 <h3><span class="header-section-number">9.4.4</span> Analyze the model<a href="creating-and-interpreting-statistics-correlation-regression.html#analyze-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb194-1" tabindex="-1"></a><span class="fu">summary</span>(Treelm)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb195-1" tabindex="-1"></a><span class="fu">summary</span>(Treelm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = circumference ~ age, data = Orange)
@@ -775,8 +777,8 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </div>
 <div id="solution-13" class="section level3 hasAnchor" number="9.4.6">
 <h3><span class="header-section-number">9.4.6</span> Solution<a href="creating-and-interpreting-statistics-correlation-regression.html#solution-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb196-1" tabindex="-1"></a>age_sess <span class="ot">&lt;-</span> <span class="fu">lm</span>(session_length <span class="sc">~</span> v02_age, <span class="at">data =</span> seminar)</span>
-<span id="cb196-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb196-2" tabindex="-1"></a><span class="fu">summary</span>(age_sess)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb197-1" tabindex="-1"></a>age_sess <span class="ot">&lt;-</span> <span class="fu">lm</span>(session_length <span class="sc">~</span> v02_age, <span class="at">data =</span> seminar)</span>
+<span id="cb197-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb197-2" tabindex="-1"></a><span class="fu">summary</span>(age_sess)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = session_length ~ v02_age, data = seminar)
@@ -819,10 +821,10 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 <div id="anova-exercise" class="section level2 hasAnchor" number="9.5">
 <h2><span class="header-section-number">9.5</span> ANOVA Exercise<a href="creating-and-interpreting-statistics-correlation-regression.html#anova-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Reminder: There are generally 3 steps to an ANOVA</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb198-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 1.</span></span>
-<span id="cb198-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb198-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 2.</span></span>
-<span id="cb198-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb198-3" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
-<span id="cb198-4"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb198-4" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model) <span class="co"># 3.</span></span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb199-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 1.</span></span>
+<span id="cb199-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb199-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 2.</span></span>
+<span id="cb199-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb199-3" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
+<span id="cb199-4"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb199-4" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model) <span class="co"># 3.</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Check assumptions with Levene Test</li>
 <li>Build the model to perform an omnibus ANOVA</li>
@@ -840,15 +842,15 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </div>
 <div id="solution-14" class="section level3 hasAnchor" number="9.5.2">
 <h3><span class="header-section-number">9.5.2</span> Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i><a href="creating-and-interpreting-statistics-correlation-regression.html#solution-14" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb199-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb200-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span></code></pre></div>
 <pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
 ## factor.</code></pre>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  2  0.3112 0.7394
 ##       10</code></pre>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb202-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
-<span id="cb202-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb202-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb203-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
+<span id="cb203-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb203-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
 <pre><code>##               Df Sum Sq Mean Sq F value  Pr(&gt;F)   
 ## v12_soul_phil  2 1164.8   582.4   8.797 0.00625 **
 ## Residuals     10  662.1    66.2                   
@@ -859,7 +861,7 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 <h3><span class="header-section-number">9.5.3</span> Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i><a href="creating-and-interpreting-statistics-correlation-regression.html#solution-15" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="pairwise-comparison" class="section level4 hasAnchor" number="9.5.3.1">
 <h4><span class="header-section-number">9.5.3.1</span> Pairwise Comparison<a href="creating-and-interpreting-statistics-correlation-regression.html#pairwise-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb204-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb205-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -879,11 +881,11 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </div>
 <div id="data-viz" class="section level3 hasAnchor" number="9.5.5">
 <h3><span class="header-section-number">9.5.5</span> Data Viz <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i><a href="creating-and-interpreting-statistics-correlation-regression.html#data-viz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb206-1" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x =</span> v12_soul_phil, <span class="at">y =</span> v08_loudness, </span>
-<span id="cb206-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb206-2" tabindex="-1"></a>                    <span class="at">color =</span> v12_soul_phil, <span class="at">fill =</span> v12_soul_phil)) <span class="sc">+</span></span>
-<span id="cb206-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb206-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb206-4"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb206-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Soul Philosophy&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Preferred Volume (arbitrary units)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb206-5"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb206-5" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-1" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x =</span> v12_soul_phil, <span class="at">y =</span> v08_loudness, </span>
+<span id="cb207-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-2" tabindex="-1"></a>                    <span class="at">color =</span> v12_soul_phil, <span class="at">fill =</span> v12_soul_phil)) <span class="sc">+</span></span>
+<span id="cb207-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb207-4"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Soul Philosophy&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Preferred Volume (arbitrary units)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb207-5"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-5" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <!-- ```{r} -->
 <!-- model <- data.frame(age = Orange$age, -->
@@ -930,9 +932,9 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 <a href="https://www.codecademy.com/learn/learn-linear-regression-in-r/modules/linear-regression-in-r/cheatsheet/">lm() cheatsheet</a>
 </li>
 </ul>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> Tree)) <span class="sc">+</span></span>
-<span id="cb207-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>) <span class="sc">+</span></span>
-<span id="cb207-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb207-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Tree)) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb208-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> Tree)) <span class="sc">+</span></span>
+<span id="cb208-2"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb208-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>) <span class="sc">+</span></span>
+<span id="cb208-3"><a href="creating-and-interpreting-statistics-correlation-regression.html#cb208-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Tree)) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 
 </div>
@@ -1197,8 +1199,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection",
-"extra_dependencies": "awesomebox"
+"collapse": "section"
 }
 });
 });

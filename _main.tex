@@ -106,7 +106,6 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-\usepackage{booktabs}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -130,7 +129,7 @@
 \makeatother
 \subtitle{An R Intro for people whose dog regularly ate their statistics homework.}
 \author{Anni Tave Overlander}
-\date{2024-07-24}
+\date{2024-08-29}
 
 \begin{document}
 \maketitle
@@ -490,23 +489,28 @@ This line of code takes the data set \texttt{iris}, which is included in R by de
 
 \begin{figure}
 \centering
-\includegraphics{./img/iris.png}
+\includegraphics{img/iris.png}
 \caption{Iris Flower}
 \end{figure}
 
 \section{Basics}\label{basics}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+R is an object-based language.
+The great advantage of that is we can assign values, vectors, text, matrices or almost anything else to variables and access them more easily later.
+To do that, we use the \(\leftarrow\) like so: \newline
+\texttt{x\ \textless{}-\ c(1,\ 2,\ 3)}
+Go ahead and try it out!
+If you had too much fun assigning variables, you can remove them again from your work environment using the \texttt{rm()} command in the Console.
+So, if you assign the values 1, 2 and 3 to \texttt{x}, you can type \texttt{rm(x)} into the console, hit enter and x has disappeared from your environment!
+
 \begin{itemize}
 \tightlist
-\item
-  Assign variables with the \(\leftarrow\) like so: \newline 
-  \texttt{x\ \textless{}-\ c(1,\ 2,\ 3)}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    To avoid a cluttered work environment, \texttt{rm()} removes variables
-  \end{itemize}
 \item
   Execute a line of code with \texttt{ctrl\ +\ enter} in the editor
 
@@ -853,15 +857,44 @@ Hint: You will need logic, the mean()-function and square brackets. Use \textbf{
 
 \section{Reading Error Messages}\label{reading-error-messages}
 
+Even the most advanced R coder will encounter the occasional error message.
+While they are quite helpful and usually lead to being able to solve problems, it can be challenging to learn how to properly read the message in order to actually understand what the problem is.
+Therefore, we will look at some of the most common wordings to decipher what R needs so it can understand what we want to do.
+
+Think of error messages not as discouraging faults of your program but rather as invites to help you help R understand what you are trying to achieve.
+
+\subsubsection*{\texorpdfstring{\emph{Error: unexpected `X' in ``Y''}}{Error: unexpected `X' in ``Y''}}\label{error-unexpected-x-in-y}
+\addcontentsline{toc}{subsubsection}{\emph{Error: unexpected `X' in ``Y''}}
+
+This message is fairly straightforward:
+R expected a certain kind of symbol at the place where we put `X' and is now confused because our input did not match the expectation.
+
+For most Europeans, for example, the most commonly used decimal separator will be a comma.
+Since R is an american-built language, however, it expects decimals to be separated with a decimal point while commas indicate separate inputs to a function.
+Therefore, when we accidentally input a decimal as `3,141', we will receive the error message \emph{Error: unexpected `,' in ``3,''} because R expected the input to be something like `3.141'.
+
+\textbf{Fix: Replace the `x' in ``Y'' with something that R can understand.} Or alternatively: Make sure that we meant the input like that.
+
+\subsubsection*{\texorpdfstring{\emph{Error: object `A' not found}}{Error: object `A' not found}}\label{error-object-a-not-found}
+\addcontentsline{toc}{subsubsection}{\emph{Error: object `A' not found}}
+
+This, too, is pretty understandable message:
+The object that you are trying to access and use cannot be found by R.
+The most common cause for this error message is probably simply that you misspelled the object name somewhere.
+R is case-sensitive, so maybe object \emph{A} was defined as object \emph{a}?
+Maybe the object \emph{vector} is spelled \emph{vcteor} in your function?
+
+Moreover, sometimes our thoughts are two steps ahead of our code.
+When figuring out how to get a program to work, sometimes we presume that a variable exists just because we need it and forget to define the variable up front.
+The same goes if we try to access a variable in a data frame that was maybe defined in a different data frame or as its own vector - it simply cannot be found because we are having R look in the wrong place.
+
+\textbf{Fix: Make sure the object name is spelled correctly and was defined prior to using it in a function, calculation or elsewhere.}
+
+This error message also often appears with ``function xyz not found''.
+In this case, we probably forgot to load the package first, which contains that function.
+Thus, the fix will likely be to figure out which package contains the function we are trying to use and load it with the \texttt{library()} command.
+
 \begin{itemize}
-\item
-  Mistakes happen to everyone
-\item
-  Error messages are often frustrating but helpful
-\item
-  Many common ``beginner problems'' are fairly easy to fix once you understand the error
-\item
-  Try to think of error messages as invites to help R understand what you are trying to achieve!
 \item
   \begin{figure}
   \centering
@@ -870,77 +903,9 @@ Hint: You will need logic, the mean()-function and square brackets. Use \textbf{
   \end{figure}
 \end{itemize}
 
-\subsection{\texorpdfstring{\emph{Error: unexpected `X' in ``Y''}}{Error: unexpected `X' in ``Y''}}\label{error-unexpected-x-in-y}
-
-\begin{itemize}
-\tightlist
-\item
-  Pretty straightforward: R expects a certain kind of symbol where `X' is
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Input did not match the expectation
-  \end{itemize}
-\item
-  For example: Comma as a decimal separator
-
-  \begin{itemize}
-  \tightlist
-  \item
-    In almost all (american-built) coding, the decimal separator is a point
-  \item
-    Input: '3,141'will receive the error message \emph{Error: unexpected `,' in ``3,''}
-  \item
-    R expected the input to be `3.141'
-  \end{itemize}
-\item
-  \(\rightarrow\) \textbf{Fix: Replace the `x' in ``Y'' with something that R can understand.}
-\end{itemize}
-
-\subsection{\texorpdfstring{\emph{Error: object `A' not found}}{Error: object `A' not found}}\label{error-object-a-not-found}
-
-\begin{itemize}
-\item
-  Object you are trying to use cannot be found by R
-\item
-  Most common cause: probably you misspelled the object name somewhere
-
-  \begin{itemize}
-  \tightlist
-  \item
-    R is case-sensitive: was object \emph{A} defined as \emph{a}?
-  \item
-    Or maybe \emph{vector} is spelled \emph{vcteor} in your function?
-  \end{itemize}
-\item
-  Maybe a variable was never defined but now you want to use it?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Or it was defined in a (different) data frame?
-  \end{itemize}
-\item
-  \(\rightarrow\) \textbf{Fix: Make sure the object name is spelled correctly and was defined prior to using it in a function, calculation or elsewhere.}
-\item
-  Also often appears with ``function xyz not found''
-\item
-  In this case, we probably forgot to load the package first, which contains that function
-\item
-  \textbf{Fix: Figure out which package is needed and load it with the \texttt{library()} command}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    If you still encounter an error like ``there is no package called `xyz'\,'', either the name of the package is misspelled or you need to install it first using \texttt{install.packages()}
-  \end{itemize}
-\end{itemize}
-
 \subsection{\texorpdfstring{\emph{Error}: R does nothing after running a command}{Error: R does nothing after running a command}}\label{error-r-does-nothing-after-running-a-command}
 
 \begin{itemize}
-\tightlist
 \item
   This is not an error message but still very common, especially at the beginning
 \item
@@ -961,12 +926,6 @@ Hint: You will need logic, the mean()-function and square brackets. Use \textbf{
   \end{itemize}
 \item
   \(\rightarrow\) \textbf{Fix: Click in your console and use the \texttt{Esc} button to cancel the command. Then, look at the code you were trying to run and see if there is some closing statement such as \texttt{)} missing and try again.}
-\end{itemize}
-
-\subsection{\texorpdfstring{\emph{Error}: R does nothing after running a command}{Error: R does nothing after running a command}}\label{error-r-does-nothing-after-running-a-command-1}
-
-\begin{itemize}
-\tightlist
 \item
   We have not talked about the \%\textgreater\%-pipe in depth, but you will hopefully start to love this tool and use it a lot
 \item
@@ -989,33 +948,33 @@ Try to identify them and how they might be fixed. Feel free to test them out if 
 
 \texttt{Library(greatpackage)}
 
-\texttt{mean(coolvariable)}
-
-\texttt{a\ \textless{}-\ c(1,\ 3,\ 6,\ 7}
-
-\texttt{b\ \textless{}-\ c(2,\ 4;\ 6,\ 8)}
-
-\subsection{Solution}\label{solution-2}
+Solution
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{Library(greatpackage)} - two problems:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{library} should not be capitalized
-  \item
-    ``greatpackage'' does not exist and can thus not be loaded
-  \end{itemize}
+  \texttt{library} should not be capitalized
 \item
-  \texttt{mean(coolvariable)}: coolvariable was not defined previously
-\item
-  \texttt{a\ \textless{}-\ c(1,\ 3,\ 6,\ 7}: the command is not finished, it needs a closing parentheses
-\item
-  \texttt{b\ \textless{}-\ c(2,\ 4;\ 6,\ 8)}: we need all commas to seperate numbers in a vector, not a semicolon
+  ``greatpackage'' does not exist and can thus not be loaded
 \end{itemize}
+
+\texttt{mean(coolvariable)}
+
+Solution
+
+coolvariable was not defined previously
+
+\texttt{a\ \textless{}-\ c(1,\ 3,\ 6,\ 7}
+
+Solution
+
+the command is not finished, it needs a closing parentheses
+
+\texttt{b\ \textless{}-\ c(2,\ 4;\ 6,\ 8)}
+
+Solution
+
+we need all commas to separate numbers in a vector, not a semicolon
 
 \section{Wrap-Up \& Further Resources}\label{wrap-up-further-resources}
 
@@ -1063,85 +1022,58 @@ Errors should be invitations to make your code more understandable for R
   Make R your own: \includegraphics[width=\textwidth,height=0.41667in]{./img/appearance.png}
 \end{itemize}
 
-\section{Naming Things}\label{naming-things}
+\section{Naming Conventions}\label{naming-conventions}
+
+R is a so-called \emph{object-oriented} language.
+What that means for us is mostly that all our data exist as ``objects'' as far is R is concerned.
+Just like in real life, we can \emph{do} stuff with those objects now, which is called using a \emph{function} or \emph{command}.
+Which brings me to the importance of proper names for all your variables, data sets, functions\ldots{}
+Everything.
+
+If we go to the market and I tell you to get me an apple, you will probably be confused if there are many types of apples, maybe different colors, maybe different breeds.
+Basically, if I don't specify which apple I want, you are not able to pick out the right one.
+The same is true for R: If you try to call a function but fail to specify what object to use the function on, R is confused and throws you an error.
+
+Now, this may seem pretty obvious but it is a pretty common source of errors, especially during the ``steep phase'' of the learning curve.
+In R, \texttt{abc} is a different object than \texttt{ABC}, which is different from \texttt{a\_b\_c}, which is different from \texttt{A.B.C}. All of these variants are possible ways of naming your objects in R.
+However, it makes everyone's life significantly easier to stick to some naming-guidelines.
 
 \begin{itemize}
 \tightlist
 \item
-  R is a so-called \emph{object-oriented} language.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    All our data exist as ``objects''
-  \item
-    To \emph{do} stuff with those objects is called using a \emph{function} or \emph{command}
-  \end{itemize}
+  Preferably use \textbf{lower-case} variable names, e.g.~\texttt{gender} instead of \texttt{Gender} or \texttt{GENDER}.
 \item
-  Naming of objects is an every-day aspect of working with R
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Proper naming makes our life so much easier!
-  \end{itemize}
+  Preferably use an \textbf{underscore} to differentiate between different words in your object names if necessary, e.g.~\texttt{music\_preference}.
+\item
+  \textbf{Avoid using numbers} in your names because likely either you or R will get confused with this at some point, e.g.~\texttt{raw\_data} instead of \texttt{data1}\footnote{Additionally, the 1 (one) and the l (lower-case L) can look very similar, which makes thing just even worse when trying to figure out an error.}.
+\item
+  Use \textbf{abbreviations} where useful, e.g.~\texttt{rt} instead of \texttt{reaction\_times}.
+\item
+  Use \textbf{names that will still make sense} to you in the future, i.e.~avoid names like \texttt{asdf\_data} or \texttt{blibblobfundata}. The best case scenario would be that your variable names also makes sense to other people if they try to understand your code!
 \end{itemize}
 
-\subsection{Different Naming Conventions}\label{different-naming-conventions}
+I will admit that some of these pieces of advice are more opinionated personal experience than objective facts.
+The more you work with variables and maybe also code from other people, you may form your own opinions on what the best naming conventions are for you.
+I strongly suggest finding a way that works for you and sticking with it.
+As I described above, I personally will try to stick to \emph{lower\_snake\_case} to name my variables because it is usually very clear, easy to read by humans and computers and would also be usable in any other programming language.
 
-\begin{itemize}
-\tightlist
-\item
-  R is case-sensitive
+Another thing that can take some time to get used to is avoiding white spaces in file names and any other names, for that matter.
+R has problems finding files with names such as ``My file with a really specific name.bib'', which can easily be avoided by sticking to snake\_case: ``My\_file\_with\_a\_really\_specific\_name.bib''.
+The same goes for variables: In my first class, we discovered that it is possible in R to set a variable name with a space.
+Just because it's possible does not mean anybody should do it. Ever.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \(\rightarrow\) \texttt{abc} is a different object than \texttt{ABC}, which is different from \texttt{a\_b\_c}, which is different from \texttt{A.B.C} \ldots{}
-  \item
-    All of these variants are possible!
-  \end{itemize}
-\item
-  Every programming language has slightly different conventions, e.g.~Python usually uses \texttt{snake\_case}
+You can try it out: Enter \texttt{"hi\ there"\ \textless{}-\ 5} in your console to assign the value 5 to a variable named \texttt{hi\ there}.
+You will see it appear in your working environment, but accessing the variable is virtually impossible.
+If you just type \texttt{hi\ there} in the console and hit Enter, R will give you an error à la \emph{``unexpected symbol''}.
+But if you type \texttt{"hi\ there"}, it will echo the text back to you.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Also advisable for R :)
-  \end{itemize}
-\item
-  Avoid white spaces in all types of names
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=4.16667in]{./img/varname.webp}
+\caption{Naming Conventions}\label{id}
+\end{figure}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Especially important in file names! R has problems finding files with names such as ``My file with a really specific name.bib''
-  \item
-    Easy fix: ``My\_file\_with\_a\_really\_specific\_name.bib''
-  \end{itemize}
-\end{itemize}
-
-\subsection{Naming conventions in R}\label{naming-conventions-in-r}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Lower-case} variable names, e.g.~\texttt{gender} instead of \texttt{Gender} or \texttt{GENDER}
-\item
-  \textbf{Underscore} to differentiate between different words in your object names if necessary, e.g.~\texttt{music\_preference}
-\item
-  \textbf{Avoid using numbers} in your names because likely either you or R will get confused with this at some point, e.g.~\texttt{raw\_data} instead of \texttt{data1}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    1 (one) and the l (lower-case L) can look very similar
-  \end{itemize}
-\item
-  Use \textbf{abbreviations} where useful, e.g.~\texttt{rt} instead of \texttt{reaction\_times}
-\item
-  Use \textbf{names that will still make sense} to you in the future, i.e.~avoid names like \texttt{asdf\_data} or \texttt{blibblobfundata}
-\end{itemize}
+\url{https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/}
 
 \subsection{Exercise: Name Examples}\label{exercise-name-examples}
 
@@ -1202,7 +1134,7 @@ In order to prepare for data analysis, we want to simulate what the data might l
 
 We are going to measure their age and IQ score and we will be assessing class 7a and 7b.
 
-\section{Exercise: Creating Data meaningfully}\label{exercise-creating-data-meaningfully}
+\subsection{Exercise: Creating Data meaningfully}\label{exercise-creating-data-meaningfully}
 
 Create \textbf{two data frames} - one for each class.
 They should each contain \textbf{n = 20 entries} (for 20 kids) and \textbf{2 variables i.e.~age and iq score}.
@@ -1211,7 +1143,7 @@ We assume \textbf{age is a random number from 12 to 15} and \textbf{iq follows n
 Afterwards, add a variable to code the \textbf{class} to each data frame and add them together \textbf{underneath each other}.
 Use the functions on the board and look in the R help if you need more input on how to use them.
 
-\subsection{Solution I}\label{solution-i}
+\subsection{Solution}\label{solution-2}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1229,17 +1161,15 @@ Use the functions on the board and look in the R help if you need more input on 
 
 \begin{verbatim}
 ## 'data.frame':    20 obs. of  2 variables:
-##  $ age: int  15 12 15 12 13 15 15 12 13 14 ...
-##  $ iq : num  101 84.5 103 100.9 102.1 ...
+##  $ age: int  15 12 12 12 15 12 13 14 12 15 ...
+##  $ iq : num  101.1 98.9 107.2 90.1 107.8 ...
 \end{verbatim}
 
 \begin{verbatim}
 ## 'data.frame':    20 obs. of  2 variables:
-##  $ age: int  14 12 12 14 13 13 12 13 15 13 ...
-##  $ iq : num  115.7 118.6 113 127.1 92.9 ...
+##  $ age: int  13 12 12 14 15 13 12 13 12 12 ...
+##  $ iq : num  98.2 101.6 120.2 99.3 74.2 ...
 \end{verbatim}
-
-\subsection{Solution II}\label{solution-ii}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1257,8 +1187,8 @@ Use the functions on the board and look in the R help if you need more input on 
 
 \begin{verbatim}
 ## 'data.frame':    40 obs. of  3 variables:
-##  $ age  : int  15 12 15 12 13 15 15 12 13 14 ...
-##  $ iq   : num  101 84.5 103 100.9 102.1 ...
+##  $ age  : int  15 12 12 12 15 12 13 14 12 15 ...
+##  $ iq   : num  101.1 98.9 107.2 90.1 107.8 ...
 ##  $ class: chr  "7a" "7a" "7a" "7a" ...
 \end{verbatim}
 
@@ -1457,14 +1387,6 @@ Make R fun and appealing to use FOR YOU!
 \href{https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html}{Starting your R projects}
 
 \href{https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/}{RStudio Projects and Directories} (rather thorough)
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth,height=4.16667in]{./img/varname.webp}
-\caption{Naming Conventions}\label{id}
-\end{figure}
-
-\url{https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/}
 
 \chapter{\texorpdfstring{Into the \texttt{tidyverse}: Data munging with \texttt{dplyr}}{Into the tidyverse: Data munging with dplyr}}\label{into-the-tidyverse-data-munging-with-dplyr}
 
@@ -2316,20 +2238,6 @@ Follow the structure to group the edited seminar data by belief in the soul and 
 ## 3 yes       22.5         42   rock                67.5     6
 \end{verbatim}
 
-\subsection{Exercise: In teams of 2}\label{exercise-in-teams-of-2}
-
-In teams of 2, think about your own thesis (if you don't have a topic yet, just think of something that you \emph{might} want to research):
-
-\begin{itemize}
-\tightlist
-\item
-  Which of our variables in the seminar data are similar to those that you want to analyze?
-\item
-  What can we do to prepare you for being able to conduct your analyses?
-\item
-  Write down your thoughts so we can use some ideas in our coming classes!
-\end{itemize}
-
 \section{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-3}
 
 Reading in data works with commands like readRDS() but also the ``Import Dataset'' Menu
@@ -2848,7 +2756,7 @@ Don't forget to play and create fun loops!
   What do we want to accomplish?
 \end{itemize}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-45-1.pdf}
 
 \subsection{\texorpdfstring{Data Viz has many many applications }{Data Viz has many many applications }}\label{data-viz-has-many-many-applications}
 
@@ -2880,9 +2788,9 @@ Don't forget to play and create fun loops!
   This relationship cannot be found with common statistics - the correlation
 \end{itemize}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-42-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-46-1.pdf}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-43-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-47-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -2949,7 +2857,7 @@ Don't forget to play and create fun loops!
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-44-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-48-1} \end{flushleft}
 
 \subsection{Making Plots Prettier}\label{making-plots-prettier}
 
@@ -2998,7 +2906,7 @@ Don't forget to play and create fun loops!
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-45-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-49-1} \end{flushleft}
 
 \begin{itemize}
 \tightlist
@@ -3015,7 +2923,7 @@ Don't forget to play and create fun loops!
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-46-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-50-1} \end{flushleft}
 
 \begin{itemize}
 \tightlist
@@ -3072,7 +2980,7 @@ Make sure everything is visible and legible, so try to use an \emph{alpha} of ar
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-48-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-52-1} \end{flushleft}
 
 \section{Adding labels and themes}\label{adding-labels-and-themes}
 
@@ -3112,7 +3020,7 @@ Make sure everything is visible and legible, so try to use an \emph{alpha} of ar
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-49-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-53-1} \end{flushleft}
 
 \begin{itemize}
 \tightlist
@@ -3132,7 +3040,7 @@ Make sure everything is visible and legible, so try to use an \emph{alpha} of ar
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-50-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-54-1} \end{flushleft}
 
 \section{Bivariate Visualizations}\label{bivariate-visualizations}
 
@@ -3178,7 +3086,7 @@ As suggested by one of you, we will look at the relationship of preferred music 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-51-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-55-1.pdf}
 
 \subsection{Exercise: Boxplot}\label{exercise-boxplot}
 
@@ -3198,7 +3106,7 @@ Try to add \emph{labels} and a \emph{theme}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-52-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-latex/unnamed-chunk-56-1} \end{flushleft}
 
 \subsection{Inspiration: colors and palettes}\label{inspiration-colors-and-palettes}
 
@@ -3226,7 +3134,7 @@ Try to add \emph{labels} and a \emph{theme}.
 
 \subsection{Use: colors and palettes}\label{use-colors-and-palettes}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-53-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-57-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -3263,8 +3171,6 @@ Color palettes are a great way of elevating a visualization
 \href{https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/}{Beautiful Plotting Guide} Very extensive, I still profit from this guide a lot :)
 
 \href{http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually}{More color palettes explained}
-
-\section{Thank you!}\label{thank-you}
 
 \includegraphics{_main_files/figure-latex/unikn-plot-1.pdf}
 
@@ -3312,7 +3218,7 @@ They measure \emph{group differences}
   ANOVA \(\rightarrow\) three or more groups with one (or more) continuous attribute(s)
 \end{itemize}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-55-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-60-1.pdf}
 
 \subsection{Pre-Requisites}\label{pre-requisites}
 
@@ -3928,8 +3834,6 @@ It will create a document with some demo content.
 When you click the ``knit''-button below the main menu, you will need to save the file and it will create the output.
 Try to play around with the text and read the demo content - it explains the basic functions!
 
-\section{Thank you!}\label{thank-you-1}
-
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth,height=4.47917in]{./img/sweet-anova.png}
@@ -3963,7 +3867,7 @@ Try to play around with the text and read the demo content - it explains the bas
   \end{itemize}
 \end{itemize}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-73-1.pdf}
 
 \subsection{Pre-Requisites}\label{pre-requisites-1}
 
@@ -4024,7 +3928,7 @@ Try to play around with the text and read the demo content - it explains the bas
 
 \subsection{Guess the correlation!}\label{guess-the-correlation}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-69-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-75-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -4260,7 +4164,7 @@ Try to formulate an interpretation as you would report it in a thesis or paper!
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-81-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -4384,7 +4288,7 @@ Use the \texttt{lm()} function and report the significance level of the predicto
 
 ``The age of a person does not significantly predict the time it took them to complete the survey (p = .148). The model equation is 182.7 -4.19X with age explaining about 18\% of the variance in session length for the survey.''
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-79-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-85-1.pdf}
 
 \subsection{A word to the wise}\label{a-word-to-the-wise}
 
@@ -4514,7 +4418,7 @@ Choose and create an appropriate visualization for this data!
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-83-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-89-1.pdf}
 
 \section{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-7}
 
@@ -4534,8 +4438,6 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 
 \href{https://www.codecademy.com/learn/learn-linear-regression-in-r/modules/linear-regression-in-r/cheatsheet/}{lm() cheatsheet}
 
-\section{Thank you!}\label{thank-you-2}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{ggplot}\NormalTok{(Orange, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ circumference, }\AttributeTok{color =}\NormalTok{ Tree)) }\SpecialCharTok{+}
@@ -4544,7 +4446,7 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-84-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-90-1.pdf}
 
 \chapter{Intro to R Markdown}\label{intro-to-r-markdown}
 
@@ -4866,8 +4768,6 @@ Show equations and use other special features
 
 \href{https://www.youtube.com/watch?v=01KifhHDkFk&ab_channel=EquitableEquations}{YouTube: Presentations with Quarto}
 
-\section{Thank you!}\label{thank-you-3}
-
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth,height=5.72917in]{img/shakespeare.jpg}
@@ -5062,15 +4962,18 @@ Show equations and use other special features
     That's why they share similar notation
   \end{itemize}
 \item
-  \textbf{Web Link:}
+  \begin{longtable}[]{@{}l@{}}
+  \toprule\noalign{}
+  Web Link:** \\
+  \midrule\noalign{}
+  \endhead
+  \bottomrule\noalign{}
+  \endlastfoot
+  ``\href{www.google.com}{Google Link}'' \\
+  \end{longtable}
 
   \begin{itemize}
-  \item
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{[}\OtherTok{Google Link}\CommentTok{](www.google.com)}
-\end{Highlighting}
-\end{Shaded}
+  \tightlist
   \item
     Becomes: \href{https://www.google.com/}{Google Link} (clickable Link)
   \end{itemize}
@@ -5078,23 +4981,16 @@ Show equations and use other special features
   \textbf{Image:}
 
   \begin{itemize}
+  \tightlist
   \item
-\begin{Shaded}
-\begin{Highlighting}[]
-\AlertTok{![image description](C:/path/to/your/image.png)}
-\end{Highlighting}
-\end{Shaded}
+    ``\includegraphics{C:/path/to/your/image.png}''
   \item
     Different file formats, such as JPG, PNG, SVG or GIF
   \end{itemize}
 \item
   When including an image, make sure you are using the right file path, image name \& file extension! So that\ldots{}
 \item
-\begin{Shaded}
-\begin{Highlighting}[]
-\AlertTok{![RMarkdown Logo]("./img/rmd.png")}
-\end{Highlighting}
-\end{Shaded}
+  ``\includegraphics{"./img/rmd.png"}''
 \item
   \ldots becomes\ldots{}
 \item
@@ -5214,7 +5110,7 @@ Create a boxplot and add results right in the caption!
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-100-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-104-1.pdf}
 
 \subsection{Walkthrough}\label{walkthrough-3}
 
@@ -5290,8 +5186,6 @@ Further Resources
 \href{https://statisticsglobe.com/ggsignif-package-r}{ggsignif package example}
 
 \href{https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html}{Bibliography and Citation}
-
-\section{Thank you!}\label{thank-you-4}
 
 \begin{figure}
 \centering
@@ -5518,8 +5412,6 @@ Further Resources
 \href{https://github.com/fontikar/ohwhaley}{GitHub: Ohwhaley package}
 
 \href{https://www.youtube.com/@useRConference_global}{YouTube: useR! conference}
-
-\section{Thank you!}\label{thank-you-5}
 
 Hadley Wickham GIFfrom Hadley GIFs
 

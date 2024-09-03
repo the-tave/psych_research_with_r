@@ -1,0 +1,325 @@
+
+# R Basics and how to read error messages
+
+![Iris Flower](img/iris.png)
+
+## Basics
+<!-- Remove Image and plot borders -->
+<!-- Include jQuery -->
+```{=html}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+```
+
+```{=html}
+<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+```
+
+
+```{r}
+library(dplyr)
+```
+
+
+R is an object-based language.
+The great advantage of that is we can assign values, vectors, text, matrices or almost anything else to variables and access them more easily later.
+To do that, we use the $\leftarrow$ like so:  \newline
+`x <- c(1, 2, 3)`
+Go ahead and try it out!
+If you had too much fun assigning variables, you can remove them again from your work environment using the `rm()` command in the Console.
+So, if you assign the values 1, 2 and 3 to `x`, you can type `rm(x)` into the console, hit enter and x has disappeared from your environment!
+
+- Execute a line of code with `ctrl + enter` in the editor
+    - In console you just need to press `enter`
+- Text aka _strings_ need to be put in quotes so it can be recognized as such
+    - `some_text <- c("amazing", "wow")`
+- Comments can and should be added to your code using the `#`
+
+
+### Basic Functions
+
+```{r}
+a <- c(1, 2, 3, 4)
+b <- c(5, 7, 9, 11)
+mean(a)
+sd(b)
+min(b)
+```
+
+
+```{r}
+max(b)
+a+b
+sum(b)
+length(a)
+```
+
+
+```{r}
+v <- 3:9
+v # look at the variable
+range(v)
+d <- c(10:15, 20:25)
+```
+
+
+```{r}
+d # look at the variable
+d[1] # index
+d[d==10]
+which(d==12)
+```
+
+You can practice these functions on your own and definitely check out the [Exercises](#exercises) section! 
+
+> **Brainteaser** <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>
+> We define two variables in the following way: 
+
+> ```{r}
+> e <- 1:5
+> f <- 2:5
+> ```
+
+> Let's say we want to access the number 5 in both variables. 
+> How come `e[5]` works but `f[5]` does not? 
+
+Now, you may be wondering why I skipped the letter c and whether you should be taking the word of someone who clearly does not know their ABCs.
+The reason is quite simple: You already saw the function `c()` in the last chapter, which is used to create variables that are larger than one entry^[Technically, that is also not true as you just saw that we can create continuous sequences with a colon, i.e. `1:3` is 1, 2, 3.].
+It stands for combine and it was used in the code above to create the variable `d`, containing two sequences.
+So, while you can use single letters as variable names for placeholders, it is generally not a great idea to use `c` - if we can avoid confusing for ourselves, we want to do it.
+There is a whole section on how to name your variables in Section \@ref(varnames) so that future-you won't be mad.
+
+## Logic
+
+Next to numeric variables like `a` and `b` that hold numbers, and string variables that hold `"text"`, there are also so-called _boolean_ variables.
+They can only hold the values **TRUE** or **FALSE** and are either assigned specifically by you, the user, or result from basically asking R a yes-or-no question.
+For example:
+
+```{r}
+# Is 3 smaller than 7?
+3 < 7
+# Is 3 smaller than 2?
+3 < 2
+```
+
+Now, these examples are fairly trivial but boolean variables using logic can be really helpful, e.g. for filtering data.
+You can find the mean of some variable for a specific group by telling R your criteria and the operation you want to conduct on the filtered data.
+Let's say we asked some students about their gender and their skills with R.
+If we want to know the average R skills of male students we would tell R: "If the gender of a participant is male, include them in the mean value for R skill".
+So our code would look something like this:
+
+```{r eval = F}
+mean_r_skill_m <- mean(data$r_skill[data$gender == "male"])
+```
+
+Of course, if you try to run this code you will probably encounter one of the errors described in the next section, because we do not currently have a dataset called `data`.
+But you can try out the principle with one of the [Exercises](#exercises)! 
+Depending on the analysis you need, you can use any of these so-called "logic operators":
+
+```{r}
+x <- 4; y <- 5
+x < y # smaller than
+x <= 4 # smaller/ equal
+x > y # greater than
+x >= 3 # greater/ equal
+```
+
+
+```{r}
+x == y # equal to
+x != y # not equal to
+z <- TRUE
+z
+!z
+```
+
+## Reading Error Messages
+
+Even the most advanced R coder will encounter the occasional error message.
+While they are quite helpful and usually lead to being able to solve problems, it can be challenging to learn how to properly read the message in order to actually understand what the problem is.
+Therefore, we will look at some of the most common wordings to decipher what R needs so it can understand what we want to do.
+
+Think of error messages not as discouraging faults of your program but rather as invites to help you help R understand what you are trying to achieve.
+
+#### _Error: unexpected 'X' in "Y"_ {-}
+
+This message is fairly straightforward: 
+R expected a certain kind of symbol at the place where we put 'X' and is now confused because our input did not match the expectation.
+
+For most Europeans, for example, the most commonly used decimal separator will be a comma.
+Since R is an american-built language, however, it expects decimals to be separated with a decimal point while commas indicate separate inputs to a function.
+Therefore, when we accidentally input a decimal as '3,141', we will receive the error message _Error: unexpected ',' in "3,"_ because R expected the input to be something like '3.141'.
+
+**Fix: Replace the 'x' in "Y" with something that R can understand.** Or alternatively: Make sure that we meant the input like that. 
+
+#### _Error: object 'A' not found_ {-}
+
+This, too, is pretty understandable message:
+The object that you are trying to access and use cannot be found by R.
+The most common cause for this error message is probably simply that you misspelled the object name somewhere.
+R is case-sensitive, so maybe object _A_ was defined as object _a_?
+Maybe the object _vector_ is spelled _vcteor_ in your function?
+
+Moreover, sometimes our thoughts are two steps ahead of our code.
+When figuring out how to get a program to work, sometimes we presume that a variable exists just because we need it and forget to define the variable up front.
+The same goes if we try to access a variable in a data frame that was maybe defined in a different data frame or as its own vector - it simply cannot be found because we are having R look in the wrong place.
+
+**Fix: Make sure the object name is spelled correctly and was defined prior to using it in a function, calculation or elsewhere.**
+
+This error message also often appears with "function xyz not found".
+In this case, we probably forgot to load the package first, which contains that function.
+Thus, the fix will likely be to figure out which package contains the function we are trying to use and load it with the `library()` command.
+
+
+
+### _Error_: R does nothing after running a command {-}
+
+This is not an error message but it is still very common, especially at the beginning of your learning journey.
+Usually, there is a `> ` symbol at the beginning of your console input line, which indicates that R is ready to run some code.
+However, if R is "unfinished" with a command, you see a `+ ` instead.
+This happens when R can`t work with the command because there is something missing, which in most cases, will be a closing parenthesis.
+    
+**Fix: Click in your console and use the `Esc` button to cancel the command. Then, look at the code you were trying to run and see if there is some closing statement such as `)` missing and try again.**
+
+### The pipe operator `|>` or `%>%` {-}
+
+Next to missing closing parentheses, a classic source for this behavior is the so-called pipe operator, created with either `|>` (native R pipe, available since R version XXX) or `%>%` (tidyverse pipe from the `magrittr` package).
+It will be used a lot starting in Chapter \@ref(dplyr) and it is probably one of my personal favorite R features.
+The pipe allows you to use previous operations in the next one easily and clearly.
+In reality this relates to not drowning in parenthesis and everything in the `tidyverse` is designed to be used with a pipe.
+
+Let me show you what I mean: We will create a variable that contains some numbers and we want to find the average value rounded to two decimal spaces.
+We already know the `mean()` function; to round a number we use the `round()` function and define how many decimal places to round to after we input the value we want to round.
+
+```{r}
+# Code without pipe
+round(mean(c(5, 9, 2)), 2)
+
+# Code with pipe
+c(5, 9, 2) |> mean() |> round(2)
+```
+
+As you can see, both lines of code will give the same result but the pipeline follows a much more intuitive way of coding and allows you to write your code as you would think of the analysis.
+As opposed to that, in the first line you need to first think of rounding, then of the mean and then last input your actual values, which seems very backwards.
+Also, as I mentioned, you can see that there are already some parentheses next to each other, which would be really easy to forget and not receive any output. 
+
+Generally, I wholeheartedly recommend getting familiar with piping very early on when learning R.
+However, don't forget that R expects input after each pipe. 
+If you accidentally end a line of code with a pipe, you will encounter the behavior where R just does nothing and you basically have a staring battle of who will give in first.
+The same fix will work here: Hit the Esc button, look at the code you were trying to run and figure out if there might have been a pipe that just went nowhere.
+
+> <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">When you need help figuring out how a function works, there are several ways to get it. Try typing **? "|>" ** into your console and hit enter!</i>
+
+![Pobody's Nerfect [(source)](https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif?resize=540%2C302&ssl=1)](./img/nerfect.webp){#id .class width=auto height=150px}
+
+So, always keep in mind: Mistakes happen to everyone.
+Error messages can be really frustrating but they really are meant to be helpful.
+Sometimes R has a hard time understanding what's wrong, so if an error message seems vague, think of it as your chance to play detective and figure out what happened. <i class="fa-solid fa-user-secret" style="color: #424242;"></i>
+Also, I promise you that mastering the art of reading error messages can be tedious, but it is very worth it.
+Once you get a feeling of how R tries to identify errors, it gets a lot less disheartening.
+It can actually be quite wholesome to see a big, intimidating error message that makes absolutely no sense at all, just to find a teeny, tiny typo in your code which works once you fix it. 
+
+
+## Exercises
+
+**_Logic_**
+
+We want to find out whether the average Petal Length and Sepal Length of iris flowers are different from each other.
+
+Use what you know to "ask R" if those values are unequal!
+
+Hint: You will need logic, the mean()-function and square brackets. Use **names(iris)** to find all variable names in that data set.
+
+`r hide("Solution")`
+
+- Square bracket indexing with the variable name in quotes \newline
+`iris[ , "Sepal.Length"]` \
+`iris[ , "Petal.Length"]`
+- now we add the mean function around both like this: 
+`mean(iris[ , "Sepal.Length"])` \
+`mean(iris[ , "Sepal.Length"])`
+- Finally we compare the two with the != operator:
+`mean(iris[ , "Sepal.Length"]) !=`
+`mean(iris[ , "Petal.Length"])` \
+`r mean(iris[ , "Sepal.Length"]) != mean(iris[ , "Petal.Length"])`
+
+`r unhide()`
+
+**_Create a vector_**
+
+
+Create a vector x with the numbers from 50 to 100 and 150 to 200. 
+
+Find its mean, standard deviation and its range.
+
+What is the 77th number of vector x?
+
+`r hide("Solution")`
+
+- `x <- c(50:100, 150:200)` `r x <- c(50:100, 150:200)` 
+- `mean(x), sd(x), range(x) %>% round(2)`: \newline `r c(mean(x), sd(x), range(x)) %>% round(2)`
+    - `%>% round(2)` takes the numbers and rounds them up to two decimal points
+- `x[77]`: `r x[77]`
+
+`r unhide()`
+
+**_Code with problems_**
+
+Below is some code that has a few problems.
+
+Try to identify them and how they might be fixed. Feel free to test them out if you are not sure!
+
+`Library(greatpackage)` 
+
+`r hide("Solution")`
+
+- `library` should not be capitalized
+- "greatpackage" does not exist and can thus not be loaded
+
+`r unhide()`
+
+`mean(coolvariable)` 
+
+`r hide("Solution")`
+
+coolvariable was not defined previously
+
+`r unhide()`
+
+`a <- c(1, 3, 6, 7` 
+
+`r hide("Solution")`
+
+the command is not finished, it needs a closing parentheses
+
+`r unhide()`
+
+`b <- c(2, 4; 6, 8)`
+
+`r hide("Solution")`
+
+we need all commas to separate numbers in a vector, not a semicolon
+
+`r unhide()`
+
+
+## Wrap-Up & Further Resources
+ 
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;"> 
+<li> Functions work with input inside round brackets, e.g. c(1, 2, 3)</li>
+<li> a point **.** is a decimal separator in numbers; a comma **,** seperates input in functions</li>
+<li> Logical operators compare data, e.g. 7 > 6 would output TRUE</li>
+<li> `#` allows comments in the code</li>
+<li> Errors should be invitations to make your code more understandable for R</li>
+<li> $\rightarrow$ the better we understand the problem, the better we can fix it! </li>
+</ul>
+
+
+<br>
+
+<i class="fa-solid fa-book" style="color: orange;"></i>
+<ul style="color: orange;">
+<li> [StackOverflow](https://stackoverflow.com/)</li>
+<li> [Discovering Statistics Using R](https://katalog.uni-konstanz.de/libero/WebOpac.cls?VERSION=2&ACTION=DISPLAY&RSN=2222774&DATA=KON&TOKEN=nGIfSiZsIA5826&Z=1&SET=1) Book by Andy Field, available from KIM </li>
+</ul>

@@ -1,5 +1,5 @@
 
-# Into the `tidyverse`: Data munging with `dplyr`
+# Into the `tidyverse`: Data munging with `dplyr` {#dplyr}
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>

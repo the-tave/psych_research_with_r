@@ -21,7 +21,7 @@
 - Make R your own: ![Appearance](./img/appearance.png){#id .class .no-border width=auto height=40px}
 
 
-## Naming Conventions 
+## Naming Conventions {#varnames}
 
 R is a so-called *object-oriented* language.
 What that means for us is mostly that all our data exist as "objects" as far is R is concerned.

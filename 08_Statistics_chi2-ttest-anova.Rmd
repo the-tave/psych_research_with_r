@@ -12,7 +12,7 @@
 seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 ```
 
-# Creating and interpreting statistics: Chi$^2$ & t-test & ANOVA
+# Difference Statistics
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
@@ -218,8 +218,9 @@ t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater")
 3. Interpretation and post-hoc tests
     - If there are any significant differences at all, we can use pairwise t-tests (with alpha correction!)
 
-### Example: Music genre and loudness <i class="fa-solid fa-music"></i>
-#### 1. Check assumptions
+### Example: Music genre and loudness <i class="fa-solid fa-music"></i> {-}
+
+#### 1. Check assumptions {-}
 
 - Check for Homogeneity of Variance with the Levene Test
 - 
@@ -233,9 +234,9 @@ t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater")
     - p value < 0.05 would indicate significant differences in variance between the group, so we want it to be > 0.05
     - Assumption met! <i class="fa-regular fa-face-smile"></i>
     
-#### 2. Define the overall model
+#### 2. Define the overall model {-}
 
-```{r}
+```{r genre-loud, message=FALSE}
 model <- aov(v08_loudness ~ as.factor(v07_genre), data = seminar)
 summary(model) # "Pr(>F)" is the p-value
 ```
@@ -244,9 +245,9 @@ summary(model) # "Pr(>F)" is the p-value
     - Not significant (likely due to small sample size)
     - usually we would stop here then, but we will look at the post hoc tests anyway ;)
     
-#### 3. Post Hoc Test 
+#### 3. Post Hoc Test {-}
 
-```{r}
+```{r tukey}
 TukeyHSD(model)
 ```
 
@@ -256,7 +257,7 @@ TukeyHSD(model)
 
 ### Addendum for demonstration only: Bootstrapped Data for larger sample size
 
-```{r}
+```{r bs, message=FALSE}
 data <- data.frame()
 
 for(i in 1:10){
@@ -281,7 +282,7 @@ TukeyHSD(bootstrapped_model)
 
 ### Usage
 
-```{r}
+```{r apa1}
 # Chi (add format = "rmarkdown" if needed)
 apa::chisq_apa(chisq.test(seminar$v07_genre, seminar$soul_dummy))
 
@@ -289,7 +290,8 @@ apa::chisq_apa(chisq.test(seminar$v07_genre, seminar$soul_dummy))
 papaja::apa_print(t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater"))$full_result
 
 # ANOVA
-papaja::apa_print(model)$full_result
+papaja::apa_print(model)$full_result |> suppressMessages()
+# suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us "For one-way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.""
 ```
 
 ### Usage in R Markdown
@@ -297,7 +299,7 @@ papaja::apa_print(model)$full_result
 - This presentation is based on R Markdown, so we can make use of the pretty printing options right here
 - By using `apa_print(model)$full_result`, we can automatically report results inside our documents:
 
-- "In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (`r apa_print(model)$full_result`). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (`r apa_print(bootstrapped_model)$statistic`), which is also supported by the large effect size (`r apa_print(bootstrapped_model)$estimate`)."
+- "In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (`r apa_print(model)$full_result |> suppressMessages()`). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (`r apa_print(bootstrapped_model)$statistic |> suppressMessages()`), which is also supported by the large effect size (`r apa_print(bootstrapped_model)$estimate |> suppressMessages()`)."
 
 
 
@@ -325,22 +327,8 @@ papaja::apa_print(model)$full_result
 <li> [Chi2-test (Statology)](https://www.statology.org/chi-square-test-of-independence-in-r/) </li>
 <li> [t-test (Statology)](https://www.statology.org/two-sample-t-test/) </li>
 <li> [ANOVA (Statology)](https://www.statology.org/interpret-anova-results-in-r/) </li>
+<li> _Discovering Statistics Using R_ [@field2012] </li>
 </ul>
 
-_Discovering Statistics Using R_ [@field2012]
-
-## <i class="fa-solid fa-house-chimney" style="color: darkgreen;"></i> Homework: R Markdown
-
-Some of you are already somewhat familiar with R Markdown. 
-For those of you who are not, please create a demo RMarkdown document and "knit" it. 
-![Create a demo Rmd](./img/rmd-click.png){#id .class width=auto height=140px} ... or go to File > New File > R Markdown to create a new Rmd document. 
-Give it a name or keep all the defaults.
-It will create a document with some demo content.
-When you click the "knit"-button below the main menu, you will need to save the file and it will create the output.
-Try to play around with the text and read the demo content - it explains the basic functions!
-
-
-
-<br>
-
-![Cute ANOVA curves](./img/sweet-anova.png){#id .class width=auto height=430px}
+<!-- #id .class  -->
+![Cute ANOVA curves](./img/sweet-anova.png){width=auto height=200px}

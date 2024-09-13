@@ -56,7 +56,7 @@
 
 ### Example
 
-```{r}
+```{r iteration}
 for(i in 1:4){
   print(paste("The iteration is", i))
 }
@@ -64,7 +64,7 @@ for(i in 1:4){
 
 ### Conditionals: If - else
 
-```{r eval = F}
+```{r if-else, eval = F}
 if(variable == "value"){
   print("Do something")
 } else if(variable == "other_value"){
@@ -81,9 +81,8 @@ We want to test whether numbers in a loop are divisible by 3. If they are, we wi
 
 For that we will use the  modulo %% , which gives us the rest of a division. Let's try it out!
 
-#### Checking numbers ||
 
-```{r}
+```{r modulo}
 for(i in 1:4){
   if(i %% 3 == 0){
     print("Divisible by 3!")
@@ -100,9 +99,9 @@ The numbers should be between 10 and 25.
 
 If the number is divisible completely by 5, you should output "Divisible by 5!", if not please output the iteration number only.
 
-### Solution
+`r hide("Solution")`
 
-```{r}
+```{r mod_sol}
 for(i in 10:25){
   if(i %% 5 == 0){
     print("Divisible by 5!")
@@ -112,10 +111,11 @@ for(i in 10:25){
 }
 ```
 
+`r unhide()`
 
 ## Same function, different variables
 
-```{r}
+```{r print-loop}
 for(i in c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")){
   print(mean(iris[ , i]))
 }
@@ -256,7 +256,7 @@ What do we need for that?
 
 <!-- Write nrow(), print(), paste() on the board -->
 
-### Solution
+`r hide("Solution")`
 
 ```{r}
 for(i in 1:nrow(seminar)){
@@ -268,7 +268,7 @@ for(i in 1:nrow(seminar)){
 }
 ```
 
-
+`r unhide()`
 
 ### And a more complicated outlook...
 #### What happens here?

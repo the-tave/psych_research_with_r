@@ -379,7 +379,9 @@ ggplot(my_data, aes(x = X, y = Y, fill = Group)) +
 
 ## gganimate
 
-```{r}
+<!-- Include this  section before big push because it takes forever to render! -->
+
+```{r gganimate, eval = T}
 library(gganimate)
 library(gapminder)
 

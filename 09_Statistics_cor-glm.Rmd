@@ -4,13 +4,13 @@
 
 # library(knitr)
 # library(papaja)
-# library(ggplot2)
+library(ggplot2)
 # library(dplyr)
 # library(unikn)
 # library(MASS)
 ```
 
-# Creating and interpreting statistics: correlation & regression
+# Association Statistics
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
@@ -18,27 +18,25 @@
 ```
 
 
-## Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i>
+In this chapter we will look into the correlation and linear regression model in R. 
 
-<br>
+I will assume that you have a basic understanding of what all statistics mentioned in this book are, as they are commonly used among psychologists. However, let's start with a brief statistics re-cap to be on the same page. <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i>
 
-- What is a correlation?
-- What is the _general linear model_, a.k.a. regression model?
-- What do they have in common? What makes them different?
+Both the correlation - usually reported with Pearson's _r_ coefficient -  and the regression - also known as (general) linear model - give us measures of **association**. 
+The association can be positive (the larger x, the larger y) or negative (the larger x, the smaller y), which is reflected by the sign of the coefficient: _r = 1_ would be a perfect positive correlation and _r = -1_ would be a perfect negative correlation.
 
+Hopefully, you have heard this one thousand times already, so let me tell you for the thousand and first time: **Correlation does not imply causation**.
+The correlation coefficient r only tells us about the direction and strength of the association and nothing about the causal relation.
+However, in the regression model we can check whether Y changes on the basis of X, so we can include assumptions of cause and effect in our model^[A linear model that is ill-defined might still become significant and thus misleading, so your modeling decisions should always be made with a theoretical basis.]
 
-- They both give us measures of **association**
-- The association can be positive (the larger x, the larger y) or negative (the larger x, the smaller y)
-- **Correlation does not imply causation**
-    - Correlation coefficient r only tells us about association, nothing about causal relation
-    - Regression model can check whether Y changes on the basis of X
     
-```{r fig.height=2.5, echo = F}
+```{r tree-age, fig.height=2.5, echo = F, fig.cap = "Age and circumference of orange trees shown in a scatterplot. We can see that there seems to be a positive relationship between the two measures: The older the tree, the larger the circumference."}
 ggplot(Orange, aes(x = age, y = circumference, color = age)) +
   geom_jitter(size = 3) +
   theme_minimal() + 
   labs(x = "Tree Age", y = "Trunk Circumference") +
-  scale_color_distiller(palette = 7) + theme(legend.position = "none")
+  scale_color_distiller(palette = 7) + 
+  theme(legend.position = "none")
 ```
 
 ### Pre-Requisites
@@ -70,13 +68,35 @@ seminar <- readRDS("./data/seminar_data.Rds") # the filepath might need adjustme
     
 ### Guess the correlation!
 
-```{r echo = F}
-r <- .3
-data <- MASS::mvrnorm(n=100, mu=c(0, 0), Sigma=matrix(c(1, r, r, 1), nrow=2), empirical=TRUE)
-ggplot() + geom_jitter(aes(data[, 1], data[, 2])) + xlab("X") + ylab("Y") +theme_minimal()
+```{r corr1, echo = F, fig.height=3}
+r1 <- .3
+data1 <- MASS::mvrnorm(n=100, mu=c(0, 0), Sigma=matrix(c(1, r1, r1, 1), nrow=2), empirical=TRUE)
+p1 <- ggplot() + geom_jitter(aes(data1[, 1], data1[, 2])) + labs(title = "1") + theme_minimal() + 
+  theme(axis.title = element_blank(), axis.text  = element_blank())
+
+r2 <- -.2
+data2 <- MASS::mvrnorm(n=100, mu=c(0, 0), Sigma=matrix(c(1, r2, r2, 1), nrow=2), empirical=TRUE)
+p2 <- ggplot() + geom_jitter(aes(data2[, 1], data2[, 2])) + labs(title = "2") + theme_minimal() + 
+  theme(axis.title = element_blank(), axis.text  = element_blank())
+
+r3 <- .8
+data3 <- MASS::mvrnorm(n=100, mu=c(0, 0), Sigma=matrix(c(1, r3, r3, 1), nrow=2), empirical=TRUE)
+p3 <- ggplot() + geom_jitter(aes(data3[, 1], data3[, 2])) + labs(title = "3") + theme_minimal() + 
+  theme(axis.title = element_blank(), axis.text  = element_blank())
+
+r4 <- -.75
+data4 <- MASS::mvrnorm(n=100, mu=c(0, 0), Sigma=matrix(c(1, r4, r4, 1), nrow=2), empirical=TRUE)
+p4 <- ggplot() + geom_jitter(aes(data4[, 1], data4[, 2])) + labs(title = "4") + theme_minimal()  + 
+  theme(axis.title = element_blank(), axis.text  = element_blank())
+
+cowplot::plot_grid(p1, p2, p3, p4, nrow = 2)
 ```
 
-- r = `r r`
+`r hide("Soultion")`
+
+r1 = `r r1`, r2 = `r r2`, r3 = `r r3`, r4 = `r r4`
+
+`r unhide()`
 
 
 ## Correlation in R
@@ -87,9 +107,8 @@ ggplot() + geom_jitter(aes(data[, 1], data[, 2])) + xlab("X") + ylab("Y") +theme
 - As input they both need only an x and a y variable
     - You can specify some other aspects of the calculation, such as statistical method (e.g. "spearman") or how to deal with missing data
     
-### Example
     
-```{r}
+```{r corr2}
 x <- 1:10 
 y <- sample(x, 10)
 cor(x, y)
@@ -107,8 +126,6 @@ cor.test(x, y)
   m <- c(1, 3, 2, 5, NA) # same length but 1 data point is missing
   cor(k, m)
   ```
-  
-### Handling missing data
  
 - With `use = "complete.obs"` we define to only use pairs of observations that are not missing
 -
@@ -121,18 +138,17 @@ cor.test(x, y)
   cor(k[1:4], m[1:4])
   ```
 
-### Exercise: 
-#### Is technology skill associated with seminar motivation? <i class="fa-solid fa-computer" style="color: #ff6600;"></i> <i class="fa-solid fa-child-reaching" style="color: #ff6600;"></i>
+### Exercise
+
+Is technology skill associated with seminar motivation? <i class="fa-solid fa-computer" style="color: #ff6600;"></i> <i class="fa-solid fa-child-reaching" style="color: #ff6600;"></i>
 
 <br> 
 
-Calculate a correlation test using `cor.test()` to analyze the question. 
-
-<br>
+Calculate a correlation test using `cor.test()` to analyze the question.
 
 Try to formulate an interpretation as you would report it in a thesis or paper!
 
-### Solution <i class="fa-solid fa-computer" style="color: #ff6600;"></i> <i class="fa-solid fa-child-reaching" style="color: #ff6600;"></i>
+`r hide("Solution")`
 
 ```{r}
 cor.test(seminar$v05_skill_tech, seminar$v10_motivation)
@@ -140,17 +156,28 @@ cor.test(seminar$v05_skill_tech, seminar$v10_motivation)
 
 "With r = `r round(cor(seminar$v05_skill_tech, seminar$v10_motivation), 3)` there is a positive association of moderate strength between previous technological skill and motivation for the seminaR. This association is not significant (p = `r round(cor.test(seminar$v05_skill_tech, seminar$v10_motivation)$p.value, 3)`), likely due to the small sample size."
 
-### Quiz
-#### Look at our seminar dataset by entering `str(seminar)` in the console. Which of these correlations would work?
+`r unhide()`
 
-- `cor(seminar$v02_age, seminar$v04_bodyheight`
-    - <i class="fa-solid fa-xmark" style="color:#ff0000"></i> Closing bracket missing!
-- `cor(seminar$v02_age, seminar$v08_loudness)`
-    - <i class="fa-solid fa-check" style="color:#7cfc00"></i>
-- `cor(seminar$v08_loudness, seminar$v06_loc)`
-    - <i class="fa-solid fa-xmark" style="color:#ff0000"></i>
-    - _v06_loc_ has numbers, but they are recognized as characters! 
+### Quiz
+
+Look at our seminar dataset by entering `str(seminar)` in the console. 
+Which of these correlations would work?
+Choose "TRUE" if you think the correlation would work and "FALSE" if you think it would not. 
+You can look at the explanation for those that would not work below!
+
+1. `cor(seminar$v02_age, seminar$v04_bodyheight` `r torf(FALSE)`
+2. `cor(seminar$v02_age, seminar$v08_loudness)` `r torf(TRUE)`
+3. `cor(seminar$v08_loudness, seminar$v06_loc)``r torf(FALSE)`
     
+`r hide("Explanation")`
+
+1. There is a closing bracket missing
+2. The variable _v06_loc_ has numbers, but they are recognized as characters!
+
+`r unhide()`
+    
+
+
 
 ## Linear Regression
 
@@ -172,19 +199,22 @@ cor.test(seminar$v05_skill_tech, seminar$v10_motivation)
 
 ### Visual Inspection
 
-```{r fig.height=2.5}
+```{r tree-age-elaborate, fig.height=2.5, fig.cap="Scatterplot of orange tree age and cirumference from before with the regression line added. Notice that the variable which is used as the independent X (age) is plotted on the X axis for intuitive reading of the plot."}
 ggplot(Orange, aes(x = age, y = circumference, color = age)) + geom_jitter(size = 3) +
   geom_smooth(method = "lm", se=FALSE, color="lightgray", 
-              linewidth = .7, formula = y ~ x) + theme_minimal() + labs(x = "Tree Age", y = "Trunk Circumference", title = "Do trees get thicker with age?") + scale_color_distiller(palette = 7) + theme(legend.position = "none")
+              linewidth = .7, formula = y ~ x) + 
+  theme_minimal() + 
+  labs(x = "Tree Age", y = "Trunk Circumference", title = "Do trees get thicker with age?") + 
+  scale_color_distiller(palette = 7) + 
+  theme(legend.position = "none")
 ```
 
-- What could be problematic here?
-    - Heteroscedasticity
+What could be problematic here? `r mcq(c("homoscedasticity", "multicollinearity", answer = "heteroscadasticity", "oranges"))`
 
 ### Build the model
 #### Do trees get thicker with age?
 
-```{r}
+```{r treelm}
 Treelm <- lm(formula = circumference ~ age, data = Orange)
 Treelm
 ```
@@ -212,25 +242,29 @@ Does the age of a person have an influence on how long they took to complete the
 
 Use the `lm()` function and report the significance level of the predictor as well as the model equation.
 
-### Solution
+`r hide("Solution (code)")`
 
 ```{r}
 age_sess <- lm(session_length ~ v02_age, data = seminar)
 summary(age_sess)
 ```
 
-###  Interpretation
+`r unhide()`
 
 <br>
 
+`r hide("Solution (interpretation)")`
+
 "The age of a person does not significantly predict the time it took them to complete the survey (p = .148). The model equation is 182.7 -4.19X with age explaining about 18% of the variance in session length for the survey."
 
-```{r fig.height=3, echo = F}
+```{r age-sess, fig.height=3, echo = F}
 ggplot(seminar, aes(x = v02_age, y = session_length)) +
  geom_point(size = 3) +
  geom_smooth(method = "lm", se=FALSE, color="lightgray", linewidth = .7, formula = y ~ x) +
  theme_minimal()
 ```
+
+`r unhide()`
 
 ### A word to the wise
 
@@ -245,7 +279,7 @@ ggplot(seminar, aes(x = v02_age, y = session_length)) +
 
 Reminder: There are generally 3 steps to an ANOVA
 
-```{r eval = F}
+```{r loud-soul, eval = F}
 car::leveneTest(v08_loudness ~ v11_soul, data = seminar) # 1.
 model <- aov(v08_loudness ~ v11_soul, data = seminar) # 2.
 summary(model)
@@ -257,18 +291,15 @@ TukeyHSD(model) # 3.
 2. Build the model to perform an omnibus ANOVA
 3. Perform post-hoc tests to check pairwise differences (usually only if the omnibus ANOVA is significant)
 
-### Exercise:
-#### Does the preferred music volume depend on someone's soul philosophy? <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+### Exercise
+
+**Does the preferred music volume depend on someone's soul philosophy?** <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
 
 <br>
 
 Perform an ANOVA on our seminar data to explore the question (v08 & v12). 
 
-<br>
-
-Look for pairwise differences even if the overall ANOVA does not reach significance.
-
-### Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+`r hide("Solution omnibus ANOVA")`
 
 ```{r}
 car::leveneTest(v08_loudness ~ v12_soul_phil, data = seminar)
@@ -276,30 +307,37 @@ model <- aov(v08_loudness ~ v12_soul_phil, data = seminar)
 summary(model)
 ```
 
-### Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
-#### Pairwise Comparison
+`r unhide()`
+
+<br>
+
+Look for pairwise differences even if the overall ANOVA does not reach significance.
+
+`r hide("Solution pairwise comparison")`
 
 ```{r}
 TukeyHSD(model)
 ```
 
-
-### If there is still time: <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+`r unhide()`
 
 <br>
 
 Choose and create an appropriate visualization for this data!
 
-### Data Viz <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
+`r hide("Solution Data Viz")`
 
 ```{r fig.height=4}
 ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness, 
                     color = v12_soul_phil, fill = v12_soul_phil)) +
-  geom_boxplot(alpha = .7) + theme_minimal() + theme(legend.position = "none") +
+  geom_boxplot(alpha = .7) + 
+  theme_minimal() + 
+  theme(legend.position = "none") +
   labs(x = "Soul Philosophy", y = "Preferred Volume (arbitrary units)") +
   scale_color_brewer(palette = 4) + scale_fill_brewer(palette = 4)
 ```
 
+`r unhide()`
 
 
 
@@ -326,7 +364,6 @@ ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness,
 </ul>
 
 
-
 <br>
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
@@ -339,7 +376,7 @@ ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness,
 
 
 
-```{r fig.heit = 2.5}
+```{r orange-pretty, fig.height = 2.5}
 ggplot(Orange, aes(x = age, y = circumference, color = Tree)) +
   geom_point(size = 3) + labs(x = "Tree Age", y = "Trunk Circumference") +
   geom_line(aes(color = Tree)) + theme_minimal() + theme(legend.position = "none")

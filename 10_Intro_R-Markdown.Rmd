@@ -19,12 +19,15 @@
 
 ### Example
 
-<br>
+Please create a demo RMarkdown document and "knit" it. 
+![Create a demo Rmd](./img/rmd-click.png){#id .class width=auto height=140px} ... or go to File > New File > R Markdown to create a new Rmd document. 
+Give it a name or keep all the defaults.
+It will create a document with some demo content.
+When you click the "knit"-button below the main menu, you will need to save the file and it will create the output.
+Try to play around with the text and read the demo content - it explains the basic functions!
 
-- You've hopefully all tried out creating your own R Markdown document as homework
-- We'll all create a new RMarkdown document now and augment that as we go on with this class!
-- ![Create a demo Rmd](./img/rmd-click.png){height=140px} ... or go to File > New File > R Markdown to create a new markdown document
-- **Let's try that out!**
+You can use the document you create now as a sort of cheatsheet and template for what you can do later.
+
 
 ## Document Basics
 

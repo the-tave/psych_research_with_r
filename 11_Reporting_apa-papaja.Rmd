@@ -165,7 +165,7 @@ ggplot(penguins, aes(x=species, y=bill_length_mm, color=species, fill=species), 
     - the TeX function from that package cannot handle the list-output from apa_print()$full_result so we need to "unlist" that
 - Using RMarkdown, it is much easier to include the statistic right in the text with inline code:
     - \`*r apa_print(penguinmodel)$full\_result*\`  <br> 
-    - $\rightarrow$ <span style="font-size: 24px"> `r apa_print(penguinmodel)$full_result` </span>
+    - $\rightarrow$ <span style="font-size: 24px"> `r apa_print(penguinmodel)$full_result |> suppressMessages()` </span>
 
 ## Exercise
 

@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Working with existing Data |  Psychological Research in R </title>
+  <title>Chapter 8 Difference Statistics |  Psychological Research in R </title>
   <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Working with existing Data |  Psychological Research in R " />
+  <meta property="og:title" content="Chapter 8 Difference Statistics |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
@@ -21,7 +21,7 @@ directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Working with existing Data |  Psychological Research in R " />
+  <meta name="twitter:title" content="Chapter 8 Difference Statistics |  Psychological Research in R " />
   
   <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
@@ -38,8 +38,8 @@ directly in R and R Markdown.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dplyr.html"/>
-<link rel="next" href="loops-and-conditionals.html"/>
+<link rel="prev" href="into-the-tidyverse-pretty-plots-with-ggplot2.html"/>
+<link rel="next" href="association-statistics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -522,318 +522,448 @@ Psychological Research in R
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="working-with-existing-data" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Working with existing Data<a href="working-with-existing-data.html#working-with-existing-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="difference-statistics" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Difference Statistics<a href="difference-statistics.html#difference-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
-<p>Please also install the <em>wobblynameR</em> package (only available on GitHub).
-For that you need the <em>devtools</em> package first:</p>
-<ol style="list-style-type: decimal">
-<li><code>install.packages("devtools")</code></li>
-<li><code>devtools::install_github("the-tave/wobblynameR")</code></li>
-</ol>
-<div id="first-steps-seminar-data" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> First Steps: Seminar Data<a href="working-with-existing-data.html#first-steps-seminar-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Re-cap of statistics: t-test, Chi<span class="math inline">\(^2\)</span> and ANOVA</li>
+<li>Learn how to calculate in R</li>
+<li>Learn how to check assumptions</li>
+<li>Go over examples (inspired by your thesis analyses <i class="fa-regular fa-face-smile"></i>)</li>
+</ul>
+<div id="statistics-re-cap-i" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i> I<a href="difference-statistics.html#statistics-re-cap-i" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>What do you remember from statistics:</p>
+<ul>
+<li>What is Chi<span class="math inline">\(^2\)</span> / <span class="math inline">\(\chi^2\)</span>?</li>
+<li>What is the t-test?</li>
+<li>What is an ANOVA?</li>
+<li>What do they have in common &amp; what differentiates them?</li>
+</ul>
+<div id="statistics-re-cap-ii" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i> II<a href="difference-statistics.html#statistics-re-cap-ii" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>They measure <em>group differences</em></p>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span> <span class="math inline">\(\rightarrow\)</span> nominal data</li>
+<li>t-Test <span class="math inline">\(\rightarrow\)</span> one or two <em>groups</em> with a continuous attribute</li>
+<li>ANOVA <span class="math inline">\(\rightarrow\)</span> three or more groups with one (or more) continuous attribute(s)</li>
+</ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+</div>
+<div id="pre-requisites" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Pre-Requisites<a href="difference-statistics.html#pre-requisites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><br></p>
 <ul>
-<li>Download the data frame from ILIAS and save it in the data subfolder in your R-Project.</li>
-<li>Use the "Import Dataset" Menu under the <em>Environment</em> tab <img src="img/import_dataset.png" height="40" alt="Import Dataset" />
+<li>Load the seminar data using <code>seminar &lt;- readRDS("./data/seminar_data.Rds")</code>
 <ul>
-<li>In that menu, we can select our data file &amp; choose some basic aspects of reading in that data</li>
+<li>Please make sure you are using the R dataset from the <br>
+zip folder in ILIAS, not the original csv file we first used!</li>
+</ul></li>
+<li>Add a "dummy variable" (only two possible values 0 and 1) <br>
+for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure</em>
+<ul>
+<li><code>seminar$soul_dummy &lt;-</code> <br>
+<code>ifelse(seminar$v11_soul == "yes", 1, 0)</code></li>
 </ul></li>
 </ul>
+</div>
+</div>
+<div id="chi2" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> <span class="math inline">\(\chi^2\)</span><a href="difference-statistics.html#chi2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span> Test for Independence: Determines if there is an association between <strong>two categorical variables</strong> in a contingency table
+<ul>
+<li>compares the observed frequencies in each category of a contingency table to the frequencies expected if the variables were independent</li>
+</ul></li>
+</ul>
+<p><img src="img/chidist.png" alt="Chi squared distribution" />k</p>
+<div id="calculation" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Calculation:<a href="difference-statistics.html#calculation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><span class="math display">\[\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}\]</span></p></li>
+<li><p><span class="math inline">\(O_i\)</span> is the observed frequency in each category</p></li>
+<li><p><span class="math inline">\(E_i\)</span> is the expected frequency in each category, calculated as: <span class="math display">\[E_i = \frac{(row \ total) \times (column \ total)}{grand \ total}\]</span></p></li>
+<li><p>Example: Believing in the soul by gender</p></li>
+<li><pre><code>#        
+#          0  1 Sum
+#   man    1  1   2
+#   woman  6  5  11
+#   Sum    7  6  13</code></pre></li>
+</ul>
+</div>
+<div id="how-to-in-r" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> How to in R<a href="difference-statistics.html#how-to-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>The <code>chisq.test()</code> function only needs (categorical!) <em>x, y</em> as input
+<ul>
+<li>Especially with a small sample, we can add the parameter <em>simulate.p.value = T</em>, which bootstraps the analysis 2000 times</li>
+</ul></li>
+<li><div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="difference-statistics.html#cb58-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v01_gender, seminar<span class="sc">$</span>soul_dummy, <span class="at">simulate.p.value =</span> T)</span>
+<span id="cb58-2"><a href="difference-statistics.html#cb58-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb58-3"><a href="difference-statistics.html#cb58-3" tabindex="-1"></a><span class="co">#     Pearson&#39;s Chi-squared test with simulated p-value (based on 2000</span></span>
+<span id="cb58-4"><a href="difference-statistics.html#cb58-4" tabindex="-1"></a><span class="co">#     replicates)</span></span>
+<span id="cb58-5"><a href="difference-statistics.html#cb58-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb58-6"><a href="difference-statistics.html#cb58-6" tabindex="-1"></a><span class="co"># data:  seminar$v01_gender and seminar$soul_dummy</span></span>
+<span id="cb58-7"><a href="difference-statistics.html#cb58-7" tabindex="-1"></a><span class="co"># X-squared = 0.014069, df = NA, p-value = 1</span></span></code></pre></div></li>
+</ul>
+</div>
+<div id="exercise-3" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Exercise <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i><a href="difference-statistics.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><br></p>
-<p><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Make sure you have the right package installed for reading in specific data types! Here: Please install the readr package with install.packages("readr")</i></p>
-<p>In my experience, it is easiest to work with data where you have an idea of what to expect.
-<!-- Therefore, we will all participate in the following study and then use the data throughout the remainder of this course. --></p>
-<!-- [https://exp.wextor.eu/TheTave/PsychResearchR/](https://exp.wextor.eu/TheTave/PsychResearchR/) -->
+<p>We want to explore whether <strong>belief in the soul (dummy)</strong> is associated with <strong>music preference</strong>.</p>
+<p><br></p>
+<p>Calculate a simple chisq.test and interpret the results.</p>
 </div>
-<div id="different-types-of-data-sources" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Different types of data sources<a href="working-with-existing-data.html#different-types-of-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Data collected from WEXTOR - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
-That means that this type of data has one row per participant and the values for each column (variable) are separated by a <em>delimiter</em> <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
-<p>When our data comes from an Excel file, it will often be exported as CSV because this type of storing data is pretty efficient and uses up very little space on the disk.
-A more modern but also more space-consuming way of storing Excel table data is in the XLSX format (Not an acronym, just stands for "Excel Spreadsheet").</p>
-<p>Many people use SPSS for statistical analysis and creating dataframes.
-These data will be stored in a file with the extension SAV.
-Generally speaking, SAV files are compatible with R.
-However, there are some specialties which can cause problems, such as SPSS labels.
-We won't go into depth on this, just know that R can sometimes recognize SPSS labelled variables as their own class, in which case the class of those variables should be corrected manually <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
-<p>Finally, of course we can also encounter datafiles that were created in R.
-In this case the will have .Rds as the file extension.
-A special case of this is when data frames are included in base-R or in a package.
-For example, the dataset called <code>iris</code> comes with R as an example dataset.</p>
-<p>Therefore, we can run a function on it without having to load it at all:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-with-existing-data.html#cb28-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
-<span id="cb28-2"><a href="working-with-existing-data.html#cb28-2" tabindex="-1"></a><span class="co">#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
-<span id="cb28-3"><a href="working-with-existing-data.html#cb28-3" tabindex="-1"></a><span class="co"># 1          5.1         3.5          1.4         0.2  setosa</span></span>
-<span id="cb28-4"><a href="working-with-existing-data.html#cb28-4" tabindex="-1"></a><span class="co"># 2          4.9         3.0          1.4         0.2  setosa</span></span>
-<span id="cb28-5"><a href="working-with-existing-data.html#cb28-5" tabindex="-1"></a><span class="co"># 3          4.7         3.2          1.3         0.2  setosa</span></span>
-<span id="cb28-6"><a href="working-with-existing-data.html#cb28-6" tabindex="-1"></a><span class="co"># 4          4.6         3.1          1.5         0.2  setosa</span></span>
-<span id="cb28-7"><a href="working-with-existing-data.html#cb28-7" tabindex="-1"></a><span class="co"># 5          5.0         3.6          1.4         0.2  setosa</span></span>
-<span id="cb28-8"><a href="working-with-existing-data.html#cb28-8" tabindex="-1"></a><span class="co"># 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
-<p>Depending on which type of data we want to work with, there are different ways of loading the data into R.</p>
+<div id="solution-5" class="section level3 hasAnchor" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> Solution <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i><a href="difference-statistics.html#solution-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="difference-statistics.html#cb59-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy)</span>
+<span id="cb59-2"><a href="difference-statistics.html#cb59-2" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
+<span id="cb59-3"><a href="difference-statistics.html#cb59-3" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
+<span id="cb59-4"><a href="difference-statistics.html#cb59-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb59-5"><a href="difference-statistics.html#cb59-5" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test</span></span>
+<span id="cb59-6"><a href="difference-statistics.html#cb59-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb59-7"><a href="difference-statistics.html#cb59-7" tabindex="-1"></a><span class="co"># data:  seminar$v07_genre and seminar$soul_dummy</span></span>
+<span id="cb59-8"><a href="difference-statistics.html#cb59-8" tabindex="-1"></a><span class="co"># X-squared = 2.1357, df = 2, p-value = 0.3437</span></span>
+<span id="cb59-9"><a href="difference-statistics.html#cb59-9" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
+<span id="cb59-10"><a href="difference-statistics.html#cb59-10" tabindex="-1"></a><span class="co">#         </span></span>
+<span id="cb59-11"><a href="difference-statistics.html#cb59-11" tabindex="-1"></a><span class="co">#           0  1 Sum</span></span>
+<span id="cb59-12"><a href="difference-statistics.html#cb59-12" tabindex="-1"></a><span class="co">#   pop     2  3   5</span></span>
+<span id="cb59-13"><a href="difference-statistics.html#cb59-13" tabindex="-1"></a><span class="co">#   rock    3  3   6</span></span>
+<span id="cb59-14"><a href="difference-statistics.html#cb59-14" tabindex="-1"></a><span class="co">#   techno  2  0   2</span></span>
+<span id="cb59-15"><a href="difference-statistics.html#cb59-15" tabindex="-1"></a><span class="co">#   Sum     7  6  13</span></span></code></pre></div>
+<ul>
+<li>Interpretation?
+<!-- There is no significant association between belief in the soul and music preference by genre. --></li>
+</ul>
 </div>
-<div id="reading-in-the-data" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Reading in the data<a href="working-with-existing-data.html#reading-in-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are two main ways to load data: via the "Import Dataset" menu under the <em>Environment</em>-tab or (only) using code and if necessary packages.
-In the menu, simply select the option "Import Dataset" menu under the top-right <em>Environment</em>-tab and use <em>From text (readr)</em> for csv or other text files (such as .txt).
-Note that this menu also offers the possibility to load data from Excel and SPSS.
-However, this is much easier done by just using simple commands directly in your script:</p>
-<table>
-<thead>
-<tr class="header">
-<th>Data Source</th>
-<th>R command</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>WEXTOR (CSV)</td>
-<td><code>readr::read_delim("data.csv", delim = ";")</code></td>
-</tr>
-<tr class="even">
-<td>Excel (XLSX)</td>
-<td><code>xlsx::read.xlsx("data.xlsx", sheetIndex = 1)</code></td>
-</tr>
-<tr class="odd">
-<td>R Data Source (RDS)</td>
-<td><code>readRDS("data.Rds")</code></td>
-</tr>
-<tr class="even">
-<td>SPSS (SAV)</td>
-<td><code>foreign::read.spss("data.sav")</code></td>
-</tr>
-</tbody>
-</table>
-<div id="reading-in-the-data-1" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Reading in the data<a href="working-with-existing-data.html#reading-in-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="generated-code" class="section level4 hasAnchor" number="5.3.1.1">
-<h4><span class="header-section-number">5.3.1.1</span> Generated Code<a href="working-with-existing-data.html#generated-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<!-- # ```{r include = F} -->
-<!-- # edited_data <- PsychResearchR_data[, c(1, 4:8, 12:32)] -->
-<!-- # edited_data <- edited_data |> select(-starts_with("vi_")) -->
-<!-- # write_csv(edited_data, "data/seminar_data_raw.csv") -->
+</div>
+<div id="t-test" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> t-Test<a href="difference-statistics.html#t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>There are 3 broad categories of t-test:</p></li>
+<li><p><strong>one-sample</strong> t-test:</p>
+<ul>
+<li>Test one sample against a known mean value</li>
+</ul></li>
+<li><p><strong>two-sample</strong> t-test (independent):</p>
+<ul>
+<li>Test two sample-means against each other (independent samples)</li>
+</ul></li>
+<li><p><strong>paired two-sample</strong> t-test:</p>
+<ul>
+<li>Test two dependent sample-means against each other (e.g. repeated measures)</li>
+</ul></li>
+</ul>
+<div id="test-statistic-t" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Test statistic <em>t</em><a href="difference-statistics.html#test-statistic-t" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Test statistic T has a known distribution that depends on the <strong>degrees of freedom</strong>, calculated as n-1</li>
+<li>Most (probable) T values are around 0
+<ul>
+<li>The further away the T value is from 0, the less likely it is caused by chance alone <span class="math inline">\(\rightarrow\)</span> <em>significance</em></li>
+</ul></li>
+</ul>
+<div class="float">
+<img src="img/tdist.png" alt="T distribution" />
+<div class="figcaption">T distribution</div>
+</div>
+</div>
+<div id="test-statistic-t-1" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> Test statistic <em>t</em><a href="difference-statistics.html#test-statistic-t-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>One sample: <span class="math display">\[ t = \frac{\bar{X} - \mu}{\frac{s}{\sqrt{n}}} \]</span></p></li>
+<li><p>Two sample: <span class="math display">\[t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \]</span></p></li>
+</ul>
+</div>
+<div id="how-to-in-r-1" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> How to in R<a href="difference-statistics.html#how-to-in-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>The basic function is <code>t.test()</code> for any type of t.test</li>
+<li>One sample needs inputs <em>x, mu</em> (if x is from a data set you should specify <em>data</em>)</li>
+<li>Two sample needs either
+<ul>
+<li><em>x, y</em> (if from data set, <em>data</em>) or</li>
+<li><em>x ~ group</em> (if from data set, <em>data</em>)</li>
+</ul></li>
+<li>Paired test needs <em>paired = T</em></li>
+<li>One-sided test needs <em>alternative = 'greater'</em> (assumes first group mean to be larger than second; otherwise "less")</li>
+</ul>
+</div>
+<div id="examples" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> Examples<a href="difference-statistics.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="difference-statistics.html#cb60-1" tabindex="-1"></a><span class="co"># One sided - &quot;greater&quot; assumes that mean(x) is larger than mean(y)</span></span>
+<span id="cb60-2"><a href="difference-statistics.html#cb60-2" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb60-3"><a href="difference-statistics.html#cb60-3" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-4"><a href="difference-statistics.html#cb60-4" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
+<span id="cb60-5"><a href="difference-statistics.html#cb60-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-6"><a href="difference-statistics.html#cb60-6" tabindex="-1"></a><span class="co"># data:  10:20 and 0:10</span></span>
+<span id="cb60-7"><a href="difference-statistics.html#cb60-7" tabindex="-1"></a><span class="co"># t = 7.0711, df = 20, p-value = 3.713e-07</span></span>
+<span id="cb60-8"><a href="difference-statistics.html#cb60-8" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means is greater than 0</span></span>
+<span id="cb60-9"><a href="difference-statistics.html#cb60-9" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb60-10"><a href="difference-statistics.html#cb60-10" tabindex="-1"></a><span class="co">#  7.56088     Inf</span></span>
+<span id="cb60-11"><a href="difference-statistics.html#cb60-11" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb60-12"><a href="difference-statistics.html#cb60-12" tabindex="-1"></a><span class="co"># mean of x mean of y </span></span>
+<span id="cb60-13"><a href="difference-statistics.html#cb60-13" tabindex="-1"></a><span class="co">#        15         5</span></span>
+<span id="cb60-14"><a href="difference-statistics.html#cb60-14" tabindex="-1"></a></span>
+<span id="cb60-15"><a href="difference-statistics.html#cb60-15" tabindex="-1"></a><span class="co"># Two sided using formula ~ Does seminar motivation differ</span></span>
+<span id="cb60-16"><a href="difference-statistics.html#cb60-16" tabindex="-1"></a><span class="co"># depending on the soul-belief of students?</span></span>
+<span id="cb60-17"><a href="difference-statistics.html#cb60-17" tabindex="-1"></a><span class="fu">t.test</span>(v10_motivation <span class="sc">~</span> soul_dummy, <span class="at">data =</span> seminar)</span>
+<span id="cb60-18"><a href="difference-statistics.html#cb60-18" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-19"><a href="difference-statistics.html#cb60-19" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
+<span id="cb60-20"><a href="difference-statistics.html#cb60-20" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-21"><a href="difference-statistics.html#cb60-21" tabindex="-1"></a><span class="co"># data:  v10_motivation by soul_dummy</span></span>
+<span id="cb60-22"><a href="difference-statistics.html#cb60-22" tabindex="-1"></a><span class="co"># t = 0.1625, df = 6.833, p-value = 0.8756</span></span>
+<span id="cb60-23"><a href="difference-statistics.html#cb60-23" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0</span></span>
+<span id="cb60-24"><a href="difference-statistics.html#cb60-24" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb60-25"><a href="difference-statistics.html#cb60-25" tabindex="-1"></a><span class="co">#  -31.14063  35.71206</span></span>
+<span id="cb60-26"><a href="difference-statistics.html#cb60-26" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb60-27"><a href="difference-statistics.html#cb60-27" tabindex="-1"></a><span class="co"># mean in group 0 mean in group 1 </span></span>
+<span id="cb60-28"><a href="difference-statistics.html#cb60-28" tabindex="-1"></a><span class="co">#        68.28571        66.00000</span></span></code></pre></div>
+</div>
+<div id="exercise-4" class="section level3 hasAnchor" number="8.3.5">
+<h3><span class="header-section-number">8.3.5</span> Exercise <i class="fa-solid fa-computer"></i><a href="difference-statistics.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br></p>
+<p>We want to test whether the <strong>gender</strong> stereotype that men are <strong>more skilled with technology</strong> appears in our seminar sample.</p>
+<p><br></p>
+<p>Perform a one-sided two-sample t-test and interpret the results.</p>
+<p><br></p>
+<p>Hint: The grouping variable "v01_gender" is sorted alphabetically - so choose the "alternative" accordingly!</p>
+</div>
+<div id="solution-6" class="section level3 hasAnchor" number="8.3.6">
+<h3><span class="header-section-number">8.3.6</span> Solution <i class="fa-solid fa-computer"></i><a href="difference-statistics.html#solution-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="difference-statistics.html#cb61-1" tabindex="-1"></a><span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb61-2"><a href="difference-statistics.html#cb61-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb61-3"><a href="difference-statistics.html#cb61-3" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
+<span id="cb61-4"><a href="difference-statistics.html#cb61-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb61-5"><a href="difference-statistics.html#cb61-5" tabindex="-1"></a><span class="co"># data:  v05_skill_tech by v01_gender</span></span>
+<span id="cb61-6"><a href="difference-statistics.html#cb61-6" tabindex="-1"></a><span class="co"># t = 0.38715, df = 1.2774, p-value = 0.3766</span></span>
+<span id="cb61-7"><a href="difference-statistics.html#cb61-7" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means between group man and group woman is greater than 0</span></span>
+<span id="cb61-8"><a href="difference-statistics.html#cb61-8" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb61-9"><a href="difference-statistics.html#cb61-9" tabindex="-1"></a><span class="co">#  -109.5565       Inf</span></span>
+<span id="cb61-10"><a href="difference-statistics.html#cb61-10" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb61-11"><a href="difference-statistics.html#cb61-11" tabindex="-1"></a><span class="co">#   mean in group man mean in group woman </span></span>
+<span id="cb61-12"><a href="difference-statistics.html#cb61-12" tabindex="-1"></a><span class="co">#                46.5                36.0</span></span></code></pre></div>
+<ul>
+<li>Interpretation?
+<ul>
+<li>There are no significant gender differences in technological skill.</li>
+</ul></li>
+</ul>
+<!-- # ```{r} -->
+<!-- # # remotes::install_github("tpepler/nonpar") -->
+<!-- # nonpar::boot.t.test(seminar$v05_skill_tech[seminar$v01_gender == "man"],  -->
+<!-- #                     seminar$v05_skill_tech[seminar$v01_gender == "woman"],  -->
+<!-- #                     reps = 1000, -->
+<!-- #                     alternative = "greater" -->
+<!-- #                     ) -->
 <!-- # ``` -->
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-with-existing-data.html#cb29-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb29-2"><a href="working-with-existing-data.html#cb29-2" tabindex="-1"></a>seminar_data_raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/seminar_data_raw.csv&quot;</span>, </span>
-<span id="cb29-3"><a href="working-with-existing-data.html#cb29-3" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-4"><a href="working-with-existing-data.html#cb29-4" tabindex="-1"></a><span class="fu">View</span>(seminar_data_raw)</span></code></pre></div>
 </div>
 </div>
-<div id="basic-edits" class="section level3 hasAnchor" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="working-with-existing-data.html#basic-edits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Choose an appropriate name, e.g. <code>raw</code></li>
-<li>Put all <em>library commands</em> at the top of the script so you are ready to conduct all analyses</li>
-<li>You do not need the <em>View()</em> command in your script</li>
-<li>If you are not sure about the state of your data, look at it first!
+<div id="anova" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> ANOVA<a href="difference-statistics.html#anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="float">
+<img src="img/anova.svg" alt="ANOVA principle" />
+<div class="figcaption">ANOVA principle</div>
+</div>
 <ul>
-<li>View() opens the whole data in new tab; glimpse(), str() and head() give you a rough overview; names() shows you all variable names</li>
+<li>Like a t-test for more than two groups</li>
+<li>Why do we not just calculate several t-tests?
+<ul>
+<li><span class="math inline">\(\alpha\)</span> inflation!</li>
+<li>Significance level of 0.05 means that 1/20 tests will be significant by pure chance, so more tests makes it more likely that we hit that chance and make an alpha error (falsely reject null hypothesis)</li>
 </ul></li>
-<li>Some edits are already possible in the menu! Column types can (and sometimes should) be adjusted, e.g. recognizing dates</li>
-<li>Create a new dataset as a copy in which you do all further edits! E.g. <code>seminar</code> with proper varname prefix</li>
+</ul>
+<div id="how-to---theoretically" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> How to - theoretically<a href="difference-statistics.html#how-to---theoretically" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Check Assumptions
+<ul>
+<li>Data should be normally distribution &amp; variance in groups should be similar (homogeneous)</li>
+</ul></li>
+<li>Sum of Squares: Sum of Squares total, within &amp; between (<em>R does this for us</em>)
+<ul>
+<li>F-fraction as the measure of variance explained by the grouping variable in comparison to other variability in the dependent variable</li>
+</ul></li>
+<li>Interpretation and post-hoc tests
+<ul>
+<li>If there are any significant differences at all, we can use pairwise t-tests (with alpha correction!)</li>
+</ul></li>
 </ol>
 </div>
-<div id="basic-edits-1" class="section level3 hasAnchor" number="5.3.3">
-<h3><span class="header-section-number">5.3.3</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="working-with-existing-data.html#basic-edits-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="result" class="section level4 hasAnchor" number="5.3.3.1">
-<h4><span class="header-section-number">5.3.3.1</span> Result<a href="working-with-existing-data.html#result" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-with-existing-data.html#cb30-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb30-2"><a href="working-with-existing-data.html#cb30-2" tabindex="-1"></a><span class="fu">library</span>(wobblynameR)</span>
-<span id="cb30-3"><a href="working-with-existing-data.html#cb30-3" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="working-with-existing-data.html#cb30-4" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;./data/seminar_data_raw.csv&quot;</span>, </span>
-<span id="cb30-5"><a href="working-with-existing-data.html#cb30-5" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb30-6"><a href="working-with-existing-data.html#cb30-6" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.wx.5.start_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>),</span>
-<span id="cb30-7"><a href="working-with-existing-data.html#cb30-7" tabindex="-1"></a>                     <span class="at">.wx.7.end_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>), </span>
-<span id="cb30-8"><a href="working-with-existing-data.html#cb30-8" tabindex="-1"></a>                     <span class="at">...24 =</span> <span class="fu">col_skip</span>()),</span>
-<span id="cb30-9"><a href="working-with-existing-data.html#cb30-9" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb30-10"><a href="working-with-existing-data.html#cb30-10" tabindex="-1"></a></span>
-<span id="cb30-11"><a href="working-with-existing-data.html#cb30-11" tabindex="-1"></a><span class="co"># Add &quot;v&quot; as varname prefix to all variables</span></span>
-<span id="cb30-12"><a href="working-with-existing-data.html#cb30-12" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">namepref0</span>(raw, <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
-</div>
-</div>
-</div>
-<div id="working-with-the-data-codebook" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Working with the data: <br> Codebook<a href="working-with-existing-data.html#working-with-the-data-codebook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="example-music-genre-and-loudness" class="section level3 unnumbered hasAnchor">
+<h3>Example: Music genre and loudness <i class="fa-solid fa-music"></i><a href="difference-statistics.html#example-music-genre-and-loudness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="check-assumptions" class="section level4 unnumbered hasAnchor">
+<h4>1. Check assumptions<a href="difference-statistics.html#check-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
-<li>What variables are in the data? -&gt; <code>names(seminar)</code>
+<li>Check for Homogeneity of Variance with the Levene Test</li>
+<li><div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="difference-statistics.html#cb62-1" tabindex="-1"></a><span class="co"># Make sure the package &quot;car&quot; is installed first! If not, install.packages(&quot;car&quot;)</span></span>
+<span id="cb62-2"><a href="difference-statistics.html#cb62-2" tabindex="-1"></a><span class="co"># as.factor() forces R to recognize our group as such!</span></span>
+<span id="cb62-3"><a href="difference-statistics.html#cb62-3" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> seminar, <span class="at">center =</span> mean)</span>
+<span id="cb62-4"><a href="difference-statistics.html#cb62-4" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = mean)</span></span>
+<span id="cb62-5"><a href="difference-statistics.html#cb62-5" tabindex="-1"></a><span class="co">#       Df F value Pr(&gt;F)</span></span>
+<span id="cb62-6"><a href="difference-statistics.html#cb62-6" tabindex="-1"></a><span class="co"># group  2  0.1729 0.8437</span></span>
+<span id="cb62-7"><a href="difference-statistics.html#cb62-7" tabindex="-1"></a><span class="co">#       10</span></span></code></pre></div></li>
+<li>Interpretation?
 <ul>
-<li>v.wx.1.id, v.wx.4.start_time, v.wx.5.start_date, v.wx.6.end_time, v.wx.7.end_date, v.wx.8.session_length, v01_gender, v02_age, v03_prog_exp, v04_bodyheight, v05_skill_tech, v06_loc, v07_genre, v08_loudness, v09_smoke, v10_motivation, v11_soul, v12_soul_phil, vrt_1, vrt_2, vrt_3, vz0_browser_screen_h, vz0_browser_screen_w</li>
-</ul></li>
-<li>What can they tell us? Which analyses might be of interest?</li>
-</ul>
-</div>
-<div id="working-with-the-data-descriptives" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Working with the data: <br> Descriptives<a href="working-with-existing-data.html#working-with-the-data-descriptives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>In any report, we need to give our readers/ listeners/... an overview of the data
-<ul>
-<li>We need to know the sample to judge the results!</li>
-<li>A sample of e.g. 10 female psychology students probably shows different results -generally speaking - than a sample of 10 male soldiers</li>
+<li>p value &lt; 0.05 would indicate significant differences in variance between the group, so we want it to be &gt; 0.05</li>
+<li>Assumption met! <i class="fa-regular fa-face-smile"></i></li>
 </ul></li>
 </ul>
-<p>Name some common descriptives:</p>
+</div>
+<div id="define-the-overall-model" class="section level4 unnumbered hasAnchor">
+<h4>2. Define the overall model<a href="difference-statistics.html#define-the-overall-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="difference-statistics.html#cb63-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> seminar)</span>
+<span id="cb63-2"><a href="difference-statistics.html#cb63-2" tabindex="-1"></a><span class="fu">summary</span>(model) <span class="co"># &quot;Pr(&gt;F)&quot; is the p-value</span></span>
+<span id="cb63-3"><a href="difference-statistics.html#cb63-3" tabindex="-1"></a><span class="co">#                      Df Sum Sq Mean Sq F value Pr(&gt;F)</span></span>
+<span id="cb63-4"><a href="difference-statistics.html#cb63-4" tabindex="-1"></a><span class="co"># as.factor(v07_genre)  2  618.9   309.4   2.562  0.126</span></span>
+<span id="cb63-5"><a href="difference-statistics.html#cb63-5" tabindex="-1"></a><span class="co"># Residuals            10 1208.0   120.8</span></span></code></pre></div>
 <ul>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-</ul>
-<div class="webex-solution">
-<button>
-Show the solutions
-</button>
+<li>Interpretation?
 <ul>
-<li>Mean</li>
-<li>Median</li>
-<li>Mode</li>
-<li>Variability, Variance, Standard Deviation</li>
-<li>Data Visualization...</li>
+<li>Not significant (likely due to small sample size)</li>
+<li>usually we would stop here then, but we will look at the post hoc tests anyway ;)</li>
+</ul></li>
 </ul>
 </div>
-<div id="group_by-summarize-1" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> group_by &amp; summarize<a href="working-with-existing-data.html#group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="post-hoc-test" class="section level4 unnumbered hasAnchor">
+<h4>3. Post Hoc Test<a href="difference-statistics.html#post-hoc-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="difference-statistics.html#cb64-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span>
+<span id="cb64-2"><a href="difference-statistics.html#cb64-2" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
+<span id="cb64-3"><a href="difference-statistics.html#cb64-3" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
+<span id="cb64-4"><a href="difference-statistics.html#cb64-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb64-5"><a href="difference-statistics.html#cb64-5" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ as.factor(v07_genre), data = seminar)</span></span>
+<span id="cb64-6"><a href="difference-statistics.html#cb64-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb64-7"><a href="difference-statistics.html#cb64-7" tabindex="-1"></a><span class="co"># $`as.factor(v07_genre)`</span></span>
+<span id="cb64-8"><a href="difference-statistics.html#cb64-8" tabindex="-1"></a><span class="co">#                  diff        lwr      upr     p adj</span></span>
+<span id="cb64-9"><a href="difference-statistics.html#cb64-9" tabindex="-1"></a><span class="co"># rock-pop    12.566667  -5.677791 30.81112 0.1922467</span></span>
+<span id="cb64-10"><a href="difference-statistics.html#cb64-10" tabindex="-1"></a><span class="co"># techno-pop  17.400000  -7.808341 42.60834 0.1911143</span></span>
+<span id="cb64-11"><a href="difference-statistics.html#cb64-11" tabindex="-1"></a><span class="co"># techno-rock  4.833333 -19.767489 29.43416 0.8544384</span></span></code></pre></div>
 <ul>
-<li>With the dplyr-workflow, we can easily output group statistics</li>
-<li>Keywords: <strong>group_by()</strong> &amp; <strong>summarize()</strong></li>
-<li>The code is built like any other dplyr workflow with pipes ( %&gt;% ) in between each:
-<ol style="list-style-type: decimal">
-<li>Define/ name the data frame</li>
-<li>group_by(<em>variable_name</em>)</li>
-<li>in summarize, define a name for the statistic, use a =, use a function like mean() for the measure</li>
-</ol></li>
-</ul>
-<!-- ### Example: group_by & summarize -->
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="working-with-existing-data.html#cb31-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="working-with-existing-data.html#cb31-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href="working-with-existing-data.html#cb31-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
-<span id="cb31-4"><a href="working-with-existing-data.html#cb31-4" tabindex="-1"></a>            <span class="at">med_pwidth =</span> <span class="fu">median</span>(Petal.Width),</span>
-<span id="cb31-5"><a href="working-with-existing-data.html#cb31-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb31-6"><a href="working-with-existing-data.html#cb31-6" tabindex="-1"></a>            <span class="at">mode_swidth =</span> <span class="fu">getmode</span>(Sepal.Width),</span>
-<span id="cb31-7"><a href="working-with-existing-data.html#cb31-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb31-8"><a href="working-with-existing-data.html#cb31-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb31-9"><a href="working-with-existing-data.html#cb31-9" tabindex="-1"></a><span class="co">#   Species    m_plength med_pwidth m_slength mode_swidth     n</span></span>
-<span id="cb31-10"><a href="working-with-existing-data.html#cb31-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb31-11"><a href="working-with-existing-data.html#cb31-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46        0.2      5.01         3.4    50</span></span>
-<span id="cb31-12"><a href="working-with-existing-data.html#cb31-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26        1.3      5.94         3      50</span></span>
-<span id="cb31-13"><a href="working-with-existing-data.html#cb31-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55        2        6.59         3      50</span></span></code></pre></div>
-</div>
-</div>
-<div id="exercises-1" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> Exercises<a href="working-with-existing-data.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="group_by-summarize-2" class="section level3 hasAnchor" number="5.6.1">
-<h3><span class="header-section-number">5.6.1</span> group_by &amp; summarize<a href="working-with-existing-data.html#group_by-summarize-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br>
-Follow the structure to group the edited seminar data by belief in the soul and output a summary with</p>
+<li>Interpretation?
 <ul>
-<li>mean age</li>
-<li>mean technological skill</li>
-<li>mode music genre</li>
-<li>median volume of music</li>
-<li>grouped n (function <em>n()</em>)</li>
+<li>There are no significant pairwise differences in our (small) sample.</li>
+<li>But we can simulate a larger sample (for fun)</li>
+</ul></li>
 </ul>
-<div class="webex-solution">
-<button>
-Solution
-</button>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="working-with-existing-data.html#cb32-1" tabindex="-1"></a>seminar <span class="sc">%&gt;%</span> </span>
-<span id="cb32-2"><a href="working-with-existing-data.html#cb32-2" tabindex="-1"></a>  <span class="fu">group_by</span>(v11_soul) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-3"><a href="working-with-existing-data.html#cb32-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(v02_age),</span>
-<span id="cb32-4"><a href="working-with-existing-data.html#cb32-4" tabindex="-1"></a>            <span class="at">m_tech_skill =</span> <span class="fu">mean</span>(v05_skill_tech),</span>
-<span id="cb32-5"><a href="working-with-existing-data.html#cb32-5" tabindex="-1"></a>            <span class="at">mode_music =</span> <span class="fu">getmode</span>(v07_genre),</span>
-<span id="cb32-6"><a href="working-with-existing-data.html#cb32-6" tabindex="-1"></a>            <span class="at">median_volume =</span> <span class="fu">median</span>(v08_loudness),</span>
-<span id="cb32-7"><a href="working-with-existing-data.html#cb32-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb32-8"><a href="working-with-existing-data.html#cb32-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb32-9"><a href="working-with-existing-data.html#cb32-9" tabindex="-1"></a><span class="co">#   v11_soul m_age m_tech_skill mode_music median_volume     n</span></span>
-<span id="cb32-10"><a href="working-with-existing-data.html#cb32-10" tabindex="-1"></a><span class="co">#   &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb32-11"><a href="working-with-existing-data.html#cb32-11" tabindex="-1"></a><span class="co"># 1 dunno     23.4         29.4 techno              89       5</span></span>
-<span id="cb32-12"><a href="working-with-existing-data.html#cb32-12" tabindex="-1"></a><span class="co"># 2 no        22           45   pop                 74.5     2</span></span>
-<span id="cb32-13"><a href="working-with-existing-data.html#cb32-13" tabindex="-1"></a><span class="co"># 3 yes       22.5         42   rock                67.5     6</span></span></code></pre></div>
 </div>
 </div>
-<div id="prepare-seminar-data" class="section level3 hasAnchor" number="5.6.2">
-<h3><span class="header-section-number">5.6.2</span> Prepare seminar data<a href="working-with-existing-data.html#prepare-seminar-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We have read in the "seminar_data_raw" and looked at some of the basic edits that we can do easily.
-However, in order to be able to work with the dataset in easily in the future, we should do some more advanced edits.
-Specifically, we will:</p>
-<ol style="list-style-type: decimal">
-<li>Change the date format so we get a start and end variable including time and date instead of separate date and time variables</li>
-<li>Remove the unnecessary original date and time variables</li>
-<li>Change the one missing value in <code>v12_soul_phil</code> to "dunno"</li>
-<li>Rename the ID variable to <code>ID</code> &amp; session length variable to <code>session_length</code></li>
-<li>Make our data type explicit using <code>as.data.frame()</code></li>
-<li>Save our edited data in an R data set (<code>Rds</code>) format so we can use it more easily later!</li>
-</ol>
-<p>I suggest using some of the <code>dplyr</code> commands that were introduced in the last chapter for edits 1 through 4.
-You can try to figure them out on your own and later look at the solution below.
-<strong>I highly recommend you follow along with these steps, as we will use this dataset in later chapters</strong><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<div class="webex-solution">
-<button>
-Solution
-</button>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="working-with-existing-data.html#cb33-1" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> seminar <span class="sc">|&gt;</span> </span>
-<span id="cb33-2"><a href="working-with-existing-data.html#cb33-2" tabindex="-1"></a>  <span class="co"># 1. Change date format </span></span>
-<span id="cb33-3"><a href="working-with-existing-data.html#cb33-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">4.</span>start_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>),</span>
-<span id="cb33-4"><a href="working-with-existing-data.html#cb33-4" tabindex="-1"></a>         <span class="at">end =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">7.</span>end_date, v.wx.<span class="fl">6.</span>end_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>), </span>
-<span id="cb33-5"><a href="working-with-existing-data.html#cb33-5" tabindex="-1"></a>         <span class="at">.before =</span> v01_gender) <span class="sc">%&gt;%</span> <span class="co"># it is more efficient to have date and time together</span></span>
-<span id="cb33-6"><a href="working-with-existing-data.html#cb33-6" tabindex="-1"></a>  <span class="co"># 2. Remove (now) unnecessary original date vars </span></span>
-<span id="cb33-7"><a href="working-with-existing-data.html#cb33-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(v.wx.<span class="fl">4.</span>start_time, v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">6.</span>end_time, v.wx.<span class="fl">7.</span>end_date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb33-8"><a href="working-with-existing-data.html#cb33-8" tabindex="-1"></a>  <span class="co"># 3. Change missing value to &quot;don&#39;t know&quot; - in this case makes sense in context</span></span>
-<span id="cb33-9"><a href="working-with-existing-data.html#cb33-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">v12_soul_phil =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(v12_soul_phil), <span class="st">&quot;dunno&quot;</span>, v12_soul_phil)) <span class="sc">|&gt;</span> </span>
-<span id="cb33-10"><a href="working-with-existing-data.html#cb33-10" tabindex="-1"></a>  <span class="co"># 4. Rename the ID &amp; session length variable</span></span>
-<span id="cb33-11"><a href="working-with-existing-data.html#cb33-11" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ID =</span> v.wx.<span class="fl">1.</span>id,</span>
-<span id="cb33-12"><a href="working-with-existing-data.html#cb33-12" tabindex="-1"></a>         <span class="at">session_length =</span> v.wx.<span class="fl">8.</span>session_length)</span>
-<span id="cb33-13"><a href="working-with-existing-data.html#cb33-13" tabindex="-1"></a></span>
-<span id="cb33-14"><a href="working-with-existing-data.html#cb33-14" tabindex="-1"></a><span class="co"># 5. Make data type explicit</span></span>
-<span id="cb33-15"><a href="working-with-existing-data.html#cb33-15" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(seminar)</span>
-<span id="cb33-16"><a href="working-with-existing-data.html#cb33-16" tabindex="-1"></a></span>
-<span id="cb33-17"><a href="working-with-existing-data.html#cb33-17" tabindex="-1"></a><span class="co"># 6. Save edited data frame in Rds format</span></span>
-<span id="cb33-18"><a href="working-with-existing-data.html#cb33-18" tabindex="-1"></a><span class="fu">saveRDS</span>(seminar, <span class="st">&quot;./data/seminar_data.Rds&quot;</span>)</span></code></pre></div>
+<div id="addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Addendum for demonstration only: Bootstrapped Data for larger sample size<a href="difference-statistics.html#addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="difference-statistics.html#cb65-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb65-2"><a href="difference-statistics.html#cb65-2" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="difference-statistics.html#cb65-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb65-4"><a href="difference-statistics.html#cb65-4" tabindex="-1"></a>  boot <span class="ot">&lt;-</span> seminar[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(seminar), <span class="fu">nrow</span>(seminar), <span class="at">replace =</span> T), ]</span>
+<span id="cb65-5"><a href="difference-statistics.html#cb65-5" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, boot) <span class="co"># create many random samples from our data </span></span>
+<span id="cb65-6"><a href="difference-statistics.html#cb65-6" tabindex="-1"></a>}</span>
+<span id="cb65-7"><a href="difference-statistics.html#cb65-7" tabindex="-1"></a></span>
+<span id="cb65-8"><a href="difference-statistics.html#cb65-8" tabindex="-1"></a>bootstrapped_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> data)</span>
+<span id="cb65-9"><a href="difference-statistics.html#cb65-9" tabindex="-1"></a><span class="fu">summary</span>(bootstrapped_model)</span>
+<span id="cb65-10"><a href="difference-statistics.html#cb65-10" tabindex="-1"></a><span class="co">#                       Df Sum Sq Mean Sq F value   Pr(&gt;F)    </span></span>
+<span id="cb65-11"><a href="difference-statistics.html#cb65-11" tabindex="-1"></a><span class="co"># as.factor(v07_genre)   2   7345    3672   47.76 3.42e-16 ***</span></span>
+<span id="cb65-12"><a href="difference-statistics.html#cb65-12" tabindex="-1"></a><span class="co"># Residuals            127   9766      77                     </span></span>
+<span id="cb65-13"><a href="difference-statistics.html#cb65-13" tabindex="-1"></a><span class="co"># ---</span></span>
+<span id="cb65-14"><a href="difference-statistics.html#cb65-14" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb65-15"><a href="difference-statistics.html#cb65-15" tabindex="-1"></a><span class="fu">TukeyHSD</span>(bootstrapped_model)</span>
+<span id="cb65-16"><a href="difference-statistics.html#cb65-16" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
+<span id="cb65-17"><a href="difference-statistics.html#cb65-17" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
+<span id="cb65-18"><a href="difference-statistics.html#cb65-18" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb65-19"><a href="difference-statistics.html#cb65-19" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ as.factor(v07_genre), data = data)</span></span>
+<span id="cb65-20"><a href="difference-statistics.html#cb65-20" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb65-21"><a href="difference-statistics.html#cb65-21" tabindex="-1"></a><span class="co"># $`as.factor(v07_genre)`</span></span>
+<span id="cb65-22"><a href="difference-statistics.html#cb65-22" tabindex="-1"></a><span class="co">#                  diff       lwr       upr     p adj</span></span>
+<span id="cb65-23"><a href="difference-statistics.html#cb65-23" tabindex="-1"></a><span class="co"># rock-pop    14.238278 10.307525 18.169030 0.0000000</span></span>
+<span id="cb65-24"><a href="difference-statistics.html#cb65-24" tabindex="-1"></a><span class="co"># techno-pop  17.624242 11.977093 23.271392 0.0000000</span></span>
+<span id="cb65-25"><a href="difference-statistics.html#cb65-25" tabindex="-1"></a><span class="co"># techno-rock  3.385965 -2.236703  9.008633 0.3295653</span></span></code></pre></div>
 </div>
 </div>
+<div id="reporting-with-the-apa-papaja-packages" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Reporting with the <code>apa</code> &amp; <code>papaja</code> packages<a href="difference-statistics.html#reporting-with-the-apa-papaja-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<ul>
+<li>You know the <code>papaja</code> package already for <code>theme_apa()</code> in data visualization</li>
+<li>The package also has many wrapper functions to make reporting in R &amp; R Markdown a lot easier
+<ul>
+<li>"apa_print()"</li>
+<li>Chi<span class="math inline">\(^2\)</span> Test reporting cannot be achieved with this, so we use apa::chisq_apa() for that</li>
+</ul></li>
+</ul>
+<div id="usage" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Usage<a href="difference-statistics.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="difference-statistics.html#cb66-1" tabindex="-1"></a><span class="co"># Chi (add format = &quot;rmarkdown&quot; if needed)</span></span>
+<span id="cb66-2"><a href="difference-statistics.html#cb66-2" tabindex="-1"></a>apa<span class="sc">::</span><span class="fu">chisq_apa</span>(<span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
+<span id="cb66-3"><a href="difference-statistics.html#cb66-3" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
+<span id="cb66-4"><a href="difference-statistics.html#cb66-4" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
+<span id="cb66-5"><a href="difference-statistics.html#cb66-5" tabindex="-1"></a><span class="co"># chi^2(2) = 2.14, p = .344</span></span>
+<span id="cb66-6"><a href="difference-statistics.html#cb66-6" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="difference-statistics.html#cb66-7" tabindex="-1"></a><span class="co"># t-test</span></span>
+<span id="cb66-8"><a href="difference-statistics.html#cb66-8" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(<span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>))<span class="sc">$</span>full_result</span>
+<span id="cb66-9"><a href="difference-statistics.html#cb66-9" tabindex="-1"></a><span class="co"># [1] &quot;$\\Delta M = 10.50$, 95\\% CI $[-109.56, \\infty]$, $t(1.28) = 0.39$, $p = .377$&quot;</span></span>
+<span id="cb66-10"><a href="difference-statistics.html#cb66-10" tabindex="-1"></a></span>
+<span id="cb66-11"><a href="difference-statistics.html#cb66-11" tabindex="-1"></a><span class="co"># ANOVA</span></span>
+<span id="cb66-12"><a href="difference-statistics.html#cb66-12" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(model)<span class="sc">$</span>full_result <span class="sc">|&gt;</span> <span class="fu">suppressMessages</span>()</span>
+<span id="cb66-13"><a href="difference-statistics.html#cb66-13" tabindex="-1"></a><span class="co"># $as_factorv07_genre</span></span>
+<span id="cb66-14"><a href="difference-statistics.html#cb66-14" tabindex="-1"></a><span class="co"># [1] &quot;$F(2, 10) = 2.56$, $p = .126$, $\\hat{\\eta}^2_G = .339$, 90\\% CI $[.000, .602]$&quot;</span></span>
+<span id="cb66-15"><a href="difference-statistics.html#cb66-15" tabindex="-1"></a><span class="co"># suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us &quot;For one-way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.&quot;&quot;</span></span></code></pre></div>
 </div>
-<div id="wrap-up-further-resources-3" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Wrap-Up &amp; Further Resources<a href="working-with-existing-data.html#wrap-up-further-resources-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="usage-in-r-markdown" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Usage in R Markdown<a href="difference-statistics.html#usage-in-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>This presentation is based on R Markdown, so we can make use of the pretty printing options right here</p></li>
+<li><p>By using <code>apa_print(model)$full_result</code>, we can automatically report results inside our documents:</p></li>
+<li><p>"In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (<span class="math inline">\(F(2, 10) = 2.56\)</span>, <span class="math inline">\(p = .126\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .339\)</span>, 90% CI <span class="math inline">\([.000, .602]\)</span>). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (<span class="math inline">\(F(2, 127) = 47.76\)</span>, <span class="math inline">\(p &lt; .001\)</span>), which is also supported by the large effect size (<span class="math inline">\(\hat{\eta}^2_G = .429\)</span>, 90% CI <span class="math inline">\([.322, .516]\)</span>)."</p></li>
+</ul>
+</div>
+</div>
+<div id="wrap-up-further-resources-6" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Wrap-Up &amp; Further Resources<a href="difference-statistics.html#wrap-up-further-resources-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;">
 <li>
-Reading in data works with commands like readRDS() but also the "Import Dataset" Menu
+Chi<span class="math inline">\(^2\)</span> test measures association between two categorical variables
 </li>
 <li>
-Use the menu for WEXTOR data to get an overview and reproducible code
+t Test measures differences between mean values (one sample, two sample, paired)
 </li>
 <li>
-Get/ create a codebook for your data
+ANOVA can be thought of as an augmentation of the t test while controlling alpha inflation
 </li>
 <li>
-Always report descriptive data
+Functions: chisq.test(), t.test(), aov()
 </li>
 <li>
-dplyr's <code>group_by()</code> and <code>summarize()</code> can output grouped descriptives
+Always try to imagine/ keep in mind what you might expect and <em>what the data would be like if that were true</em>
+</li>
+<li>
+Read the documentation of each function for more options
 </li>
 </ul>
 <p><br></p>
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li>
-<a href="https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r">Reading in Data in Different Formats</a>
+<a href="https://the-tave.shinyapps.io/Statistics-Picker/">Statistics Picker</a>
 </li>
 <li>
-<a href="https://statsandr.com/blog/descriptive-statistics-in-r/">Stats and R: Descriptives</a>
+<a href="https://www.statology.org/chi-square-test-of-independence-in-r/">Chi2-test (Statology)</a>
+</li>
+<li>
+<a href="https://www.statology.org/two-sample-t-test/">t-test (Statology)</a>
+</li>
+<li>
+<a href="https://www.statology.org/interpret-anova-results-in-r/">ANOVA (Statology)</a>
+</li>
+<li>
+<em>Discovering Statistics Using R</em> <span class="citation">(<a href="references.html#ref-field2012">Field et al., 2012</a>)</span>
 </li>
 </ul>
+<!-- #id .class  -->
+<div class="float">
+<img src="img/sweet-anova.png" height="200" alt="Cute ANOVA curves" />
+<div class="figcaption">Cute ANOVA curves</div>
+</div>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>...which often times is a comma, but not always! WEXTOR, for example uses semicolons.<a href="working-with-existing-data.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>The function calls <code>as.numeric()</code> and <code>as.factor()</code> will suffice in most cases.<a href="working-with-existing-data.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>This is very close to real-life practice, but you can also skip it and download the Rds-file from the GitHub repository <a href="https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds">here</a>.<a href="working-with-existing-data.html#fnref5" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
 <script>
 
@@ -1046,8 +1176,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loops-and-conditionals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="association-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1078,7 +1208,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/the-tave/psych_research_in_r/issues/05_WorkingwithData.Rmd",
+"link": "https://github.com/the-tave/psych_research_in_r/issues/08_Statistics_chi2-ttest-anova.Rmd",
 "text": "Edit"
 },
 "history": {

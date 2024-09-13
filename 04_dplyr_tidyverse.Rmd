@@ -178,8 +178,8 @@ head(iris_twospec, 8)
 ```
 
 
-![Hadley Wickham](./img/hadley-meme.webp) 
-<figcaption style = "font-size: 7pt;">Hadley Wickham, developer of the tidyverse</figcaption>
+![Hadley Wickham, developer of the tidyverse](./img/hadley-meme.webp) 
+<!-- <figcaption style = "font-size: 7pt;">Hadley Wickham, developer of the tidyverse</figcaption> -->
 
 
 ## On a Tangent: `magrittr` pipe %>% 

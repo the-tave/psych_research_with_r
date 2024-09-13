@@ -7,9 +7,11 @@
 ```
 
 
-## What is Best Practice?
+**What is Best Practice?**
 
-- "Many roads lead to Rome": You can achieve most things in many different ways
+> " ~~All~~ Many roads lead to Rome"
+
+: You can achieve most things in many different ways
 - _Best Practice_ refers to the best/ easiest/ clearest way of working with R
 
 ### Overview
@@ -258,14 +260,11 @@ str(mindful)
 <li> [R Projects: A quick overview](https://thedavidchen.github.io/post/rstudio-why-use-projects/) </li>
 <li> [Starting your R projects](https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html) </li>
 <li> [RStudio Projects and Directories](https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/) (rather thorough) </li>
+<li> [Some ideas on improving your workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) (this can seem a bit advanced, but try reading through anyway and see what sticks with you. Building good habits at the beginning of your learning journey will make your life a lot easier down the line!)
 </ul>
 
-<!-- ## Further Resources -->
+## Working with Version Control
 
-<!-- <br> -->
+...can sound scary and daunting to learn.
 
-<!-- <i class="fa-solid fa-book" style="color: orange;"></i> -->
-<!-- <ul style="color: orange;"> -->
-<!-- <li> [R Projects: A quick overview](https://thedavidchen.github.io/post/rstudio-why-use-projects/) </li> -->
-<!-- <li> [Starting your R projects](https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html) </li> -->
-<!-- </ul> -->
+[Hack your way to a good Git history (Maëlle Salmon)](https://www.r-bloggers.com/2024/06/hack-your-way-to-a-good-git-history/)

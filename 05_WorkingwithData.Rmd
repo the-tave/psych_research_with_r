@@ -26,6 +26,56 @@ Please also install the _wobblynameR_ package (only available on GitHub). For th
 <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Make sure you have the right package installed for reading in specific data types! Here: Please install the readr package with install.packages("readr")</i>
 
 
+
+In my experience, it is easiest to work with data where you have an idea of what to expect.
+Therefore, we will all participate in the following study and then use the data throughout the remainder of this course.
+
+[https://exp.wextor.eu/TheTave/PsychResearchR/](https://exp.wextor.eu/TheTave/PsychResearchR/)
+
+## Different types of data sources
+
+Data collected from WEXTOR - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
+That means that this type of data has one row per participant and the values for each column (variable) are separated by a _delimiter_ ^[...which often times is a comma, but not always! WEXTOR, for example uses Semicolons.].
+
+When our data comes from an Excel file, it will often be exported as CSV because this type of storing data is pretty efficient and uses up very little space on the disk.
+A more modern but also more space-consuming way of storing Excel table data is in the XLSX format (Not an acronym, just stands for "Excel Spreadsheet").
+
+Many people use SPSS for statistical analysis and creating dataframes.
+These data will be stored in a file with the extension SAV. 
+Generally speaking, SAV files are compatible with R.
+However, there are some specialties which can cause problems, such as SPSS labels.
+We won't go into depth on this, just know that R can sometimes recognize SPSS labelled variables as their own class, in which case the class of those variables should be corrected manually ^[The function calls `as.numeric()` and `as.factor()` will suffice in most cases.].
+
+Finally, of course we can also encounter datafiles that were created in R.
+In this case the will have .Rds as the file extension.
+A special case of this is when data frames are included in base-R or in a package.
+For example, the dataset called `iris` comes with R as an example dataset.
+
+Therefore, we can run a function on it without having to load it at all:
+
+```{r iris}
+head(iris)
+```
+
+Depending on which type of data we want to work with, there are different ways of loading the data into R.
+
+## Reading in the data
+
+There are two main ways to load data: via the "Import Dataset" menu under the _Environment_-tab or (only) using code and if necessary packages.
+In the menu, simply select the option "Import Dataset" menu under the top-right _Environment_-tab and use _From text (readr)_ for csv or other text files (such as .txt).
+Note that this menu also offers the possibility to load data from Excel and SPSS.
+However, this is much easier done by just using simple commands directly in your script:
+
+Data Source | R command
+------|------
+WEXTOR (CSV) | `readr::read_delim("data.csv", delim = ";")`
+Excel (XLSX) | `xlsx::read.xlsx("data.xlsx", sheetIndex = 1)`
+R Data Source (RDS) | `readRDS("data.Rds")`
+SPSS (SAV) | `foreign::read.spss("data.sav")`
+
+
+
+
 ### Reading in the data
 #### Generated Code
 
@@ -69,16 +119,6 @@ raw <- read_delim("./data/PsychResearchR_data.csv",
 seminar <- namepref0(raw, "v")
 ```
 
-### Choosing how to read in the data
-
-<br>
-
-Data Source | R command
-------|------
-WEXTOR (CSV) | `readr::read_delim("data.csv", delim = ";")`
-Excel (XLSX) | `xlsx::read.xlsx("data.xlsx", sheetIndex = 1)`
-R Data Source (RDS) | `readRDS("data.Rds")`
-SPSS (SAV) | `foreign::read.spss("data.sav")`
 
 
 ## Working with the data: <br> Codebook

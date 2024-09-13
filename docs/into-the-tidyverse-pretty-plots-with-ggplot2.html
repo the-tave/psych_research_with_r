@@ -5,25 +5,28 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Into the tidyverse: Pretty plots with ggplot2 |  Psychological Research in R </title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Into the tidyverse: Pretty plots with ggplot2 |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 7 Into the tidyverse: Pretty plots with ggplot2 |  Psychological Research in R " />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   
 
 <meta name="author" content="Anni Tave Overlander" />
@@ -128,6 +131,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="www/webex.css" type="text/css" />
@@ -179,35 +205,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="best-practice.html"><a href="best-practice.html"><i class="fa fa-check"></i><b>3</b> Best Practice</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#what-is-best-practice"><i class="fa fa-check"></i><b>3.1</b> What is Best Practice?</a>
+<li class="chapter" data-level="3.0.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.0.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.1</b> Naming Conventions</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.1.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.1.1</b> Exercise: Name Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.2</b> Naming Conventions</a>
+<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2</b> Scenario: Creating Data meaningfully</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Name Examples</a></li>
+<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Creating Data meaningfully</a></li>
+<li class="chapter" data-level="3.2.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.2.2</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3</b> Scenario: Creating Data meaningfully</a>
+<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.3</b> Working Directories</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3.1</b> Exercise: Creating Data meaningfully</a></li>
-<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.3.2</b> Solution</a></li>
+<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.3.1</b> Try it out!</a></li>
+<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.3.2</b> Cautionary Tale</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.4</b> Working Directories</a>
+<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.4</b> R Projects</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.4.1</b> Try it out!</a></li>
-<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.4.2</b> Cautionary Tale</a></li>
+<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.4.1</b> Let's try that out!</a></li>
+<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.4.2</b> Homework: Put it to the test</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.5</b> R Projects</a>
+<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.5</b> Make R your own: Appearance</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.5.1</b> Let's try that out!</a></li>
-<li class="chapter" data-level="3.5.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.5.2</b> Homework: Put it to the test</a></li>
+<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.5.1</b> Why?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.6</b> Make R your own: Appearance</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.6.1</b> Why?</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.7</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.8</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.6</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
+<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.7</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#working-with-version-control"><i class="fa fa-check"></i><b>3.8</b> Working with Version Control</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Into the <code>tidyverse</code>: Data munging with <code>dplyr</code></a>
 <ul>
@@ -249,22 +273,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html"><i class="fa fa-check"></i><b>5</b> Working with existing Data</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a>
+<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a></li>
+<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#different-types-of-data-sources"><i class="fa fa-check"></i><b>5.2</b> Different types of data sources</a></li>
+<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.3</b> Reading in the data</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.1.1</b> Reading in the data</a></li>
-<li class="chapter" data-level="5.1.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.1.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.1.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#choosing-how-to-read-in-the-data"><i class="fa fa-check"></i><b>5.1.4</b> Choosing how to read in the data</a></li>
+<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data-1"><i class="fa fa-check"></i><b>5.3.1</b> Reading in the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.3.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.3.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.2</b> Working with the data: <br> Codebook</a></li>
-<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.3</b> Working with the data: <br> Descriptives</a>
+<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.4</b> Working with the data: <br> Codebook</a></li>
+<li class="chapter" data-level="5.5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.5</b> Working with the data: <br> Descriptives</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.1</b> group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.2</b> Example: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.3</b> Exercise: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.3.4</b> Solution</a></li>
+<li class="chapter" data-level="5.5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.1</b> group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.2</b> Example: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.3</b> Exercise: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.5.4</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.4</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="5.6" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.6</b> Wrap-Up &amp; Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html"><i class="fa fa-check"></i><b>6</b> Loops and Conditionals</a>
 <ul>
@@ -333,6 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.5" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#use-colors-and-palettes"><i class="fa fa-check"></i><b>7.5.5</b> Use: colors and palettes</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#wrap-up-further-resources-5"><i class="fa fa-check"></i><b>7.6</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="7.7" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#gganimate"><i class="fa fa-check"></i><b>7.7</b> gganimate</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html"><i class="fa fa-check"></i><b>8</b> Creating and interpreting statistics: Chi<span class="math inline">\(^2\)</span> &amp; t-test &amp; ANOVA</a>
 <ul>
@@ -596,8 +622,8 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 </div>
 <div id="example-basic-bar-plot" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Example: Basic Bar Plot<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-basic-bar-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb45-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb45-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb45-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width)) </span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb46-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb46-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width)) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <div id="making-plots-prettier" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Making Plots Prettier<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#making-plots-prettier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -622,8 +648,8 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 </div>
 <div id="example-bar-plot-with-color-and-fill" class="section level3 hasAnchor" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> Example: Bar Plot with color and fill<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb46-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb46-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb46-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deepskyblue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb47-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deepskyblue&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-52-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What could cause this distribution?</li>
@@ -631,8 +657,8 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 </div>
 <div id="example-bar-plot-with-color-and-fill-1" class="section level3 hasAnchor" number="7.3.3">
 <h3><span class="header-section-number">7.3.3</span> Example: Bar Plot with color and fill<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb47-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb48-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What do you notice about the code compared to before?</li>
@@ -659,14 +685,14 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 <p>Create a <strong>density plot</strong> that shows <em>Sepal.Length</em> from the <code>iris</code> data set. <br>
 <em>Fill</em> in the color depending on the Species and <em>color</em> the outlines with "white". <br>
 Make sure everything is visible and legible, so try to use an <em>alpha</em> of around 0.6.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb48-2" tabindex="-1"></a>  <span class="fu">geom_XYZ</span>(<span class="fu">aes</span>(), <span class="at">alpha =</span> ?)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> </span>
+<span id="cb49-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_XYZ</span>(<span class="fu">aes</span>(), <span class="at">alpha =</span> ?)</span></code></pre></div>
 </div>
 <div id="solution-7" class="section level3 hasAnchor" number="7.3.6">
 <h3><span class="header-section-number">7.3.6</span> Solution<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#solution-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb49-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species), </span>
-<span id="cb49-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb49-3" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> .<span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb50-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species), </span>
+<span id="cb50-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb50-3" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> .<span class="dv">6</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-55-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
@@ -687,9 +713,9 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 </ul>
 <div id="same-example-with-added-theme" class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Same example with added theme<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#same-example-with-added-theme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb50-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb50-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb50-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb51-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-56-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li>What labels should we use in this plot?</li>
@@ -697,11 +723,11 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 </div>
 <div id="same-example-with-added-theme-and-labels" class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> Same example with added theme and labels<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#same-example-with-added-theme-and-labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb51-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb51-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
-<span id="cb51-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Petal Width&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flower Count&quot;</span>,</span>
-<span id="cb51-5"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-5" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Size of Iris Flowers&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb52-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
+<span id="cb52-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Petal Width&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flower Count&quot;</span>,</span>
+<span id="cb52-5"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-5" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Size of Iris Flowers&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-57-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
@@ -724,11 +750,11 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <div id="boxplot-example" class="section level3 hasAnchor" number="7.5.1">
 <h3><span class="header-section-number">7.5.1</span> Boxplot Example<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#boxplot-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As suggested by one of you, we will look at the relationship of preferred music genre and music volume in our course:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-1" tabindex="-1"></a><span class="co"># seminar &lt;- readRDS(&quot;./data/seminar_data.Rds&quot;)</span></span>
-<span id="cb52-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-2" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x=</span>v07_genre, <span class="at">y=</span>v08_loudness, <span class="at">colour=</span>v07_genre, <span class="at">fill=</span>v07_genre)) <span class="sc">+</span></span>
-<span id="cb52-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
-<span id="cb52-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Preferred Music Genre&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Loudness (arbitrary units)&quot;</span>, </span>
-<span id="cb52-5"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-5" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Genre&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-1" tabindex="-1"></a><span class="co"># seminar &lt;- readRDS(&quot;./data/seminar_data.Rds&quot;)</span></span>
+<span id="cb53-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-2" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x=</span>v07_genre, <span class="at">y=</span>v08_loudness, <span class="at">colour=</span>v07_genre, <span class="at">fill=</span>v07_genre)) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
+<span id="cb53-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Preferred Music Genre&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Loudness (arbitrary units)&quot;</span>, </span>
+<span id="cb53-5"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-5" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Genre&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="878.4" /></p>
 </div>
 <div id="exercise-boxplot" class="section level3 hasAnchor" number="7.5.2">
@@ -742,10 +768,10 @@ Try to add <em>labels</em> and a <em>theme</em>.</p>
 </div>
 <div id="solution-boxplot" class="section level3 hasAnchor" number="7.5.3">
 <h3><span class="header-section-number">7.5.3</span> Solution: Boxplot<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#solution-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb53-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length,</span>
-<span id="cb53-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-3" tabindex="-1"></a>                   <span class="at">color =</span> Species, <span class="at">fill =</span> Species), <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb53-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb54-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb54-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb54-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length,</span>
+<span id="cb54-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb54-3" tabindex="-1"></a>                   <span class="at">color =</span> Species, <span class="at">fill =</span> Species), <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb54-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb54-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 <div id="inspiration-colors-and-palettes" class="section level3 hasAnchor" number="7.5.4">
@@ -823,6 +849,23 @@ Color palettes are a great way of elevating a visualization
 </li>
 </ul>
 <p><img src="_main_files/figure-html/unikn-plot-1.png" width="864" /></p>
+</div>
+<div id="gganimate" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> gganimate<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#gganimate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-1" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb55-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-2" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb55-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-3" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-4" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">colour =</span> country)) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb55-6"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-6" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> country_colors) <span class="sc">+</span></span>
+<span id="cb55-7"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-7" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb55-8"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-8" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb55-9"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-9" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent) <span class="sc">+</span></span>
+<span id="cb55-10"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-10" tabindex="-1"></a>  <span class="co"># Here comes the gganimate specific bits</span></span>
+<span id="cb55-11"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Year: {frame_time}&#39;</span>, <span class="at">x =</span> <span class="st">&#39;GDP per capita&#39;</span>, <span class="at">y =</span> <span class="st">&#39;life expectancy&#39;</span>) <span class="sc">+</span></span>
+<span id="cb55-12"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-12" tabindex="-1"></a>  <span class="fu">transition_time</span>(year) <span class="sc">+</span></span>
+<span id="cb55-13"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-13" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-61-1.gif" /><!-- --></p>
 
 </div>
 </div>

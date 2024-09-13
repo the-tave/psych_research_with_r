@@ -5,25 +5,28 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Working with existing Data |  Psychological Research in R </title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Working with existing Data |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Working with existing Data |  Psychological Research in R " />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   
 
 <meta name="author" content="Anni Tave Overlander" />
@@ -128,6 +131,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="www/webex.css" type="text/css" />
@@ -179,35 +205,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="best-practice.html"><a href="best-practice.html"><i class="fa fa-check"></i><b>3</b> Best Practice</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#what-is-best-practice"><i class="fa fa-check"></i><b>3.1</b> What is Best Practice?</a>
+<li class="chapter" data-level="3.0.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.0.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.1</b> Naming Conventions</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.1.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.1.1</b> Exercise: Name Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.2</b> Naming Conventions</a>
+<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2</b> Scenario: Creating Data meaningfully</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Name Examples</a></li>
+<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Creating Data meaningfully</a></li>
+<li class="chapter" data-level="3.2.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.2.2</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3</b> Scenario: Creating Data meaningfully</a>
+<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.3</b> Working Directories</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3.1</b> Exercise: Creating Data meaningfully</a></li>
-<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.3.2</b> Solution</a></li>
+<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.3.1</b> Try it out!</a></li>
+<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.3.2</b> Cautionary Tale</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.4</b> Working Directories</a>
+<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.4</b> R Projects</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.4.1</b> Try it out!</a></li>
-<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.4.2</b> Cautionary Tale</a></li>
+<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.4.1</b> Let's try that out!</a></li>
+<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.4.2</b> Homework: Put it to the test</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.5</b> R Projects</a>
+<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.5</b> Make R your own: Appearance</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.5.1</b> Let's try that out!</a></li>
-<li class="chapter" data-level="3.5.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.5.2</b> Homework: Put it to the test</a></li>
+<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.5.1</b> Why?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.6</b> Make R your own: Appearance</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.6.1</b> Why?</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.7</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.8</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.6</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
+<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.7</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#working-with-version-control"><i class="fa fa-check"></i><b>3.8</b> Working with Version Control</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Into the <code>tidyverse</code>: Data munging with <code>dplyr</code></a>
 <ul>
@@ -249,22 +273,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html"><i class="fa fa-check"></i><b>5</b> Working with existing Data</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a>
+<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a></li>
+<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#different-types-of-data-sources"><i class="fa fa-check"></i><b>5.2</b> Different types of data sources</a></li>
+<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.3</b> Reading in the data</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.1.1</b> Reading in the data</a></li>
-<li class="chapter" data-level="5.1.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.1.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.1.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#choosing-how-to-read-in-the-data"><i class="fa fa-check"></i><b>5.1.4</b> Choosing how to read in the data</a></li>
+<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data-1"><i class="fa fa-check"></i><b>5.3.1</b> Reading in the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.3.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.3.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.2</b> Working with the data: <br> Codebook</a></li>
-<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.3</b> Working with the data: <br> Descriptives</a>
+<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.4</b> Working with the data: <br> Codebook</a></li>
+<li class="chapter" data-level="5.5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.5</b> Working with the data: <br> Descriptives</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.1</b> group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.2</b> Example: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.3</b> Exercise: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.3.4</b> Solution</a></li>
+<li class="chapter" data-level="5.5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.1</b> group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.2</b> Example: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.3</b> Exercise: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.5.4</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.4</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="5.6" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.6</b> Wrap-Up &amp; Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html"><i class="fa fa-check"></i><b>6</b> Loops and Conditionals</a>
 <ul>
@@ -333,6 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.5" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#use-colors-and-palettes"><i class="fa fa-check"></i><b>7.5.5</b> Use: colors and palettes</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#wrap-up-further-resources-5"><i class="fa fa-check"></i><b>7.6</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="7.7" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#gganimate"><i class="fa fa-check"></i><b>7.7</b> gganimate</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html"><i class="fa fa-check"></i><b>8</b> Creating and interpreting statistics: Chi<span class="math inline">\(^2\)</span> &amp; t-test &amp; ANOVA</a>
 <ul>
@@ -530,51 +556,42 @@ Psychological Research in R
 </ul>
 <p><br></p>
 <p><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Make sure you have the right package installed for reading in specific data types! Here: Please install the readr package with install.packages("readr")</i></p>
-<div id="reading-in-the-data" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Reading in the data<a href="working-with-existing-data.html#reading-in-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="generated-code" class="section level4 hasAnchor" number="5.1.1.1">
-<h4><span class="header-section-number">5.1.1.1</span> Generated Code<a href="working-with-existing-data.html#generated-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-with-existing-data.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb28-2"><a href="working-with-existing-data.html#cb28-2" tabindex="-1"></a>PsychResearchR_data <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/PsychResearchR_data.csv&quot;</span>, </span>
-<span id="cb28-3"><a href="working-with-existing-data.html#cb28-3" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-4"><a href="working-with-existing-data.html#cb28-4" tabindex="-1"></a><span class="fu">View</span>(PsychResearchR_data)</span></code></pre></div>
+<p>In my experience, it is easiest to work with data where you have an idea of what to expect.
+Therefore, we will all participate in the following study and then use the data throughout the remainder of this course.</p>
+<p><a href="https://exp.wextor.eu/TheTave/PsychResearchR/">https://exp.wextor.eu/TheTave/PsychResearchR/</a></p>
 </div>
+<div id="different-types-of-data-sources" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Different types of data sources<a href="working-with-existing-data.html#different-types-of-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data collected from WEXTOR - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
+That means that this type of data has one row per participant and the values for each column (variable) are separated by a <em>delimiter</em> <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>When our data comes from an Excel file, it will often be exported as CSV because this type of storing data is pretty efficient and uses up very little space on the disk.
+A more modern but also more space-consuming way of storing Excel table data is in the XLSX format (Not an acronym, just stands for "Excel Spreadsheet").</p>
+<p>Many people use SPSS for statistical analysis and creating dataframes.
+These data will be stored in a file with the extension SAV.
+Generally speaking, SAV files are compatible with R.
+However, there are some specialties which can cause problems, such as SPSS labels.
+We won't go into depth on this, just know that R can sometimes recognize SPSS labelled variables as their own class, in which case the class of those variables should be corrected manually <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
+<p>Finally, of course we can also encounter datafiles that were created in R.
+In this case the will have .Rds as the file extension.
+A special case of this is when data frames are included in base-R or in a package.
+For example, the dataset called <code>iris</code> comes with R as an example dataset.</p>
+<p>Therefore, we can run a function on it without having to load it at all:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-with-existing-data.html#cb28-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
+<span id="cb28-2"><a href="working-with-existing-data.html#cb28-2" tabindex="-1"></a><span class="co">#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb28-3"><a href="working-with-existing-data.html#cb28-3" tabindex="-1"></a><span class="co"># 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span id="cb28-4"><a href="working-with-existing-data.html#cb28-4" tabindex="-1"></a><span class="co"># 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span id="cb28-5"><a href="working-with-existing-data.html#cb28-5" tabindex="-1"></a><span class="co"># 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span id="cb28-6"><a href="working-with-existing-data.html#cb28-6" tabindex="-1"></a><span class="co"># 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span id="cb28-7"><a href="working-with-existing-data.html#cb28-7" tabindex="-1"></a><span class="co"># 5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span id="cb28-8"><a href="working-with-existing-data.html#cb28-8" tabindex="-1"></a><span class="co"># 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+<p>Depending on which type of data we want to work with, there are different ways of loading the data into R.</p>
 </div>
-<div id="basic-edits" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="working-with-existing-data.html#basic-edits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Choose an appropriate name, e.g. <code>raw</code></li>
-<li>Put all <em>library commands</em> at the top of the script so you are ready to conduct all analyses</li>
-<li>You do not need the <em>View()</em> command in your script</li>
-<li>If you are not sure about the state of your data, look at it first!
-<ul>
-<li>View() opens the whole data in new tab; glimpse(), str() and head() give you a rough overview; names() shows you all variable names</li>
-</ul></li>
-<li>Some edits are already possible in the menu! Column types can (and sometimes should) be adjusted, e.g. recognizing dates</li>
-<li>Create a new dataset as a copy in which you do all further edits! E.g. <code>seminar</code> with proper varname prefix</li>
-</ol>
-</div>
-<div id="basic-edits-1" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="working-with-existing-data.html#basic-edits-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="result" class="section level4 hasAnchor" number="5.1.3.1">
-<h4><span class="header-section-number">5.1.3.1</span> Result<a href="working-with-existing-data.html#result" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-with-existing-data.html#cb29-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb29-2"><a href="working-with-existing-data.html#cb29-2" tabindex="-1"></a><span class="fu">library</span>(wobblynameR)</span>
-<span id="cb29-3"><a href="working-with-existing-data.html#cb29-3" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="working-with-existing-data.html#cb29-4" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;./data/PsychResearchR_data.csv&quot;</span>, </span>
-<span id="cb29-5"><a href="working-with-existing-data.html#cb29-5" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb29-6"><a href="working-with-existing-data.html#cb29-6" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.wx.5.start_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>),</span>
-<span id="cb29-7"><a href="working-with-existing-data.html#cb29-7" tabindex="-1"></a>                     <span class="at">.wx.7.end_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>), </span>
-<span id="cb29-8"><a href="working-with-existing-data.html#cb29-8" tabindex="-1"></a>                     <span class="at">...32 =</span> <span class="fu">col_skip</span>()),</span>
-<span id="cb29-9"><a href="working-with-existing-data.html#cb29-9" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-10"><a href="working-with-existing-data.html#cb29-10" tabindex="-1"></a></span>
-<span id="cb29-11"><a href="working-with-existing-data.html#cb29-11" tabindex="-1"></a><span class="co"># Add &quot;v&quot; as varname prefix to all variables</span></span>
-<span id="cb29-12"><a href="working-with-existing-data.html#cb29-12" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">namepref0</span>(raw, <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
-</div>
-</div>
-<div id="choosing-how-to-read-in-the-data" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Choosing how to read in the data<a href="working-with-existing-data.html#choosing-how-to-read-in-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br></p>
+<div id="reading-in-the-data" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Reading in the data<a href="working-with-existing-data.html#reading-in-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are two main ways to load data: via the "Import Dataset" menu under the <em>Environment</em>-tab or (only) using code and if necessary packages.
+In the menu, simply select the option "Import Dataset" menu under the top-right <em>Environment</em>-tab and use <em>From text (readr)</em> for csv or other text files (such as .txt).
+Note that this menu also offers the possibility to load data from Excel and SPSS.
+However, this is much easier done by just using simple commands directly in your script:</p>
 <table>
 <thead>
 <tr class="header">
@@ -601,10 +618,51 @@ Psychological Research in R
 </tr>
 </tbody>
 </table>
+<div id="reading-in-the-data-1" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Reading in the data<a href="working-with-existing-data.html#reading-in-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="generated-code" class="section level4 hasAnchor" number="5.3.1.1">
+<h4><span class="header-section-number">5.3.1.1</span> Generated Code<a href="working-with-existing-data.html#generated-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-with-existing-data.html#cb29-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb29-2"><a href="working-with-existing-data.html#cb29-2" tabindex="-1"></a>PsychResearchR_data <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/PsychResearchR_data.csv&quot;</span>, </span>
+<span id="cb29-3"><a href="working-with-existing-data.html#cb29-3" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-4"><a href="working-with-existing-data.html#cb29-4" tabindex="-1"></a><span class="fu">View</span>(PsychResearchR_data)</span></code></pre></div>
 </div>
 </div>
-<div id="working-with-the-data-codebook" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Working with the data: <br> Codebook<a href="working-with-existing-data.html#working-with-the-data-codebook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="basic-edits" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="working-with-existing-data.html#basic-edits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Choose an appropriate name, e.g. <code>raw</code></li>
+<li>Put all <em>library commands</em> at the top of the script so you are ready to conduct all analyses</li>
+<li>You do not need the <em>View()</em> command in your script</li>
+<li>If you are not sure about the state of your data, look at it first!
+<ul>
+<li>View() opens the whole data in new tab; glimpse(), str() and head() give you a rough overview; names() shows you all variable names</li>
+</ul></li>
+<li>Some edits are already possible in the menu! Column types can (and sometimes should) be adjusted, e.g. recognizing dates</li>
+<li>Create a new dataset as a copy in which you do all further edits! E.g. <code>seminar</code> with proper varname prefix</li>
+</ol>
+</div>
+<div id="basic-edits-1" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="working-with-existing-data.html#basic-edits-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="result" class="section level4 hasAnchor" number="5.3.3.1">
+<h4><span class="header-section-number">5.3.3.1</span> Result<a href="working-with-existing-data.html#result" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-with-existing-data.html#cb30-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb30-2"><a href="working-with-existing-data.html#cb30-2" tabindex="-1"></a><span class="fu">library</span>(wobblynameR)</span>
+<span id="cb30-3"><a href="working-with-existing-data.html#cb30-3" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="working-with-existing-data.html#cb30-4" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;./data/PsychResearchR_data.csv&quot;</span>, </span>
+<span id="cb30-5"><a href="working-with-existing-data.html#cb30-5" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb30-6"><a href="working-with-existing-data.html#cb30-6" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.wx.5.start_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>),</span>
+<span id="cb30-7"><a href="working-with-existing-data.html#cb30-7" tabindex="-1"></a>                     <span class="at">.wx.7.end_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>), </span>
+<span id="cb30-8"><a href="working-with-existing-data.html#cb30-8" tabindex="-1"></a>                     <span class="at">...32 =</span> <span class="fu">col_skip</span>()),</span>
+<span id="cb30-9"><a href="working-with-existing-data.html#cb30-9" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-10"><a href="working-with-existing-data.html#cb30-10" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="working-with-existing-data.html#cb30-11" tabindex="-1"></a><span class="co"># Add &quot;v&quot; as varname prefix to all variables</span></span>
+<span id="cb30-12"><a href="working-with-existing-data.html#cb30-12" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">namepref0</span>(raw, <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="working-with-the-data-codebook" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Working with the data: <br> Codebook<a href="working-with-existing-data.html#working-with-the-data-codebook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>What variables are in the data? -&gt; <code>names(seminar)</code>
 <ul>
@@ -613,8 +671,8 @@ Psychological Research in R
 <li>What can they tell us? Which analyses might be of interest?</li>
 </ul>
 </div>
-<div id="working-with-the-data-descriptives" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Working with the data: <br> Descriptives<a href="working-with-existing-data.html#working-with-the-data-descriptives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="working-with-the-data-descriptives" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Working with the data: <br> Descriptives<a href="working-with-existing-data.html#working-with-the-data-descriptives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>In any report, we need to give our readers/ listeners/... an overview of the data
 <ul>
@@ -630,8 +688,8 @@ Psychological Research in R
 <li>Data Visualization...</li>
 </ul></li>
 </ul>
-<div id="group_by-summarize-1" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> group_by &amp; summarize<a href="working-with-existing-data.html#group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="group_by-summarize-1" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> group_by &amp; summarize<a href="working-with-existing-data.html#group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>With the dplyr-workflow, we can easily output group statistics</li>
 <li>Keywords: <strong>group_by()</strong> &amp; <strong>summarize()</strong></li>
@@ -643,24 +701,24 @@ Psychological Research in R
 </ol></li>
 </ul>
 </div>
-<div id="example-group_by-summarize-1" class="section level3 hasAnchor" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> Example: group_by &amp; summarize<a href="working-with-existing-data.html#example-group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-with-existing-data.html#cb30-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a href="working-with-existing-data.html#cb30-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb30-3"><a href="working-with-existing-data.html#cb30-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
-<span id="cb30-4"><a href="working-with-existing-data.html#cb30-4" tabindex="-1"></a>            <span class="at">med_pwidth =</span> <span class="fu">median</span>(Petal.Width),</span>
-<span id="cb30-5"><a href="working-with-existing-data.html#cb30-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb30-6"><a href="working-with-existing-data.html#cb30-6" tabindex="-1"></a>            <span class="at">mode_swidth =</span> <span class="fu">getmode</span>(Sepal.Width),</span>
-<span id="cb30-7"><a href="working-with-existing-data.html#cb30-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb30-8"><a href="working-with-existing-data.html#cb30-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb30-9"><a href="working-with-existing-data.html#cb30-9" tabindex="-1"></a><span class="co">#   Species    m_plength med_pwidth m_slength mode_swidth     n</span></span>
-<span id="cb30-10"><a href="working-with-existing-data.html#cb30-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb30-11"><a href="working-with-existing-data.html#cb30-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46        0.2      5.01         3.4    50</span></span>
-<span id="cb30-12"><a href="working-with-existing-data.html#cb30-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26        1.3      5.94         3      50</span></span>
-<span id="cb30-13"><a href="working-with-existing-data.html#cb30-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55        2        6.59         3      50</span></span></code></pre></div>
+<div id="example-group_by-summarize-1" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Example: group_by &amp; summarize<a href="working-with-existing-data.html#example-group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="working-with-existing-data.html#cb31-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="working-with-existing-data.html#cb31-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="working-with-existing-data.html#cb31-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
+<span id="cb31-4"><a href="working-with-existing-data.html#cb31-4" tabindex="-1"></a>            <span class="at">med_pwidth =</span> <span class="fu">median</span>(Petal.Width),</span>
+<span id="cb31-5"><a href="working-with-existing-data.html#cb31-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb31-6"><a href="working-with-existing-data.html#cb31-6" tabindex="-1"></a>            <span class="at">mode_swidth =</span> <span class="fu">getmode</span>(Sepal.Width),</span>
+<span id="cb31-7"><a href="working-with-existing-data.html#cb31-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb31-8"><a href="working-with-existing-data.html#cb31-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
+<span id="cb31-9"><a href="working-with-existing-data.html#cb31-9" tabindex="-1"></a><span class="co">#   Species    m_plength med_pwidth m_slength mode_swidth     n</span></span>
+<span id="cb31-10"><a href="working-with-existing-data.html#cb31-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb31-11"><a href="working-with-existing-data.html#cb31-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46        0.2      5.01         3.4    50</span></span>
+<span id="cb31-12"><a href="working-with-existing-data.html#cb31-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26        1.3      5.94         3      50</span></span>
+<span id="cb31-13"><a href="working-with-existing-data.html#cb31-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55        2        6.59         3      50</span></span></code></pre></div>
 </div>
-<div id="exercise-group_by-summarize-1" class="section level3 hasAnchor" number="5.3.3">
-<h3><span class="header-section-number">5.3.3</span> Exercise: group_by &amp; summarize<a href="working-with-existing-data.html#exercise-group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-group_by-summarize-1" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> Exercise: group_by &amp; summarize<a href="working-with-existing-data.html#exercise-group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><br>
 Follow the structure to group the edited seminar data by belief in the soul and output a summary with</p>
 <ul>
@@ -671,25 +729,25 @@ Follow the structure to group the edited seminar data by belief in the soul and 
 <li>grouped n (function <em>n()</em>)</li>
 </ul>
 </div>
-<div id="solution-3" class="section level3 hasAnchor" number="5.3.4">
-<h3><span class="header-section-number">5.3.4</span> Solution<a href="working-with-existing-data.html#solution-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="working-with-existing-data.html#cb31-1" tabindex="-1"></a>seminar <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="working-with-existing-data.html#cb31-2" tabindex="-1"></a>  <span class="fu">group_by</span>(v11_soul) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href="working-with-existing-data.html#cb31-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(v02_age),</span>
-<span id="cb31-4"><a href="working-with-existing-data.html#cb31-4" tabindex="-1"></a>            <span class="at">m_tech_skill =</span> <span class="fu">mean</span>(v05_skill_tech),</span>
-<span id="cb31-5"><a href="working-with-existing-data.html#cb31-5" tabindex="-1"></a>            <span class="at">mode_music =</span> <span class="fu">getmode</span>(v07_genre),</span>
-<span id="cb31-6"><a href="working-with-existing-data.html#cb31-6" tabindex="-1"></a>            <span class="at">median_volume =</span> <span class="fu">median</span>(v08_loudness),</span>
-<span id="cb31-7"><a href="working-with-existing-data.html#cb31-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb31-8"><a href="working-with-existing-data.html#cb31-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb31-9"><a href="working-with-existing-data.html#cb31-9" tabindex="-1"></a><span class="co">#   v11_soul m_age m_tech_skill mode_music median_volume     n</span></span>
-<span id="cb31-10"><a href="working-with-existing-data.html#cb31-10" tabindex="-1"></a><span class="co">#   &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb31-11"><a href="working-with-existing-data.html#cb31-11" tabindex="-1"></a><span class="co"># 1 dunno     23.4         29.4 techno              89       5</span></span>
-<span id="cb31-12"><a href="working-with-existing-data.html#cb31-12" tabindex="-1"></a><span class="co"># 2 no        22           45   pop                 74.5     2</span></span>
-<span id="cb31-13"><a href="working-with-existing-data.html#cb31-13" tabindex="-1"></a><span class="co"># 3 yes       22.5         42   rock                67.5     6</span></span></code></pre></div>
+<div id="solution-3" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> Solution<a href="working-with-existing-data.html#solution-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="working-with-existing-data.html#cb32-1" tabindex="-1"></a>seminar <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="working-with-existing-data.html#cb32-2" tabindex="-1"></a>  <span class="fu">group_by</span>(v11_soul) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="working-with-existing-data.html#cb32-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(v02_age),</span>
+<span id="cb32-4"><a href="working-with-existing-data.html#cb32-4" tabindex="-1"></a>            <span class="at">m_tech_skill =</span> <span class="fu">mean</span>(v05_skill_tech),</span>
+<span id="cb32-5"><a href="working-with-existing-data.html#cb32-5" tabindex="-1"></a>            <span class="at">mode_music =</span> <span class="fu">getmode</span>(v07_genre),</span>
+<span id="cb32-6"><a href="working-with-existing-data.html#cb32-6" tabindex="-1"></a>            <span class="at">median_volume =</span> <span class="fu">median</span>(v08_loudness),</span>
+<span id="cb32-7"><a href="working-with-existing-data.html#cb32-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb32-8"><a href="working-with-existing-data.html#cb32-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
+<span id="cb32-9"><a href="working-with-existing-data.html#cb32-9" tabindex="-1"></a><span class="co">#   v11_soul m_age m_tech_skill mode_music median_volume     n</span></span>
+<span id="cb32-10"><a href="working-with-existing-data.html#cb32-10" tabindex="-1"></a><span class="co">#   &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb32-11"><a href="working-with-existing-data.html#cb32-11" tabindex="-1"></a><span class="co"># 1 dunno     23.4         29.4 techno              89       5</span></span>
+<span id="cb32-12"><a href="working-with-existing-data.html#cb32-12" tabindex="-1"></a><span class="co"># 2 no        22           45   pop                 74.5     2</span></span>
+<span id="cb32-13"><a href="working-with-existing-data.html#cb32-13" tabindex="-1"></a><span class="co"># 3 yes       22.5         42   rock                67.5     6</span></span></code></pre></div>
 </div>
 </div>
-<div id="wrap-up-further-resources-3" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Wrap-Up &amp; Further Resources<a href="working-with-existing-data.html#wrap-up-further-resources-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="wrap-up-further-resources-3" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Wrap-Up &amp; Further Resources<a href="working-with-existing-data.html#wrap-up-further-resources-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;">
 <li>
@@ -720,6 +778,13 @@ dplyr's <code>group_by()</code> and <code>summarize()</code> can output grouped 
 </ul>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>...which often times is a comma, but not always! WEXTOR, for example uses Semicolons.<a href="working-with-existing-data.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>The function calls <code>as.numeric()</code> and <code>as.factor()</code> will suffice in most cases.<a href="working-with-existing-data.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 <script>
 

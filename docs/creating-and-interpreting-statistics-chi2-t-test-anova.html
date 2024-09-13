@@ -5,25 +5,28 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Creating and interpreting statistics: Chi\(^2\) &amp; t-test &amp; ANOVA |  Psychological Research in R </title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Creating and interpreting statistics: Chi\(^2\) &amp; t-test &amp; ANOVA |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 8 Creating and interpreting statistics: Chi\(^2\) &amp; t-test &amp; ANOVA |  Psychological Research in R " />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   
 
 <meta name="author" content="Anni Tave Overlander" />
@@ -128,6 +131,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="www/webex.css" type="text/css" />
@@ -179,35 +205,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="best-practice.html"><a href="best-practice.html"><i class="fa fa-check"></i><b>3</b> Best Practice</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#what-is-best-practice"><i class="fa fa-check"></i><b>3.1</b> What is Best Practice?</a>
+<li class="chapter" data-level="3.0.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.0.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.1</b> Naming Conventions</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.1.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.1.1</b> Exercise: Name Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.2</b> Naming Conventions</a>
+<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2</b> Scenario: Creating Data meaningfully</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Name Examples</a></li>
+<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Creating Data meaningfully</a></li>
+<li class="chapter" data-level="3.2.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.2.2</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3</b> Scenario: Creating Data meaningfully</a>
+<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.3</b> Working Directories</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3.1</b> Exercise: Creating Data meaningfully</a></li>
-<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.3.2</b> Solution</a></li>
+<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.3.1</b> Try it out!</a></li>
+<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.3.2</b> Cautionary Tale</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.4</b> Working Directories</a>
+<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.4</b> R Projects</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.4.1</b> Try it out!</a></li>
-<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.4.2</b> Cautionary Tale</a></li>
+<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.4.1</b> Let's try that out!</a></li>
+<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.4.2</b> Homework: Put it to the test</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.5</b> R Projects</a>
+<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.5</b> Make R your own: Appearance</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.5.1</b> Let's try that out!</a></li>
-<li class="chapter" data-level="3.5.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.5.2</b> Homework: Put it to the test</a></li>
+<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.5.1</b> Why?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.6</b> Make R your own: Appearance</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.6.1</b> Why?</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.7</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.8</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.6</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
+<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.7</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#working-with-version-control"><i class="fa fa-check"></i><b>3.8</b> Working with Version Control</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Into the <code>tidyverse</code>: Data munging with <code>dplyr</code></a>
 <ul>
@@ -249,22 +273,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html"><i class="fa fa-check"></i><b>5</b> Working with existing Data</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a>
+<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a></li>
+<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#different-types-of-data-sources"><i class="fa fa-check"></i><b>5.2</b> Different types of data sources</a></li>
+<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.3</b> Reading in the data</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.1.1</b> Reading in the data</a></li>
-<li class="chapter" data-level="5.1.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.1.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.1.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#choosing-how-to-read-in-the-data"><i class="fa fa-check"></i><b>5.1.4</b> Choosing how to read in the data</a></li>
+<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data-1"><i class="fa fa-check"></i><b>5.3.1</b> Reading in the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.3.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.3.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.2</b> Working with the data: <br> Codebook</a></li>
-<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.3</b> Working with the data: <br> Descriptives</a>
+<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.4</b> Working with the data: <br> Codebook</a></li>
+<li class="chapter" data-level="5.5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.5</b> Working with the data: <br> Descriptives</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.1</b> group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.2</b> Example: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.3</b> Exercise: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.3.4</b> Solution</a></li>
+<li class="chapter" data-level="5.5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.1</b> group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.2</b> Example: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.3</b> Exercise: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.5.4</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.4</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="5.6" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.6</b> Wrap-Up &amp; Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html"><i class="fa fa-check"></i><b>6</b> Loops and Conditionals</a>
 <ul>
@@ -333,6 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.5" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#use-colors-and-palettes"><i class="fa fa-check"></i><b>7.5.5</b> Use: colors and palettes</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#wrap-up-further-resources-5"><i class="fa fa-check"></i><b>7.6</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="7.7" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#gganimate"><i class="fa fa-check"></i><b>7.7</b> gganimate</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html"><i class="fa fa-check"></i><b>8</b> Creating and interpreting statistics: Chi<span class="math inline">\(^2\)</span> &amp; t-test &amp; ANOVA</a>
 <ul>
@@ -536,7 +562,7 @@ Psychological Research in R
 <li>t-Test <span class="math inline">\(\rightarrow\)</span> one or two <em>groups</em> with a continuous attribute</li>
 <li>ANOVA <span class="math inline">\(\rightarrow\)</span> three or more groups with one (or more) continuous attribute(s)</li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 </div>
 <div id="pre-requisites" class="section level3 hasAnchor" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Pre-Requisites<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#pre-requisites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -586,13 +612,13 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 <ul>
 <li>Especially with a small sample, we can add the parameter <em>simulate.p.value = T</em>, which bootstraps the analysis 2000 times</li>
 </ul></li>
-<li><div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb55-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v01_gender, seminar<span class="sc">$</span>soul_dummy, <span class="at">simulate.p.value =</span> T)</span>
-<span id="cb55-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb55-2" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb55-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb55-3" tabindex="-1"></a><span class="co">#     Pearson&#39;s Chi-squared test with simulated p-value (based on 2000</span></span>
-<span id="cb55-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb55-4" tabindex="-1"></a><span class="co">#     replicates)</span></span>
-<span id="cb55-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb55-5" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb55-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb55-6" tabindex="-1"></a><span class="co"># data:  seminar$v01_gender and seminar$soul_dummy</span></span>
-<span id="cb55-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb55-7" tabindex="-1"></a><span class="co"># X-squared = 0.014069, df = NA, p-value = 1</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v01_gender, seminar<span class="sc">$</span>soul_dummy, <span class="at">simulate.p.value =</span> T)</span>
+<span id="cb57-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb57-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-3" tabindex="-1"></a><span class="co">#     Pearson&#39;s Chi-squared test with simulated p-value (based on 2000</span></span>
+<span id="cb57-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-4" tabindex="-1"></a><span class="co">#     replicates)</span></span>
+<span id="cb57-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb57-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-6" tabindex="-1"></a><span class="co"># data:  seminar$v01_gender and seminar$soul_dummy</span></span>
+<span id="cb57-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-7" tabindex="-1"></a><span class="co"># X-squared = 0.014069, df = NA, p-value = 1</span></span></code></pre></div></li>
 </ul>
 </div>
 <div id="exercise-3" class="section level3 hasAnchor" number="8.2.3">
@@ -604,21 +630,21 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 </div>
 <div id="solution-8" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Solution <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#solution-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy)</span>
-<span id="cb56-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-2" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
-<span id="cb56-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-3" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
-<span id="cb56-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-4" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb56-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-5" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test</span></span>
-<span id="cb56-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb56-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-7" tabindex="-1"></a><span class="co"># data:  seminar$v07_genre and seminar$soul_dummy</span></span>
-<span id="cb56-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-8" tabindex="-1"></a><span class="co"># X-squared = 2.1357, df = 2, p-value = 0.3437</span></span>
-<span id="cb56-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-9" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
-<span id="cb56-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-10" tabindex="-1"></a><span class="co">#         </span></span>
-<span id="cb56-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-11" tabindex="-1"></a><span class="co">#           0  1 Sum</span></span>
-<span id="cb56-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-12" tabindex="-1"></a><span class="co">#   pop     2  3   5</span></span>
-<span id="cb56-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-13" tabindex="-1"></a><span class="co">#   rock    3  3   6</span></span>
-<span id="cb56-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-14" tabindex="-1"></a><span class="co">#   techno  2  0   2</span></span>
-<span id="cb56-15"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb56-15" tabindex="-1"></a><span class="co">#   Sum     7  6  13</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy)</span>
+<span id="cb58-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-2" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
+<span id="cb58-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-3" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
+<span id="cb58-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb58-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-5" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test</span></span>
+<span id="cb58-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb58-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-7" tabindex="-1"></a><span class="co"># data:  seminar$v07_genre and seminar$soul_dummy</span></span>
+<span id="cb58-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-8" tabindex="-1"></a><span class="co"># X-squared = 2.1357, df = 2, p-value = 0.3437</span></span>
+<span id="cb58-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-9" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
+<span id="cb58-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-10" tabindex="-1"></a><span class="co">#         </span></span>
+<span id="cb58-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-11" tabindex="-1"></a><span class="co">#           0  1 Sum</span></span>
+<span id="cb58-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-12" tabindex="-1"></a><span class="co">#   pop     2  3   5</span></span>
+<span id="cb58-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-13" tabindex="-1"></a><span class="co">#   rock    3  3   6</span></span>
+<span id="cb58-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-14" tabindex="-1"></a><span class="co">#   techno  2  0   2</span></span>
+<span id="cb58-15"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-15" tabindex="-1"></a><span class="co">#   Sum     7  6  13</span></span></code></pre></div>
 <ul>
 <li>Interpretation?
 <!-- There is no significant association between belief in the soul and music preference by genre. --></li>
@@ -679,34 +705,34 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 </div>
 <div id="examples" class="section level3 hasAnchor" number="8.3.4">
 <h3><span class="header-section-number">8.3.4</span> Examples<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-1" tabindex="-1"></a><span class="co"># One sided - &quot;greater&quot; assumes that mean(x) is larger than mean(y)</span></span>
-<span id="cb57-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-2" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb57-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-3" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb57-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-4" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
-<span id="cb57-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-5" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb57-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-6" tabindex="-1"></a><span class="co"># data:  10:20 and 0:10</span></span>
-<span id="cb57-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-7" tabindex="-1"></a><span class="co"># t = 7.0711, df = 20, p-value = 3.713e-07</span></span>
-<span id="cb57-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-8" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means is greater than 0</span></span>
-<span id="cb57-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-9" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb57-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-10" tabindex="-1"></a><span class="co">#  7.56088     Inf</span></span>
-<span id="cb57-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-11" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
-<span id="cb57-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-12" tabindex="-1"></a><span class="co"># mean of x mean of y </span></span>
-<span id="cb57-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-13" tabindex="-1"></a><span class="co">#        15         5</span></span>
-<span id="cb57-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-14" tabindex="-1"></a></span>
-<span id="cb57-15"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-15" tabindex="-1"></a><span class="co"># Two sided using formula ~ Does seminar motivation differ</span></span>
-<span id="cb57-16"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-16" tabindex="-1"></a><span class="co"># depending on the soul-belief of students?</span></span>
-<span id="cb57-17"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-17" tabindex="-1"></a><span class="fu">t.test</span>(v10_motivation <span class="sc">~</span> soul_dummy, <span class="at">data =</span> seminar)</span>
-<span id="cb57-18"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-18" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb57-19"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-19" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
-<span id="cb57-20"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-20" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb57-21"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-21" tabindex="-1"></a><span class="co"># data:  v10_motivation by soul_dummy</span></span>
-<span id="cb57-22"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-22" tabindex="-1"></a><span class="co"># t = 0.1625, df = 6.833, p-value = 0.8756</span></span>
-<span id="cb57-23"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-23" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0</span></span>
-<span id="cb57-24"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-24" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb57-25"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-25" tabindex="-1"></a><span class="co">#  -31.14063  35.71206</span></span>
-<span id="cb57-26"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-26" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
-<span id="cb57-27"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-27" tabindex="-1"></a><span class="co"># mean in group 0 mean in group 1 </span></span>
-<span id="cb57-28"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb57-28" tabindex="-1"></a><span class="co">#        68.28571        66.00000</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-1" tabindex="-1"></a><span class="co"># One sided - &quot;greater&quot; assumes that mean(x) is larger than mean(y)</span></span>
+<span id="cb59-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-2" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb59-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-3" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb59-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-4" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
+<span id="cb59-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb59-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-6" tabindex="-1"></a><span class="co"># data:  10:20 and 0:10</span></span>
+<span id="cb59-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-7" tabindex="-1"></a><span class="co"># t = 7.0711, df = 20, p-value = 3.713e-07</span></span>
+<span id="cb59-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-8" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means is greater than 0</span></span>
+<span id="cb59-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-9" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb59-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-10" tabindex="-1"></a><span class="co">#  7.56088     Inf</span></span>
+<span id="cb59-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-11" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb59-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-12" tabindex="-1"></a><span class="co"># mean of x mean of y </span></span>
+<span id="cb59-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-13" tabindex="-1"></a><span class="co">#        15         5</span></span>
+<span id="cb59-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-14" tabindex="-1"></a></span>
+<span id="cb59-15"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-15" tabindex="-1"></a><span class="co"># Two sided using formula ~ Does seminar motivation differ</span></span>
+<span id="cb59-16"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-16" tabindex="-1"></a><span class="co"># depending on the soul-belief of students?</span></span>
+<span id="cb59-17"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-17" tabindex="-1"></a><span class="fu">t.test</span>(v10_motivation <span class="sc">~</span> soul_dummy, <span class="at">data =</span> seminar)</span>
+<span id="cb59-18"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-18" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb59-19"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-19" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
+<span id="cb59-20"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-20" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb59-21"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-21" tabindex="-1"></a><span class="co"># data:  v10_motivation by soul_dummy</span></span>
+<span id="cb59-22"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-22" tabindex="-1"></a><span class="co"># t = 0.1625, df = 6.833, p-value = 0.8756</span></span>
+<span id="cb59-23"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-23" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0</span></span>
+<span id="cb59-24"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-24" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb59-25"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-25" tabindex="-1"></a><span class="co">#  -31.14063  35.71206</span></span>
+<span id="cb59-26"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-26" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb59-27"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-27" tabindex="-1"></a><span class="co"># mean in group 0 mean in group 1 </span></span>
+<span id="cb59-28"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-28" tabindex="-1"></a><span class="co">#        68.28571        66.00000</span></span></code></pre></div>
 </div>
 <div id="exercise-4" class="section level3 hasAnchor" number="8.3.5">
 <h3><span class="header-section-number">8.3.5</span> Exercise <i class="fa-solid fa-computer"></i><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -719,18 +745,18 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 </div>
 <div id="solution-9" class="section level3 hasAnchor" number="8.3.6">
 <h3><span class="header-section-number">8.3.6</span> Solution <i class="fa-solid fa-computer"></i><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#solution-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-1" tabindex="-1"></a><span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb58-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-2" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb58-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-3" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
-<span id="cb58-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-4" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb58-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-5" tabindex="-1"></a><span class="co"># data:  v05_skill_tech by v01_gender</span></span>
-<span id="cb58-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-6" tabindex="-1"></a><span class="co"># t = 0.38715, df = 1.2774, p-value = 0.3766</span></span>
-<span id="cb58-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-7" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means between group man and group woman is greater than 0</span></span>
-<span id="cb58-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-8" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb58-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-9" tabindex="-1"></a><span class="co">#  -109.5565       Inf</span></span>
-<span id="cb58-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-10" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
-<span id="cb58-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-11" tabindex="-1"></a><span class="co">#   mean in group man mean in group woman </span></span>
-<span id="cb58-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb58-12" tabindex="-1"></a><span class="co">#                46.5                36.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-1" tabindex="-1"></a><span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb60-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-3" tabindex="-1"></a><span class="co">#   Welch Two Sample t-test</span></span>
+<span id="cb60-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb60-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-5" tabindex="-1"></a><span class="co"># data:  v05_skill_tech by v01_gender</span></span>
+<span id="cb60-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-6" tabindex="-1"></a><span class="co"># t = 0.38715, df = 1.2774, p-value = 0.3766</span></span>
+<span id="cb60-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-7" tabindex="-1"></a><span class="co"># alternative hypothesis: true difference in means between group man and group woman is greater than 0</span></span>
+<span id="cb60-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-8" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb60-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-9" tabindex="-1"></a><span class="co">#  -109.5565       Inf</span></span>
+<span id="cb60-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-10" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb60-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-11" tabindex="-1"></a><span class="co">#   mean in group man mean in group woman </span></span>
+<span id="cb60-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-12" tabindex="-1"></a><span class="co">#                46.5                36.0</span></span></code></pre></div>
 <ul>
 <li>Interpretation?
 <ul>
@@ -784,13 +810,13 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 <h4><span class="header-section-number">8.4.2.1</span> 1. Check assumptions<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#check-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Check for Homogeneity of Variance with the Levene Test</li>
-<li><div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-1" tabindex="-1"></a><span class="co"># Make sure the package &quot;car&quot; is installed first! If not, install.packages(&quot;car&quot;)</span></span>
-<span id="cb59-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-2" tabindex="-1"></a><span class="co"># as.factor() forces R to recognize our group as such!</span></span>
-<span id="cb59-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-3" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> seminar, <span class="at">center =</span> mean)</span>
-<span id="cb59-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-4" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = mean)</span></span>
-<span id="cb59-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-5" tabindex="-1"></a><span class="co">#       Df F value Pr(&gt;F)</span></span>
-<span id="cb59-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-6" tabindex="-1"></a><span class="co"># group  2  0.1729 0.8437</span></span>
-<span id="cb59-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb59-7" tabindex="-1"></a><span class="co">#       10</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-1" tabindex="-1"></a><span class="co"># Make sure the package &quot;car&quot; is installed first! If not, install.packages(&quot;car&quot;)</span></span>
+<span id="cb61-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-2" tabindex="-1"></a><span class="co"># as.factor() forces R to recognize our group as such!</span></span>
+<span id="cb61-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-3" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> seminar, <span class="at">center =</span> mean)</span>
+<span id="cb61-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-4" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = mean)</span></span>
+<span id="cb61-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-5" tabindex="-1"></a><span class="co">#       Df F value Pr(&gt;F)</span></span>
+<span id="cb61-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-6" tabindex="-1"></a><span class="co"># group  2  0.1729 0.8437</span></span>
+<span id="cb61-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-7" tabindex="-1"></a><span class="co">#       10</span></span></code></pre></div></li>
 <li>Interpretation?
 <ul>
 <li>p value &lt; 0.05 would indicate significant differences in variance between the group, so we want it to be &gt; 0.05</li>
@@ -800,11 +826,11 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 </div>
 <div id="define-the-overall-model" class="section level4 hasAnchor" number="8.4.2.2">
 <h4><span class="header-section-number">8.4.2.2</span> 2. Define the overall model<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#define-the-overall-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> seminar)</span>
-<span id="cb60-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-2" tabindex="-1"></a><span class="fu">summary</span>(model) <span class="co"># &quot;Pr(&gt;F)&quot; is the p-value</span></span>
-<span id="cb60-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-3" tabindex="-1"></a><span class="co">#                      Df Sum Sq Mean Sq F value Pr(&gt;F)</span></span>
-<span id="cb60-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-4" tabindex="-1"></a><span class="co"># as.factor(v07_genre)  2  618.9   309.4   2.562  0.126</span></span>
-<span id="cb60-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb60-5" tabindex="-1"></a><span class="co"># Residuals            10 1208.0   120.8</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> seminar)</span>
+<span id="cb62-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-2" tabindex="-1"></a><span class="fu">summary</span>(model) <span class="co"># &quot;Pr(&gt;F)&quot; is the p-value</span></span>
+<span id="cb62-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-3" tabindex="-1"></a><span class="co">#                      Df Sum Sq Mean Sq F value Pr(&gt;F)</span></span>
+<span id="cb62-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-4" tabindex="-1"></a><span class="co"># as.factor(v07_genre)  2  618.9   309.4   2.562  0.126</span></span>
+<span id="cb62-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-5" tabindex="-1"></a><span class="co"># Residuals            10 1208.0   120.8</span></span></code></pre></div>
 <ul>
 <li>Interpretation?
 <ul>
@@ -815,17 +841,17 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 </div>
 <div id="post-hoc-test" class="section level4 hasAnchor" number="8.4.2.3">
 <h4><span class="header-section-number">8.4.2.3</span> 3. Post Hoc Test<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#post-hoc-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span>
-<span id="cb61-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-2" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
-<span id="cb61-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-3" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
-<span id="cb61-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-4" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb61-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-5" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ as.factor(v07_genre), data = seminar)</span></span>
-<span id="cb61-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb61-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-7" tabindex="-1"></a><span class="co"># $`as.factor(v07_genre)`</span></span>
-<span id="cb61-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-8" tabindex="-1"></a><span class="co">#                  diff        lwr      upr     p adj</span></span>
-<span id="cb61-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-9" tabindex="-1"></a><span class="co"># rock-pop    12.566667  -5.677791 30.81112 0.1922467</span></span>
-<span id="cb61-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-10" tabindex="-1"></a><span class="co"># techno-pop  17.400000  -7.808341 42.60834 0.1911143</span></span>
-<span id="cb61-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb61-11" tabindex="-1"></a><span class="co"># techno-rock  4.833333 -19.767489 29.43416 0.8544384</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span>
+<span id="cb63-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-2" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
+<span id="cb63-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-3" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
+<span id="cb63-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb63-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-5" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ as.factor(v07_genre), data = seminar)</span></span>
+<span id="cb63-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb63-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-7" tabindex="-1"></a><span class="co"># $`as.factor(v07_genre)`</span></span>
+<span id="cb63-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-8" tabindex="-1"></a><span class="co">#                  diff        lwr      upr     p adj</span></span>
+<span id="cb63-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-9" tabindex="-1"></a><span class="co"># rock-pop    12.566667  -5.677791 30.81112 0.1922467</span></span>
+<span id="cb63-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-10" tabindex="-1"></a><span class="co"># techno-pop  17.400000  -7.808341 42.60834 0.1911143</span></span>
+<span id="cb63-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-11" tabindex="-1"></a><span class="co"># techno-rock  4.833333 -19.767489 29.43416 0.8544384</span></span></code></pre></div>
 <ul>
 <li>Interpretation?
 <ul>
@@ -837,31 +863,31 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 </div>
 <div id="addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size" class="section level3 hasAnchor" number="8.4.3">
 <h3><span class="header-section-number">8.4.3</span> Addendum for demonstration only: Bootstrapped Data for larger sample size<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
-<span id="cb62-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-2" tabindex="-1"></a></span>
-<span id="cb62-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
-<span id="cb62-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-4" tabindex="-1"></a>  boot <span class="ot">&lt;-</span> seminar[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(seminar), <span class="fu">nrow</span>(seminar), <span class="at">replace =</span> T), ]</span>
-<span id="cb62-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-5" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, boot) <span class="co"># create many random samples from our data </span></span>
-<span id="cb62-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-6" tabindex="-1"></a>}</span>
-<span id="cb62-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-7" tabindex="-1"></a></span>
-<span id="cb62-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-8" tabindex="-1"></a>bootstrapped_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> data)</span>
-<span id="cb62-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-9" tabindex="-1"></a><span class="fu">summary</span>(bootstrapped_model)</span>
-<span id="cb62-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-10" tabindex="-1"></a><span class="co">#                       Df Sum Sq Mean Sq F value   Pr(&gt;F)    </span></span>
-<span id="cb62-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-11" tabindex="-1"></a><span class="co"># as.factor(v07_genre)   2   7345    3672   47.76 3.42e-16 ***</span></span>
-<span id="cb62-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-12" tabindex="-1"></a><span class="co"># Residuals            127   9766      77                     </span></span>
-<span id="cb62-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-13" tabindex="-1"></a><span class="co"># ---</span></span>
-<span id="cb62-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-14" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb62-15"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-15" tabindex="-1"></a><span class="fu">TukeyHSD</span>(bootstrapped_model)</span>
-<span id="cb62-16"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-16" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
-<span id="cb62-17"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-17" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
-<span id="cb62-18"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-18" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-19"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-19" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ as.factor(v07_genre), data = data)</span></span>
-<span id="cb62-20"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-20" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb62-21"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-21" tabindex="-1"></a><span class="co"># $`as.factor(v07_genre)`</span></span>
-<span id="cb62-22"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-22" tabindex="-1"></a><span class="co">#                  diff       lwr       upr     p adj</span></span>
-<span id="cb62-23"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-23" tabindex="-1"></a><span class="co"># rock-pop    14.238278 10.307525 18.169030 0.0000000</span></span>
-<span id="cb62-24"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-24" tabindex="-1"></a><span class="co"># techno-pop  17.624242 11.977093 23.271392 0.0000000</span></span>
-<span id="cb62-25"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb62-25" tabindex="-1"></a><span class="co"># techno-rock  3.385965 -2.236703  9.008633 0.3295653</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb64-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-2" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb64-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-4" tabindex="-1"></a>  boot <span class="ot">&lt;-</span> seminar[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(seminar), <span class="fu">nrow</span>(seminar), <span class="at">replace =</span> T), ]</span>
+<span id="cb64-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-5" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, boot) <span class="co"># create many random samples from our data </span></span>
+<span id="cb64-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-6" tabindex="-1"></a>}</span>
+<span id="cb64-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-7" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-8" tabindex="-1"></a>bootstrapped_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> <span class="fu">as.factor</span>(v07_genre), <span class="at">data =</span> data)</span>
+<span id="cb64-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-9" tabindex="-1"></a><span class="fu">summary</span>(bootstrapped_model)</span>
+<span id="cb64-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-10" tabindex="-1"></a><span class="co">#                       Df Sum Sq Mean Sq F value   Pr(&gt;F)    </span></span>
+<span id="cb64-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-11" tabindex="-1"></a><span class="co"># as.factor(v07_genre)   2   7345    3672   47.76 3.42e-16 ***</span></span>
+<span id="cb64-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-12" tabindex="-1"></a><span class="co"># Residuals            127   9766      77                     </span></span>
+<span id="cb64-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-13" tabindex="-1"></a><span class="co"># ---</span></span>
+<span id="cb64-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-14" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb64-15"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-15" tabindex="-1"></a><span class="fu">TukeyHSD</span>(bootstrapped_model)</span>
+<span id="cb64-16"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-16" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
+<span id="cb64-17"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-17" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
+<span id="cb64-18"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-18" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb64-19"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-19" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ as.factor(v07_genre), data = data)</span></span>
+<span id="cb64-20"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-20" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb64-21"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-21" tabindex="-1"></a><span class="co"># $`as.factor(v07_genre)`</span></span>
+<span id="cb64-22"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-22" tabindex="-1"></a><span class="co">#                  diff       lwr       upr     p adj</span></span>
+<span id="cb64-23"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-23" tabindex="-1"></a><span class="co"># rock-pop    14.238278 10.307525 18.169030 0.0000000</span></span>
+<span id="cb64-24"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-24" tabindex="-1"></a><span class="co"># techno-pop  17.624242 11.977093 23.271392 0.0000000</span></span>
+<span id="cb64-25"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb64-25" tabindex="-1"></a><span class="co"># techno-rock  3.385965 -2.236703  9.008633 0.3295653</span></span></code></pre></div>
 </div>
 </div>
 <div id="reporting-with-the-apa-papaja-packages" class="section level2 hasAnchor" number="8.5">
@@ -877,20 +903,20 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 </ul>
 <div id="usage" class="section level3 hasAnchor" number="8.5.1">
 <h3><span class="header-section-number">8.5.1</span> Usage<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-1" tabindex="-1"></a><span class="co"># Chi (add format = &quot;rmarkdown&quot; if needed)</span></span>
-<span id="cb63-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-2" tabindex="-1"></a>apa<span class="sc">::</span><span class="fu">chisq_apa</span>(<span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
-<span id="cb63-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-3" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
-<span id="cb63-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-4" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
-<span id="cb63-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-5" tabindex="-1"></a><span class="co"># chi^2(2) = 2.14, p = .344</span></span>
-<span id="cb63-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-6" tabindex="-1"></a></span>
-<span id="cb63-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-7" tabindex="-1"></a><span class="co"># t-test</span></span>
-<span id="cb63-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-8" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(<span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>))<span class="sc">$</span>full_result</span>
-<span id="cb63-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-9" tabindex="-1"></a><span class="co"># [1] &quot;$\\Delta M = 10.50$, 95\\% CI $[-109.56, \\infty]$, $t(1.28) = 0.39$, $p = .377$&quot;</span></span>
-<span id="cb63-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-10" tabindex="-1"></a></span>
-<span id="cb63-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-11" tabindex="-1"></a><span class="co"># ANOVA</span></span>
-<span id="cb63-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-12" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(model)<span class="sc">$</span>full_result</span>
-<span id="cb63-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-13" tabindex="-1"></a><span class="co"># $as_factorv07_genre</span></span>
-<span id="cb63-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb63-14" tabindex="-1"></a><span class="co"># [1] &quot;$F(2, 10) = 2.56$, $p = .126$, $\\hat{\\eta}^2_G = .339$, 90\\% CI $[.000, .602]$&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-1" tabindex="-1"></a><span class="co"># Chi (add format = &quot;rmarkdown&quot; if needed)</span></span>
+<span id="cb65-2"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-2" tabindex="-1"></a>apa<span class="sc">::</span><span class="fu">chisq_apa</span>(<span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
+<span id="cb65-3"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-3" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
+<span id="cb65-4"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-4" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
+<span id="cb65-5"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-5" tabindex="-1"></a><span class="co"># chi^2(2) = 2.14, p = .344</span></span>
+<span id="cb65-6"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-6" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-7" tabindex="-1"></a><span class="co"># t-test</span></span>
+<span id="cb65-8"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-8" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(<span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>))<span class="sc">$</span>full_result</span>
+<span id="cb65-9"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-9" tabindex="-1"></a><span class="co"># [1] &quot;$\\Delta M = 10.50$, 95\\% CI $[-109.56, \\infty]$, $t(1.28) = 0.39$, $p = .377$&quot;</span></span>
+<span id="cb65-10"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-10" tabindex="-1"></a></span>
+<span id="cb65-11"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-11" tabindex="-1"></a><span class="co"># ANOVA</span></span>
+<span id="cb65-12"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-12" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(model)<span class="sc">$</span>full_result</span>
+<span id="cb65-13"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-13" tabindex="-1"></a><span class="co"># $as_factorv07_genre</span></span>
+<span id="cb65-14"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#cb65-14" tabindex="-1"></a><span class="co"># [1] &quot;$F(2, 10) = 2.56$, $p = .126$, $\\hat{\\eta}^2_G = .339$, 90\\% CI $[.000, .602]$&quot;</span></span></code></pre></div>
 </div>
 <div id="usage-in-r-markdown" class="section level3 hasAnchor" number="8.5.2">
 <h3><span class="header-section-number">8.5.2</span> Usage in R Markdown<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#usage-in-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -940,6 +966,7 @@ Read the documentation of each function for more options
 <a href="https://www.statology.org/interpret-anova-results-in-r/">ANOVA (Statology)</a>
 </li>
 </ul>
+<p><em>Discovering Statistics Using R</em> <span class="citation">(<a href="references.html#ref-field2012">Field et al., 2012</a>)</span></p>
 </div>
 <div id="homework-r-markdown" class="section level2 hasAnchor" number="8.7">
 <h2><span class="header-section-number">8.7</span> <i class="fa-solid fa-house-chimney" style="color: darkgreen;"></i> Homework: R Markdown<a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#homework-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>

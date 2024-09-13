@@ -327,6 +327,8 @@ papaja::apa_print(model)$full_result
 <li> [ANOVA (Statology)](https://www.statology.org/interpret-anova-results-in-r/) </li>
 </ul>
 
+_Discovering Statistics Using R_ [@field2012]
+
 ## <i class="fa-solid fa-house-chimney" style="color: darkgreen;"></i> Homework: R Markdown
 
 Some of you are already somewhat familiar with R Markdown. 

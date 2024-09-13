@@ -8,15 +8,20 @@ author: "Anni Tave Overlander"
 date: "Last update: `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
+# bib stuff
 bibliography: [book.bib, packages.bib]
-# csl: apa.csl
+nocite: |
+  @R-base, @R-bookdown, @R-rmarkdown, @R-dplyr, @R-webexercises
+csl: apa.csl
+# Web stuff
+link-citations: yes
 url: https://the-tave.github.io/psych_research_in_r/
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
-  set in the _output.yml file.
-link-citations: yes
+  This is an online introduction to R targetted especially at psychologists.
+  It should guide the reader through the first challenges in working with R
+  and provide the tools and skills to write a whole report with data analysis and visualization
+  directly in R and R Markdown.
 github-repo: the-tave/psych_research_in_r
 linestretch: 1.5
 geometry: footnotesep=20pt
@@ -53,6 +58,11 @@ As with anything in life, a lot can be learned from other peoples approaches to 
 
 Each chapter will end with a "Wrap-up <i class="fa-solid fa-anchor" style="color: teal;"></i> and Further Resources <i class="fa-solid fa-book" style="color: orange;"></i>"-section, i.e. a little collection of facts you should now know and some links for further reading.
 Also, in most chapters you will find some exercises or hidden code snippets, so you can test your skills as you go along.
+
+**Important**: I will present you with a lot of different packages that I believe will make your life easier in this book.
+Please make sure that you have them installed if you want to try out the code.
+You can typically install any package by typing `install.packages("packagename")` - substituting packagename for the name of the package, e.g. dplyr - into your R console and hitting Enter.
+Some packages may not be installable this way, in which case I will explicitly mention how to install them where they are first used!
 
 <!-- Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading. -->
 
@@ -106,6 +116,6 @@ Please feel free to contact me if you have any questions or comments! You can re
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'dplyr'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'dplyr', 'ggplot2'
 ), 'packages.bib')
 ```

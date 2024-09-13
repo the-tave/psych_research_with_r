@@ -5,25 +5,28 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Intro and Installation |  Psychological Research in R </title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Intro and Installation |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 1 Intro and Installation |  Psychological Research in R " />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
   
 
 <meta name="author" content="Anni Tave Overlander" />
@@ -128,6 +131,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="www/webex.css" type="text/css" />
@@ -179,35 +205,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="best-practice.html"><a href="best-practice.html"><i class="fa fa-check"></i><b>3</b> Best Practice</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#what-is-best-practice"><i class="fa fa-check"></i><b>3.1</b> What is Best Practice?</a>
+<li class="chapter" data-level="3.0.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.0.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.1</b> Naming Conventions</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.1.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.1.1</b> Exercise: Name Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.2</b> Naming Conventions</a>
+<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2</b> Scenario: Creating Data meaningfully</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Name Examples</a></li>
+<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Creating Data meaningfully</a></li>
+<li class="chapter" data-level="3.2.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.2.2</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3</b> Scenario: Creating Data meaningfully</a>
+<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.3</b> Working Directories</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3.1</b> Exercise: Creating Data meaningfully</a></li>
-<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.3.2</b> Solution</a></li>
+<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.3.1</b> Try it out!</a></li>
+<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.3.2</b> Cautionary Tale</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.4</b> Working Directories</a>
+<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.4</b> R Projects</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.4.1</b> Try it out!</a></li>
-<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.4.2</b> Cautionary Tale</a></li>
+<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.4.1</b> Let's try that out!</a></li>
+<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.4.2</b> Homework: Put it to the test</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.5</b> R Projects</a>
+<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.5</b> Make R your own: Appearance</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.5.1</b> Let's try that out!</a></li>
-<li class="chapter" data-level="3.5.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.5.2</b> Homework: Put it to the test</a></li>
+<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.5.1</b> Why?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.6</b> Make R your own: Appearance</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.6.1</b> Why?</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.7</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.8</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.6</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
+<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.7</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#working-with-version-control"><i class="fa fa-check"></i><b>3.8</b> Working with Version Control</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Into the <code>tidyverse</code>: Data munging with <code>dplyr</code></a>
 <ul>
@@ -249,22 +273,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html"><i class="fa fa-check"></i><b>5</b> Working with existing Data</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a>
+<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a></li>
+<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#different-types-of-data-sources"><i class="fa fa-check"></i><b>5.2</b> Different types of data sources</a></li>
+<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.3</b> Reading in the data</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.1.1</b> Reading in the data</a></li>
-<li class="chapter" data-level="5.1.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.1.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.1.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
-<li class="chapter" data-level="5.1.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#choosing-how-to-read-in-the-data"><i class="fa fa-check"></i><b>5.1.4</b> Choosing how to read in the data</a></li>
+<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data-1"><i class="fa fa-check"></i><b>5.3.1</b> Reading in the data</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.3.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.3.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.2</b> Working with the data: <br> Codebook</a></li>
-<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.3</b> Working with the data: <br> Descriptives</a>
+<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.4</b> Working with the data: <br> Codebook</a></li>
+<li class="chapter" data-level="5.5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.5</b> Working with the data: <br> Descriptives</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.1</b> group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.2</b> Example: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.3</b> Exercise: group_by &amp; summarize</a></li>
-<li class="chapter" data-level="5.3.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.3.4</b> Solution</a></li>
+<li class="chapter" data-level="5.5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.1</b> group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.2</b> Example: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.5.3</b> Exercise: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.5.4</b> Solution</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.4</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="5.6" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.6</b> Wrap-Up &amp; Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html"><i class="fa fa-check"></i><b>6</b> Loops and Conditionals</a>
 <ul>
@@ -333,6 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.5" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#use-colors-and-palettes"><i class="fa fa-check"></i><b>7.5.5</b> Use: colors and palettes</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#wrap-up-further-resources-5"><i class="fa fa-check"></i><b>7.6</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="7.7" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#gganimate"><i class="fa fa-check"></i><b>7.7</b> gganimate</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html"><i class="fa fa-check"></i><b>8</b> Creating and interpreting statistics: Chi<span class="math inline">\(^2\)</span> &amp; t-test &amp; ANOVA</a>
 <ul>

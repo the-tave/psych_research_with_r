@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Referencias |  Psychological Research in R </title>
+  <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Referencias |  Psychological Research in R " />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
+  <meta name="github-repo" content="the-tave/psych_research_in_r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Referencias |  Psychological Research in R " />
+  
+  <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
+It should guide the reader through the first challenges in working with R
+and provide the tools and skills to write a whole report with data analysis and visualization
+directly in R and R Markdown.</p>" />
+  
+
+<meta name="author" content="Anni Tave Overlander" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="wrap-up.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="www/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li>
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #650279;"></i> Psychological Research in R 
+<i class="fa-solid fa-mug-hot" style="color: #650279;"></i></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About...</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#this-book"><i class="fa fa-check"></i>...this book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-author"><i class="fa fa-check"></i>...the author</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro-and-installation.html"><a href="intro-and-installation.html"><i class="fa fa-check"></i><b>1</b> Intro and Installation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro-and-installation.html"><a href="intro-and-installation.html#what-is-r-what-is-r-studio"><i class="fa fa-check"></i><b>1.1</b> What is R? What is R Studio?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro-and-installation.html"><a href="intro-and-installation.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installing R and R Studio</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro-and-installation.html"><a href="intro-and-installation.html#workflow"><i class="fa fa-check"></i><b>1.2.1</b> Workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro-and-installation.html"><a href="intro-and-installation.html#installing-packages"><i class="fa fa-check"></i><b>1.3</b> Installing Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html"><i class="fa fa-check"></i><b>2</b> R Basics and how to read error messages</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#basics"><i class="fa fa-check"></i><b>2.1</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#basic-functions"><i class="fa fa-check"></i><b>2.1.1</b> Basic Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#logic"><i class="fa fa-check"></i><b>2.2</b> Logic</a></li>
+<li class="chapter" data-level="2.3" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#reading-error-messages"><i class="fa fa-check"></i><b>2.3</b> Reading Error Messages</a>
+<ul>
+<li class="chapter" data-level="" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#error-r-does-nothing-after-running-a-command"><i class="fa fa-check"></i><em>Error</em>: R does nothing after running a command</a></li>
+<li class="chapter" data-level="" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#the-pipe-operator-or"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics-and-how-to-read-error-messages.html"><a href="r-basics-and-how-to-read-error-messages.html#wrap-up-further-resources"><i class="fa fa-check"></i><b>2.5</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="best-practice.html"><a href="best-practice.html"><i class="fa fa-check"></i><b>3</b> Best Practice</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="best-practice.html"><a href="best-practice.html#what-is-best-practice"><i class="fa fa-check"></i><b>3.1</b> What is Best Practice?</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="best-practice.html"><a href="best-practice.html#overview"><i class="fa fa-check"></i><b>3.1.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="best-practice.html"><a href="best-practice.html#varnames"><i class="fa fa-check"></i><b>3.2</b> Naming Conventions</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="best-practice.html"><a href="best-practice.html#exercise-name-examples"><i class="fa fa-check"></i><b>3.2.1</b> Exercise: Name Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="best-practice.html"><a href="best-practice.html#scenario-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3</b> Scenario: Creating Data meaningfully</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="best-practice.html"><a href="best-practice.html#exercise-creating-data-meaningfully"><i class="fa fa-check"></i><b>3.3.1</b> Exercise: Creating Data meaningfully</a></li>
+<li class="chapter" data-level="3.3.2" data-path="best-practice.html"><a href="best-practice.html#solution"><i class="fa fa-check"></i><b>3.3.2</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="best-practice.html"><a href="best-practice.html#working-directories"><i class="fa fa-check"></i><b>3.4</b> Working Directories</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="best-practice.html"><a href="best-practice.html#try-it-out"><i class="fa fa-check"></i><b>3.4.1</b> Try it out!</a></li>
+<li class="chapter" data-level="3.4.2" data-path="best-practice.html"><a href="best-practice.html#cautionary-tale"><i class="fa fa-check"></i><b>3.4.2</b> Cautionary Tale</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="best-practice.html"><a href="best-practice.html#r-projects"><i class="fa fa-check"></i><b>3.5</b> R Projects</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="best-practice.html"><a href="best-practice.html#lets-try-that-out"><i class="fa fa-check"></i><b>3.5.1</b> Let's try that out!</a></li>
+<li class="chapter" data-level="3.5.2" data-path="best-practice.html"><a href="best-practice.html#homework-put-it-to-the-test"><i class="fa fa-check"></i><b>3.5.2</b> Homework: Put it to the test</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="best-practice.html"><a href="best-practice.html#make-r-your-own-appearance"><i class="fa fa-check"></i><b>3.6</b> Make R your own: Appearance</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="best-practice.html"><a href="best-practice.html#why"><i class="fa fa-check"></i><b>3.6.1</b> Why?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="best-practice.html"><a href="best-practice.html#not-so-secret-keyboard-shortcuts-to-make-your-life-easier"><i class="fa fa-check"></i><b>3.7</b> Not-so-secret keyboard shortcuts to make your life easier</a></li>
+<li class="chapter" data-level="3.8" data-path="best-practice.html"><a href="best-practice.html#wrap-up-further-resources-1"><i class="fa fa-check"></i><b>3.8</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>4</b> Into the <code>tidyverse</code>: Data munging with <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="dplyr.html"><a href="dplyr.html#working-with-packages"><i class="fa fa-check"></i><b>4.1</b> Working with packages <i class="fa-solid fa-dragon" style="color: darkred;"></i></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="dplyr.html"><a href="dplyr.html#incomplete-list-of-useful-packages"><i class="fa fa-check"></i><b>4.1.1</b> Incomplete List of Useful Packages</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dplyr.html"><a href="dplyr.html#the-tidyverse"><i class="fa fa-check"></i><b>4.1.2</b> The tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="dplyr.html"><a href="dplyr.html#what-is-dplyr"><i class="fa fa-check"></i><b>4.2</b> What is <code>dplyr</code>?</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="dplyr.html"><a href="dplyr.html#most-important-dplyr-functions"><i class="fa fa-check"></i><b>4.2.1</b> Most important <code>dplyr</code> functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="dplyr.html"><a href="dplyr.html#intro-to-the-exercise"><i class="fa fa-check"></i><b>4.3</b> Intro to the exercise</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="dplyr.html"><a href="dplyr.html#imagine..."><i class="fa fa-check"></i><b>4.3.1</b> Imagine...</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dplyr.html"><a href="dplyr.html#first-example"><i class="fa fa-check"></i><b>4.3.2</b> First Example</a></li>
+<li class="chapter" data-level="4.3.3" data-path="dplyr.html"><a href="dplyr.html#filter"><i class="fa fa-check"></i><b>4.3.3</b> Filter</a></li>
+<li class="chapter" data-level="4.3.4" data-path="dplyr.html"><a href="dplyr.html#select"><i class="fa fa-check"></i><b>4.3.4</b> Select</a></li>
+<li class="chapter" data-level="4.3.5" data-path="dplyr.html"><a href="dplyr.html#mutate"><i class="fa fa-check"></i><b>4.3.5</b> Mutate</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dplyr.html"><a href="dplyr.html#exercise"><i class="fa fa-check"></i><b>4.4</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="dplyr.html"><a href="dplyr.html#solution-1"><i class="fa fa-check"></i><b>4.4.1</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dplyr.html"><a href="dplyr.html#on-a-tangent-magrittr-pipe"><i class="fa fa-check"></i><b>4.5</b> On a Tangent: <code>magrittr</code> pipe %&gt;%</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="dplyr.html"><a href="dplyr.html#example"><i class="fa fa-check"></i><b>4.5.1</b> Example</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dplyr.html"><a href="dplyr.html#brainteaser"><i class="fa fa-check"></i><b>4.5.2</b> Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i></a></li>
+<li class="chapter" data-level="4.5.3" data-path="dplyr.html"><a href="dplyr.html#how-to-pipe-for-base-r"><i class="fa fa-check"></i><b>4.5.3</b> How to pipe for base-R</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dplyr.html"><a href="dplyr.html#brainteaser-1"><i class="fa fa-check"></i><b>4.5.4</b> Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="dplyr.html"><a href="dplyr.html#group_by-summarize"><i class="fa fa-check"></i><b>4.6</b> group_by &amp; summarize</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="dplyr.html"><a href="dplyr.html#example-group_by-summarize"><i class="fa fa-check"></i><b>4.6.1</b> Example: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="4.6.2" data-path="dplyr.html"><a href="dplyr.html#exercise-group_by-summarize"><i class="fa fa-check"></i><b>4.6.2</b> Exercise: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dplyr.html"><a href="dplyr.html#solution-2"><i class="fa fa-check"></i><b>4.6.3</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="dplyr.html"><a href="dplyr.html#wrap-up-further-resources-2"><i class="fa fa-check"></i><b>4.7</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html"><i class="fa fa-check"></i><b>5</b> Working with existing Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#first-steps-seminar-data"><i class="fa fa-check"></i><b>5.1</b> First Steps: Seminar Data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#reading-in-the-data"><i class="fa fa-check"></i><b>5.1.1</b> Reading in the data</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits"><i class="fa fa-check"></i><b>5.1.2</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
+<li class="chapter" data-level="5.1.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#basic-edits-1"><i class="fa fa-check"></i><b>5.1.3</b> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i></a></li>
+<li class="chapter" data-level="5.1.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#choosing-how-to-read-in-the-data"><i class="fa fa-check"></i><b>5.1.4</b> Choosing how to read in the data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-codebook"><i class="fa fa-check"></i><b>5.2</b> Working with the data: <br> Codebook</a></li>
+<li class="chapter" data-level="5.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#working-with-the-data-descriptives"><i class="fa fa-check"></i><b>5.3</b> Working with the data: <br> Descriptives</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.1</b> group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#example-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.2</b> Example: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#exercise-group_by-summarize-1"><i class="fa fa-check"></i><b>5.3.3</b> Exercise: group_by &amp; summarize</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#solution-3"><i class="fa fa-check"></i><b>5.3.4</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="working-with-existing-data.html"><a href="working-with-existing-data.html#wrap-up-further-resources-3"><i class="fa fa-check"></i><b>5.4</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html"><i class="fa fa-check"></i><b>6</b> Loops and Conditionals</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#what-is-a-loop"><i class="fa fa-check"></i><b>6.1</b> What is a loop?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#what-are-conditionals"><i class="fa fa-check"></i><b>6.1.1</b> What are conditionals?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#exercise-what-should-i-use"><i class="fa fa-check"></i><b>6.2</b> Exercise: What should I use?</a></li>
+<li class="chapter" data-level="6.3" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#for-loop"><i class="fa fa-check"></i><b>6.3</b> for-loop</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#example-1"><i class="fa fa-check"></i><b>6.3.1</b> Example</a></li>
+<li class="chapter" data-level="6.3.2" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#conditionals-if---else"><i class="fa fa-check"></i><b>6.3.2</b> Conditionals: If - else</a></li>
+<li class="chapter" data-level="6.3.3" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#conditionals-if---else-1"><i class="fa fa-check"></i><b>6.3.3</b> Conditionals: If - else</a></li>
+<li class="chapter" data-level="6.3.4" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#exercise-1"><i class="fa fa-check"></i><b>6.3.4</b> Exercise</a></li>
+<li class="chapter" data-level="6.3.5" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#solution-4"><i class="fa fa-check"></i><b>6.3.5</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#same-function-different-variables"><i class="fa fa-check"></i><b>6.4</b> Same function, different variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#more-sophisticated"><i class="fa fa-check"></i><b>6.4.1</b> More sophisticated</a></li>
+<li class="chapter" data-level="6.4.2" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#with-saving-values"><i class="fa fa-check"></i><b>6.4.2</b> With saving values</a></li>
+<li class="chapter" data-level="6.4.3" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#exercise-seminar-data"><i class="fa fa-check"></i><b>6.4.3</b> Exercise: Seminar Data</a></li>
+<li class="chapter" data-level="6.4.4" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#solution-5"><i class="fa fa-check"></i><b>6.4.4</b> Solution</a></li>
+<li class="chapter" data-level="6.4.5" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#checking-whats-going-on"><i class="fa fa-check"></i><b>6.4.5</b> Checking What's Going On</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#loop-with-conditional"><i class="fa fa-check"></i><b>6.5</b> Loop with Conditional</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#elements"><i class="fa fa-check"></i><b>6.5.1</b> Elements</a></li>
+<li class="chapter" data-level="6.5.2" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#solution-6"><i class="fa fa-check"></i><b>6.5.2</b> Solution</a></li>
+<li class="chapter" data-level="6.5.3" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#and-a-more-complicated-outlook..."><i class="fa fa-check"></i><b>6.5.3</b> And a more complicated outlook...</a></li>
+<li class="chapter" data-level="6.5.4" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#result-1"><i class="fa fa-check"></i><b>6.5.4</b> Result</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="loops-and-conditionals.html"><a href="loops-and-conditionals.html#wrap-up-further-resources-4"><i class="fa fa-check"></i><b>6.6</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html"><i class="fa fa-check"></i><b>7</b> Into the <code>tidyverse</code>: Pretty plots with <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#data-visalization"><i class="fa fa-check"></i><b>7.1</b> Data Visalization <i class="fa-solid fa-chart-line" style="color: darkred;"></i></a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#data-viz-has-many-many-applications"><i class="fa fa-check"></i><b>7.1.1</b> Data Viz has many many applications <i class="fa-solid fa-chart-line" style="color: darkred;"></i></a></li>
+<li class="chapter" data-level="7.1.2" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-sine-cosine"><i class="fa fa-check"></i><b>7.1.2</b> Example: Sine &amp; Cosine</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#what-is-ggplot2"><i class="fa fa-check"></i><b>7.2</b> What is <code>ggplot2</code>?</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#most-important-ggplot2-functions"><i class="fa fa-check"></i><b>7.2.1</b> Most important <code>ggplot2</code> functions</a></li>
+<li class="chapter" data-level="7.2.2" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#geom_xyz"><i class="fa fa-check"></i><b>7.2.2</b> <code>geom_XYZ()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-basic-bar-plot"><i class="fa fa-check"></i><b>7.3</b> Example: Basic Bar Plot</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#making-plots-prettier"><i class="fa fa-check"></i><b>7.3.1</b> Making Plots Prettier</a></li>
+<li class="chapter" data-level="7.3.2" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill"><i class="fa fa-check"></i><b>7.3.2</b> Example: Bar Plot with color and fill</a></li>
+<li class="chapter" data-level="7.3.3" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill-1"><i class="fa fa-check"></i><b>7.3.3</b> Example: Bar Plot with color and fill</a></li>
+<li class="chapter" data-level="7.3.4" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#static-vs.-dynamic-aesthetics"><i class="fa fa-check"></i><b>7.3.4</b> Static vs. Dynamic Aesthetics</a></li>
+<li class="chapter" data-level="7.3.5" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#exercise-2"><i class="fa fa-check"></i><b>7.3.5</b> Exercise</a></li>
+<li class="chapter" data-level="7.3.6" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#solution-7"><i class="fa fa-check"></i><b>7.3.6</b> Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#adding-labels-and-themes"><i class="fa fa-check"></i><b>7.4</b> Adding labels and themes</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#same-example-with-added-theme"><i class="fa fa-check"></i><b>7.4.1</b> Same example with added theme</a></li>
+<li class="chapter" data-level="7.4.2" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#same-example-with-added-theme-and-labels"><i class="fa fa-check"></i><b>7.4.2</b> Same example with added theme and labels</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#bivariate-visualizations"><i class="fa fa-check"></i><b>7.5</b> Bivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#boxplot-example"><i class="fa fa-check"></i><b>7.5.1</b> Boxplot Example</a></li>
+<li class="chapter" data-level="7.5.2" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#exercise-boxplot"><i class="fa fa-check"></i><b>7.5.2</b> Exercise: Boxplot</a></li>
+<li class="chapter" data-level="7.5.3" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#solution-boxplot"><i class="fa fa-check"></i><b>7.5.3</b> Solution: Boxplot</a></li>
+<li class="chapter" data-level="7.5.4" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#inspiration-colors-and-palettes"><i class="fa fa-check"></i><b>7.5.4</b> Inspiration: colors and palettes</a></li>
+<li class="chapter" data-level="7.5.5" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#use-colors-and-palettes"><i class="fa fa-check"></i><b>7.5.5</b> Use: colors and palettes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="into-the-tidyverse-pretty-plots-with-ggplot2.html"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#wrap-up-further-resources-5"><i class="fa fa-check"></i><b>7.6</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html"><i class="fa fa-check"></i><b>8</b> Creating and interpreting statistics: Chi<span class="math inline">\(^2\)</span> &amp; t-test &amp; ANOVA</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#statistics-re-cap-i"><i class="fa fa-check"></i><b>8.1</b> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i> I</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#statistics-re-cap-ii"><i class="fa fa-check"></i><b>8.1.1</b> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i> II</a></li>
+<li class="chapter" data-level="8.1.2" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#pre-requisites"><i class="fa fa-check"></i><b>8.1.2</b> Pre-Requisites</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#chi2"><i class="fa fa-check"></i><b>8.2</b> <span class="math inline">\(\chi^2\)</span></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#calculation"><i class="fa fa-check"></i><b>8.2.1</b> Calculation:</a></li>
+<li class="chapter" data-level="8.2.2" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#how-to-in-r"><i class="fa fa-check"></i><b>8.2.2</b> How to in R</a></li>
+<li class="chapter" data-level="8.2.3" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#exercise-3"><i class="fa fa-check"></i><b>8.2.3</b> Exercise <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i></a></li>
+<li class="chapter" data-level="8.2.4" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#solution-8"><i class="fa fa-check"></i><b>8.2.4</b> Solution <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#t-test"><i class="fa fa-check"></i><b>8.3</b> t-Test</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#test-statistic-t"><i class="fa fa-check"></i><b>8.3.1</b> Test statistic <em>t</em></a></li>
+<li class="chapter" data-level="8.3.2" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#test-statistic-t-1"><i class="fa fa-check"></i><b>8.3.2</b> Test statistic <em>t</em></a></li>
+<li class="chapter" data-level="8.3.3" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#how-to-in-r-1"><i class="fa fa-check"></i><b>8.3.3</b> How to in R</a></li>
+<li class="chapter" data-level="8.3.4" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#examples"><i class="fa fa-check"></i><b>8.3.4</b> Examples</a></li>
+<li class="chapter" data-level="8.3.5" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#exercise-4"><i class="fa fa-check"></i><b>8.3.5</b> Exercise <i class="fa-solid fa-computer"></i></a></li>
+<li class="chapter" data-level="8.3.6" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#solution-9"><i class="fa fa-check"></i><b>8.3.6</b> Solution <i class="fa-solid fa-computer"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#anova"><i class="fa fa-check"></i><b>8.4</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#how-to---theoretically"><i class="fa fa-check"></i><b>8.4.1</b> How to - theoretically</a></li>
+<li class="chapter" data-level="8.4.2" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#example-music-genre-and-loudness"><i class="fa fa-check"></i><b>8.4.2</b> Example: Music genre and loudness <i class="fa-solid fa-music"></i></a></li>
+<li class="chapter" data-level="8.4.3" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size"><i class="fa fa-check"></i><b>8.4.3</b> Addendum for demonstration only: Bootstrapped Data for larger sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#reporting-with-the-apa-papaja-packages"><i class="fa fa-check"></i><b>8.5</b> Reporting with the <code>apa</code> &amp; <code>papaja</code> packages</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#usage"><i class="fa fa-check"></i><b>8.5.1</b> Usage</a></li>
+<li class="chapter" data-level="8.5.2" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#usage-in-r-markdown"><i class="fa fa-check"></i><b>8.5.2</b> Usage in R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#wrap-up-further-resources-6"><i class="fa fa-check"></i><b>8.6</b> Wrap-Up &amp; Further Resources</a></li>
+<li class="chapter" data-level="8.7" data-path="creating-and-interpreting-statistics-chi2-t-test-anova.html"><a href="creating-and-interpreting-statistics-chi2-t-test-anova.html#homework-r-markdown"><i class="fa fa-check"></i><b>8.7</b> <i class="fa-solid fa-house-chimney" style="color: darkgreen;"></i> Homework: R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html"><i class="fa fa-check"></i><b>9</b> Creating and interpreting statistics: correlation &amp; regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#statistics-re-cap"><i class="fa fa-check"></i><b>9.1</b> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#pre-requisites-1"><i class="fa fa-check"></i><b>9.1.1</b> Pre-Requisites</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#correlation"><i class="fa fa-check"></i><b>9.2</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#guess-the-correlation"><i class="fa fa-check"></i><b>9.2.1</b> Guess the correlation!</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#correlation-in-r"><i class="fa fa-check"></i><b>9.3</b> Correlation in R</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#example-2"><i class="fa fa-check"></i><b>9.3.1</b> Example</a></li>
+<li class="chapter" data-level="9.3.2" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#handling-missing-data"><i class="fa fa-check"></i><b>9.3.2</b> Handling missing data</a></li>
+<li class="chapter" data-level="9.3.3" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#handling-missing-data-1"><i class="fa fa-check"></i><b>9.3.3</b> Handling missing data</a></li>
+<li class="chapter" data-level="9.3.4" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#exercise-5"><i class="fa fa-check"></i><b>9.3.4</b> Exercise:</a></li>
+<li class="chapter" data-level="9.3.5" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#solution-10"><i class="fa fa-check"></i><b>9.3.5</b> Solution <i class="fa-solid fa-computer" style="color: #ff6600;"></i> <i class="fa-solid fa-child-reaching" style="color: #ff6600;"></i></a></li>
+<li class="chapter" data-level="9.3.6" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#quiz"><i class="fa fa-check"></i><b>9.3.6</b> Quiz</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#linear-regression"><i class="fa fa-check"></i><b>9.4</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#build-the-model"><i class="fa fa-check"></i><b>9.4.1</b> Build the model</a></li>
+<li class="chapter" data-level="9.4.2" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#visual-inspection"><i class="fa fa-check"></i><b>9.4.2</b> Visual Inspection</a></li>
+<li class="chapter" data-level="9.4.3" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#build-the-model-1"><i class="fa fa-check"></i><b>9.4.3</b> Build the model</a></li>
+<li class="chapter" data-level="9.4.4" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#analyze-the-model"><i class="fa fa-check"></i><b>9.4.4</b> Analyze the model</a></li>
+<li class="chapter" data-level="9.4.5" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#exercise-6"><i class="fa fa-check"></i><b>9.4.5</b> Exercise <i class="fa-regular fa-hourglass-half"  style="color: #dcdcdc;"></i> <i class="fa-solid fa-laptop-code"  style="color: #dcdcdc;"></i></a></li>
+<li class="chapter" data-level="9.4.6" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#solution-11"><i class="fa fa-check"></i><b>9.4.6</b> Solution</a></li>
+<li class="chapter" data-level="9.4.7" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#interpretation"><i class="fa fa-check"></i><b>9.4.7</b> Interpretation</a></li>
+<li class="chapter" data-level="9.4.8" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#a-word-to-the-wise"><i class="fa fa-check"></i><b>9.4.8</b> A word to the wise</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#anova-exercise"><i class="fa fa-check"></i><b>9.5</b> ANOVA Exercise</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#exercise-7"><i class="fa fa-check"></i><b>9.5.1</b> Exercise:</a></li>
+<li class="chapter" data-level="9.5.2" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#solution-12"><i class="fa fa-check"></i><b>9.5.2</b> Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i></a></li>
+<li class="chapter" data-level="9.5.3" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#solution-13"><i class="fa fa-check"></i><b>9.5.3</b> Solution <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i></a></li>
+<li class="chapter" data-level="9.5.4" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#if-there-is-still-time"><i class="fa fa-check"></i><b>9.5.4</b> If there is still time: <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i></a></li>
+<li class="chapter" data-level="9.5.5" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#data-viz"><i class="fa fa-check"></i><b>9.5.5</b> Data Viz <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="creating-and-interpreting-statistics-correlation-regression.html"><a href="creating-and-interpreting-statistics-correlation-regression.html#wrap-up-further-resources-7"><i class="fa fa-check"></i><b>9.6</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html"><i class="fa fa-check"></i><b>10</b> Intro to R Markdown</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#creating-whole-documents-in-r"><i class="fa fa-check"></i><b>10.1</b> Creating whole documents in R</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#example-3"><i class="fa fa-check"></i><b>10.1.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#document-basics"><i class="fa fa-check"></i><b>10.2</b> Document Basics</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#yaml-header-yet-another-markdown-language"><i class="fa fa-check"></i><b>10.2.1</b> YAML header (<em>Yet Another Markdown Language</em>)</a></li>
+<li class="chapter" data-level="10.2.2" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#markdown-basics"><i class="fa fa-check"></i><b>10.2.2</b> Markdown Basics</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#heading-basics"><i class="fa fa-check"></i><b>10.3</b> ## Heading Basics</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#sub-header-3.-level"><i class="fa fa-check"></i><b>10.3.1</b> ### Sub Header 3. level</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#special-features"><i class="fa fa-check"></i><b>10.4</b> Special Features</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#latex"><i class="fa fa-check"></i><b>10.4.1</b> <span class="math inline">\(\LaTeX\)</span></a></li>
+<li class="chapter" data-level="10.4.2" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#html"><i class="fa fa-check"></i><b>10.4.2</b> HTML</a></li>
+<li class="chapter" data-level="10.4.3" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#table-example"><i class="fa fa-check"></i><b>10.4.3</b> Table Example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#including-r"><i class="fa fa-check"></i><b>10.5</b> Including R</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>10.5.1</b> Code Chunks</a></li>
+<li class="chapter" data-level="10.5.2" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#chunk-options"><i class="fa fa-check"></i><b>10.5.2</b> Chunk Options</a></li>
+<li class="chapter" data-level="10.5.3" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#chunk-options-1"><i class="fa fa-check"></i><b>10.5.3</b> Chunk Options:</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="intro-to-r-markdown.html"><a href="intro-to-r-markdown.html#wrap-up-further-resources-8"><i class="fa fa-check"></i><b>10.6</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html"><i class="fa fa-check"></i><b>11</b> Taking full Advantage of R and R Markdown</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#quiz---rmd-specific"><i class="fa fa-check"></i><b>11.1</b> Quiz - Rmd specific</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#quiz---general-r"><i class="fa fa-check"></i><b>11.1.1</b> Quiz - general R</a></li>
+<li class="chapter" data-level="11.1.2" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#quiz---general-r-1"><i class="fa fa-check"></i><b>11.1.2</b> Quiz - general R</a></li>
+<li class="chapter" data-level="11.1.3" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#quiz---general-r-2"><i class="fa fa-check"></i><b>11.1.3</b> Quiz - general R</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#back-to-rmd-last-session"><i class="fa fa-check"></i><b>11.2</b> Back to Rmd: Last session</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#last-session"><i class="fa fa-check"></i><b>11.2.1</b> Last session</a></li>
+<li class="chapter" data-level="11.2.2" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#including-links-images"><i class="fa fa-check"></i><b>11.2.2</b> Including Links &amp; Images</a></li>
+<li class="chapter" data-level="11.2.3" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#inline-code"><i class="fa fa-check"></i><b>11.2.3</b> Inline Code</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#taking-full-advantage-of-r"><i class="fa fa-check"></i><b>11.3</b> Taking full advantage of R</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#walkthrough"><i class="fa fa-check"></i><b>11.3.1</b> Walkthrough</a></li>
+<li class="chapter" data-level="11.3.2" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#walkthrough-1"><i class="fa fa-check"></i><b>11.3.2</b> Walkthrough</a></li>
+<li class="chapter" data-level="11.3.3" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#walkthrough-2"><i class="fa fa-check"></i><b>11.3.3</b> Walkthrough</a></li>
+<li class="chapter" data-level="11.3.4" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#walkthrough-3"><i class="fa fa-check"></i><b>11.3.4</b> Walkthrough</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#exercise-8"><i class="fa fa-check"></i><b>11.4</b> Exercise</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#exercise-9"><i class="fa fa-check"></i><b>11.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="taking-full-advantage-of-r-and-r-markdown.html"><a href="taking-full-advantage-of-r-and-r-markdown.html#wrap-up-further-resources-9"><i class="fa fa-check"></i><b>11.5</b> Wrap-Up &amp; Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="wrap-up.html"><a href="wrap-up.html"><i class="fa fa-check"></i><b>12</b> Wrap Up</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="wrap-up.html"><a href="wrap-up.html#discussion-of-self-study-materials"><i class="fa fa-check"></i><b>12.1</b> Discussion of Self-Study Materials</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="wrap-up.html"><a href="wrap-up.html#fibonacci-task"><i class="fa fa-check"></i><b>12.1.1</b> Fibonacci Task</a></li>
+<li class="chapter" data-level="12.1.2" data-path="wrap-up.html"><a href="wrap-up.html#fibonacci-task-1"><i class="fa fa-check"></i><b>12.1.2</b> Fibonacci Task</a></li>
+<li class="chapter" data-level="12.1.3" data-path="wrap-up.html"><a href="wrap-up.html#alternative-with-while"><i class="fa fa-check"></i><b>12.1.3</b> Alternative with <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="wrap-up.html"><a href="wrap-up.html#template-html"><i class="fa fa-check"></i><b>12.2</b> Template HTML</a></li>
+<li class="chapter" data-level="12.3" data-path="wrap-up.html"><a href="wrap-up.html#lessons-from-the-user"><i class="fa fa-check"></i><b>12.3</b> Lessons from the useR!</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="wrap-up.html"><a href="wrap-up.html#work-with-a-scientifically-sound-ai"><i class="fa fa-check"></i><b>12.3.1</b> Work with a scientifically sound AI</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="wrap-up.html"><a href="wrap-up.html#pub-quiz---which-function-is-missing-logos"><i class="fa fa-check"></i><b>12.4</b> "Pub" Quiz - Which function is missing? &amp; Logos</a></li>
+<li class="chapter" data-level="12.5" data-path="wrap-up.html"><a href="wrap-up.html#outlook"><i class="fa fa-check"></i><b>12.5</b> Outlook</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="wrap-up.html"><a href="wrap-up.html#anything-left-unclear"><i class="fa fa-check"></i><b>12.5.1</b> Anything left unclear?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><i class="fa-solid fa-mug-hot" style="color: #650279;"></i>
+Psychological Research in R
+<i class="fa-solid fa-mug-hot" style="color: #650279;"></i></p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="referencias" class="section level1 unnumbered hasAnchor">
+<h1>Referencias<a href="referencias.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
+<div id="ref-R-rmarkdown" class="csl-entry">
+Allaire, J., Xie, Y., Dervieux, C., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W., &amp; Iannone, R. (2024). <em>Rmarkdown: Dynamic documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>
+</div>
+<div id="ref-R-webexercises" class="csl-entry">
+Barr, D., &amp; DeBruine, L. (2023). <em>Webexercises: Create interactive web exercises in r markdown (formerly webex)</em>. <a href="https://github.com/psyteachr/webexercises">https://github.com/psyteachr/webexercises</a>
+</div>
+<div id="ref-field2012" class="csl-entry">
+Field, A. P., Miles, J., &amp; Field, Z. (2012). <em>Discovering statistics using <span>R</span></em>.
+</div>
+<div id="ref-R-base" class="csl-entry">
+R Core Team. (2024). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
+</div>
+<div id="ref-R-dplyr" class="csl-entry">
+Wickham, H., François, R., Henry, L., Müller, K., &amp; Vaughan, D. (2023). <em>Dplyr: A grammar of data manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>
+</div>
+<div id="ref-R-bookdown" class="csl-entry">
+Xie, Y. (2024). <em>Bookdown: Authoring books and technical documents with r markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="wrap-up.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/the-tave/psych_research_in_r/issues/15_References.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

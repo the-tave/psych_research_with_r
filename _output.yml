@@ -20,7 +20,7 @@ bookdown::gitbook:
   includes:
     after_body: www/webex.js
   md_extensions: -smart
-bookdown::epub_book: default
+# bookdown::epub_book: default
 # bookdown::pdf_book:
 #   includes:
 #   latex_engine: xelatex

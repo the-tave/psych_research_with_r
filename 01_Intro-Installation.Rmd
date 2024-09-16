@@ -149,6 +149,8 @@ You can test whether it works by running `iris %>% pull(Sepal.Length) %>% mean()
 We will get to know the syntax in depth another time, but just so you know what's going on:
 This line of code takes the data set `iris`, which is included in R by default, "pulls" the variable `Sepal.Length` out of the data and runs the `mean()` function on it, to calculate the average sepal length, which should be `r iris %>% pull(Sepal.Length) %>% mean()`.
 
+## Wrap-Up & Further Resources {-}
+
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 
 <li> R is a powerful language, R Studio is the user interface we use with it</li>

@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Intro to R Markdown |  Psychological Research in R </title>
+  <title>Chapter 11 The Power of R &amp; R Markdown |  Psychological Research in R </title>
   <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Intro to R Markdown |  Psychological Research in R " />
+  <meta property="og:title" content="Chapter 11 The Power of R &amp; R Markdown |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
@@ -21,7 +21,7 @@ directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Intro to R Markdown |  Psychological Research in R " />
+  <meta name="twitter:title" content="Chapter 11 The Power of R &amp; R Markdown |  Psychological Research in R " />
   
   <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
@@ -38,8 +38,8 @@ directly in R and R Markdown.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="association-statistics.html"/>
-<link rel="next" href="the-power-of-r-r-markdown.html"/>
+<link rel="prev" href="intro-to-r-markdown.html"/>
+<link rel="next" href="wrap-up.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -509,249 +509,283 @@ Psychological Research in R
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro-to-r-markdown" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Intro to R Markdown<a href="intro-to-r-markdown.html#intro-to-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-power-of-r-r-markdown" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> The Power of R &amp; R Markdown<a href="the-power-of-r-r-markdown.html#the-power-of-r-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 <div class="float">
-<img src="img/rmd.png" alt="R Markdown Logo" />
-<div class="figcaption">R Markdown Logo</div>
+<img src="img/papaja.png" alt="Happy Papaya Logo" />
+<div class="figcaption">Happy Papaya Logo</div>
 </div>
-<div id="creating-whole-documents-in-r" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Creating whole documents in R<a href="intro-to-r-markdown.html#creating-whole-documents-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quiz---rmd-specific" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Quiz - Rmd specific<a href="the-power-of-r-r-markdown.html#quiz---rmd-specific" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>What do I need to do to make my text <strong><em>look like this</em></strong>?
 <ul>
-<li>Creating visualizations and statistics in R is great, but we need to able to show and report our work.</li>
-<li>Results can be copied and plots can be exported, but they can also be embedded directly into a document in R</li>
-<li>R Markdown is a text engine based on <span class="math inline">\(\LaTeX\)</span> that allows you to create documents, presentations, reports...</li>
-</ul>
-<div class="float">
-<img src="img/MArmdex.png" height="250" alt="MA thesis Example" />
-<div class="figcaption">MA thesis Example</div>
-</div>
-<div id="example-2" class="section level3 hasAnchor" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> Example<a href="intro-to-r-markdown.html#example-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please create a demo RMarkdown document and "knit" it.
-<img src="img/rmd-click.png" id="id" class="class" height="140" alt="Create a demo Rmd" /> ... or go to File &gt; New File &gt; R Markdown to create a new Rmd document.
-Give it a name or keep all the defaults.
-It will create a document with some demo content.
-When you click the "knit"-button below the main menu, you will need to save the file and it will create the output.
-Try to play around with the text and read the demo content - it explains the basic functions!</p>
-<p>You can use the document you create now as a sort of cheatsheet and template for what you can do later.</p>
-</div>
-</div>
-<div id="document-basics" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Document Basics<a href="intro-to-r-markdown.html#document-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><br></p>
-<ul>
-<li>RMarkdown has some basics that need to be learned</li>
-<li>It also has many features and powerful tools for layout and styling</li>
-<li>By default, RMarkdown can create html documents - if you want a pdf, you need a special package to render <span class="math inline">\(\LaTeX\)</span>, I recommend <code>tinytex</code>
-<ul>
-<li><code>install.packages("tinytex")</code></li>
-<li><code>tinytex::install_tinytex()</code></li>
+<li>**_look like this_**</li>
 </ul></li>
-</ul>
-<div id="yaml-header-yet-another-markdown-language" class="section level3 hasAnchor" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> YAML header (<em>Yet Another Markdown Language</em>)<a href="intro-to-r-markdown.html#yaml-header-yet-another-markdown-language" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<li>I want to add a subtitle to my document, where might I do that?
 <ul>
-<li><p>This defines the output format of our document, e.g. <code>html_document</code></p></li>
-<li><p>We can set our title, subtitle, author, date...</p></li>
-<li><p>We can define further characteristics, e.g. <code>toc</code> (table of content) or <code>self-contained</code> (this should be set to true, otherwise R will not copy images etc. and the document will not work properly on other devices)</p></li>
-<li><p><i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-The YAML header needs to be indented in a certain way, otheriwse the commands are not recognized! </i></p></li>
-<li><p><i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-In the YAML header, <code>true</code> and <code>false</code> are not capitalized, unlike in the rest of R! </i></p></li>
-</ul>
+<li>Add 'subtitle: "A great subtitle" ' to the <strong>YAML header</strong></li>
+</ul></li>
+<li>How do I generate a section header in my document?
+<ul>
+<li>With the pound sign # Header</li>
+</ul></li>
+<li>Oh no, my header isn't showing up right! What could have happened?
+<ul>
+<li>There needs to be a space between the # and the header</li>
+</ul></li>
+</ol>
+<div id="quiz---general-r" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Quiz - general R<a href="the-power-of-r-r-markdown.html#quiz---general-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>What package contains the functions <code>select, filter &amp; mutate</code>?</p>
+<ul>
+<li><code>dplyr</code> (or <code>tidyverse</code>)</li>
+</ul></li>
+<li><p>Assume I have created some R project and I read a file with the following command - what does this tell you about the folder on my computer?</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="the-power-of-r-r-markdown.html#cb86-1" tabindex="-1"></a>greatdata <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./data/somefile.CSV&quot;</span>)</span></code></pre></div>
+<ul>
+<li>The folder containing the R project contains a subfolder called "data" and in there is a CSV file called "somefile.csv".</li>
+</ul></li>
+</ol>
 </div>
-<div id="markdown-basics" class="section level3 hasAnchor" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Markdown Basics<a href="intro-to-r-markdown.html#markdown-basics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quiz---general-r-1" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Quiz - general R<a href="the-power-of-r-r-markdown.html#quiz---general-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="3" style="list-style-type: decimal">
+<li>I want to load a csv file into R with <code>readRDS()</code>. Why isn't it working?
+<ul>
+<li>The read commands are specific to the file format. readRDS() is for R files, read.csv() or readr::read_csv() are needed for csv files</li>
+</ul></li>
+<li>What do you know when you look at the command <code>bigfive$extraversion</code>?
+<ul>
+<li>There is a data set called <code>bigfive</code> and we're accessing a variable called <code>extraversion</code></li>
+</ul></li>
+</ol>
+</div>
+<div id="quiz---general-r-2" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Quiz - general R<a href="the-power-of-r-r-markdown.html#quiz---general-r-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="5" style="list-style-type: decimal">
+<li><p>What keywords for loops and conditionals do you remember?</p>
+<ul>
+<li><em>for, while, if, else, ifelse</em>...</li>
+</ul></li>
+<li><p>I want to calculate a t-test on soul-belief (yes or no) and age in our seminar data. Why won't this command work?</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="the-power-of-r-r-markdown.html#cb87-1" tabindex="-1"></a><span class="fu">t.test</span>(v02_age, soul_dummy, <span class="at">data =</span> seminar)</span></code></pre></div>
+<ul>
+<li>When we have a grouping variable like soul_dummy, we need to use formula notation: <code>v02_age ~ soul_dummy</code></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="back-to-rmd-last-session" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Back to Rmd: Last session<a href="the-power-of-r-r-markdown.html#back-to-rmd-last-session" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
-<p>Text formatting generally works with characters in the text:</p>
+<ul>
+<li>First off: the option of formatting the table of contents to float in html is <strong>toc_float: true</strong></li>
+<li>Create Rmd: <img src="img/rmd-click.png" height="100" alt="Create a demo Rmd" /> or File &gt; New File &gt; R Markdown</li>
+<li><strong>YAML header</strong> defines format of the document as well as key info such as title, date, etc.</li>
+<li>Text formatting:
 <ul>
 <li><em>italics</em> with _italics_</li>
 <li><strong>bold</strong> with **bold**</li>
-<li><strong><em>bold and cursive</em></strong> with **_bold and cursive_**</li>
 <li>Unordered lists are created with -</li>
 <li>Ordered lists with 1., 2. ...</li>
-</ul>
-</div>
-</div>
-<div id="heading-basics" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> ## Heading Basics<a href="intro-to-r-markdown.html#heading-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="sub-header-3.-level" class="section level3 hasAnchor" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> ### Sub Header 3. level<a href="intro-to-r-markdown.html#sub-header-3.-level" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="th-level" class="section level4 hasAnchor" number="10.3.1.1">
-<h4><span class="header-section-number">10.3.1.1</span> #### 4th level<a href="intro-to-r-markdown.html#th-level" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="th-level-1" class="section level5 hasAnchor" number="10.3.1.1.1">
-<h5><span class="header-section-number">10.3.1.1.1</span> ##### 5th level<a href="intro-to-r-markdown.html#th-level-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div id="th-level-2" class="section level6 hasAnchor" number="10.3.1.1.1.1">
-<h6><span class="header-section-number">10.3.1.1.1.1</span> ###### 6th level<a href="intro-to-r-markdown.html#th-level-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<p>Thats's it.</p>
-<p>Realistically, we <em>may</em> want to go down to the 4th level heading, but usually no further.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="special-features" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Special Features<a href="intro-to-r-markdown.html#special-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Print mathematical equations</li>
-<li>Show code and its output</li>
-<li>Easily use automatic formatting</li>
-<li>Profit from existing templates</li>
-<li>General rule of thumb: Rmd documents are rendered depending on their output format
-<ul>
-<li>If you plan on creating an html, you can use plain html to make adjustments and use special features.</li>
-<li>If you create a pdf, they will most likely not work and you should use <span class="math inline">\(\LaTeX\)</span> notation.</li>
 </ul></li>
 </ul>
-<div id="latex" class="section level3 hasAnchor" number="10.4.1">
-<h3><span class="header-section-number">10.4.1</span> <span class="math inline">\(\LaTeX\)</span><a href="intro-to-r-markdown.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Especially useful for writing equations:</p>
-<ul>
-<li>$ \ alpha $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\alpha\)</span></li>
-<li>$ \ beta $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\beta\)</span></li>
-<li>$ R^2 $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(R^2\)</span></li>
-<li>and, by the way, $ \ rightarrow $ becomes <span class="math inline">\(\rightarrow\)</span></li>
-<li>and $ \ LaTeX $ becomes <span class="math inline">\(\LaTeX\)</span></li>
-<li>\ newline creates a new line and \ newpage creates a new page</li>
-</ul>
-</div>
-<div id="html" class="section level3 hasAnchor" number="10.4.2">
-<h3><span class="header-section-number">10.4.2</span> HTML<a href="intro-to-r-markdown.html#html" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Remember these tags should only be used when creating a html document!</p>
-<ul>
-<li>&lt; br &gt; creates a new line (stands for "line break")</li>
-<li>&lt;span style="color: purple;"&gt; This text will appear purple. &lt;/span&gt;
-<ul>
-<li><span style="color: purple;"> This text will appear purple. </span></li>
-</ul></li>
-<li>Simple tables can be created with html notation in most documents
-<ul>
-<li>Header 1 | Header 2</li>
-<li><em>then a row of - - - | - - - to represent the lines</em></li>
-<li>And the content separated | into as many columns as defined</li>
-</ul></li>
-</ul>
-</div>
-<div id="table-example" class="section level3 hasAnchor" number="10.4.3">
-<h3><span class="header-section-number">10.4.3</span> Table Example<a href="intro-to-r-markdown.html#table-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br></p>
-<p>Header 1 | Header 2 <br>
------|----- <br>
-Great content | Fantastic content <br></p>
-<p><br> Becomes: <br></p>
-<table>
-<thead>
-<tr class="header">
-<th>Header 1</th>
-<th>Header 2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Great content</td>
-<td>Fantastic content</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="including-r" class="section level2 hasAnchor" number="10.5">
-<h2><span class="header-section-number">10.5</span> Including R<a href="intro-to-r-markdown.html#including-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><br></p>
-<ul>
-<li>Including R code can be achieved by either inserting so-called code chunks or using inline code</li>
-<li>Code chunks are useful if several lines of code need to be evaluated and/ or shown
-<ul>
-<li>There are many options for code chunks</li>
-</ul></li>
-<li>Inline code is useful if single outputs are to be shown
-<ul>
-<li>E.g. with functions you already know such as <code>apa_print()</code></li>
-</ul></li>
-</ul>
-<div id="code-chunks" class="section level3 hasAnchor" number="10.5.1">
-<h3><span class="header-section-number">10.5.1</span> Code Chunks<a href="intro-to-r-markdown.html#code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="last-session" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Last session<a href="the-power-of-r-r-markdown.html#last-session" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Code chunks are inserted via the menu Code &gt; Insert Chunk and should look like this:</li>
 <li>```{r} <br>
 # <em>code goes here</em> <br>
-```</li>
-<li><div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="intro-to-r-markdown.html#cb82-1" tabindex="-1"></a><span class="co"># code goes here</span></span></code></pre></div></li>
-<li>Or you can use the keyboard shortcut ctrl + alt + i / command + option + i</li>
-</ul>
-<div id="chunk-options" class="section level4 unnumbered hasAnchor">
-<h4>Chunk Options<a href="intro-to-r-markdown.html#chunk-options" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+```
 <ul>
-<li><p>Inside the curly brackets, you can specify many different options, for example:</p>
-<ul>
-<li><code>fig.height = 3</code> will output a plot to a certain height (3 inches)</li>
-<li><code>echo = F</code> will show code output, but not the code</li>
-<li><code>eval = F</code> will show the code, but not its' output...</li>
+<li>keyboard shortcut ctrl + alt + i / command + option + i</li>
+<li>Chunk options can specify how to treat code, e.g. <code>echo = FALSE</code> only shows output but does not "echo" the actual code</li>
 </ul></li>
-<li><p>eval = F:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="intro-to-r-markdown.html#cb83-1" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="dv">1</span>) </span></code></pre></div></li>
-<li><p>echo = F:</p>
-<pre><code>#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-# 1          5.1         3.5          1.4         0.2  setosa</code></pre></li>
+<li>Indentation and spacing is very important! In the text, it is better to add more. In the YAML header, it may not be recognized properly with improper spacing</li>
 </ul>
-<div id="error-true" class="section level5 unnumbered hasAnchor">
-<h5><code>error = TRUE</code><a href="intro-to-r-markdown.html#error-true" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+</div>
+<div id="including-links-images" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Including Links &amp; Images<a href="the-power-of-r-r-markdown.html#including-links-images" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>This option allows us to include erroneous code in our script</li>
-<li>It will output the error message just like you would see in your R Studio console</li>
-<li>By default, <code>error = FALSE</code> which means that your script cannot be rendered with errors in code chunks</li>
+<li><p>An image to R Markdown is essentially a <strong>link to an image file on your computer</strong></p>
+<ul>
+<li>That's why they share similar notation</li>
+</ul></li>
+<li><table>
+<thead>
+<tr class="header">
+<th>Web Link:**</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"<a href="www.google.com">Google Link</a>"</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Becomes: <a href="https://www.google.com/">Google Link</a> (clickable Link)</li>
+</ul></li>
+<li><p><strong>Image:</strong></p>
+<ul>
+<li>"<img src="C:/path/to/your/image.png" alt="image description" />"</li>
+<li>Different file formats, such as JPG, PNG, SVG or GIF</li>
+</ul></li>
+<li><p>When including an image, make sure you are using the right file path, image name &amp; file extension! So that...</p></li>
+<li><p>"<img src="%22./img/rmd.png%22" alt="RMarkdown Logo" />"</p></li>
+<li><p>...becomes...</p></li>
+<li><div class="float">
+<img src="img/rmd.png" alt="RMarkdown Logo" />
+<div class="figcaption">RMarkdown Logo</div>
+</div></li>
 </ul>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="intro-to-r-markdown.html#cb85-1" tabindex="-1"></a><span class="fu">mean</span>(y)</span>
-<span id="cb85-2"><a href="intro-to-r-markdown.html#cb85-2" tabindex="-1"></a><span class="co"># [1] 5.5</span></span></code></pre></div>
+</div>
+<div id="inline-code" class="section level3 hasAnchor" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> Inline Code<a href="the-power-of-r-r-markdown.html#inline-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>To simply include variables or values in text, we can use inline code `<em>r code</em> `</li>
+<li>Simply type one back tick ` and r - the program will auto complete the command</li>
+<li>Examples:
+<ul>
+<li>The average sepal length of iris flowers is <br>
+`<em>r mean(iris$Sepal.Length)</em>` <span class="math inline">\(\rightarrow\)</span> 5.843</li>
+</ul></li>
+</ul>
 </div>
 </div>
+<div id="taking-full-advantage-of-r" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Taking full advantage of R<a href="the-power-of-r-r-markdown.html#taking-full-advantage-of-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>Conduct Analysis, e.g. an ANOVA</li>
+<li>Write about your analysis &amp; report results (with proper statistics)</li>
+<li>Choose and create an appropriate visualization, e.g. a boxplot</li>
+</ol>
+<div id="walkthrough" class="section level3 hasAnchor" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Walkthrough<a href="the-power-of-r-r-markdown.html#walkthrough" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will use the package <code>palmerpenguins</code> (<code>install.packages("palmerpenguins")</code>) and see whether penguins from different islands have different body mass.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="the-power-of-r-r-markdown.html#cb88-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb88-2"><a href="the-power-of-r-r-markdown.html#cb88-2" tabindex="-1"></a></span>
+<span id="cb88-3"><a href="the-power-of-r-r-markdown.html#cb88-3" tabindex="-1"></a><span class="co"># Test assumption of homoscedasticity</span></span>
+<span id="cb88-4"><a href="the-power-of-r-r-markdown.html#cb88-4" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)) <span class="co"># yay</span></span>
+<span id="cb88-5"><a href="the-power-of-r-r-markdown.html#cb88-5" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb88-6"><a href="the-power-of-r-r-markdown.html#cb88-6" tabindex="-1"></a><span class="co">#        Df F value Pr(&gt;F)</span></span>
+<span id="cb88-7"><a href="the-power-of-r-r-markdown.html#cb88-7" tabindex="-1"></a><span class="co"># group   2  2.2425 0.1078</span></span>
+<span id="cb88-8"><a href="the-power-of-r-r-markdown.html#cb88-8" tabindex="-1"></a><span class="co">#       339</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="the-power-of-r-r-markdown.html#cb89-1" tabindex="-1"></a><span class="co"># Run &amp; save ANOVA</span></span>
+<span id="cb89-2"><a href="the-power-of-r-r-markdown.html#cb89-2" tabindex="-1"></a>penguinmodel <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span></code></pre></div>
+</div>
+<div id="walkthrough-1" class="section level3 hasAnchor" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Walkthrough<a href="the-power-of-r-r-markdown.html#walkthrough-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="the-power-of-r-r-markdown.html#cb90-1" tabindex="-1"></a><span class="co"># Run &amp; save post-hoc Tests</span></span>
+<span id="cb90-2"><a href="the-power-of-r-r-markdown.html#cb90-2" tabindex="-1"></a><span class="fu">TukeyHSD</span>(penguinmodel)</span>
+<span id="cb90-3"><a href="the-power-of-r-r-markdown.html#cb90-3" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
+<span id="cb90-4"><a href="the-power-of-r-r-markdown.html#cb90-4" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
+<span id="cb90-5"><a href="the-power-of-r-r-markdown.html#cb90-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb90-6"><a href="the-power-of-r-r-markdown.html#cb90-6" tabindex="-1"></a><span class="co"># Fit: aov(formula = bill_length_mm ~ species, data = penguins)</span></span>
+<span id="cb90-7"><a href="the-power-of-r-r-markdown.html#cb90-7" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb90-8"><a href="the-power-of-r-r-markdown.html#cb90-8" tabindex="-1"></a><span class="co"># $species</span></span>
+<span id="cb90-9"><a href="the-power-of-r-r-markdown.html#cb90-9" tabindex="-1"></a><span class="co">#                       diff       lwr        upr     p adj</span></span>
+<span id="cb90-10"><a href="the-power-of-r-r-markdown.html#cb90-10" tabindex="-1"></a><span class="co"># Chinstrap-Adelie 10.042433  9.024859 11.0600064 0.0000000</span></span>
+<span id="cb90-11"><a href="the-power-of-r-r-markdown.html#cb90-11" tabindex="-1"></a><span class="co"># Gentoo-Adelie     8.713487  7.867194  9.5597807 0.0000000</span></span>
+<span id="cb90-12"><a href="the-power-of-r-r-markdown.html#cb90-12" tabindex="-1"></a><span class="co"># Gentoo-Chinstrap -1.328945 -2.381868 -0.2760231 0.0088993</span></span></code></pre></div>
+<ul>
+<li>For anova, we want to report the full statistics, a.k.a "full_result" from <code>papaja::apa_print()</code></li>
+<li><div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="the-power-of-r-r-markdown.html#cb91-1" tabindex="-1"></a><span class="fu">library</span>(papaja)</span>
+<span id="cb91-2"><a href="the-power-of-r-r-markdown.html#cb91-2" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel)<span class="sc">$</span>full_result</span></code></pre></div></li>
+</ul>
+</div>
+<div id="walkthrough-2" class="section level3 hasAnchor" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Walkthrough<a href="the-power-of-r-r-markdown.html#walkthrough-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a boxplot and add results right in the caption!</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="the-power-of-r-r-markdown.html#cb92-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb92-2"><a href="the-power-of-r-r-markdown.html#cb92-2" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x=</span>species, <span class="at">y=</span>bill_length_mm, <span class="at">color=</span>species, <span class="at">fill=</span>species), <span class="at">na.rm=</span>T) <span class="sc">+</span></span>
+<span id="cb92-3"><a href="the-power-of-r-r-markdown.html#cb92-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb92-4"><a href="the-power-of-r-r-markdown.html#cb92-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bill Length (mm)&quot;</span>, </span>
+<span id="cb92-5"><a href="the-power-of-r-r-markdown.html#cb92-5" tabindex="-1"></a>       <span class="at">caption =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="fu">unlist</span>(apa_result))) <span class="sc">+</span></span>
+<span id="cb92-6"><a href="the-power-of-r-r-markdown.html#cb92-6" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb92-7"><a href="the-power-of-r-r-markdown.html#cb92-7" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+</div>
+<div id="walkthrough-3" class="section level3 hasAnchor" number="11.3.4">
+<h3><span class="header-section-number">11.3.4</span> Walkthrough<a href="the-power-of-r-r-markdown.html#walkthrough-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Note that it is a little complex to include the result right in the caption
+<ul>
+<li>ggplot2 cannot handle <span class="math inline">\(\LaTeX\)</span> notation so we need to use package latex2exp</li>
+<li>the TeX function from that package cannot handle the list-output from apa_print()$full_result so we need to "unlist" that</li>
+</ul></li>
+<li>Using RMarkdown, it is much easier to include the statistic right in the text with inline code:
+<ul>
+<li>`<em>r apa_print(penguinmodel)$full_result</em>` <br></li>
+<li><span class="math inline">\(\rightarrow\)</span> <span style="font-size: 24px"> <span class="math inline">\(F(2, 339) = 410.60\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .708\)</span>, 90% CI <span class="math inline">\([.669, .740]\)</span> </span></li>
+</ul></li>
+</ul>
 </div>
 </div>
-<div id="wrap-up-further-resources-9" class="section level2 unnumbered hasAnchor">
-<h2>Wrap-Up &amp; Further Resources<a href="intro-to-r-markdown.html#wrap-up-further-resources-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-8" class="section level2 unnumbered hasAnchor">
+<h2>Exercise<a href="the-power-of-r-r-markdown.html#exercise-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create an R Markdown Document that includes the same type of analyses of variance with all steps that we have conducted before.
+Please use the <code>penguins</code> dataset from the <code>palmerpenguins</code> package and take "species" as the independent variable and "flipper_length_mm" as the dependent variable.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="the-power-of-r-r-markdown.html#cb93-1" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins))</span>
+<span id="cb93-2"><a href="the-power-of-r-r-markdown.html#cb93-2" tabindex="-1"></a>penguinmodel2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
+<span id="cb93-3"><a href="the-power-of-r-r-markdown.html#cb93-3" tabindex="-1"></a>posthoc <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(penguinmodel2)</span>
+<span id="cb93-4"><a href="the-power-of-r-r-markdown.html#cb93-4" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel2)<span class="sc">$</span>full_result</span>
+<span id="cb93-5"><a href="the-power-of-r-r-markdown.html#cb93-5" tabindex="-1"></a></span>
+<span id="cb93-6"><a href="the-power-of-r-r-markdown.html#cb93-6" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
+<span id="cb93-7"><a href="the-power-of-r-r-markdown.html#cb93-7" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm, <span class="at">color =</span> species, <span class="at">fill =</span> species), </span>
+<span id="cb93-8"><a href="the-power-of-r-r-markdown.html#cb93-8" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb93-9"><a href="the-power-of-r-r-markdown.html#cb93-9" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span> </span>
+<span id="cb93-10"><a href="the-power-of-r-r-markdown.html#cb93-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-11"><a href="the-power-of-r-r-markdown.html#cb93-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flipper Length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-12"><a href="the-power-of-r-r-markdown.html#cb93-12" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb93-13"><a href="the-power-of-r-r-markdown.html#cb93-13" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="wrap-up-further-resources-10" class="section level2 unnumbered hasAnchor">
+<h2>Wrap-Up &amp; Further Resources<a href="the-power-of-r-r-markdown.html#wrap-up-further-resources-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;">
 <li>
-RMarkdown allows you to create professional documents
+Rmd offers many options for customization
 </li>
 <li>
-You can use it like other text-generating programs (e.g. MS Word)
+Analyses can be conducted and reported in the same document
 </li>
 <li>
-Embed plots, code and statistical results directly in your document
+We can profit from many automatizations, e.g. chapter numbering
 </li>
 <li>
-Show equations and use other special features
+Single values/ results can be reported with inline code
 </li>
 </ul>
 <p><br></p>
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li>
-<a href="https://www.youtube.com/watch?v=asHhuHRxhvo&amp;ab_channel=EquitableEquations/">YouTube: What is R Markdown?</a>
+<a href="https://www.markdownguide.org/basic-syntax/">MarkdownGuide</a>
 </li>
 <li>
-<a href="https://wch.github.io/latexsheet/">LaTeX Cheatsheet</a>
+<a href="https://www.markdownguide.org/cheat-sheet/">Another Markdown Cheatsheet</a>
 </li>
 <li>
-<a href="https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf">HTML Cheatsheet</a>
+<a href="https://statisticsglobe.com/ggsignif-package-r">ggsignif package example</a>
 </li>
 <li>
-<a href="https://bookdown.org/yihui/rmarkdown-cookbook/">RMarkdown Cookbook</a>
-</li>
-<li>
-<a href="https://yihui.org/knitr/options/">RMarkdown Chunk Options</a>
-</li>
-<li>
-<a href="https://www.youtube.com/watch?v=01KifhHDkFk&amp;ab_channel=EquitableEquations">YouTube: Presentations with Quarto</a>
+<a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html">Bibliography and Citation</a>
 </li>
 </ul>
 <div class="float">
-<img src="img/shakespeare.jpg" height="550" alt="Shakespeare writing RMarkdown" />
-<div class="figcaption">Shakespeare writing RMarkdown</div>
+<img src="img/palmer_penguins.png" height="450" alt="Palmer Penguins" />
+<div class="figcaption">Palmer Penguins</div>
 </div>
 
 </div>
@@ -967,8 +1001,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="association-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-power-of-r-r-markdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro-to-r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="wrap-up.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -999,7 +1033,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/the-tave/psych_research_in_r/issues/10_Intro_R-Markdown.Rmd",
+"link": "https://github.com/the-tave/psych_research_in_r/issues/11_Reporting_apa-papaja.Rmd",
 "text": "Edit"
 },
 "history": {

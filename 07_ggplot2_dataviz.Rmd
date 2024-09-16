@@ -10,7 +10,7 @@ library(unikn)
 seminar <- readRDS("./data/seminar_data.Rds")
 ```
 
-# Into the `tidyverse`: Pretty plots with `ggplot2`
+# `tidyverse`: Pretty plots with `ggplot2`
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
@@ -310,7 +310,7 @@ cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() +
 
 - <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Showing plots together like this is easy with `cowplot::plot_grid()`!</i>
 
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
 
  <br>
  
@@ -377,7 +377,7 @@ ggplot(my_data, aes(x = X, y = Y, fill = Group)) +
 
 ```
 
-## gganimate
+## gganimate {-}
 
 <!-- Include this  section before big push because it takes forever to render! -->
 

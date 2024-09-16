@@ -64,11 +64,10 @@ But if you type `"hi there"`, it will echo the text back to you.
 
 
 ![Naming Conventions](./img/varname.webp){#id height=400px}
-<figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/</figcaption>
+<!-- <figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/</figcaption> -->
 
 
-
-### Exercise: Name Examples
+Here is a list of positive and negative naming examples:
 
 - `great variable`
     -  <i class="fa-solid fa-circle-xmark" style="color: red;"></i> Spaces can technically work but are a hassle to access
@@ -84,14 +83,12 @@ But if you type `"hi there"`, it will echo the text back to you.
     - <i class="fa-solid fa-circle-xmark" style="color: red;"></i>  Please just no. <i class="fa-solid fa-circle-xmark" style="color: red;"></i> 
     
 
-## Scenario: Creating Data meaningfully
+## Exercise: Creating Data meaningfully
 
 Imagine we are going to measure some test scores at a school that are supposed to reflect the kids' IQ (mean 100, sd 15). <br> <br>
 In order to prepare for data analysis, we want to simulate what the data might look like beforehand. <br> <br>
 
 We are going to measure their age and IQ score and we will be assessing class 7a and 7b.
-
-### Exercise: Creating Data meaningfully
 
 Create **two data frames** - one for each class. <br>
 They should each contain **n = 20 entries** (for 20 kids) and **2 variables i.e. age and iq score**. <br> <br>
@@ -102,10 +99,18 @@ Use the functions on the board and look in the R help if you need more input on 
 
 <!-- Board functions: data.frame, sample, rnorm, $, rbind, str -->
 
-### Solution 
+`r hide("Hint")`
+
+The functions you will need are _data.frame, sample, rnorm, $, rbind_ and _str_. 
+You can read help on any function by typing a question mark before the function name in your console and hitting Enter, e.g. `?rnorm`.
+
+`r unhide()`
+
+
+`r hide("Solution")`
 
 ```{r}
-# Create the dataframes
+# Create the data frames
 scores7a <- data.frame(age = sample(x = 12:15, size = 20, replace = T),
                        iq = rnorm(n = 20, mean = 100, sd = 15))
 
@@ -130,6 +135,9 @@ str(allscores)
 table(allscores$class)
 ```
 
+`r unhide()`
+
+
 
 ## Working Directories
 
@@ -145,11 +153,8 @@ table(allscores$class)
 
 
 
-### Try it out!
-
-<br> 
-Execute the getwd() command in the console. <br>
-Which folder is R working in, is it the one you expected?
+> Try it out: Execute the getwd() command in the console. <br>
+> Which folder is R working in, is it the one you expected?
 
 ### Cautionary Tale
 
@@ -164,7 +169,7 @@ Which folder is R working in, is it the one you expected?
 - It is easy to forget which folder you're working on and which one you want to be working on
     - So R won't find files you're looking for and throw errors
 
-
+[Keyboard Shortcuts](#shortcuts)
 
 ## R Projects
 
@@ -178,26 +183,22 @@ Which folder is R working in, is it the one you expected?
     
 
 
-### Let's try that out!
-
-<br>
-
-Under `File` $\rightarrow$ `New project...`
+Let's try that out under `File` $\rightarrow$ `New project...`
 
 
-### Homework: Put it to the test
+### Exercise: Put it to the test {-}
 
-```{r eval = F, include = F}
-data <- readr::read_csv("C:/Nextcloud/Lehre/Seminar_PsychResearchR/data.csv") %>% 
-  select(observing:gender) %>% 
-  mutate(gender = factor(gender, levels = c(1, 2, 3), labels = c("male", "female", "other")))
-
-saveRDS(data, "mindfulness_data.Rds")
-```
+<!-- # ```{r eval = F, include = F} -->
+<!-- # data <- readr::read_csv("C:/Nextcloud/Lehre/Seminar_PsychResearchR/data.csv") %>%  -->
+<!-- #   select(observing:gender) %>%  -->
+<!-- #   mutate(gender = factor(gender, levels = c(1, 2, 3), labels = c("male", "female", "other"))) -->
+<!-- #  -->
+<!-- # saveRDS(data, "mindfulness_data.Rds") -->
+<!-- # ``` -->
 
 1. Create a subfolder called "data" in your R project.
-2. Download the file "mindfulness_data.Rds" from ILIAS and save it in that folder.
-3. Now try to load it into your script and check whether it worked by typing:
+2. Download the file "mindfulness_data.Rds" from [GitHub](https://github.com/the-tave/psych_research_in_r/blob/main/data/mindfulness_data.Rds) and save it in that folder.
+3. Now try to load it into your script and check whether it worked by executing this code:
 
 ```{r}
 mindful <- readRDS("./data/mindfulness_data.Rds") # relative filepath
@@ -228,7 +229,7 @@ str(mindful)
     
 
 
-## Not-so-secret keyboard shortcuts to make your life easier
+## Keyboard shortcuts to make your life easier {-#shortcuts}
 
 | Function              | Shortcut PC / Mac                  |
 |-----------------------|------------------------------------|
@@ -241,7 +242,7 @@ str(mindful)
 | Comment out line      | Ctrl + Shift + C / Cmd + Shift + C |
 | Save your script      | Ctrl + S / Cmd + S                 |
 
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
  
  <br>
  

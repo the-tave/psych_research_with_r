@@ -353,7 +353,7 @@ ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness,
 <!-- ``` -->
 
 
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 

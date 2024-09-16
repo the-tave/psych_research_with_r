@@ -305,7 +305,7 @@ papaja::apa_print(model)$full_result |> suppressMessages()
 
 
  
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 
@@ -316,8 +316,6 @@ papaja::apa_print(model)$full_result |> suppressMessages()
 <li>Always try to imagine/ keep in mind what you might expect and _what the data would be like if that were true_</li>
 <li>Read the documentation of each function for more options</li>
 </ul>
-
-
 
 <br>
 

@@ -257,7 +257,7 @@ saveRDS(seminar, "./data/seminar_data.Rds")
 
 `r unhide()`
  
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 

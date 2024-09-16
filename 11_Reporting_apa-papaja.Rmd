@@ -1,5 +1,5 @@
 
-# Taking full Advantage of R and R Markdown
+# The Power of R & R Markdown
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
@@ -167,15 +167,12 @@ ggplot(penguins, aes(x=species, y=bill_length_mm, color=species, fill=species), 
     - \`*r apa_print(penguinmodel)$full\_result*\`  <br> 
     - $\rightarrow$ <span style="font-size: 24px"> `r apa_print(penguinmodel)$full_result |> suppressMessages()` </span>
 
-## Exercise
-
-<br>
+## Exercise {-}
 
 Create an R Markdown Document that includes the same type of analyses of variance with all steps that we have conducted before.
-Please use the `penguins` dataset from the `palmerpenguins` package and take "species" as the independet variable and "flipper_length_mm" as the dependent variable.
+Please use the `penguins` dataset from the `palmerpenguins` package and take "species" as the independent variable and "flipper_length_mm" as the dependent variable.
 
-### Exercise
-#### Code Solution
+`r hide("Solution")`
 
 ```{r eval = F}
 leveneTest(aov(flipper_length_mm ~ species, data = penguins))
@@ -193,8 +190,9 @@ ggplot(penguins) +
   scale_fill_brewer(palette = 5)
 ```
 
+`r unhide()` 
  
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 
@@ -216,4 +214,4 @@ ggplot(penguins) +
 </ul>
 
 
-![Palmer Penguins](./img/palmer_penguins.png){#id .class width=auto height=450px}
+![Palmer Penguins](./img/palmer_penguins.png){width=auto height=450px}

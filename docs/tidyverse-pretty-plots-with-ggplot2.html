@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Intro to R Markdown |  Psychological Research in R </title>
+  <title>Chapter 7 tidyverse: Pretty plots with ggplot2 |  Psychological Research in R </title>
   <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Intro to R Markdown |  Psychological Research in R " />
+  <meta property="og:title" content="Chapter 7 tidyverse: Pretty plots with ggplot2 |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
@@ -21,7 +21,7 @@ directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Intro to R Markdown |  Psychological Research in R " />
+  <meta name="twitter:title" content="Chapter 7 tidyverse: Pretty plots with ggplot2 |  Psychological Research in R " />
   
   <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
@@ -38,8 +38,8 @@ directly in R and R Markdown.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="association-statistics.html"/>
-<link rel="next" href="the-power-of-r-r-markdown.html"/>
+<link rel="prev" href="loops-and-conditionals.html"/>
+<link rel="next" href="difference-statistics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -509,250 +509,338 @@ Psychological Research in R
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro-to-r-markdown" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Intro to R Markdown<a href="intro-to-r-markdown.html#intro-to-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tidyverse-pretty-plots-with-ggplot2" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> <code>tidyverse</code>: Pretty plots with <code>ggplot2</code><a href="tidyverse-pretty-plots-with-ggplot2.html#tidyverse-pretty-plots-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
-<div class="float">
-<img src="img/rmd.png" alt="R Markdown Logo" />
-<div class="figcaption">R Markdown Logo</div>
-</div>
-<div id="creating-whole-documents-in-r" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Creating whole documents in R<a href="intro-to-r-markdown.html#creating-whole-documents-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Creating visualizations and statistics in R is great, but we need to able to show and report our work.</li>
-<li>Results can be copied and plots can be exported, but they can also be embedded directly into a document in R</li>
-<li>R Markdown is a text engine based on <span class="math inline">\(\LaTeX\)</span> that allows you to create documents, presentations, reports...</li>
-</ul>
-<div class="float">
-<img src="img/MArmdex.png" height="250" alt="MA thesis Example" />
-<div class="figcaption">MA thesis Example</div>
-</div>
-<div id="example-2" class="section level3 hasAnchor" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> Example<a href="intro-to-r-markdown.html#example-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please create a demo RMarkdown document and "knit" it.
-<img src="img/rmd-click.png" id="id" class="class" height="140" alt="Create a demo Rmd" /> ... or go to File &gt; New File &gt; R Markdown to create a new Rmd document.
-Give it a name or keep all the defaults.
-It will create a document with some demo content.
-When you click the "knit"-button below the main menu, you will need to save the file and it will create the output.
-Try to play around with the text and read the demo content - it explains the basic functions!</p>
-<p>You can use the document you create now as a sort of cheatsheet and template for what you can do later.</p>
-</div>
-</div>
-<div id="document-basics" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Document Basics<a href="intro-to-r-markdown.html#document-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-visalization" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Data Visalization <i class="fa-solid fa-chart-line" style="color: darkred;"></i><a href="tidyverse-pretty-plots-with-ggplot2.html#data-visalization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
 <ul>
-<li>RMarkdown has some basics that need to be learned</li>
-<li>It also has many features and powerful tools for layout and styling</li>
-<li>By default, RMarkdown can create html documents - if you want a pdf, you need a special package to render <span class="math inline">\(\LaTeX\)</span>, I recommend <code>tinytex</code>
-<ul>
-<li><code>install.packages("tinytex")</code></li>
-<li><code>tinytex::install_tinytex()</code></li>
-</ul></li>
+<li>What is data visualization?</li>
+<li>When and why do we need it?</li>
+<li>What do we want to accomplish?</li>
 </ul>
-<div id="yaml-header-yet-another-markdown-language" class="section level3 hasAnchor" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> YAML header (<em>Yet Another Markdown Language</em>)<a href="intro-to-r-markdown.html#yaml-header-yet-another-markdown-language" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>This defines the output format of our document, e.g. <code>html_document</code></p></li>
-<li><p>We can set our title, subtitle, author, date...</p></li>
-<li><p>We can define further characteristics, e.g. <code>toc</code> (table of content) or <code>self-contained</code> (this should be set to true, otherwise R will not copy images etc. and the document will not work properly on other devices)</p></li>
-<li><p><i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-The YAML header needs to be indented in a certain way, otheriwse the commands are not recognized! </i></p></li>
-<li><p><i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-In the YAML header, <code>true</code> and <code>false</code> are not capitalized, unlike in the rest of R! </i></p></li>
-</ul>
-</div>
-<div id="markdown-basics" class="section level3 hasAnchor" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Markdown Basics<a href="intro-to-r-markdown.html#markdown-basics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br></p>
-<p>Text formatting generally works with characters in the text:</p>
-<ul>
-<li><em>italics</em> with _italics_</li>
-<li><strong>bold</strong> with **bold**</li>
-<li><strong><em>bold and cursive</em></strong> with **_bold and cursive_**</li>
-<li>Unordered lists are created with -</li>
-<li>Ordered lists with 1., 2. ...</li>
-</ul>
-</div>
-</div>
-<div id="heading-basics" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> ## Heading Basics<a href="intro-to-r-markdown.html#heading-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="sub-header-3.-level" class="section level3 hasAnchor" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> ### Sub Header 3. level<a href="intro-to-r-markdown.html#sub-header-3.-level" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="th-level" class="section level4 hasAnchor" number="10.3.1.1">
-<h4><span class="header-section-number">10.3.1.1</span> #### 4th level<a href="intro-to-r-markdown.html#th-level" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="th-level-1" class="section level5 hasAnchor" number="10.3.1.1.1">
-<h5><span class="header-section-number">10.3.1.1.1</span> ##### 5th level<a href="intro-to-r-markdown.html#th-level-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div id="th-level-2" class="section level6 hasAnchor" number="10.3.1.1.1.1">
-<h6><span class="header-section-number">10.3.1.1.1.1</span> ###### 6th level<a href="intro-to-r-markdown.html#th-level-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<p>Thats's it.</p>
-<p>Realistically, we <em>may</em> want to go down to the 4th level heading, but usually no further.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="special-features" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Special Features<a href="intro-to-r-markdown.html#special-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Print mathematical equations</li>
-<li>Show code and its output</li>
-<li>Easily use automatic formatting</li>
-<li>Profit from existing templates</li>
-<li>General rule of thumb: Rmd documents are rendered depending on their output format
-<ul>
-<li>If you plan on creating an html, you can use plain html to make adjustments and use special features.</li>
-<li>If you create a pdf, they will most likely not work and you should use <span class="math inline">\(\LaTeX\)</span> notation.</li>
-</ul></li>
-</ul>
-<div id="latex" class="section level3 hasAnchor" number="10.4.1">
-<h3><span class="header-section-number">10.4.1</span> <span class="math inline">\(\LaTeX\)</span><a href="intro-to-r-markdown.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Especially useful for writing equations:</p>
-<ul>
-<li>$ \ alpha $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\alpha\)</span></li>
-<li>$ \ beta $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\beta\)</span></li>
-<li>$ R^2 $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(R^2\)</span></li>
-<li>and, by the way, $ \ rightarrow $ becomes <span class="math inline">\(\rightarrow\)</span></li>
-<li>and $ \ LaTeX $ becomes <span class="math inline">\(\LaTeX\)</span></li>
-<li>\ newline creates a new line and \ newpage creates a new page</li>
-</ul>
-</div>
-<div id="html" class="section level3 hasAnchor" number="10.4.2">
-<h3><span class="header-section-number">10.4.2</span> HTML<a href="intro-to-r-markdown.html#html" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Remember these tags should only be used when creating a html document!</p>
-<ul>
-<li>&lt; br &gt; creates a new line (stands for "line break")</li>
-<li>&lt;span style="color: purple;"&gt; This text will appear purple. &lt;/span&gt;
-<ul>
-<li><span style="color: purple;"> This text will appear purple. </span></li>
-</ul></li>
-<li>Simple tables can be created with html notation in most documents
-<ul>
-<li>Header 1 | Header 2</li>
-<li><em>then a row of - - - | - - - to represent the lines</em></li>
-<li>And the content separated | into as many columns as defined</li>
-</ul></li>
-</ul>
-</div>
-<div id="table-example" class="section level3 hasAnchor" number="10.4.3">
-<h3><span class="header-section-number">10.4.3</span> Table Example<a href="intro-to-r-markdown.html#table-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br></p>
-<p>Header 1 | Header 2 <br>
------|----- <br>
-Great content | Fantastic content <br></p>
-<p><br> Becomes: <br></p>
-<table>
-<thead>
-<tr class="header">
-<th>Header 1</th>
-<th>Header 2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Great content</td>
-<td>Fantastic content</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="including-r" class="section level2 hasAnchor" number="10.5">
-<h2><span class="header-section-number">10.5</span> Including R<a href="intro-to-r-markdown.html#including-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="_main_files/figure-html/flametrees-1.png" width="672" /></p>
+<div id="data-viz-has-many-many-applications" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Data Viz has many many applications <i class="fa-solid fa-chart-line" style="color: darkred;"></i><a href="tidyverse-pretty-plots-with-ggplot2.html#data-viz-has-many-many-applications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><br></p>
 <ul>
-<li>Including R code can be achieved by either inserting so-called code chunks or using inline code</li>
-<li>Code chunks are useful if several lines of code need to be evaluated and/ or shown
+<li>Our readers/ listeners can follow us better with data viz</li>
+<li>Statistics are much easier to understand with a visual representation</li>
+<li>Mostly, we want to be able to <em>see</em> our data ¯\_(ツ)_/¯
 <ul>
-<li>There are many options for code chunks</li>
-</ul></li>
-<li>Inline code is useful if single outputs are to be shown
-<ul>
-<li>E.g. with functions you already know such as <code>apa_print()</code></li>
+<li>Having a visual representation can be helpful in understanding relationships between variables</li>
+<li>Many common statistics make assumptions about the <em>distribution</em> of our data, so we need to check/test that!</li>
 </ul></li>
 </ul>
-<div id="code-chunks" class="section level3 hasAnchor" number="10.5.1">
-<h3><span class="header-section-number">10.5.1</span> Code Chunks<a href="intro-to-r-markdown.html#code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="example-sine-cosine" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Example: Sine &amp; Cosine<a href="tidyverse-pretty-plots-with-ggplot2.html#example-sine-cosine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Code chunks are inserted via the menu Code &gt; Insert Chunk and should look like this:</li>
-<li>```{r} <br>
-# <em>code goes here</em> <br>
-```</li>
-<li><div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="intro-to-r-markdown.html#cb82-1" tabindex="-1"></a><span class="co"># code goes here</span></span></code></pre></div></li>
-<li>Or you can use the keyboard shortcut ctrl + alt + i / command + option + i</li>
+<li>...are trigonometric angle functions with a special relationship</li>
+<li>This relationship cannot be found with common statistics - the correlation</li>
 </ul>
-<div id="chunk-options" class="section level4 unnumbered hasAnchor">
-<h4>Chunk Options<a href="intro-to-r-markdown.html#chunk-options" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="480" /></p>
 <ul>
-<li><p>Inside the curly brackets, you can specify many different options, for example:</p>
+<li>Data Viz helps us not to make wrong assumptions about our data!</li>
+</ul>
+<!-- Write "Packages for today" on the board: ggplot2, papaja, unikn -->
+</div>
+</div>
+<div id="what-is-ggplot2" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> What is <code>ggplot2</code>?<a href="tidyverse-pretty-plots-with-ggplot2.html#what-is-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
 <ul>
-<li><code>fig.height = 3</code> will output a plot to a certain height (3 inches)</li>
-<li><code>echo = F</code> will show code output, but not the code</li>
-<li><code>eval = F</code> will show the code, but not its' output...</li>
+<li><p>Probably the best data visualization package in R</p></li>
+<li><p>Powerful tool for visualizing data</p></li>
+<li><p>Part of the <code>tidyverse</code> <i>♥</i></p></li>
+</ul>
+<p><br></p>
+<ul>
+<li><code>library(ggplot2)</code>
+<!-- `install.packages("ggplot2")` $\rightarrow$ --></li>
+</ul>
+<div id="most-important-ggplot2-functions" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Most important <code>ggplot2</code> functions<a href="tidyverse-pretty-plots-with-ggplot2.html#most-important-ggplot2-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ggplot" class="section level4 hasAnchor" number="7.2.1.1">
+<h4><span class="header-section-number">7.2.1.1</span> <code>ggplot()</code><a href="tidyverse-pretty-plots-with-ggplot2.html#ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>The main function for "opening the canvas"</li>
+<li>This function prepares R for the plot definition</li>
+<li>Commonly, we define the data set and which variables to plot in this function</li>
+<li>Needs the <em>aesthetics</em> function <code>aes()</code> as input</li>
+<li><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">It's important to remember that the package is
+called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</em>!</i></li>
+</ul>
+</div>
+</div>
+<div id="geom_xyz" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> <code>geom_XYZ()</code><a href="tidyverse-pretty-plots-with-ggplot2.html#geom_xyz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Defines the actual type of plot = <em>geometric objects</em></li>
+<li>When data is pre-defined, this function does not <em>need</em> additional input</li>
+<li>Can handle some "pretty makers", such as <code>alpha</code>, which defines color opacity</li>
+<li><em>geom_bar, geom_boxplot, geom_density, geom_jitter, geom_histogram</em></li>
+</ul>
+<!-- ## First example <i> &#127800;</i> -->
+<!-- ```{r echo = F} -->
+<!-- p <- ggplot(iris, aes(x = Petal.Width)) -->
+<!-- cowplot::plot_grid( -->
+<!--   p + geom_density() + labs(title = "ggplot(iris, aes(x = Petal.Width)) +", subtitle = "geom_density()", caption = ""), -->
+<!--   p + geom_bar() + geom_line(stat = 'count') + labs(title = "", subtitle = "geom_bar() + geom_line()*", caption = "*geom_line(stat = 'count')") -->
+<!-- ) -->
+<!-- ``` -->
+</div>
+</div>
+<div id="example-basic-bar-plot" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Example: Basic Bar Plot<a href="tidyverse-pretty-plots-with-ggplot2.html#example-basic-bar-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb47-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width)) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<div id="making-plots-prettier" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Making Plots Prettier<a href="tidyverse-pretty-plots-with-ggplot2.html#making-plots-prettier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>color
+<ul>
+<li>visual property of the geometric object</li>
+<li>which color for the outlines</li>
+<li><code>colors()</code></li>
 </ul></li>
-<li><p>eval = F:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="intro-to-r-markdown.html#cb83-1" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="dv">1</span>) </span></code></pre></div></li>
-<li><p>echo = F:</p>
-<pre><code>#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-# 1          5.1         3.5          1.4         0.2  setosa</code></pre></li>
-</ul>
-<div id="error-true" class="section level5 unnumbered hasAnchor">
-<h5><code>error = TRUE</code><a href="intro-to-r-markdown.html#error-true" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<li>fill
 <ul>
-<li>This option allows us to include erroneous code in our script</li>
-<li>It will output the error message just like you would see in your R Studio console</li>
-<li>By default, <code>error = FALSE</code> which means that your script cannot be rendered with errors in code chunks</li>
+<li>visual property of the geometric object</li>
+<li>which color to fill</li>
+</ul></li>
+<li>labs</li>
+<li>theme
+<ul>
+<li><code>install.packages("papaja")</code> <span class="math inline">\(\rightarrow\)</span> <code>library(papaja)</code></li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="intro-to-r-markdown.html#cb85-1" tabindex="-1"></a><span class="fu">mean</span>(y)</span>
-<span id="cb85-2"><a href="intro-to-r-markdown.html#cb85-2" tabindex="-1"></a><span class="co"># [1] 5.5</span></span></code></pre></div>
+</div>
+<div id="example-bar-plot-with-color-and-fill" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Example: Bar Plot with color and fill<a href="tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb48-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deepskyblue&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What could cause this distribution?</li>
+</ul>
+</div>
+<div id="example-bar-plot-with-color-and-fill-1" class="section level3 hasAnchor" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Example: Bar Plot with color and fill<a href="tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb49-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What do you notice about the code compared to before?</li>
+</ul>
+</div>
+<div id="static-vs.-dynamic-aesthetics" class="section level3 hasAnchor" number="7.3.4">
+<h3><span class="header-section-number">7.3.4</span> Static vs. Dynamic Aesthetics<a href="tidyverse-pretty-plots-with-ggplot2.html#static-vs.-dynamic-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Static Aesthetics</strong>: Fixed values applied to all elements of the plot
+<ul>
+<li>Example: <em>color = "deepskyblue3"</em></li>
+<li>Means every element will have the same color.</li>
+</ul></li>
+<li><strong>Dynamic Aesthetics</strong>: These map a variable in your data to an aesthetic, which allows different elements to have different colors based on the data
+<ul>
+<li>Example: <em>aes(color = Species)</em></li>
+<li>Means the color will vary according to the Species variable in the data set.</li>
+</ul></li>
+</ul>
+</div>
+<div id="exercise-2" class="section level3 hasAnchor" number="7.3.5">
+<h3><span class="header-section-number">7.3.5</span> Exercise<a href="tidyverse-pretty-plots-with-ggplot2.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br></p>
+<p>Create a <strong>density plot</strong> that shows <em>Sepal.Length</em> from the <code>iris</code> data set. <br>
+<em>Fill</em> in the color depending on the Species and <em>color</em> the outlines with "white". <br>
+Make sure everything is visible and legible, so try to use an <em>alpha</em> of around 0.6.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> </span>
+<span id="cb50-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_XYZ</span>(<span class="fu">aes</span>(), <span class="at">alpha =</span> ?)</span></code></pre></div>
+</div>
+<div id="solution-3" class="section level3 hasAnchor" number="7.3.6">
+<h3><span class="header-section-number">7.3.6</span> Solution<a href="tidyverse-pretty-plots-with-ggplot2.html#solution-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb51-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species), </span>
+<span id="cb51-3"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb51-3" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> .<span class="dv">6</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
+<div id="adding-labels-and-themes" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Adding labels and themes<a href="tidyverse-pretty-plots-with-ggplot2.html#adding-labels-and-themes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A good plot should be self explanatory and clear</li>
+<li>We need labels to tell others what our plot shows
+<ul>
+<li>Especially when using color for another variable, it needs to be clear what each color means</li>
+</ul></li>
+<li>Also the gray-ish default background is ok, but neither very pretty nor very clear
+<ul>
+<li>It is sometimes advisable to keep grid lines visible, but sometimes they can be distracting and unnecessary</li>
+<li>ggplot2 has a lot of built-in theme options, but there are many packages that provide their own themes</li>
+<li>Usually <em>my preference</em> is <code>papaja::theme_apa()</code>, which adheres to APA guidelines</li>
+</ul></li>
+</ul>
+<div id="same-example-with-added-theme" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Same example with added theme<a href="tidyverse-pretty-plots-with-ggplot2.html#same-example-with-added-theme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb52-3"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb52-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<ul>
+<li>What labels should we use in this plot?</li>
+</ul>
+</div>
+<div id="same-example-with-added-theme-and-labels" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Same example with added theme and labels<a href="tidyverse-pretty-plots-with-ggplot2.html#same-example-with-added-theme-and-labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb53-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb53-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb53-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
+<span id="cb53-4"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb53-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Petal Width&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flower Count&quot;</span>,</span>
+<span id="cb53-5"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb53-5" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Size of Iris Flowers&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
-<div id="wrap-up-further-resources-9" class="section level2 unnumbered hasAnchor">
-<h2>Wrap-Up &amp; Further Resources<a href="intro-to-r-markdown.html#wrap-up-further-resources-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bivariate-visualizations" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Bivariate Visualizations<a href="tidyverse-pretty-plots-with-ggplot2.html#bivariate-visualizations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The bar plot shows the distribution of a single variable
+<ul>
+<li>We can add color to show groups</li>
+</ul></li>
+<li>Showing the relationship of two variables to each other is crucial for understanding our data
+<ul>
+<li>We can still add color to make existing groups clearer or add a third variable</li>
+</ul></li>
+<li>For a broad overview of which visualization (and statistic) to use for which type of data, visit the <a href="https://the-tave.shinyapps.io/Statistics-Picker/">Statistics Picker</a> (currently only available in German)
+<ul>
+<li>Most common are boxplots, scatterplots &amp; line graphs</li>
+</ul></li>
+</ul>
+<div id="boxplot-example" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Boxplot Example<a href="tidyverse-pretty-plots-with-ggplot2.html#boxplot-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As suggested by one of you, we will look at the relationship of preferred music genre and music volume in our course:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb54-1" tabindex="-1"></a><span class="co"># seminar &lt;- readRDS(&quot;./data/seminar_data.Rds&quot;)</span></span>
+<span id="cb54-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb54-2" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x=</span>v07_genre, <span class="at">y=</span>v08_loudness, <span class="at">colour=</span>v07_genre, <span class="at">fill=</span>v07_genre)) <span class="sc">+</span></span>
+<span id="cb54-3"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb54-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
+<span id="cb54-4"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb54-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Preferred Music Genre&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Loudness (arbitrary units)&quot;</span>, </span>
+<span id="cb54-5"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb54-5" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Genre&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="878.4" /></p>
+</div>
+<div id="exercise-boxplot" class="section level3 hasAnchor" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> Exercise: Boxplot<a href="tidyverse-pretty-plots-with-ggplot2.html#exercise-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<!-- Same exercise plot from before but x should now be species and y should be the Sepal.Length -->
+<p><br></p>
+<p>Create a <strong>box plot</strong> that shows <em>Sepal.Length</em> from the <code>iris</code> data set grouped by the <em>Species</em>. <br>
+<em>Fill</em> and <em>color</em> depending on the Species. <br>
+Make sure everything is visible and legible, so try to use an <em>alpha</em> of around 0.7. <br>
+Try to add <em>labels</em> and a <em>theme</em>.</p>
+</div>
+<div id="solution-boxplot" class="section level3 hasAnchor" number="7.5.3">
+<h3><span class="header-section-number">7.5.3</span> Solution: Boxplot<a href="tidyverse-pretty-plots-with-ggplot2.html#solution-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb55-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb55-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length,</span>
+<span id="cb55-3"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb55-3" tabindex="-1"></a>                   <span class="at">color =</span> Species, <span class="at">fill =</span> Species), <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb55-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+</div>
+<div id="inspiration-colors-and-palettes" class="section level3 hasAnchor" number="7.5.4">
+<h3><span class="header-section-number">7.5.4</span> Inspiration: colors and palettes<a href="tidyverse-pretty-plots-with-ggplot2.html#inspiration-colors-and-palettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>These plots have all used the default colors from ggplot2</li>
+<li>There are many options for customization, either:
+<ul>
+<li>Use the "brewer" palettes from <code>ggplot2</code> with <code>scale_color_brewer()</code> or <code>scale_fill_brewer()</code></li>
+<li>Choose single colors (static aesthetics), check <code>colors()</code> for R color names</li>
+<li>Create a color palette with all colors that you need and use it with <code>scale_color_manual()</code> or <code>scale_fill_manual()</code></li>
+<li>Use a predefined color palette from packages like <code>viridis</code> or <code>unikn</code> or <code>RColorBrewer</code>...</li>
+</ul></li>
+<li>Have fun with it!</li>
+</ul>
+</div>
+<div id="use-colors-and-palettes" class="section level3 hasAnchor" number="7.5.5">
+<h3><span class="header-section-number">7.5.5</span> Use: colors and palettes<a href="tidyverse-pretty-plots-with-ggplot2.html#use-colors-and-palettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="_main_files/figure-html/unnamed-chunk-45-1.png" width="960" /></p>
+<ul>
+<li><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Showing plots together like this is easy with <code>cowplot::plot_grid()</code>!</i></li>
+</ul>
+</div>
+</div>
+<div id="wrap-up-further-resources-6" class="section level2 unnumbered hasAnchor">
+<h2>Wrap-Up &amp; Further Resources<a href="tidyverse-pretty-plots-with-ggplot2.html#wrap-up-further-resources-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;">
 <li>
-RMarkdown allows you to create professional documents
+<code>ggplot2</code> is a powerful tool for visualizing data
 </li>
 <li>
-You can use it like other text-generating programs (e.g. MS Word)
+Plot commands are added together with + and executed as one
 </li>
 <li>
-Embed plots, code and statistical results directly in your document
+A basic plot is created with ggplot() + geom_XYZ(), e.g. geom_bar
 </li>
 <li>
-Show equations and use other special features
+color &amp; fill give you nice color options (static &amp; dynamic)
+</li>
+<li>
+labs() adds labels to the plot (i.e. x, y, title, ...)
+</li>
+<li>
+Themes control the background of the plot, e.g. papaja::theme_apa() or theme_minimal()
+</li>
+<li>
+Color palettes are a great way of elevating a visualization
 </li>
 </ul>
 <p><br></p>
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li>
-<a href="https://www.youtube.com/watch?v=asHhuHRxhvo&amp;ab_channel=EquitableEquations/">YouTube: What is R Markdown?</a>
+<a href="https://ggplot2.tidyverse.org/articles/ggplot2.html">ggplot2 vignette</a>
 </li>
 <li>
-<a href="https://wch.github.io/latexsheet/">LaTeX Cheatsheet</a>
+<a href="https://r-graphics.org/">R Graphics Cookbook</a>
 </li>
 <li>
-<a href="https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf">HTML Cheatsheet</a>
+<a href="https://hneth.github.io/unikn/index.html">unikn</a>
 </li>
 <li>
-<a href="https://bookdown.org/yihui/rmarkdown-cookbook/">RMarkdown Cookbook</a>
+<a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html">viridis</a>
 </li>
 <li>
-<a href="https://yihui.org/knitr/options/">RMarkdown Chunk Options</a>
+<a href="https://www.rdocumentation.org/packages/papaja/versions/0.1.2">papaja</a>
 </li>
 <li>
-<a href="https://www.youtube.com/watch?v=01KifhHDkFk&amp;ab_channel=EquitableEquations">YouTube: Presentations with Quarto</a>
+<a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">Beautiful Plotting Guide</a> Very extensive, I still profit from this guide a lot :)
+</li>
+<li>
+<a href="http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually">More color palettes explained</a>
 </li>
 </ul>
-<div class="float">
-<img src="img/shakespeare.jpg" height="550" alt="Shakespeare writing RMarkdown" />
-<div class="figcaption">Shakespeare writing RMarkdown</div>
+<p><img src="_main_files/figure-html/unikn-plot-1.png" width="864" /></p>
 </div>
+<div id="gganimate" class="section level2 unnumbered hasAnchor">
+<h2>gganimate<a href="tidyverse-pretty-plots-with-ggplot2.html#gganimate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- Include this  section before big push because it takes forever to render! -->
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-1" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb56-2"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-2" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb56-3"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-3" tabindex="-1"></a></span>
+<span id="cb56-4"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-4" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">colour =</span> country)) <span class="sc">+</span></span>
+<span id="cb56-5"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb56-6"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-6" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> country_colors) <span class="sc">+</span></span>
+<span id="cb56-7"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-7" tabindex="-1"></a>  <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb56-8"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-8" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb56-9"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-9" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent) <span class="sc">+</span></span>
+<span id="cb56-10"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-10" tabindex="-1"></a>  <span class="co"># Here comes the gganimate specific bits</span></span>
+<span id="cb56-11"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Year: {frame_time}&#39;</span>, <span class="at">x =</span> <span class="st">&#39;GDP per capita&#39;</span>, <span class="at">y =</span> <span class="st">&#39;life expectancy&#39;</span>) <span class="sc">+</span></span>
+<span id="cb56-12"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-12" tabindex="-1"></a>  <span class="fu">transition_time</span>(year) <span class="sc">+</span></span>
+<span id="cb56-13"><a href="tidyverse-pretty-plots-with-ggplot2.html#cb56-13" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/gganimate-1.gif" /><!-- --></p>
 
 </div>
 </div>
@@ -967,8 +1055,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="association-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-power-of-r-r-markdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loops-and-conditionals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="difference-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -999,7 +1087,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/the-tave/psych_research_in_r/issues/10_Intro_R-Markdown.Rmd",
+"link": "https://github.com/the-tave/psych_research_in_r/issues/07_ggplot2_dataviz.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -143,7 +143,7 @@ Great content | Fantastic content
   ```
 - Or you can use the keyboard shortcut ctrl + alt + i / command + option + i
 
-### Chunk Options
+#### Chunk Options {-}
 
 - Inside the curly brackets, you can specify many different options, for example: 
     - `fig.height = 3` will output a plot to a certain height (3 inches)
@@ -157,9 +157,8 @@ Great content | Fantastic content
   ```{r echo = F}
   head(iris, 1)
   ```
-  
-### Chunk Options:
-#### `error = TRUE`
+
+##### `error = TRUE` {-}
 
 - This option allows us to include erroneous code in our script
 - It will output the error message just like you would see in your R Studio console
@@ -169,7 +168,7 @@ Great content | Fantastic content
 mean(y)
 ```
 
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 

@@ -1,13 +1,21 @@
 
-# Into the `tidyverse`: Data munging with `dplyr` {#dplyr}
+# `tidyverse`: Data munging with `dplyr` {#dplyr}
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
 
+In this chapter you will learn about working with packages, which I find similar to teaching your R new tricks. 
+I will also introduce you to the `tidyverse` - a collection of packages and why I strongly suggest to familiarize oneself with a bunch of them.
+Spoiler: It will make your life a lot easier.
 
 ## Working with packages <i class="fa-solid fa-dragon" style="color: darkred;"></i>
+
+First off, when you stick to the metaphor a package being a collection of tricks to teach your R, then you will teach the tricks once and remind R that it knows the tricks every time you want to use them.
+In more real life terms, you will install a package once and load it in each new session.
+This is important to remember because installing packages is one of the few things you will _only_ want to do in your console - NOT in any of your scripts.
+Nothing bad will happen if you do, but it takes a very long time and it will test both your own patience and that of your computer.
 
 - install packages with `install.packages()` 
     - Only once in the console!
@@ -327,7 +335,7 @@ iris %>%
 
 
 
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
  
  <br>
  

@@ -1,5 +1,5 @@
 
-# R Basics and how to read error messages
+# R Basics & Error Messages
 
 ![Iris Flower](img/iris.png)
 
@@ -220,7 +220,7 @@ Once you get a feeling of how R tries to identify errors, it gets a lot less dis
 It can actually be quite wholesome to see a big, intimidating error message that makes absolutely no sense at all, just to find a teeny, tiny typo in your code which works once you fix it. 
 
 
-## Exercises
+## Exercises {-}
 
 **_Logic_**
 
@@ -303,7 +303,7 @@ we need all commas to separate numbers in a vector, not a semicolon
 `r unhide()`
 
 
-## Wrap-Up & Further Resources
+## Wrap-Up & Further Resources {-}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 

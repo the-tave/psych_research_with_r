@@ -11,7 +11,7 @@ documentclass: book
 # bib stuff
 bibliography: [book.bib, packages.bib]
 nocite: |
-  @R-base, @R-bookdown, @R-rmarkdown, @R-dplyr, @R-webexercises
+  @R-base, @R-bookdown, @R-rmarkdown, @R-dplyr, @R-webexercises, @R-ggplot2
 csl: apa.csl
 # Web stuff
 link-citations: yes
@@ -115,6 +115,7 @@ Please feel free to contact me if you have any questions or comments! You can re
 
 ```{r include=FALSE}
 library(webexercises)
+library(dplyr)
 
 knitr::opts_chunk$set(
   # collapse = TRUE,

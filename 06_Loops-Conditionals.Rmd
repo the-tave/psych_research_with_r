@@ -319,7 +319,7 @@ for(i in 1:nrow(seminar)){
 ```
 
 
-## Wrap-Up & Further Resources 
+## Wrap-Up & Further Resources {-}
 
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;">
@@ -330,7 +330,6 @@ for(i in 1:nrow(seminar)){
 <li>Conditionals give you control over different operations depending on your data</li>
 <li>In combination, loops and conditionals are most useful</li>
 <li>Don't forget to play and create fun loops!</li>
-
 </ul>
 
 
@@ -345,10 +344,9 @@ for(i in 1:nrow(seminar)){
 <li>[Loops in R (datacamp)](https://www.datacamp.com/tutorial/tutorial-on-loops-in-r)Very thorough! :)</li>
 <br>
 <li>[dplyr Exercises](https://sjspielman.github.io/datascience_for_biologists/exercises/dplyr.html) Great to keep practicing over the holidays :)</li>
-
 </ul>
 
 [Lightbot](https://lightbot.com/hour-of-code.html)
 
 
-![For Loop Meme](./img/forbeep.png){#id .class width="auto" height="600px"}
+![For Loop Meme](./img/forbeep.png){width="auto" height="600px"}

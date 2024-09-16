@@ -534,7 +534,7 @@ The association can be positive (the larger x, the larger y) or negative (the la
 The correlation coefficient r only tells us about the direction and strength of the association and nothing about the causal relation.
 However, in the regression model we can check whether Y changes on the basis of X, so we can include assumptions of cause and effect in our model<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 <div class="figure"><span style="display:block;" id="fig:tree-age"></span>
-<img src="docs/_main_files/figure-htmltree-age-1.png" alt="Age and circumference of orange trees shown in a scatterplot. We can see that there seems to be a positive relationship between the two measures: The older the tree, the larger the circumference." width="672" />
+<img src="_main_files/figure-html/tree-age-1.png" alt="Age and circumference of orange trees shown in a scatterplot. We can see that there seems to be a positive relationship between the two measures: The older the tree, the larger the circumference." width="672" />
 <p class="caption">
 Figure 9.1: Age and circumference of orange trees shown in a scatterplot. We can see that there seems to be a positive relationship between the two measures: The older the tree, the larger the circumference.
 </p>
@@ -573,7 +573,7 @@ zip folder in ILIAS, not the original csv file we first used!</li>
 </ul>
 <div id="guess-the-correlation" class="section level3 hasAnchor" number="9.1.1">
 <h3><span class="header-section-number">9.1.1</span> Guess the correlation!<a href="association-statistics.html#guess-the-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="docs/_main_files/figure-htmlcorr1-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/corr1-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 Soultion
@@ -711,7 +711,7 @@ Explanation
 <span id="cb73-6"><a href="association-statistics.html#cb73-6" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="dv">7</span>) <span class="sc">+</span> </span>
 <span id="cb73-7"><a href="association-statistics.html#cb73-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:tree-age-elaborate"></span>
-<img src="docs/_main_files/figure-htmltree-age-elaborate-1.png" alt="Scatterplot of orange tree age and cirumference from before with the regression line added. Notice that the variable which is used as the independent X (age) is plotted on the X axis for intuitive reading of the plot." width="672" />
+<img src="_main_files/figure-html/tree-age-elaborate-1.png" alt="Scatterplot of orange tree age and cirumference from before with the regression line added. Notice that the variable which is used as the independent X (age) is plotted on the X axis for intuitive reading of the plot." width="672" />
 <p class="caption">
 Figure 9.2: Scatterplot of orange tree age and cirumference from before with the regression line added. Notice that the variable which is used as the independent X (age) is plotted on the X axis for intuitive reading of the plot.
 </p>
@@ -802,7 +802,7 @@ Solution (code)
 Solution (interpretation)
 </button>
 <p>"The age of a person does not significantly predict the time it took them to complete the survey (p = .148). The model equation is 182.7 -4.19X with age explaining about 18% of the variance in session length for the survey."</p>
-<p><img src="docs/_main_files/figure-htmlage-sess-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/age-sess-1.png" width="672" /></p>
 </div>
 </div>
 <div id="a-word-to-the-wise" class="section level3 hasAnchor" number="9.3.6">
@@ -886,7 +886,7 @@ Solution Data Viz
 <span id="cb80-5"><a href="association-statistics.html#cb80-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
 <span id="cb80-6"><a href="association-statistics.html#cb80-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Soul Philosophy&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Preferred Volume (arbitrary units)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb80-7"><a href="association-statistics.html#cb80-7" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="docs/_main_files/figure-htmlunnamed-chunk-76-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 </div>
 <!-- ```{r} -->
 <!-- model <- data.frame(age = Orange$age, -->
@@ -936,7 +936,7 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="association-statistics.html#cb81-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> Tree)) <span class="sc">+</span></span>
 <span id="cb81-2"><a href="association-statistics.html#cb81-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>) <span class="sc">+</span></span>
 <span id="cb81-3"><a href="association-statistics.html#cb81-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Tree)) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<p><img src="docs/_main_files/figure-htmlorange-pretty-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/orange-pretty-1.png" width="672" /></p>
 
 </div>
 </div>

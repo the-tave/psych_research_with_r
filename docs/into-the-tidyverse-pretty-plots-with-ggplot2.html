@@ -534,7 +534,7 @@ Psychological Research in R
 <li>When and why do we need it?</li>
 <li>What do we want to accomplish?</li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/flametrees-1.png" width="672" /></p>
 <div id="data-viz-has-many-many-applications" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Data Viz has many many applications <i class="fa-solid fa-chart-line" style="color: darkred;"></i><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#data-viz-has-many-many-applications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><br></p>
@@ -554,8 +554,8 @@ Psychological Research in R
 <li>...are trigonometric angle functions with a special relationship</li>
 <li>This relationship cannot be found with common statistics - the correlation</li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-45-1.png" width="480" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="480" /></p>
 <ul>
 <li>Data Viz helps us not to make wrong assumptions about our data!</li>
 </ul>
@@ -611,7 +611,7 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 <h2><span class="header-section-number">7.3</span> Example: Basic Bar Plot<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-basic-bar-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb47-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width)) </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-45-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <div id="making-plots-prettier" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Making Plots Prettier<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#making-plots-prettier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -637,7 +637,7 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 <h3><span class="header-section-number">7.3.2</span> Example: Bar Plot with color and fill<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb48-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb48-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deepskyblue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-47-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What could cause this distribution?</li>
 </ul>
@@ -646,7 +646,7 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 <h3><span class="header-section-number">7.3.3</span> Example: Bar Plot with color and fill<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#example-bar-plot-with-color-and-fill-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb49-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-47-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What do you notice about the code compared to before?</li>
 </ul>
@@ -680,7 +680,7 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb51-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species), </span>
 <span id="cb51-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb51-3" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> .<span class="dv">6</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-50-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
 <div id="adding-labels-and-themes" class="section level2 hasAnchor" number="7.4">
@@ -703,7 +703,7 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb52-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
 <span id="cb52-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb52-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-50-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li>What labels should we use in this plot?</li>
 </ul>
@@ -715,7 +715,7 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <span id="cb53-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
 <span id="cb53-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Petal Width&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flower Count&quot;</span>,</span>
 <span id="cb53-5"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb53-5" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Size of Iris Flowers&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-52-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
 <div id="bivariate-visualizations" class="section level2 hasAnchor" number="7.5">
@@ -742,7 +742,7 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <span id="cb54-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb54-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
 <span id="cb54-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb54-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Preferred Music Genre&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Loudness (arbitrary units)&quot;</span>, </span>
 <span id="cb54-5"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb54-5" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Genre&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="878.4" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-52-1.png" width="878.4" /></p>
 </div>
 <div id="exercise-boxplot" class="section level3 hasAnchor" number="7.5.2">
 <h3><span class="header-section-number">7.5.2</span> Exercise: Boxplot<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#exercise-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -759,7 +759,7 @@ Try to add <em>labels</em> and a <em>theme</em>.</p>
 <span id="cb55-2"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length,</span>
 <span id="cb55-3"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-3" tabindex="-1"></a>                   <span class="at">color =</span> Species, <span class="at">fill =</span> Species), <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
 <span id="cb55-4"><a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#cb55-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-54-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 <div id="inspiration-colors-and-palettes" class="section level3 hasAnchor" number="7.5.4">
 <h3><span class="header-section-number">7.5.4</span> Inspiration: colors and palettes<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#inspiration-colors-and-palettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -777,7 +777,7 @@ Try to add <em>labels</em> and a <em>theme</em>.</p>
 </div>
 <div id="use-colors-and-palettes" class="section level3 hasAnchor" number="7.5.5">
 <h3><span class="header-section-number">7.5.5</span> Use: colors and palettes<a href="into-the-tidyverse-pretty-plots-with-ggplot2.html#use-colors-and-palettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="_main_files/figure-html/unnamed-chunk-55-1.png" width="960" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-54-1.png" width="960" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Showing plots together like this is easy with <code>cowplot::plot_grid()</code>!</i></li>
 </ul>

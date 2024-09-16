@@ -114,6 +114,8 @@ Please feel free to contact me if you have any questions or comments! You can re
 
 
 ```{r include=FALSE}
+library(webexercises)
+
 knitr::opts_chunk$set(
   # collapse = TRUE,
   # comment = "#>",
@@ -122,6 +124,6 @@ knitr::opts_chunk$set(
 
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'dplyr', 'ggplot2'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'dplyr', 'ggplot2', 'webexercises'
 ), 'packages.bib')
 ```

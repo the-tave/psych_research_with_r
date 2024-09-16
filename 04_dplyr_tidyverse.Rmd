@@ -6,111 +6,105 @@
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
 
-In this chapter you will learn about working with packages, which I find similar to teaching your R new tricks. 
+In this chapter you will learn about working with packages, which I find similar to teaching your R new tricks. <i class="fa-solid fa-dragon" style="color: darkred;"></i>
 I will also introduce you to the `tidyverse` - a collection of packages and why I strongly suggest to familiarize oneself with a bunch of them.
 Spoiler: It will make your life a lot easier.
 
-## Working with packages <i class="fa-solid fa-dragon" style="color: darkred;"></i>
+## Working with packages 
 
 First off, when you stick to the metaphor a package being a collection of tricks to teach your R, then you will teach the tricks once and remind R that it knows the tricks every time you want to use them.
 In more real life terms, you will install a package once and load it in each new session.
 This is important to remember because installing packages is one of the few things you will _only_ want to do in your console - NOT in any of your scripts.
 Nothing bad will happen if you do, but it takes a very long time and it will test both your own patience and that of your computer.
 
-- install packages with `install.packages()` 
-    - Only once in the console!
-- load packages with `library()` 
-    - Every time you load a script or start a new session 
+Generally, packages can be installed with the `install.packages()` function. 
+It needs the package name in quotes as input in the parentheses, e.g.  `install.packages("dplyr")`.
+This means the package is now on your computer but you still need to make it available.
+The easiest way to achieve that is to load the whole package using the `library()` command. 
+This will usually be done inside a script where you want to use functions from that package.
+Later in this chapter, when we look at dplyr functions on the `iris` data in Section \@ref(intro-iris), you will see a code chunk as a prototype of a typical beginning of an R script.
+
+While `library()` makes all functions from a package available, you can also only load specific functions right when you want to use them.
+This works with the notation `package::function()` and is particularly useful if (1) the package is extremely large, takes a long time to load and/or you really only need the one function or (b) the function name you want to use is not unique, i.e. there are several packages that contain a function of that name. 
+For example, the function _filter_ exists in more than one package, so you might use `dplyr::filter()` in your code to make explicit that you want to use the `filter()` function from the `dplyr` package.
+
+<i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;"> When this is the case, you will get the message "The following objects are masked from..." in the console when you load the package. This is also good to keep in mind if you run into unexpected errors - maybe you meant to use the function from another package but R is using the one you loaded last? </i>
+
+In the interest of creating reproducible code, it can also make sense to use the `package::function()` notation, so you can explicitly show others which function you used.
+
+At a glance: 
+
+- Install packages with `install.packages()` only once in the console!
+- Load packages with `library()` every time you load a script or start a new session 
     - Usually in the script, but also in the console
 - Specific function from a package: `package::function()`
     - Use if you just need that one function once and don't want load the entire package 
     - Or to explicitly show the according package
     - Or the function name is also in other packages (e.g. "filter" is usually `dplyr::filter`, but sometimes `stats::filter`)
-    
 
+## The tidyverse
 
-### Incomplete List of Useful Packages
-#### For Reference
+> The tidyverse is an opinionated **collection of R packages designed for data science**. All packages share an underlying design philosophy, grammar, and data structures. ([tidyverse.org](tidyverse.org))
 
-<br>
+So packages are pretty cool: They usually come from people who had a specific problem, found a solution and decided to share it with others so they can more easily fix new problems.
+Of course everyone has a different preference on how to work, which is why not every package and function will be intuitive to everyone.
+That is also why the definition of an "opinionated collection of R packages" is so fitting because the `tidyverse` is a framework consisting of many different packages that the authors find intuitive and useful.
 
-Package Name | General Purpose
-------|-----
-psych | Advanced statistical testing / modeling e.g. factor analysis
-tibble | Alternative for creating data frames
-tidyr | Clean up daata & simple reshaping
-dropR | Dropout analysis (by experimental condition)
-foreign | Handling data from SPSS
-corrplot | Create correlation plots/ matrices
+Incidentally, I agree and I will show you why. 
+If you figure out at some point that your prefer another way - that's great, but the tidyverse is a solid starting point for most data science needs in psychology.
 
-### The tidyverse
+The structure of the `tidyverse` packages is very clear and they each serve a distinct purpose.
+Taking a real-life workflow as inspiration, we will first get to know `dplyr`, a package for cleaning up data and editing everything to your needs in this chapter and later get to know `ggplot2` as a package for data visualization in Chapter \@ref(ggplot2).
+One of the big advantages of the `tidyverse` packages is that the can be combined very easily, creating easy-to-read and -write workflows that you will probably still be able to understand one year after you wrote it^[Being able to read your own code after a while is already challenging but try making sense of code that someone else has written!]
 
-"The tidyverse is an opinionated **collection of R packages designed for data science**. All packages share an underlying design philosophy, grammar, and data structures." [tidyverse.org](tidyverse.org) <br><br>
+### What is `dplyr`? ![dplyr logo](./img/dplyr.png){height=80px}
 
-- The features are very intuitive and clear
-- It is easy and makes sense to combine several features of those packages
-- We will focus on aspects of _literal everyday use_: 
-    - Clean up data aka. data wrangling $\rightarrow$ <span class="fragment highlight-red"> `dplyr` </span>
-    - Visualize data for overview or reporting $\rightarrow$ `ggplot2`
+The `dplyr` package is probably the best and most important package in R _imho_.
+It is a powerful tool for editing data in data frames and a great way to keep your workflow clear and reproducible.
+It has very intuitively named functions that on their own already serve most purposes that you will commonly need to properly work with your data.
+If you haven't already, now would be a good time to install `dplyr` and load it into a practice script:
 
-## What is `dplyr`? 
+`install.packages("dplyr")` $\rightarrow$ `library(dplyr)`
 
-![dplyr logo](./img/dplyr.png){height=80px}
+In the following, we will use a data example to get to know some of the most important functions. 
+Try to follow along and remember that you can always get more info on a function with a question mark in front of the function name in the console (here best to add the package name), e.g. `?dplyr::filter`.
+If you want more general information on the whole package you can use the command `browseVignettes(package = "dplyr")` in the console.
+Also check the [further resources](#wrapupdplyr) and an overview of the [most important dplyr functions](#mif).
 
+## Intro to `dplyr` {#intro-iris}
 
-- Probably the best and most important package in R
-- Powerful tool for editing data in data frames
-- Great way to keep your workflow clear and reproducible
-- Very intuitively named functions
+![Types of Iris Flowers](./img/iris-setosa.png){height=150px}
 
-- `install.packages("dplyr")` $\rightarrow$ `library(dplyr)`
-
-
-
-### Most important `dplyr` functions
-
-<!-- :::{.incremental} -->
-
-- `select()`: select certain columns by name
-- `filter()`: filter values from a column/variable
-- `rename()`: rename a variable
-- `mutate()`: change values of a column (new or existing)
-- ` %>% `: "pipe" brings data from previous operation to the next (Shortcut: Strg + Shift + M)
-
-- Cheatsheet: [https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
-
-<!-- ::: -->
-
-## Intro to the exercise 
-
-![Iris Arten](./img/iris-setosa.png){height=150px}
-
-- Remember the `iris` data set? 
-    - contains information on iris flowers of different species
+We introduced the `iris` data set in Section \@ref(basics) - a native R data set that you can just access without needing to load anything.
+It contains information on iris flowers of different species and we will use the `glimpse()` function from `dplyr` to get a first overview of the data we have at hand: 
     
 ```{r}
-glimpse(iris)
+dplyr::glimpse(iris)
 ```
 
-### Imagine...
+### Imagine... {-}
 
-<br>
+When working with "real" data, aka survey or experimental data, we will usually need to reshape, filter and generally edit the data a bit.
+This may sound a bit sketchy at first, but we do not want to fake or change any data, we just want to ensure that we have the highest-quality data set to work with that we can.
 
-- We only want data from species "virginica" 
-- We are interested in in sepal length
-- We want to adjust variable names 
+In the example we will be working with, we have the following three goals for the <i class="fa-solid fa-seedling" style="color: purple;"></i> data:
 
-<i class="fa-solid fa-seedling" style="color: purple;"></i>
+1. We only want data from species "virginica".
+2. We are interested in sepal length.
+3. We want to adjust variable names.
+4. We later also want the species to be capitalized in our data & to add a new binary variable for whether a flower's petals are longer than 5.5 cm (1) or not (0).
 
-### First Example 
+Using `dplyr` functions, we can easily achieve all these goals in a few lines of code.
+We will go more into depth  
 
 ```{r dplyr}
-iris_virginica <- iris %>% # 1. create new data set as copy
-  filter(Species == "virginica") %>% # 2. only virginica
-  select(Petal.Length, Species)  %>% # 3. select columns 
-  rename(plength = Petal.Length) # 4. rename variable/column
+library(dplyr)
 
-head(iris_virginica)
+iris_virginica <- iris %>% # create new data set as copy
+  filter(Species == "virginica") %>% # 1. only virginica
+  select(Petal.Length, Species)  %>% # 2. select columns 
+  rename(plength = Petal.Length) # 3. rename variable/column
+
 str(iris_virginica)
 ```
 
@@ -136,6 +130,13 @@ str(iris_virginica)
     - Can also be used with the ! to drop certain variables
 - Cave: if we want to extract one variable to calculate something, you will want to use `pull()` instead
     - Check `iris %>% select(Species) %>% class()` and `iris %>% pull(Species) %>% class()`
+    
+### Rename
+
+This is probably the most intuitively named function: It renames a variable in a data frame.
+As input the function takes your new variable name, an equal sign and the old variable name.
+This order is important, so if you run into an error, make sure that you are using _new_variable = old_variable_.
+Also, you do not need quotes around your variable names.
 
 ### Mutate
 
@@ -147,20 +148,41 @@ str(iris_virginica)
     
 - Mutate takes a **variable name as input** (existing or new) and some **function or calculation** to be done on that variable
 
-
-
 ```{r mutate}
 iris_virginica <- iris_virginica %>% 
-  mutate(Species = toupper(Species),
+  mutate(Species = toupper(Species), # 4. change content of Species and add new binary variable bigboi
          bigboi = ifelse(plength > 5.5, 1, 0))
-head(iris_virginica)
+
 table(iris_virginica$Species)
 ```
 
+ 
+### group_by & summarize 
 
-## Exercise
+- With the dplyr-workflow, we can easily output group statistics
+- Keywords: **group_by()** & **summarize()**
+- The code is built like any other dplyr workflow with pipes ( %>% ) in between each:
+    1. Define/ name the data frame
+    2. group_by(_variable_name_)
+    3. in summarize, define a name for the statistic, use a =, use a function like mean() for the measure
 
-Imagine we want to edit the iris data set for our american colleagues, who are interested in the petal width of the **setosa** and **versicolor** species. <br>
+
+```{r}
+str(Orange) # use different default data set
+
+Orange %>% 
+  group_by(Tree) %>% 
+  summarize(m_age = mean(age),
+            m_circumference = mean(circumference),
+            n = n())
+```
+    
+ 
+## Exercises {-}
+
+### Data Munging {-}
+
+Imagine we want to edit the iris data set for our colleagues from the US, who are interested in the petal width of the **setosa** and **versicolor** species. 
 
 1. Create a new dataset from `iris` with a meaningful name
 2. `select()` the variables of interest
@@ -170,8 +192,7 @@ Imagine we want to edit the iris data set for our american colleagues, who are i
 4. Use `mutate()` to add a new variable named "pwidth_inch", which contains the petal width in inches
     - Calculation: pwidth / 2.54 (2.54 cm = 1 inch)
 
-
-### Solution
+`r hide("Solution")`
 
 ```{r inch}
 iris_twospec <- iris %>% 
@@ -185,97 +206,111 @@ iris_twospec <- iris %>%
 head(iris_twospec, 8)
 ```
 
+`r unhide()`
 
-![Hadley Wickham, developer of the tidyverse](./img/hadley-meme.webp) 
-<!-- <figcaption style = "font-size: 7pt;">Hadley Wickham, developer of the tidyverse</figcaption> -->
+![Hadley Wickham, developer of the tidyverse](./img/hadley-meme.webp){height=200px}
+
+### Group Statistics {-}
+
+Follow the structure to group the iris data set by Species and output a summary with the mean values of all four other variables in the data. <br> 
+Also include the grouped n.
+
+`r hide("Solution")`
+
+```{r}
+iris %>% 
+  group_by(Species) %>% 
+  summarize(m_plength = mean(Petal.Length),
+            m_pwidth = mean(Petal.Width),
+            m_slength = mean(Sepal.Length),
+            m_swidth = mean(Sepal.Width),
+            n = n())
+```
+
+`r unhide()`
 
 
-## On a Tangent: `magrittr` pipe %>% 
+## Piping Hot %>% {-}
 
-- The pipe keeps our code readable and tidy
-- It allows us to keep edits in separate lines, but we still only have to run one command for every task we need
-- It's easy to add new commands by using another pipe operator, or to leave edits out but commenting out the respective line of code
-- Most things can be achieved with or without pipe
+You already heard about the pipe operator in Section \@ref(#pipe1). 
+The pipe - available as a native R pipe |> or a `tidyverse` pipe from the `magrittr` package %>%^[The two pipes can pretty much the same operations - for specific differences see https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/] - takes the input from the left-hand to the right-hand.
+In simpler terms, it takes the operation you did before the pipe and uses is as input for the function after the pipe.
+This keeps our code readable and tidy and allows us to keep edits in separate lines, but we still only have to run one command for every task we need
+It's easy to add new commands by using another pipe operator, or to leave edits out but commenting out the respective line of code.
 
-### Example
+It is important to say that most things can be achieved with or without pipe and you may prefer different versions for different tasks.
+You have seen a basic example of the use of the pipe operator in Section \@ref(#pipe1), so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.
 
 ```{r pipe}
-# With pipe - clear
+# With pipe
 iris_edit <- iris %>%
  filter(Petal.Length > 3) %>% # only big petals
  select(Species, Petal.Length, Sepal.Length) %>%  # only those columns
  mutate(random_calculation = Petal.Length * Sepal.Length) # calculate random new variable
 
-# Without pipe - a lot of typing, prone to error, annoying to debug
+# Without pipe - two versions 
 iris_edit2 <- filter(iris, Petal.Length > 3)
 iris_edit2 <- select(iris_edit2, Species, Petal.Length, Sepal.Length)
 iris_edit2 <- mutate(iris_edit2, random_calculation = Petal.Length * Sepal.Length)
 
-# Are the two versions equal?
-all.equal(iris_edit, iris_edit2)
+iris_edit3 <- mutate(
+  select(
+    filter(
+      iris, Petal.Length > 3
+    ),
+    Species, Petal.Length, Sepal.Length
+  ), 
+  random_calculation = Petal.Length * Sepal.Length
+)
+
+# Are the three versions equal?
+all.equal(iris_edit, iris_edit2) & all.equal(iris_edit, iris_edit3)
 ```
 
-<!-- :::{.incremental} -->
+As you can see, all three version produce the same output and all are technically correct.
+However, in the second example we keep re-assigning new edits to the same data frame (would be even more annoying but possible to assign each edit to a new data frame) and the third version is just quite the nightmare to read if you ask me.
+Also think about this:
 
-<!-- -  -->
-<!--   ```{r } -->
-<!--   # With pipe - clear -->
-<!--   iris_edit <- iris %>%  -->
-<!--     filter(Petal.Length > 3) %>%  -->
-<!--     select(Species, Petal.Length, Sepal.Length) %>%  -->
-<!--    mutate(random_calc = Petal.Length * Sepal.Length)  -->
-<!--   ``` -->
-<!-- -  -->
-<!--   ```{r } -->
-<!--   # Without pipe - lots of typing & error -->
-<!--   iris_edit2 <- filter(iris, Petal.Length > 3) -->
-<!--   iris_edit2 <- select(iris_edit2, Species,  -->
-<!--                         Petal.Length, Sepal.Length)  -->
-<!--   iris_edit2 <- mutate(iris_edit2,  -->
-<!--           random_calc = Petal.Length * Sepal.Length) -->
-<!--   ``` -->
-<!-- -  -->
-<!--   ```{r} -->
-<!--   # Are the two versions equal? -->
-<!--   all.equal(iris_edit, iris_edit2) -->
-<!--   ``` -->
+> <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>
+In the part with pipe we used the `iris` data to edit and assigned it to `iris_edit`.
+In version two without pipe we used `iris` in the first line, but afterwards we used `iris_edit2` for assignments and edits. <br>
+Why is that? 
 
-<!-- ::: -->
+`r hide("<i class='fa-solid fa-lightbulb' style='color: yellow;'></i>")`
 
+If we were to use `iris` in each line, it would overwrite the last edit every time.
 
-### Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>
+`r unhide()`
 
-- In the part with pipe we used the `iris` data to edit and assigned it to `iris_edit`
-- In the part without pipe we used `iris` in the first line, but afterwards we used `iris_edit2` for assignment and edit
+We can also profit from the pipe in base-R or with a larger combination of different functions.
+Usually, the pipe helps us not to drown in parentheses when conducting analyses. 
+Let's e.g. calculate a mean value after filtering by Species setosa.
 
-- Why is that? 
+So without a pipe, it might look like this: 
 
-### How to pipe for base-R
+```{r parentheses}
+round(mean(iris$Petal.Length[iris$Species == "setosa"]), digits = 2)
+```
 
+Using all pipes, the code would look a lot longer but still easier to read. 
 
-
-- Pipe helps us not to drown in parentheses when conducting analyses, e.g. calculating a mean after filtering 
-  - It makes code longer but still easier to read
-- 
-  ```{r parentheses}
-  # Without pipe
-  round(mean(iris$Petal.Length[iris$Species == "setosa"]), digits = 2)
-  ```
--
-  ```{r}
-  # With pipe
-  iris %>% 
-  filter(Species == "setosa") %>% 
-  pull(Petal.Length) %>%
-  mean() %>% round(digits = 2)
-  ```
+```{r pipe2}
+iris %>% 
+filter(Species == "setosa") %>% 
+pull(Petal.Length) %>%
+mean() %>% round(digits = 2)
+```
   
+As a third alternative, we might also use a combination of the approaches, such as:
 
+```{r combo}
+round(mean(filter(iris, Species == "setosa") %>% pull(Petal.Length)), digits = 2)
+```
 
-### Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>
+As with most things in R and programming, different approaches may be easier in different situations, so it has merit to think outside the box at times!
 
+> Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>:
 We want to edit the iris data to rename a Petal.Length to pl and mutate it to be multiplied by ten.
-
 Why does the first version work, but not the second one?
 
 ```{r eval = FALSE}
@@ -292,52 +327,14 @@ iris %>%
   glimpse()
 ```
 
-<!-- Can be skipped if we don't have time -->
-## group_by & summarize 
+`r hide("<i class='fa-solid fa-lightbulb' style='color: yellow;'></i>")`
 
-- With the dplyr-workflow, we can easily output group statistics
-- Keywords: **group_by()** & **summarize()**
-- The code is built like any other dplyr workflow with pipes ( %>% ) in between each:
-    1. Define/ name the data frame
-    2. group_by(_variable_name_)
-    3. in summarize, define a name for the statistic, use a =, use a function like mean() for the measure
-    
-### Example: group_by & summarize
+In the second version, we rename the variable Petal.Length to pl and afterwards try to access it with its old name.
 
-```{r}
-names(Orange) # use different default data set
-
-Orange %>% 
-  group_by(Tree) %>% 
-  summarize(m_age = mean(age),
-            m_circumference = mean(circumference),
-            n = n())
-```
-    
-### Exercise: group_by & summarize
-
-<br> 
-Follow the structure to group the iris data set by Species and output a summary with the mean values of all four other variables in the data. <br> 
-Also include the grouped n.
-
-### Solution
-
-```{r}
-iris %>% 
-  group_by(Species) %>% 
-  summarize(m_plength = mean(Petal.Length),
-            m_pwidth = mean(Petal.Width),
-            m_slength = mean(Sepal.Length),
-            m_swidth = mean(Sepal.Width),
-            n = n())
-```
+`r unhide()`
 
 
-
-
-## Wrap-Up & Further Resources {-}
- 
- <br>
+## Wrap-Up & Further Resources {-#wrapupdplyr}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>
 <ul style="color: teal;"> 
@@ -346,14 +343,37 @@ iris %>%
 <li> The pipe %>% makes your code clearer and "follows the thought process" </li>
 </ul>
 
-
 <br>
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li> [R for Data Science](https://r4ds.hadley.nz/) Book </li>
 <li> [dplyr vignette](https://dplyr.tidyverse.org/) </li>
+<li> [Pipe operator](https://r4ds.hadley.nz/data-transform.html#sec-the-pipe) </li>
+<li> Cheatsheet: [https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf) </li>
 <li> [YouTube: 20 R Packages that you should know](https://www.youtube.com/watch?v=npOf6aXdguY&ab_channel=RichardOnData) - you for sure don't need them all, but there are some nice inspirations for working with packages in there </li>
 </ul>
 
 ![Which idiot...](./img/idiotic.png){#id .class width=auto height=400px}
+
+### Most important `dplyr` functions {-#mif}
+
+- `select()`: select certain columns by name
+- `filter()`: filter values from a column/variable
+- `rename()`: rename a variable
+- `mutate()`: change values of a column (new or existing)
+- ` %>% `: "pipe" brings data from previous operation to the next (Shortcut: Strg + Shift + M)
+
+### Incomplete List of Useful Packages {-#lop}
+
+<br>
+
+Package Name | General Purpose
+------|-----
+psych | Advanced statistical testing / modeling e.g. factor analysis
+tibble | Alternative for creating data frames
+tidyr | Clean up daata & simple reshaping
+dropR | Dropout analysis (by experimental condition)
+foreign | Handling data from SPSS
+corrplot | Create correlation plots/ matrices
+

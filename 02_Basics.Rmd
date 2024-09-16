@@ -1,7 +1,7 @@
 
-# R Basics & Error Messages
+# R Basics & Error Messages {#basics}
 
-![Iris Flower](img/iris.png)
+![Iris Flower](img/iris.png){height = 150px}
 
 ## Basics
 <!-- Remove Image and plot borders -->
@@ -14,12 +14,6 @@
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
-
-
-```{r}
-library(dplyr)
-```
-
 
 R is an object-based language.
 The great advantage of that is we can assign values, vectors, text, matrices or almost anything else to variables and access them more easily later.
@@ -181,9 +175,9 @@ This happens when R can`t work with the command because there is something missi
     
 **Fix: Click in your console and use the `Esc` button to cancel the command. Then, look at the code you were trying to run and see if there is some closing statement such as `)` missing and try again.**
 
-### The pipe operator `|>` or `%>%` {-}
+### The pipe operator `|>` or `%>%` {-#pipe1}
 
-Next to missing closing parentheses, a classic source for this behavior is the so-called pipe operator, created with either `|>` (native R pipe, available since R version XXX) or `%>%` (tidyverse pipe from the `magrittr` package).
+Next to missing closing parentheses, a classic source for this behavior is the so-called pipe operator, created with either `|>` (native R pipe, available since R version 4.1.0) or `%>%` (tidyverse pipe from the `magrittr` package).
 It will be used a lot starting in Chapter \@ref(dplyr) and it is probably one of my personal favorite R features.
 The pipe allows you to use previous operations in the next one easily and clearly.
 In reality this relates to not drowning in parenthesis and everything in the `tidyverse` is designed to be used with a pipe.

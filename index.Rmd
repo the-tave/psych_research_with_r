@@ -72,10 +72,10 @@ Some packages may not be installable this way, in which case I will explicitly m
 
 ## ...the author {-}
 
-I am Tave and I am currently working on my Ph.D. in Psychological Methods.
+I am Tave and I am currently working on my Ph.D. in Research Methods, Assessment and iscience.
 This online book is a little side project that is quite near and dear to my heart.
 
-In my experience, statistics and - goddess forbid - statistics programs can easily induce panic-like states in psychology students.
+In my experience, statistics and more so statistics programs can easily induce panic-like states in psychology students.
 And also in my experience, that can change over the course of one semester tops.
 Programming in R is a lot less scary than many may think and most of all, it can and _should be fun_! 
 <!-- LINK TO HILARY PARKERS TALK WHEN IT IS AVAILABLE! OR FONTI KAR -->

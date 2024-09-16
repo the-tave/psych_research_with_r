@@ -10,7 +10,7 @@ library(unikn)
 seminar <- readRDS("./data/seminar_data.Rds")
 ```
 
-# `tidyverse`: Pretty plots with `ggplot2`
+# `tidyverse`: Pretty plots with `ggplot2` {#ggplot2}
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
@@ -385,7 +385,7 @@ ggplot(my_data, aes(x = X, y = Y, fill = Group)) +
 library(gganimate)
 library(gapminder)
 
-ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+ggplot(filter(gapminder, between(year, 2000, 2007)), aes(gdpPercap, lifeExp, size = pop, colour = country)) +
   geom_point(alpha = 0.7, show.legend = FALSE) +
   scale_colour_manual(values = country_colors) +
   scale_size(range = c(2, 12)) +

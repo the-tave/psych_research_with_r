@@ -1,7 +1,7 @@
 
 # R Basics & Error Messages {#basics}
 
-![Iris Flower](img/iris.png){height=150px}
+![](img/iris.png){height=150px}
 
 ## Basics
 <!-- Remove Image and plot borders -->

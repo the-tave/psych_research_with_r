@@ -156,24 +156,7 @@ When we now ask someone else to try out the code - either because we need help o
 The same goes for us if we ever want to use a different machine, e.g. for work. 
 Moreover, it is quite easy to forget which folder you are currently working in, which means it can get hard to later locate your scripts again.
 
-This may all sound like quite the hassle, but luckily there is a quite simple solution built right into R Studio that will make self-organization easy.
-
-<!--     - If you save a script, it will be saved there -->
-<!-- - We usually work with data from other sources or different files -->
-<!--     - e.g. WEXTOR data or bibfiles for bibliography -->
-<!-- - Check your working directory: `getwd()` -->
-<!-- - Manually set your working directory: `setwd()` -->
-<!--     - Any file you want to use, e.g. containing data will be searched in that folder -->
-
-
-<!-- - The file path in `getwd()` will always be _absolute_ $\rightarrow$ full file path from _your_ computer -->
-<!--     - Sharing is difficult -->
-<!--     - Working with that script on your other computer is difficult -->
-<!--     - Nobody else can (easily) reproduce your code -->
-<!-- - It is easy to forget which folder you're working on and which one you want to be working on -->
-<!--     - So R won't find files you're looking for and throw errors -->
-
-[Keyboard Shortcuts](#shortcuts)
+This may all sound like quite the hassle, but luckily there is a simple solution built right into R Studio that will make self-organization easy.
 
 ## R Projects ![R Project](./img/rproj.png){height=30px}
 
@@ -188,7 +171,8 @@ With a relative file path you can use a period as a placeholder for "current fol
 This is also great for sharing your code and projects: 
 If someone else has the same data file in their R project then they will be able to use your scripts containing just the relative path and be able to execute the code.
 
- ![Code Lifespan comic by xkcd](./img/code_lifespan.png){height=200px}
+ ![](./img/code_lifespan.png){height=200px}
+ <figcaption style = "font-size: 7pt;">https://xkcd.com/2730/</figcaption>
 
 Next to all advantages with sharing as well as creating reproducible code, working with R projects will also help you in keeping your workflow organized. 
 In the following, you can try to create your own R project and see how to use the relative file path!
@@ -212,6 +196,10 @@ mindful <- readRDS("./data/mindfulness_data.Rds") # relative filepath
 str(mindful)
 ```
 
+![](./img/code_reuse.jpg){height=200px}
+<figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/11a1fqi/code_reuse/#lightbox</figcaption>
+
+
 ## Make R your own
 
 So far, you have learned about many important aspects of getting used to a productive and efficient workflow.
@@ -233,15 +221,13 @@ Personally, I work really well with the `Merbivore` theme - what is your favorit
 
 ## Wrap-Up & Further Resources {-}
  
- <br>
- 
-> <i class="fa-solid fa-anchor" style="color: teal;"></i>
-> <ul style="color: teal;"> 
-> <li> Stick to naming conventions for R objects and related files </li>
-> <li> Make sure your working directory is correct </li>
-> <li> Use R projects to organize your scripts easily </li>
-> <li> Make R fun and appealing to use FOR YOU! </li>
-> </ul>
+<i class="fa-solid fa-anchor" style="color: teal;"></i>
+<ul style="color: teal;"> 
+<li> Stick to naming conventions for R objects and related files </li>
+<li> Make sure your working directory is correct </li>
+<li> Use R projects to organize your scripts easily </li>
+<li> Make R fun and appealing to use FOR YOU! </li>
+</ul>
 
  <br>
  

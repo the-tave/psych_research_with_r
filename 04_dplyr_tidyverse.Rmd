@@ -59,6 +59,11 @@ The structure of the `tidyverse` packages is very clear and they each serve a di
 Taking a real-life workflow as inspiration, we will first get to know `dplyr`, a package for cleaning up data and editing everything to your needs in this chapter and later get to know `ggplot2` as a package for data visualization in Chapter \@ref(ggplot2).
 One of the big advantages of the `tidyverse` packages is that the can be combined very easily, creating easy-to-read and -write workflows that you will probably still be able to understand one year after you wrote it.^[Being able to read your own code after a while is already challenging but try making sense of code that someone else has written!]
 
+You can install the whole `tidyverse` at once, which will take a little while as it contains a lot of individual packages. 
+Generally, I would recommend installing them once, but loading packages individually when you need them, because also loading the bulk of packages takes a lot of time.
+
+> `install.packages("tidyverse")`
+
 ### What is `dplyr`? ![dplyr logo](./img/dplyr.png){height=80px}
 
 The `dplyr` package is probably the best and most important package in R _imho_.
@@ -66,7 +71,7 @@ It is a powerful tool for editing data in data frames and a great way to keep yo
 It has very intuitively named functions that on their own already serve most purposes that you will commonly need to properly work with your data.
 If you haven't already, now would be a good time to install `dplyr` and load it into a practice script:
 
-`install.packages("dplyr")` $\rightarrow$ `library(dplyr)`
+> `install.packages("dplyr")` $\rightarrow$ `library(dplyr)`
 
 In the following, we will use a data example to get to know some of the most important functions. 
 Try to follow along and remember that you can always get more info on a function with a question mark in front of the function name in the console (here best to add the package name), e.g. `?dplyr::filter`.
@@ -358,24 +363,4 @@ In the second version, we rename the variable Petal.Length to pl and afterwards 
 
 ![Which idiot...](./img/idiotic.png){#id .class width=auto height=400px}
 
-### Most important `dplyr` functions {-#mif}
-
-- `select()`: select certain columns by name
-- `filter()`: filter values from a column/variable
-- `rename()`: rename a variable
-- `mutate()`: change values of a column (new or existing)
-- ` %>% `: "pipe" brings data from previous operation to the next (Shortcut: Strg + Shift + M)
-
-### Incomplete List of Useful Packages {-#lop}
-
-<br>
-
-Package Name | General Purpose
-------|-----
-psych | Advanced statistical testing / modeling e.g. factor analysis
-tibble | Alternative for creating data frames
-tidyr | Clean up daata & simple reshaping
-dropR | Dropout analysis (by experimental condition)
-foreign | Handling data from SPSS
-corrplot | Create correlation plots/ matrices
 

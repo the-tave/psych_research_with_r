@@ -229,3 +229,22 @@ FALSE | false (also written F)
 & | AND (both must be TRUE)
 \| | OR (just one must be TRUE)
 ! | NOT (as in != NOT equal)
+
+## Most important `dplyr` functions {-#mif}
+
+- `select()`: select certain columns by name
+- `filter()`: filter values from a column/variable
+- `rename()`: rename a variable
+- `mutate()`: change values of a column (new or existing)
+- ` %>% `: "pipe" brings data from previous operation to the next (Shortcut: Strg + Shift + M)
+
+## Incomplete List of Useful Packages {-#lop}
+
+Package Name | General Purpose
+------|-----
+psych | Advanced statistical testing / modeling e.g. factor analysis
+tibble | Alternative for creating data frames
+tidyr | Clean up daata & simple reshaping
+dropR | Dropout analysis (by experimental condition)
+foreign | Handling data from SPSS
+corrplot | Create correlation plots/ matrices

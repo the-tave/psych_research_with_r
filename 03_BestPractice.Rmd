@@ -7,20 +7,15 @@
 ```
 
 
-**What is Best Practice?**
+<!-- **What is Best Practice?** -->
 
 > " ~~All~~ Many roads lead to Rome"
 
-: You can achieve most things in many different ways
-- _Best Practice_ refers to the best/ easiest/ clearest way of working with R
-
-### Overview
-
-- Naming Variables
-- Creating data meaningfully
-- Working Directories
-- R Projects
-- Make R your own: ![Appearance](./img/appearance.png){#id .class .no-border width=auto height=40px}
+You can achieve most things in many different ways - _best practice_ refers to the best/ easiest/ clearest way of working with R.
+Some of the things you will read about might not make sense to you intuitively and that's ok.
+Realistically, there are some mistakes that everyone must make for themselves.
+When you do, I just want you to remember that here is some advice that you have either heard before or will read up on now to get out of the pickle you may be in!
+Maybe you would like to bookmark the [toolbox](#toolbox) to always find an overview of nifty tips, tricks and hacks?
 
 
 ## Naming Conventions {#varnames}
@@ -63,7 +58,7 @@ If you just type `hi there` in the console and hit Enter, R will give you an err
 But if you type `"hi there"`, it will echo the text back to you.
 
 
-![Naming Conventions](./img/varname.webp){#id height=400px}
+![Naming Conventions](./img/varname.webp){height=200px}
 <!-- <figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/</figcaption> -->
 
 
@@ -83,23 +78,22 @@ Here is a list of positive and negative naming examples:
     - <i class="fa-solid fa-circle-xmark" style="color: red;"></i>  Please just no. <i class="fa-solid fa-circle-xmark" style="color: red;"></i> 
     
 
-## Exercise: Creating Data meaningfully
+## Exercise: Creating Data
 
-Imagine we are going to measure some test scores at a school that are supposed to reflect the kids' IQ (mean 100, sd 15). <br> <br>
-In order to prepare for data analysis, we want to simulate what the data might look like beforehand. <br> <br>
+Imagine we are going to measure some test scores at a school that are supposed to reflect the kids' IQ (mean 100, sd 15). 
+In order to prepare for data analysis, we want to simulate what the data might look like beforehand. 
 
 We are going to measure their age and IQ score and we will be assessing class 7a and 7b.
 
 Create **two data frames** - one for each class. <br>
-They should each contain **n = 20 entries** (for 20 kids) and **2 variables i.e. age and iq score**. <br> <br>
-We assume **age is a random number from 12 to 15** and **iq follows normal distribution with mean = 100, sd = 15**. <br>
+They should each contain **n = 20 entries** (for 20 kids) and **2 variables i.e. age and IQ score**. 
+We assume **age is a random number from 12 to 15** and **IQ follows normal distribution with mean = 100, sd = 15**.
 
-Afterwards, add a variable to code the **class** to each data frame and add them together **underneath each other**. <br>
-Use the functions on the board and look in the R help if you need more input on how to use them. 
+Afterwards, add a variable to code the **class** to each data frame and add them together **underneath each other**.
 
 <!-- Board functions: data.frame, sample, rnorm, $, rbind, str -->
 
-`r hide("Hint")`
+`r hide("Which functions should I use?")`
 
 The functions you will need are _data.frame, sample, rnorm, $, rbind_ and _str_. 
 You can read help on any function by typing a question mark before the function name in your console and hitting Enter, e.g. `?rnorm`.
@@ -109,7 +103,7 @@ You can read help on any function by typing a question mark before the function 
 
 `r hide("Solution")`
 
-```{r}
+```{r iqscores}
 # Create the data frames
 scores7a <- data.frame(age = sample(x = 12:15, size = 20, replace = T),
                        iq = rnorm(n = 20, mean = 100, sd = 15))
@@ -119,10 +113,7 @@ scores7b <- data.frame(age = sample(x = 12:15, size = 20, replace = T),
 # Notice anything about the code?
 
 str(scores7a); str(scores7b)
-```
 
-
-```{r}
 # Add information about the class
 scores7a$class <- "7a"
 scores7b$class <- "7b"
@@ -141,52 +132,68 @@ table(allscores$class)
 
 ## Working Directories
 
+A working directory corresponds to the folder on your computer that you are **working in**.
+It is similar to when you open up a program such as Word and then locate a file that you wish to open there - you need to find the folder on your machine where that file is located.
+With R, we usually either just open up R Studio or we will directly open a script. 
+Commonly, the working directory will either be the default folder (e.g. "Documents" on Windows) or if you open up a script from a specific location, it might also be set to that folder automatically. 
+Vice versa, if you work on a script in R Studio and save it, it will saved in the folder that is currently set as the working directory.
 
-
-- A working directory corresponds to the folder on your computer that you are **working in** 
-    - If you save a script, it will be saved there
-- We usually work with data from other sources or different files
-    - e.g. WEXTOR data or bibfiles for bibliography
-- Check your working directory: `getwd()`
-- Manually set your working directory: `setwd()`
-    - Any file you want to use, e.g. containing data will be searched in that folder
-
-
+You can check your current working directory by entering `getwd()` in the console.
+It will output a so-called file path that "explains" which folder your are working in.
+In the default view of R Studio you can also find the "Files" tab in the lower right corner and it will show the contents of your current working directory.
+If you want to change the working directory you can use the command `setwd()` and enter a file path in the parentheses.
 
 > Try it out: Execute the getwd() command in the console. <br>
-> Which folder is R working in, is it the one you expected?
+> Which folder is R working in - is it the one you expected?
 
-### Cautionary Tale
+While this way of structuring your work in folders and directories is very common, it can pose some issues down the line.
+Usually, we will work with our own data files (see Chapter \@ref(#exdata)) and read them into our script to use them for analyses.
+If they happen to be in a different folder than our working directory, we will need to use the complete file path to tell R where to find this data file.
+When we now ask someone else to try out the code - either because we need help or because we are handing in an assignment - they will raise an eyebrow because chances are that they do not have the specified file path available on their machine.
 
-<br>
+> [1] "C:/Users/Tave/great_projects/my_specific_folder_name"
+
+The same goes for us if we ever want to use a different machine, e.g. for work. 
+Moreover, it is quite easy to forget which folder you are currently working in, which means it can get hard to later locate your scripts again.
+
+This may all sound like quite the hassle, but luckily there is a quite simple solution built right into R Studio that will make self-organization easy.
+
+<!--     - If you save a script, it will be saved there -->
+<!-- - We usually work with data from other sources or different files -->
+<!--     - e.g. WEXTOR data or bibfiles for bibliography -->
+<!-- - Check your working directory: `getwd()` -->
+<!-- - Manually set your working directory: `setwd()` -->
+<!--     - Any file you want to use, e.g. containing data will be searched in that folder -->
 
 
-
-- The file path in `getwd()` will always be _absolute_ $\rightarrow$ full file path from _your_ computer
-    - Sharing is difficult
-    - Working with that script on your other computer is difficult
-    - Nobody else can (easily) reproduce your code
-- It is easy to forget which folder you're working on and which one you want to be working on
-    - So R won't find files you're looking for and throw errors
+<!-- - The file path in `getwd()` will always be _absolute_ $\rightarrow$ full file path from _your_ computer -->
+<!--     - Sharing is difficult -->
+<!--     - Working with that script on your other computer is difficult -->
+<!--     - Nobody else can (easily) reproduce your code -->
+<!-- - It is easy to forget which folder you're working on and which one you want to be working on -->
+<!--     - So R won't find files you're looking for and throw errors -->
 
 [Keyboard Shortcuts](#shortcuts)
 
-## R Projects
+## R Projects ![R Project](./img/rproj.png){height=30px}
 
-<br>
+A project in R is essentially a bookmark to a specific folder on your computer. 
+It lets you organize your projects very clearly, so you can e.g. create a folder for your thesis where you save the data you collected and the R scripts to wrangle that data.
+When you open the R project it automatically sets your working directory to the folder you put the project in.
+It also makes it easier for you to use so-called _relative file paths_, allowing you not to specify a full file path when you want to reference a data file or maybe a BibTex file that contains citations for a paper or thesis. 
+With a relative file path you can use a period as a placeholder for "current folder/working directory" and then just specify the path from there.
 
+> Let's try that out under `File` $\rightarrow$ `New project...`
 
-- Solution: Create an R Project for your project!
-    - Automatically sets your working directory to the folder you put the project in
-    - Makes sharing your project easy
-    - Saves you time and frustration, trust me
-    
+This is also great for sharing your code and projects: 
+If someone else has the same data file in their R project then they will be able to use your scripts containing just the relative path and be able to execute the code.
 
+ ![Code Lifespan comic by xkcd](./img/code_lifespan.png){height=200px}
 
-Let's try that out under `File` $\rightarrow$ `New project...`
+Next to all advantages with sharing as well as creating reproducible code, working with R projects will also help you in keeping your workflow organized. 
+In the following, you can try to create your own R project and see how to use the relative file path!
 
-
-### Exercise: Put it to the test {-}
+### Exercise {-}
 
 <!-- # ```{r eval = F, include = F} -->
 <!-- # data <- readr::read_csv("C:/Nextcloud/Lehre/Seminar_PsychResearchR/data.csv") %>%  -->
@@ -205,42 +212,24 @@ mindful <- readRDS("./data/mindfulness_data.Rds") # relative filepath
 str(mindful)
 ```
 
-## Make R your own: Appearance
+## Make R your own
 
-<br>
+So far, you have learned about many important aspects of getting used to a productive and efficient workflow.
+However, in my experience the best basis for a good workflow means nothing if it is not really fun to use said flow.
+Therefore, I want to introduce you to a really nifty feature in R Studio: customizing the appearance.
 
+> `Tools` $\rightarrow$ `Global Options` $\rightarrow$ `Appearance` ![Appearance](./img/appearance.png){height=30px}
 
-- There are many different "themes" for R Studio
-    - Control not only what the interface looks like but also how code is displayed
-    
-- Under `Tools` $\rightarrow$ `Global Options` $\rightarrow$ `Appearance`
+Because honestly? it's fun, and if a program is fun you will want to use it more.
+And practice is is the best way of learning any new skill. <i class="fa-solid fa-crown" style="color: yellow;"></i> 
 
+There are many different "themes" for R Studio to choose from.
+You can control not only what the interface looks like but also how code is displayed.
+This can be especially helpful if you have a hard time differentiating colors - you can look for a theme that makes it easier for you! 
+Most themes also have some rules for coloring numbers differently than text differently than function calls an so on.
+So it is not just a nice add on but can actually be really helpful and improve accessibility.
+Personally, I work really well with the `Merbivore` theme - what is your favorite?
 
-
-### Why?
-
-<br>
-
-
-
-- Honestly? Because It's fun.  <i class="fa-solid fa-crown" style="color: yellow;"></i> 
-- If a program is no fun, you won't like using it
-    - And if you don't like using it, you won't get the practice you need!
-    
-
-
-## Keyboard shortcuts to make your life easier {-#shortcuts}
-
-| Function              | Shortcut PC / Mac                  |
-|-----------------------|------------------------------------|
-| Run current line      | Ctrl + Enter / Cmd + Return        |
-| Add \<-               | Alt + - / Option + -               |
-| Add %\>%              | Ctrl + Shift + M / Cmd + Shift + M |
-| Show help             | F1                                 |
-| Options for auto-fill | Tab                                |
-| Create New Script     | Ctrl + Shift + N / Cmd + Shift + N |
-| Comment out line      | Ctrl + Shift + C / Cmd + Shift + C |
-| Save your script      | Ctrl + S / Cmd + S                 |
 
 ## Wrap-Up & Further Resources {-}
  
@@ -264,8 +253,11 @@ str(mindful)
 <li> [Some ideas on improving your workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) (this can seem a bit advanced, but try reading through anyway and see what sticks with you. Building good habits at the beginning of your learning journey will make your life a lot easier down the line!)
 </ul>
 
-## Working with Version Control
+## Working with Version Control {-}
 
 ...can sound scary and daunting to learn.
+I believe this to be a more advanced feature which is a bit much for a (non-programmer) beginner, so I will mention it last.
+However, using version control systems such as [GitHub](https://github.com/) can be really great to keep track of your work, share with others and also ask for help. 
 
-[Hack your way to a good Git history (Maëlle Salmon)](https://www.r-bloggers.com/2024/06/hack-your-way-to-a-good-git-history/)
+If you want to start learning about Git and GitHub, I suggest [starting your journey](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) directly on the GitHub Docs webpage.
+For those who may already have some experience, here is a nice blog article bringing up some of the slips and falls one might take when working with GitHub: [Hack your way to a good Git history (Maëlle Salmon)](https://www.r-bloggers.com/2024/06/hack-your-way-to-a-good-git-history/).

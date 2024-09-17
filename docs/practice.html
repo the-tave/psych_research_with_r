@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Intro to R Markdown |  Psychological Research in R </title>
+  <title>Practice |  Psychological Research in R </title>
   <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Intro to R Markdown |  Psychological Research in R " />
+  <meta property="og:title" content="Practice |  Psychological Research in R " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
@@ -21,7 +21,7 @@ directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Intro to R Markdown |  Psychological Research in R " />
+  <meta name="twitter:title" content="Practice |  Psychological Research in R " />
   
   <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
@@ -38,8 +38,8 @@ directly in R and R Markdown.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="association-statistics.html"/>
-<link rel="next" href="the-power-of-r-r-markdown.html"/>
+<link rel="prev" href="wrap-up.html"/>
+<link rel="next" href="toolbox.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -490,251 +490,86 @@ Psychological Research in R
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro-to-r-markdown" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Intro to R Markdown<a href="intro-to-r-markdown.html#intro-to-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
+<div id="practice" class="section level1 unnumbered hasAnchor">
+<h1>Practice<a href="practice.html#practice" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="loops-write-a-for-loop-that-outputs-the-first-x-numbers-of-the-fibonacci-sequence-golden-ratio" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Loops: Write a for-loop that outputs the first X numbers of the Fibonacci sequence ("golden ratio")<a href="practice.html#loops-write-a-for-loop-that-outputs-the-first-x-numbers-of-the-fibonacci-sequence-golden-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="float">
-<img src="img/rmd.png" alt="R Markdown Logo" />
-<div class="figcaption">R Markdown Logo</div>
+<img src="img/fibonacci.jpg" height="200" alt="Fibonacci Spiral" />
+<div class="figcaption">Fibonacci Spiral</div>
 </div>
-<div id="creating-whole-documents-in-r" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Creating whole documents in R<a href="intro-to-r-markdown.html#creating-whole-documents-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Creating visualizations and statistics in R is great, but we need to able to show and report our work.</li>
-<li>Results can be copied and plots can be exported, but they can also be embedded directly into a document in R</li>
-<li>R Markdown is a text engine based on <span class="math inline">\(\LaTeX\)</span> that allows you to create documents, presentations, reports...</li>
-</ul>
+<p>The Fibonacci sequence is defined as a sequence in which each number is the sum of the two proceeding ones.
+That means, starting at 1 the sequence is: 1, 1, 2, 3, 5, 8, 13...
+Please create it for the first 15 numbers in the Fibonacci sequence and save the numbers to a variable called <em>fibonacci</em>.</p>
+<p>More info: <a href="https://en.wikipedia.org/wiki/Fibonacci_sequence">https://en.wikipedia.org/wiki/Fibonacci_sequence</a>.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="practice.html#cb95-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb95-2"><a href="practice.html#cb95-2" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="practice.html#cb95-3" tabindex="-1"></a><span class="co"># Simple and clear</span></span>
+<span id="cb95-4"><a href="practice.html#cb95-4" tabindex="-1"></a>fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="fu">rep</span>(<span class="cn">NA</span>, n<span class="dv">-2</span>))</span>
+<span id="cb95-5"><a href="practice.html#cb95-5" tabindex="-1"></a></span>
+<span id="cb95-6"><a href="practice.html#cb95-6" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n){</span>
+<span id="cb95-7"><a href="practice.html#cb95-7" tabindex="-1"></a>  fibonacci[i] <span class="ot">&lt;-</span> fibonacci[i<span class="dv">-1</span>] <span class="sc">+</span> fibonacci[i<span class="dv">-2</span>]</span>
+<span id="cb95-8"><a href="practice.html#cb95-8" tabindex="-1"></a>}</span>
+<span id="cb95-9"><a href="practice.html#cb95-9" tabindex="-1"></a>fibonacci</span>
+<span id="cb95-10"><a href="practice.html#cb95-10" tabindex="-1"></a><span class="co">#  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</span></span>
+<span id="cb95-11"><a href="practice.html#cb95-11" tabindex="-1"></a></span>
+<span id="cb95-12"><a href="practice.html#cb95-12" tabindex="-1"></a><span class="co"># Alternative with while loop</span></span>
+<span id="cb95-13"><a href="practice.html#cb95-13" tabindex="-1"></a>fibonacci <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb95-14"><a href="practice.html#cb95-14" tabindex="-1"></a></span>
+<span id="cb95-15"><a href="practice.html#cb95-15" tabindex="-1"></a><span class="cf">while</span>(<span class="fu">length</span>(fibonacci) <span class="sc">&lt;</span> n){</span>
+<span id="cb95-16"><a href="practice.html#cb95-16" tabindex="-1"></a>  new_num <span class="ot">&lt;-</span> fibonacci[<span class="fu">length</span>(fibonacci)] <span class="sc">+</span> fibonacci[<span class="fu">length</span>(fibonacci) <span class="sc">-</span> <span class="dv">1</span>]</span>
+<span id="cb95-17"><a href="practice.html#cb95-17" tabindex="-1"></a>  fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(fibonacci, new_num)</span>
+<span id="cb95-18"><a href="practice.html#cb95-18" tabindex="-1"></a>}</span>
+<span id="cb95-19"><a href="practice.html#cb95-19" tabindex="-1"></a>fibonacci</span>
+<span id="cb95-20"><a href="practice.html#cb95-20" tabindex="-1"></a><span class="co">#  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</span></span></code></pre></div>
+</div>
+</div>
+<div id="rmarkdown-start-your-document-in-a-certain-way-that-matches-the-template" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> RMarkdown: Start your document in a certain way that matches the template!<a href="practice.html#rmarkdown-start-your-document-in-a-certain-way-that-matches-the-template" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<p>Look at the example document shown below and try to re-create it!
+Be mindful of which elements need to be defined in the YAML header and which need to be modified in the text.</p>
 <div class="float">
-<img src="img/MArmdex.png" height="250" alt="MA thesis Example" />
-<div class="figcaption">MA thesis Example</div>
+<img src="img/Rmd-exc1.png" height="550" alt="Rmd Example Template" />
+<div class="figcaption">Rmd Example Template</div>
 </div>
-<div id="example-1" class="section level3 hasAnchor" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> Example<a href="intro-to-r-markdown.html#example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please create a demo RMarkdown document and "knit" it.
-<img src="img/rmd-click.png" id="id" class="class" height="140" alt="Create a demo Rmd" /> ... or go to File &gt; New File &gt; R Markdown to create a new Rmd document.
-Give it a name or keep all the defaults.
-It will create a document with some demo content.
-When you click the "knit"-button below the main menu, you will need to save the file and it will create the output.
-Try to play around with the text and read the demo content - it explains the basic functions!</p>
-<p>You can use the document you create now as a sort of cheatsheet and template for what you can do later.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="practice.html#cb96-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb96-2"><a href="practice.html#cb96-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Exercise 1&quot;</span></span>
+<span id="cb96-3"><a href="practice.html#cb96-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;A great author&quot;</span></span>
+<span id="cb96-4"><a href="practice.html#cb96-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;2024-07-02&quot;</span></span>
+<span id="cb96-5"><a href="practice.html#cb96-5" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb96-6"><a href="practice.html#cb96-6" tabindex="-1"></a>  pdf_document<span class="sc">:</span></span>
+<span id="cb96-7"><a href="practice.html#cb96-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb96-8"><a href="practice.html#cb96-8" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb96-9"><a href="practice.html#cb96-9" tabindex="-1"></a></span>
+<span id="cb96-10"><a href="practice.html#cb96-10" tabindex="-1"></a><span class="co"># First Chapter</span></span>
+<span id="cb96-11"><a href="practice.html#cb96-11" tabindex="-1"></a></span>
+<span id="cb96-12"><a href="practice.html#cb96-12" tabindex="-1"></a>Some text <span class="cf">in</span> <span class="sc">**</span>bold<span class="sc">**</span>.</span>
+<span id="cb96-13"><a href="practice.html#cb96-13" tabindex="-1"></a></span>
+<span id="cb96-14"><a href="practice.html#cb96-14" tabindex="-1"></a><span class="do">## A subchapter</span></span>
+<span id="cb96-15"><a href="practice.html#cb96-15" tabindex="-1"></a></span>
+<span id="cb96-16"><a href="practice.html#cb96-16" tabindex="-1"></a>Some text <span class="cf">in</span> _cursive_.</span>
+<span id="cb96-17"><a href="practice.html#cb96-17" tabindex="-1"></a></span>
+<span id="cb96-18"><a href="practice.html#cb96-18" tabindex="-1"></a><span class="co"># Second Chapter</span></span>
+<span id="cb96-19"><a href="practice.html#cb96-19" tabindex="-1"></a></span>
+<span id="cb96-20"><a href="practice.html#cb96-20" tabindex="-1"></a>Here is an overview of the iris dataset<span class="sc">:</span></span>
+<span id="cb96-21"><a href="practice.html#cb96-21" tabindex="-1"></a></span>
+<span id="cb96-22"><a href="practice.html#cb96-22" tabindex="-1"></a><span class="st">``</span>{r} <span class="co"># make sure to include three ` here!</span></span>
+<span id="cb96-23"><a href="practice.html#cb96-23" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="dv">3</span>)</span>
+<span id="cb96-24"><a href="practice.html#cb96-24" tabindex="-1"></a><span class="st">``</span></span></code></pre></div>
 </div>
+<div class="tenor-gif-embed" data-postid="11365139" data-share-method="host" data-aspect-ratio="1.42857" data-width="60%">
+<a href="https://tenor.com/view/hadley-wickham-rstats-typing-rcode-gif-11365139">Hadley Wickham GIF</a>from <a href="https://tenor.com/search/hadley-gifs">Hadley GIFs</a>
 </div>
-<div id="document-basics" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Document Basics<a href="intro-to-r-markdown.html#document-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><br></p>
-<ul>
-<li>RMarkdown has some basics that need to be learned</li>
-<li>It also has many features and powerful tools for layout and styling</li>
-<li>By default, RMarkdown can create html documents - if you want a pdf, you need a special package to render <span class="math inline">\(\LaTeX\)</span>, I recommend <code>tinytex</code>
-<ul>
-<li><code>install.packages("tinytex")</code></li>
-<li><code>tinytex::install_tinytex()</code></li>
-</ul></li>
-</ul>
-<div id="yaml-header-yet-another-markdown-language" class="section level3 hasAnchor" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> YAML header (<em>Yet Another Markdown Language</em>)<a href="intro-to-r-markdown.html#yaml-header-yet-another-markdown-language" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>This defines the output format of our document, e.g. <code>html_document</code></p></li>
-<li><p>We can set our title, subtitle, author, date...</p></li>
-<li><p>We can define further characteristics, e.g. <code>toc</code> (table of content) or <code>self-contained</code> (this should be set to true, otherwise R will not copy images etc. and the document will not work properly on other devices)</p></li>
-<li><p><i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-The YAML header needs to be indented in a certain way, otheriwse the commands are not recognized! </i></p></li>
-<li><p><i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-In the YAML header, <code>true</code> and <code>false</code> are not capitalized, unlike in the rest of R! </i></p></li>
-</ul>
-</div>
-<div id="markdown-basics" class="section level3 hasAnchor" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Markdown Basics<a href="intro-to-r-markdown.html#markdown-basics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br></p>
-<p>Text formatting generally works with characters in the text:</p>
-<ul>
-<li><em>italics</em> with _italics_</li>
-<li><strong>bold</strong> with **bold**</li>
-<li><strong><em>bold and cursive</em></strong> with **_bold and cursive_**</li>
-<li>Unordered lists are created with -</li>
-<li>Ordered lists with 1., 2. ...</li>
-</ul>
-</div>
-</div>
-<div id="heading-basics" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> ## Heading Basics<a href="intro-to-r-markdown.html#heading-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="sub-header-3.-level" class="section level3 hasAnchor" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> ### Sub Header 3. level<a href="intro-to-r-markdown.html#sub-header-3.-level" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="th-level" class="section level4 hasAnchor" number="10.3.1.1">
-<h4><span class="header-section-number">10.3.1.1</span> #### 4th level<a href="intro-to-r-markdown.html#th-level" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="th-level-1" class="section level5 hasAnchor" number="10.3.1.1.1">
-<h5><span class="header-section-number">10.3.1.1.1</span> ##### 5th level<a href="intro-to-r-markdown.html#th-level-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div id="th-level-2" class="section level6 hasAnchor" number="10.3.1.1.1.1">
-<h6><span class="header-section-number">10.3.1.1.1.1</span> ###### 6th level<a href="intro-to-r-markdown.html#th-level-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<p>Thats's it.</p>
-<p>Realistically, we <em>may</em> want to go down to the 4th level heading, but usually no further.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="special-features" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Special Features<a href="intro-to-r-markdown.html#special-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Print mathematical equations</li>
-<li>Show code and its output</li>
-<li>Easily use automatic formatting</li>
-<li>Profit from existing templates</li>
-<li>General rule of thumb: Rmd documents are rendered depending on their output format
-<ul>
-<li>If you plan on creating an html, you can use plain html to make adjustments and use special features.</li>
-<li>If you create a pdf, they will most likely not work and you should use <span class="math inline">\(\LaTeX\)</span> notation.</li>
-</ul></li>
-</ul>
-<div id="latex" class="section level3 hasAnchor" number="10.4.1">
-<h3><span class="header-section-number">10.4.1</span> <span class="math inline">\(\LaTeX\)</span><a href="intro-to-r-markdown.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Especially useful for writing equations:</p>
-<ul>
-<li>$ \ alpha $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\alpha\)</span></li>
-<li>$ \ beta $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\beta\)</span></li>
-<li>$ R^2 $ <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(R^2\)</span></li>
-<li>and, by the way, $ \ rightarrow $ becomes <span class="math inline">\(\rightarrow\)</span></li>
-<li>and $ \ LaTeX $ becomes <span class="math inline">\(\LaTeX\)</span></li>
-<li>\ newline creates a new line and \ newpage creates a new page</li>
-</ul>
-</div>
-<div id="html" class="section level3 hasAnchor" number="10.4.2">
-<h3><span class="header-section-number">10.4.2</span> HTML<a href="intro-to-r-markdown.html#html" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Remember these tags should only be used when creating a html document!</p>
-<ul>
-<li>&lt; br &gt; creates a new line (stands for "line break")</li>
-<li>&lt;span style="color: purple;"&gt; This text will appear purple. &lt;/span&gt;
-<ul>
-<li><span style="color: purple;"> This text will appear purple. </span></li>
-</ul></li>
-<li>Simple tables can be created with html notation in most documents
-<ul>
-<li>Header 1 | Header 2</li>
-<li><em>then a row of - - - | - - - to represent the lines</em></li>
-<li>And the content separated | into as many columns as defined</li>
-</ul></li>
-</ul>
-</div>
-<div id="table-example" class="section level3 hasAnchor" number="10.4.3">
-<h3><span class="header-section-number">10.4.3</span> Table Example<a href="intro-to-r-markdown.html#table-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br></p>
-<p>Header 1 | Header 2 <br>
------|----- <br>
-Great content | Fantastic content <br></p>
-<p><br> Becomes: <br></p>
-<table>
-<thead>
-<tr class="header">
-<th>Header 1</th>
-<th>Header 2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Great content</td>
-<td>Fantastic content</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="including-r" class="section level2 hasAnchor" number="10.5">
-<h2><span class="header-section-number">10.5</span> Including R<a href="intro-to-r-markdown.html#including-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><br></p>
-<ul>
-<li>Including R code can be achieved by either inserting so-called code chunks or using inline code</li>
-<li>Code chunks are useful if several lines of code need to be evaluated and/ or shown
-<ul>
-<li>There are many options for code chunks</li>
-</ul></li>
-<li>Inline code is useful if single outputs are to be shown
-<ul>
-<li>E.g. with functions you already know such as <code>apa_print()</code></li>
-</ul></li>
-</ul>
-<div id="code-chunks" class="section level3 hasAnchor" number="10.5.1">
-<h3><span class="header-section-number">10.5.1</span> Code Chunks<a href="intro-to-r-markdown.html#code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Code chunks are inserted via the menu Code &gt; Insert Chunk and should look like this:</li>
-<li>```{r} <br>
-# <em>code goes here</em> <br>
-```</li>
-<li><div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="intro-to-r-markdown.html#cb80-1" tabindex="-1"></a><span class="co"># code goes here</span></span></code></pre></div></li>
-<li>Or you can use the keyboard shortcut ctrl + alt + i / command + option + i</li>
-</ul>
-<div id="chunk-options" class="section level4 unnumbered hasAnchor">
-<h4>Chunk Options<a href="intro-to-r-markdown.html#chunk-options" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li><p>Inside the curly brackets, you can specify many different options, for example:</p>
-<ul>
-<li><code>fig.height = 3</code> will output a plot to a certain height (3 inches)</li>
-<li><code>echo = F</code> will show code output, but not the code</li>
-<li><code>eval = F</code> will show the code, but not its' output...</li>
-</ul></li>
-<li><p>eval = F:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="intro-to-r-markdown.html#cb81-1" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="dv">1</span>) </span></code></pre></div></li>
-<li><p>echo = F:</p>
-<pre><code>#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-# 1          5.1         3.5          1.4         0.2  setosa</code></pre></li>
-</ul>
-<div id="error-true" class="section level5 unnumbered hasAnchor">
-<h5><code>error = TRUE</code><a href="intro-to-r-markdown.html#error-true" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<ul>
-<li>This option allows us to include erroneous code in our script</li>
-<li>It will output the error message just like you would see in your R Studio console</li>
-<li>By default, <code>error = FALSE</code> which means that your script cannot be rendered with errors in code chunks</li>
-</ul>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="intro-to-r-markdown.html#cb83-1" tabindex="-1"></a><span class="fu">mean</span>(y)</span>
-<span id="cb83-2"><a href="intro-to-r-markdown.html#cb83-2" tabindex="-1"></a><span class="co"># [1] 5.5</span></span></code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<div id="wrap-up-further-resources-8" class="section level2 unnumbered hasAnchor">
-<h2>Wrap-Up &amp; Further Resources<a href="intro-to-r-markdown.html#wrap-up-further-resources-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<i class="fa-solid fa-anchor" style="color: teal;"></i>
-<ul style="color: teal;">
-<li>
-RMarkdown allows you to create professional documents
-</li>
-<li>
-You can use it like other text-generating programs (e.g. MS Word)
-</li>
-<li>
-Embed plots, code and statistical results directly in your document
-</li>
-<li>
-Show equations and use other special features
-</li>
-</ul>
-<p><br></p>
-<i class="fa-solid fa-book" style="color: orange;"></i>
-<ul style="color: orange;">
-<li>
-<a href="https://www.youtube.com/watch?v=asHhuHRxhvo&amp;ab_channel=EquitableEquations/">YouTube: What is R Markdown?</a>
-</li>
-<li>
-<a href="https://wch.github.io/latexsheet/">LaTeX Cheatsheet</a>
-</li>
-<li>
-<a href="https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf">HTML Cheatsheet</a>
-</li>
-<li>
-<a href="https://bookdown.org/yihui/rmarkdown-cookbook/">RMarkdown Cookbook</a>
-</li>
-<li>
-<a href="https://yihui.org/knitr/options/">RMarkdown Chunk Options</a>
-</li>
-<li>
-<a href="https://www.youtube.com/watch?v=01KifhHDkFk&amp;ab_channel=EquitableEquations">YouTube: Presentations with Quarto</a>
-</li>
-</ul>
-<div class="float">
-<img src="img/shakespeare.jpg" height="550" alt="Shakespeare writing RMarkdown" />
-<div class="figcaption">Shakespeare writing RMarkdown</div>
-</div>
-
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </div>
 </div>
 <script>
@@ -948,8 +783,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="association-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-power-of-r-r-markdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="wrap-up.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="toolbox.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -980,7 +815,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/the-tave/psych_research_in_r/issues/10_Intro_R-Markdown.Rmd",
+"link": "https://github.com/the-tave/psych_research_in_r/issues/12_Wrap_Up.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -46,6 +46,8 @@ At a glance:
 
 > The tidyverse is an opinionated **collection of R packages designed for data science**. All packages share an underlying design philosophy, grammar, and data structures. ([tidyverse.org](tidyverse.org))
 
+![Hex Logos](./img/hexagons.png){height=200px}
+
 So packages are pretty cool: They usually come from people who had a specific problem, found a solution and decided to share it with others so they can more easily fix new problems.
 Of course everyone has a different preference on how to work, which is why not every package and function will be intuitive to everyone.
 That is also why the definition of an "opinionated collection of R packages" is so fitting because the `tidyverse` is a framework consisting of many different packages that the authors find intuitive and useful.
@@ -55,7 +57,7 @@ If you figure out at some point that your prefer another way - that's great, but
 
 The structure of the `tidyverse` packages is very clear and they each serve a distinct purpose.
 Taking a real-life workflow as inspiration, we will first get to know `dplyr`, a package for cleaning up data and editing everything to your needs in this chapter and later get to know `ggplot2` as a package for data visualization in Chapter \@ref(ggplot2).
-One of the big advantages of the `tidyverse` packages is that the can be combined very easily, creating easy-to-read and -write workflows that you will probably still be able to understand one year after you wrote it^[Being able to read your own code after a while is already challenging but try making sense of code that someone else has written!]
+One of the big advantages of the `tidyverse` packages is that the can be combined very easily, creating easy-to-read and -write workflows that you will probably still be able to understand one year after you wrote it.^[Being able to read your own code after a while is already challenging but try making sense of code that someone else has written!]
 
 ### What is `dplyr`? ![dplyr logo](./img/dplyr.png){height=80px}
 

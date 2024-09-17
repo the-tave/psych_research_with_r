@@ -193,7 +193,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#basics-1"><i class="fa fa-check"></i><b>2.1</b> Basics</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i><b>2.1.1</b> Basic Functions</a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i>Basic Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#logic"><i class="fa fa-check"></i><b>2.2</b> Logic</a></li>
 <li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#reading-error-messages"><i class="fa fa-check"></i><b>2.3</b> Reading Error Messages</a>
@@ -464,8 +464,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html"><i class="fa fa-check"></i>Toolbox</a>
 <ul>
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#shortcuts"><i class="fa fa-check"></i>Keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="11.6" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i><b>11.6</b> Reading in Data</a></li>
-<li class="chapter" data-level="11.7" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i><b>11.7</b> Logic</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i>Reading in Data</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i>Logic</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -532,14 +532,14 @@ In this case the will have .Rds as the file extension.
 A special case of this is when data frames are included in base-R or in a package.
 For example, the dataset called <code>iris</code> comes with R as an example dataset.</p>
 <p>Therefore, we can run a function on it without having to load it at all:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="exdata.html#cb27-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
-<span id="cb27-2"><a href="exdata.html#cb27-2" tabindex="-1"></a><span class="co">#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
-<span id="cb27-3"><a href="exdata.html#cb27-3" tabindex="-1"></a><span class="co"># 1          5.1         3.5          1.4         0.2  setosa</span></span>
-<span id="cb27-4"><a href="exdata.html#cb27-4" tabindex="-1"></a><span class="co"># 2          4.9         3.0          1.4         0.2  setosa</span></span>
-<span id="cb27-5"><a href="exdata.html#cb27-5" tabindex="-1"></a><span class="co"># 3          4.7         3.2          1.3         0.2  setosa</span></span>
-<span id="cb27-6"><a href="exdata.html#cb27-6" tabindex="-1"></a><span class="co"># 4          4.6         3.1          1.5         0.2  setosa</span></span>
-<span id="cb27-7"><a href="exdata.html#cb27-7" tabindex="-1"></a><span class="co"># 5          5.0         3.6          1.4         0.2  setosa</span></span>
-<span id="cb27-8"><a href="exdata.html#cb27-8" tabindex="-1"></a><span class="co"># 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="exdata.html#cb39-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
+<span id="cb39-2"><a href="exdata.html#cb39-2" tabindex="-1"></a><span class="co">#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb39-3"><a href="exdata.html#cb39-3" tabindex="-1"></a><span class="co"># 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span id="cb39-4"><a href="exdata.html#cb39-4" tabindex="-1"></a><span class="co"># 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span id="cb39-5"><a href="exdata.html#cb39-5" tabindex="-1"></a><span class="co"># 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span id="cb39-6"><a href="exdata.html#cb39-6" tabindex="-1"></a><span class="co"># 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span id="cb39-7"><a href="exdata.html#cb39-7" tabindex="-1"></a><span class="co"># 5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span id="cb39-8"><a href="exdata.html#cb39-8" tabindex="-1"></a><span class="co"># 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
 <p>Depending on which type of data we want to work with, there are different ways of loading the data into R.</p>
 </div>
 <div id="reading-in-the-data" class="section level2 hasAnchor" number="5.3">
@@ -583,10 +583,10 @@ However, this is much easier done by just using simple commands directly in your
 <!-- # edited_data <- edited_data |> select(-starts_with("vi_")) -->
 <!-- # write_csv(edited_data, "data/seminar_data_raw.csv") -->
 <!-- # ``` -->
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="exdata.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb28-2"><a href="exdata.html#cb28-2" tabindex="-1"></a>seminar_data_raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/seminar_data_raw.csv&quot;</span>, </span>
-<span id="cb28-3"><a href="exdata.html#cb28-3" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-4"><a href="exdata.html#cb28-4" tabindex="-1"></a><span class="fu">View</span>(seminar_data_raw)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="exdata.html#cb40-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb40-2"><a href="exdata.html#cb40-2" tabindex="-1"></a>seminar_data_raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/seminar_data_raw.csv&quot;</span>, </span>
+<span id="cb40-3"><a href="exdata.html#cb40-3" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-4"><a href="exdata.html#cb40-4" tabindex="-1"></a><span class="fu">View</span>(seminar_data_raw)</span></code></pre></div>
 </div>
 </div>
 <div id="basic-edits" class="section level3 hasAnchor" number="5.3.2">
@@ -607,18 +607,18 @@ However, this is much easier done by just using simple commands directly in your
 <h3><span class="header-section-number">5.3.3</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="exdata.html#basic-edits-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="result" class="section level4 hasAnchor" number="5.3.3.1">
 <h4><span class="header-section-number">5.3.3.1</span> Result<a href="exdata.html#result" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="exdata.html#cb29-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb29-2"><a href="exdata.html#cb29-2" tabindex="-1"></a><span class="fu">library</span>(wobblynameR)</span>
-<span id="cb29-3"><a href="exdata.html#cb29-3" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="exdata.html#cb29-4" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;./data/seminar_data_raw.csv&quot;</span>, </span>
-<span id="cb29-5"><a href="exdata.html#cb29-5" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb29-6"><a href="exdata.html#cb29-6" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.wx.5.start_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>),</span>
-<span id="cb29-7"><a href="exdata.html#cb29-7" tabindex="-1"></a>                     <span class="at">.wx.7.end_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>), </span>
-<span id="cb29-8"><a href="exdata.html#cb29-8" tabindex="-1"></a>                     <span class="at">...24 =</span> <span class="fu">col_skip</span>()),</span>
-<span id="cb29-9"><a href="exdata.html#cb29-9" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-10"><a href="exdata.html#cb29-10" tabindex="-1"></a></span>
-<span id="cb29-11"><a href="exdata.html#cb29-11" tabindex="-1"></a><span class="co"># Add &quot;v&quot; as varname prefix to all variables</span></span>
-<span id="cb29-12"><a href="exdata.html#cb29-12" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">namepref0</span>(raw, <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="exdata.html#cb41-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb41-2"><a href="exdata.html#cb41-2" tabindex="-1"></a><span class="fu">library</span>(wobblynameR)</span>
+<span id="cb41-3"><a href="exdata.html#cb41-3" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="exdata.html#cb41-4" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;./data/seminar_data_raw.csv&quot;</span>, </span>
+<span id="cb41-5"><a href="exdata.html#cb41-5" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb41-6"><a href="exdata.html#cb41-6" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.wx.5.start_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>),</span>
+<span id="cb41-7"><a href="exdata.html#cb41-7" tabindex="-1"></a>                     <span class="at">.wx.7.end_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>), </span>
+<span id="cb41-8"><a href="exdata.html#cb41-8" tabindex="-1"></a>                     <span class="at">...24 =</span> <span class="fu">col_skip</span>()),</span>
+<span id="cb41-9"><a href="exdata.html#cb41-9" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-10"><a href="exdata.html#cb41-10" tabindex="-1"></a></span>
+<span id="cb41-11"><a href="exdata.html#cb41-11" tabindex="-1"></a><span class="co"># Add &quot;v&quot; as varname prefix to all variables</span></span>
+<span id="cb41-12"><a href="exdata.html#cb41-12" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">namepref0</span>(raw, <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -674,19 +674,19 @@ Show the solutions
 </ol></li>
 </ul>
 <!-- ### Example: group_by & summarize -->
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="exdata.html#cb30-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a href="exdata.html#cb30-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb30-3"><a href="exdata.html#cb30-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
-<span id="cb30-4"><a href="exdata.html#cb30-4" tabindex="-1"></a>            <span class="at">med_pwidth =</span> <span class="fu">median</span>(Petal.Width),</span>
-<span id="cb30-5"><a href="exdata.html#cb30-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb30-6"><a href="exdata.html#cb30-6" tabindex="-1"></a>            <span class="at">mode_swidth =</span> <span class="fu">getmode</span>(Sepal.Width),</span>
-<span id="cb30-7"><a href="exdata.html#cb30-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb30-8"><a href="exdata.html#cb30-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb30-9"><a href="exdata.html#cb30-9" tabindex="-1"></a><span class="co">#   Species    m_plength med_pwidth m_slength mode_swidth     n</span></span>
-<span id="cb30-10"><a href="exdata.html#cb30-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb30-11"><a href="exdata.html#cb30-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46        0.2      5.01         3.4    50</span></span>
-<span id="cb30-12"><a href="exdata.html#cb30-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26        1.3      5.94         3      50</span></span>
-<span id="cb30-13"><a href="exdata.html#cb30-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55        2        6.59         3      50</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="exdata.html#cb42-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="exdata.html#cb42-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb42-3"><a href="exdata.html#cb42-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
+<span id="cb42-4"><a href="exdata.html#cb42-4" tabindex="-1"></a>            <span class="at">med_pwidth =</span> <span class="fu">median</span>(Petal.Width),</span>
+<span id="cb42-5"><a href="exdata.html#cb42-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb42-6"><a href="exdata.html#cb42-6" tabindex="-1"></a>            <span class="at">mode_swidth =</span> <span class="fu">getmode</span>(Sepal.Width),</span>
+<span id="cb42-7"><a href="exdata.html#cb42-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb42-8"><a href="exdata.html#cb42-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
+<span id="cb42-9"><a href="exdata.html#cb42-9" tabindex="-1"></a><span class="co">#   Species    m_plength med_pwidth m_slength mode_swidth     n</span></span>
+<span id="cb42-10"><a href="exdata.html#cb42-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb42-11"><a href="exdata.html#cb42-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46        0.2      5.01         3.4    50</span></span>
+<span id="cb42-12"><a href="exdata.html#cb42-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26        1.3      5.94         3      50</span></span>
+<span id="cb42-13"><a href="exdata.html#cb42-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55        2        6.59         3      50</span></span></code></pre></div>
 </div>
 </div>
 <div id="exercises-2" class="section level2 hasAnchor" number="5.6">
@@ -706,19 +706,19 @@ Follow the structure to group the edited seminar data by belief in the soul and 
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="exdata.html#cb31-1" tabindex="-1"></a>seminar <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="exdata.html#cb31-2" tabindex="-1"></a>  <span class="fu">group_by</span>(v11_soul) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href="exdata.html#cb31-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(v02_age),</span>
-<span id="cb31-4"><a href="exdata.html#cb31-4" tabindex="-1"></a>            <span class="at">m_tech_skill =</span> <span class="fu">mean</span>(v05_skill_tech),</span>
-<span id="cb31-5"><a href="exdata.html#cb31-5" tabindex="-1"></a>            <span class="at">mode_music =</span> <span class="fu">getmode</span>(v07_genre),</span>
-<span id="cb31-6"><a href="exdata.html#cb31-6" tabindex="-1"></a>            <span class="at">median_volume =</span> <span class="fu">median</span>(v08_loudness),</span>
-<span id="cb31-7"><a href="exdata.html#cb31-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb31-8"><a href="exdata.html#cb31-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb31-9"><a href="exdata.html#cb31-9" tabindex="-1"></a><span class="co">#   v11_soul m_age m_tech_skill mode_music median_volume     n</span></span>
-<span id="cb31-10"><a href="exdata.html#cb31-10" tabindex="-1"></a><span class="co">#   &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb31-11"><a href="exdata.html#cb31-11" tabindex="-1"></a><span class="co"># 1 dunno     23.4         29.4 techno              89       5</span></span>
-<span id="cb31-12"><a href="exdata.html#cb31-12" tabindex="-1"></a><span class="co"># 2 no        22           45   pop                 74.5     2</span></span>
-<span id="cb31-13"><a href="exdata.html#cb31-13" tabindex="-1"></a><span class="co"># 3 yes       22.5         42   rock                67.5     6</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="exdata.html#cb43-1" tabindex="-1"></a>seminar <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="exdata.html#cb43-2" tabindex="-1"></a>  <span class="fu">group_by</span>(v11_soul) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a href="exdata.html#cb43-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(v02_age),</span>
+<span id="cb43-4"><a href="exdata.html#cb43-4" tabindex="-1"></a>            <span class="at">m_tech_skill =</span> <span class="fu">mean</span>(v05_skill_tech),</span>
+<span id="cb43-5"><a href="exdata.html#cb43-5" tabindex="-1"></a>            <span class="at">mode_music =</span> <span class="fu">getmode</span>(v07_genre),</span>
+<span id="cb43-6"><a href="exdata.html#cb43-6" tabindex="-1"></a>            <span class="at">median_volume =</span> <span class="fu">median</span>(v08_loudness),</span>
+<span id="cb43-7"><a href="exdata.html#cb43-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb43-8"><a href="exdata.html#cb43-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
+<span id="cb43-9"><a href="exdata.html#cb43-9" tabindex="-1"></a><span class="co">#   v11_soul m_age m_tech_skill mode_music median_volume     n</span></span>
+<span id="cb43-10"><a href="exdata.html#cb43-10" tabindex="-1"></a><span class="co">#   &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb43-11"><a href="exdata.html#cb43-11" tabindex="-1"></a><span class="co"># 1 dunno     23.4         29.4 techno              89       5</span></span>
+<span id="cb43-12"><a href="exdata.html#cb43-12" tabindex="-1"></a><span class="co"># 2 no        22           45   pop                 74.5     2</span></span>
+<span id="cb43-13"><a href="exdata.html#cb43-13" tabindex="-1"></a><span class="co"># 3 yes       22.5         42   rock                67.5     6</span></span></code></pre></div>
 </div>
 </div>
 <div id="prepare-seminar-data" class="section level3 hasAnchor" number="5.6.2">
@@ -741,24 +741,24 @@ You can try to figure them out on your own and later look at the solution below.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="exdata.html#cb32-1" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> seminar <span class="sc">|&gt;</span> </span>
-<span id="cb32-2"><a href="exdata.html#cb32-2" tabindex="-1"></a>  <span class="co"># 1. Change date format </span></span>
-<span id="cb32-3"><a href="exdata.html#cb32-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">4.</span>start_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>),</span>
-<span id="cb32-4"><a href="exdata.html#cb32-4" tabindex="-1"></a>         <span class="at">end =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">7.</span>end_date, v.wx.<span class="fl">6.</span>end_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>), </span>
-<span id="cb32-5"><a href="exdata.html#cb32-5" tabindex="-1"></a>         <span class="at">.before =</span> v01_gender) <span class="sc">%&gt;%</span> <span class="co"># it is more efficient to have date and time together</span></span>
-<span id="cb32-6"><a href="exdata.html#cb32-6" tabindex="-1"></a>  <span class="co"># 2. Remove (now) unnecessary original date vars </span></span>
-<span id="cb32-7"><a href="exdata.html#cb32-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(v.wx.<span class="fl">4.</span>start_time, v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">6.</span>end_time, v.wx.<span class="fl">7.</span>end_date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-8"><a href="exdata.html#cb32-8" tabindex="-1"></a>  <span class="co"># 3. Change missing value to &quot;don&#39;t know&quot; - in this case makes sense in context</span></span>
-<span id="cb32-9"><a href="exdata.html#cb32-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">v12_soul_phil =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(v12_soul_phil), <span class="st">&quot;dunno&quot;</span>, v12_soul_phil)) <span class="sc">|&gt;</span> </span>
-<span id="cb32-10"><a href="exdata.html#cb32-10" tabindex="-1"></a>  <span class="co"># 4. Rename the ID &amp; session length variable</span></span>
-<span id="cb32-11"><a href="exdata.html#cb32-11" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ID =</span> v.wx.<span class="fl">1.</span>id,</span>
-<span id="cb32-12"><a href="exdata.html#cb32-12" tabindex="-1"></a>         <span class="at">session_length =</span> v.wx.<span class="fl">8.</span>session_length)</span>
-<span id="cb32-13"><a href="exdata.html#cb32-13" tabindex="-1"></a></span>
-<span id="cb32-14"><a href="exdata.html#cb32-14" tabindex="-1"></a><span class="co"># 5. Make data type explicit</span></span>
-<span id="cb32-15"><a href="exdata.html#cb32-15" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(seminar)</span>
-<span id="cb32-16"><a href="exdata.html#cb32-16" tabindex="-1"></a></span>
-<span id="cb32-17"><a href="exdata.html#cb32-17" tabindex="-1"></a><span class="co"># 6. Save edited data frame in Rds format</span></span>
-<span id="cb32-18"><a href="exdata.html#cb32-18" tabindex="-1"></a><span class="fu">saveRDS</span>(seminar, <span class="st">&quot;./data/seminar_data.Rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="exdata.html#cb44-1" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> seminar <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a href="exdata.html#cb44-2" tabindex="-1"></a>  <span class="co"># 1. Change date format </span></span>
+<span id="cb44-3"><a href="exdata.html#cb44-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">4.</span>start_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>),</span>
+<span id="cb44-4"><a href="exdata.html#cb44-4" tabindex="-1"></a>         <span class="at">end =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">7.</span>end_date, v.wx.<span class="fl">6.</span>end_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>), </span>
+<span id="cb44-5"><a href="exdata.html#cb44-5" tabindex="-1"></a>         <span class="at">.before =</span> v01_gender) <span class="sc">%&gt;%</span> <span class="co"># it is more efficient to have date and time together</span></span>
+<span id="cb44-6"><a href="exdata.html#cb44-6" tabindex="-1"></a>  <span class="co"># 2. Remove (now) unnecessary original date vars </span></span>
+<span id="cb44-7"><a href="exdata.html#cb44-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(v.wx.<span class="fl">4.</span>start_time, v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">6.</span>end_time, v.wx.<span class="fl">7.</span>end_date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-8"><a href="exdata.html#cb44-8" tabindex="-1"></a>  <span class="co"># 3. Change missing value to &quot;don&#39;t know&quot; - in this case makes sense in context</span></span>
+<span id="cb44-9"><a href="exdata.html#cb44-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">v12_soul_phil =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(v12_soul_phil), <span class="st">&quot;dunno&quot;</span>, v12_soul_phil)) <span class="sc">|&gt;</span> </span>
+<span id="cb44-10"><a href="exdata.html#cb44-10" tabindex="-1"></a>  <span class="co"># 4. Rename the ID &amp; session length variable</span></span>
+<span id="cb44-11"><a href="exdata.html#cb44-11" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ID =</span> v.wx.<span class="fl">1.</span>id,</span>
+<span id="cb44-12"><a href="exdata.html#cb44-12" tabindex="-1"></a>         <span class="at">session_length =</span> v.wx.<span class="fl">8.</span>session_length)</span>
+<span id="cb44-13"><a href="exdata.html#cb44-13" tabindex="-1"></a></span>
+<span id="cb44-14"><a href="exdata.html#cb44-14" tabindex="-1"></a><span class="co"># 5. Make data type explicit</span></span>
+<span id="cb44-15"><a href="exdata.html#cb44-15" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(seminar)</span>
+<span id="cb44-16"><a href="exdata.html#cb44-16" tabindex="-1"></a></span>
+<span id="cb44-17"><a href="exdata.html#cb44-17" tabindex="-1"></a><span class="co"># 6. Save edited data frame in Rds format</span></span>
+<span id="cb44-18"><a href="exdata.html#cb44-18" tabindex="-1"></a><span class="fu">saveRDS</span>(seminar, <span class="st">&quot;./data/seminar_data.Rds&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>

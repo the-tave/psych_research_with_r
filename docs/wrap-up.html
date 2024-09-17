@@ -193,7 +193,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#basics-1"><i class="fa fa-check"></i><b>2.1</b> Basics</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i><b>2.1.1</b> Basic Functions</a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i>Basic Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#logic"><i class="fa fa-check"></i><b>2.2</b> Logic</a></li>
 <li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#reading-error-messages"><i class="fa fa-check"></i><b>2.3</b> Reading Error Messages</a>
@@ -464,8 +464,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html"><i class="fa fa-check"></i>Toolbox</a>
 <ul>
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#shortcuts"><i class="fa fa-check"></i>Keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="11.6" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i><b>11.6</b> Reading in Data</a></li>
-<li class="chapter" data-level="11.7" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i><b>11.7</b> Logic</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i>Reading in Data</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i>Logic</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -508,7 +508,7 @@ I hope to keep improving this intro and possibly adding to it, so I would also l
 <p>So, here are my last pieces of wisdom inspired by things I learned and people I met at the <a href="https://events.linuxfoundation.org/user/">useR! conference 2024</a>:</p>
 <div id="many-people-are-working-on-many-great-projects." class="section level2 unnumbered hasAnchor">
 <h2>Many people are working on many great projects.<a href="wrap-up.html#many-people-are-working-on-many-great-projects." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="wrap-up.html#cb92-1" tabindex="-1"></a>ohwhaley<span class="sc">::</span><span class="fu">say</span>(<span class="st">&quot;Thanks to Fonti Kar for this sweet whale package!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="wrap-up.html#cb104-1" tabindex="-1"></a>ohwhaley<span class="sc">::</span><span class="fu">say</span>(<span class="st">&quot;Thanks to Fonti Kar for this sweet whale package!&quot;</span>)</span></code></pre></div>
 </div>
 <div id="r-can-be-hard." class="section level2 unnumbered hasAnchor">
 <h2>R can be hard.<a href="wrap-up.html#r-can-be-hard." class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -532,21 +532,21 @@ Maybe you need to report a lot of your code and show visualizations in your thes
 <h2>R is really fun!<a href="wrap-up.html#r-is-really-fun" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are many reasons why so many people in so many fields of expertise choose this weird language<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> as their primary means of communication.
 One of them is definitely the powerful yet sometimes completely silly and useless things you can do with it (Thanks to Scott Chamberlain and Amanda Dobbyn for the package!):</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="wrap-up.html#cb93-1" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="st">&quot;What the duck is this?&quot;</span>, <span class="at">by =</span> <span class="st">&quot;duck&quot;</span>)</span>
-<span id="cb93-2"><a href="wrap-up.html#cb93-2" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb93-3"><a href="wrap-up.html#cb93-3" tabindex="-1"></a><span class="co">#  ----- </span></span>
-<span id="cb93-4"><a href="wrap-up.html#cb93-4" tabindex="-1"></a><span class="co"># What the duck is this? </span></span>
-<span id="cb93-5"><a href="wrap-up.html#cb93-5" tabindex="-1"></a><span class="co">#  ------ </span></span>
-<span id="cb93-6"><a href="wrap-up.html#cb93-6" tabindex="-1"></a><span class="co">#     \   </span></span>
-<span id="cb93-7"><a href="wrap-up.html#cb93-7" tabindex="-1"></a><span class="co">#      \  </span></span>
-<span id="cb93-8"><a href="wrap-up.html#cb93-8" tabindex="-1"></a><span class="co">#       \</span></span>
-<span id="cb93-9"><a href="wrap-up.html#cb93-9" tabindex="-1"></a><span class="co">#          __</span></span>
-<span id="cb93-10"><a href="wrap-up.html#cb93-10" tabindex="-1"></a><span class="co">#         /o \</span></span>
-<span id="cb93-11"><a href="wrap-up.html#cb93-11" tabindex="-1"></a><span class="co">#       &lt;=   |         ==</span></span>
-<span id="cb93-12"><a href="wrap-up.html#cb93-12" tabindex="-1"></a><span class="co">#         |__|        /===</span></span>
-<span id="cb93-13"><a href="wrap-up.html#cb93-13" tabindex="-1"></a><span class="co">#         |   \______/  =</span></span>
-<span id="cb93-14"><a href="wrap-up.html#cb93-14" tabindex="-1"></a><span class="co">#         \     ====   /</span></span>
-<span id="cb93-15"><a href="wrap-up.html#cb93-15" tabindex="-1"></a><span class="co">#          \__________/     [ab]</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="wrap-up.html#cb105-1" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="st">&quot;What the duck is this?&quot;</span>, <span class="at">by =</span> <span class="st">&quot;duck&quot;</span>)</span>
+<span id="cb105-2"><a href="wrap-up.html#cb105-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb105-3"><a href="wrap-up.html#cb105-3" tabindex="-1"></a><span class="co">#  ----- </span></span>
+<span id="cb105-4"><a href="wrap-up.html#cb105-4" tabindex="-1"></a><span class="co"># What the duck is this? </span></span>
+<span id="cb105-5"><a href="wrap-up.html#cb105-5" tabindex="-1"></a><span class="co">#  ------ </span></span>
+<span id="cb105-6"><a href="wrap-up.html#cb105-6" tabindex="-1"></a><span class="co">#     \   </span></span>
+<span id="cb105-7"><a href="wrap-up.html#cb105-7" tabindex="-1"></a><span class="co">#      \  </span></span>
+<span id="cb105-8"><a href="wrap-up.html#cb105-8" tabindex="-1"></a><span class="co">#       \</span></span>
+<span id="cb105-9"><a href="wrap-up.html#cb105-9" tabindex="-1"></a><span class="co">#          __</span></span>
+<span id="cb105-10"><a href="wrap-up.html#cb105-10" tabindex="-1"></a><span class="co">#         /o \</span></span>
+<span id="cb105-11"><a href="wrap-up.html#cb105-11" tabindex="-1"></a><span class="co">#       &lt;=   |         ==</span></span>
+<span id="cb105-12"><a href="wrap-up.html#cb105-12" tabindex="-1"></a><span class="co">#         |__|        /===</span></span>
+<span id="cb105-13"><a href="wrap-up.html#cb105-13" tabindex="-1"></a><span class="co">#         |   \______/  =</span></span>
+<span id="cb105-14"><a href="wrap-up.html#cb105-14" tabindex="-1"></a><span class="co">#         \     ====   /</span></span>
+<span id="cb105-15"><a href="wrap-up.html#cb105-15" tabindex="-1"></a><span class="co">#          \__________/     [ab]</span></span></code></pre></div>
 <!-- ## "Pub" Quiz - Which function is missing? & Logos -->
 <!-- Work in groups of 2-3 and submit your answers via kahoot.  -->
 <!-- You will see some code snippets where the function name is missing - which is it?  -->
@@ -558,10 +558,10 @@ One of them is definitely the powerful yet sometimes completely silly and useles
 <h2>Outlook<a href="wrap-up.html#outlook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Keep teaching yourself R - you have a lot of great resources!
 And keep an open mind to keep finding cool features, such as the <code>emphatic</code> package, which lets you color rows in tables very easily.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="wrap-up.html#cb94-1" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
-<span id="cb94-2"><a href="wrap-up.html#cb94-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">|&gt;</span> </span>
-<span id="cb94-3"><a href="wrap-up.html#cb94-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Mean_Sepal_Length =</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">|&gt;</span> </span>
-<span id="cb94-4"><a href="wrap-up.html#cb94-4" tabindex="-1"></a>  emphatic<span class="sc">::</span><span class="fu">hl</span>(<span class="fu">c</span>(<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;violet&quot;</span>, <span class="st">&quot;hotpink&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="wrap-up.html#cb106-1" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb106-2"><a href="wrap-up.html#cb106-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">|&gt;</span> </span>
+<span id="cb106-3"><a href="wrap-up.html#cb106-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Mean_Sepal_Length =</span> <span class="fu">mean</span>(Sepal.Length)) <span class="sc">|&gt;</span> </span>
+<span id="cb106-4"><a href="wrap-up.html#cb106-4" tabindex="-1"></a>  emphatic<span class="sc">::</span><span class="fu">hl</span>(<span class="fu">c</span>(<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;violet&quot;</span>, <span class="st">&quot;hotpink&quot;</span>))</span></code></pre></div>
 <pre style=''>
 <span style='text-decoration:underline;'>       Species Mean_Sepal_Length</span><br/>1  <span style='color:#ffffff;'><span style='background-color:#a020f0;'>     setosa</span></span><span style='color:#ffffff;'><span style='background-color:#a020f0;'>             5.006</span></span><br/>2  <span style='color:#000000;'><span style='background-color:#ee82ee;'> versicolor</span></span><span style='color:#000000;'><span style='background-color:#ee82ee;'>             5.936</span></span><br/>3  <span style='color:#000000;'><span style='background-color:#ff69b4;'>  virginica</span></span><span style='color:#000000;'><span style='background-color:#ff69b4;'>             6.588</span></span><br/>
 </pre>

@@ -203,7 +203,7 @@ The toolbox contains a collection of nifty tips, tricks and hacks for anything R
 | Comment out line      | Ctrl + Shift + C / Cmd + Shift + C |
 | Save your script      | Ctrl + S / Cmd + S                 |
 
-## Reading in Data 
+## Reading in Data {-}
 
 Data Source | R command
 ------|------
@@ -212,7 +212,7 @@ Excel (XLSX) | `xlsx::read.xlsx("data.xlsx", sheetIndex = 1)`
 R Data Source (RDS) | `readRDS("data.Rds")`
 SPSS (SAV) | `foreign::read.spss("data.sav")`
 
-## Logic
+## Logic {-}
 
 Symbol | Meaning
 -------|--------

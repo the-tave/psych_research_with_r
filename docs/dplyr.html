@@ -193,7 +193,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#basics-1"><i class="fa fa-check"></i><b>2.1</b> Basics</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i><b>2.1.1</b> Basic Functions</a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i>Basic Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#logic"><i class="fa fa-check"></i><b>2.2</b> Logic</a></li>
 <li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#reading-error-messages"><i class="fa fa-check"></i><b>2.3</b> Reading Error Messages</a>
@@ -464,8 +464,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html"><i class="fa fa-check"></i>Toolbox</a>
 <ul>
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#shortcuts"><i class="fa fa-check"></i>Keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="11.6" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i><b>11.6</b> Reading in Data</a></li>
-<li class="chapter" data-level="11.7" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i><b>11.7</b> Logic</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i>Reading in Data</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i>Logic</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -567,14 +567,14 @@ Also check the <a href="dplyr.html#wrapupdplyr">further resources</a> and an ove
 </div>
 <p>We introduced the <code>iris</code> data set in Section <a href="basics.html#basics">2</a> - a native R data set that you can just access without needing to load anything.
 It contains information on iris flowers of different species and we will use the <code>glimpse()</code> function from <code>dplyr</code> to get a first overview of the data we have at hand:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="dplyr.html#cb16-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(iris)</span>
-<span id="cb16-2"><a href="dplyr.html#cb16-2" tabindex="-1"></a><span class="co"># Rows: 150</span></span>
-<span id="cb16-3"><a href="dplyr.html#cb16-3" tabindex="-1"></a><span class="co"># Columns: 5</span></span>
-<span id="cb16-4"><a href="dplyr.html#cb16-4" tabindex="-1"></a><span class="co"># $ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.…</span></span>
-<span id="cb16-5"><a href="dplyr.html#cb16-5" tabindex="-1"></a><span class="co"># $ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.…</span></span>
-<span id="cb16-6"><a href="dplyr.html#cb16-6" tabindex="-1"></a><span class="co"># $ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.…</span></span>
-<span id="cb16-7"><a href="dplyr.html#cb16-7" tabindex="-1"></a><span class="co"># $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.…</span></span>
-<span id="cb16-8"><a href="dplyr.html#cb16-8" tabindex="-1"></a><span class="co"># $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="dplyr.html#cb28-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(iris)</span>
+<span id="cb28-2"><a href="dplyr.html#cb28-2" tabindex="-1"></a><span class="co"># Rows: 150</span></span>
+<span id="cb28-3"><a href="dplyr.html#cb28-3" tabindex="-1"></a><span class="co"># Columns: 5</span></span>
+<span id="cb28-4"><a href="dplyr.html#cb28-4" tabindex="-1"></a><span class="co"># $ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.…</span></span>
+<span id="cb28-5"><a href="dplyr.html#cb28-5" tabindex="-1"></a><span class="co"># $ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.…</span></span>
+<span id="cb28-6"><a href="dplyr.html#cb28-6" tabindex="-1"></a><span class="co"># $ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.…</span></span>
+<span id="cb28-7"><a href="dplyr.html#cb28-7" tabindex="-1"></a><span class="co"># $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.…</span></span>
+<span id="cb28-8"><a href="dplyr.html#cb28-8" tabindex="-1"></a><span class="co"># $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</span></span></code></pre></div>
 <div id="imagine..." class="section level3 unnumbered hasAnchor">
 <h3>Imagine...<a href="dplyr.html#imagine..." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When working with "real" data, aka survey or experimental data, we will usually need to reshape, filter and generally edit the data a bit.
@@ -588,17 +588,17 @@ This may sound a bit sketchy at first, but we do not want to fake or change any 
 </ol>
 <p>Using <code>dplyr</code> functions, we can easily achieve all these goals in a few lines of code.
 We will go more into depth</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="dplyr.html#cb17-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb17-2"><a href="dplyr.html#cb17-2" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="dplyr.html#cb17-3" tabindex="-1"></a>iris_virginica <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="co"># create new data set as copy</span></span>
-<span id="cb17-4"><a href="dplyr.html#cb17-4" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># 1. only virginica</span></span>
-<span id="cb17-5"><a href="dplyr.html#cb17-5" tabindex="-1"></a>  <span class="fu">select</span>(Petal.Length, Species)  <span class="sc">%&gt;%</span> <span class="co"># 2. select columns </span></span>
-<span id="cb17-6"><a href="dplyr.html#cb17-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">plength =</span> Petal.Length) <span class="co"># 3. rename variable/column</span></span>
-<span id="cb17-7"><a href="dplyr.html#cb17-7" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="dplyr.html#cb17-8" tabindex="-1"></a><span class="fu">str</span>(iris_virginica)</span>
-<span id="cb17-9"><a href="dplyr.html#cb17-9" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 50 obs. of  2 variables:</span></span>
-<span id="cb17-10"><a href="dplyr.html#cb17-10" tabindex="-1"></a><span class="co">#  $ plength: num  6 5.1 5.9 5.6 5.8 6.6 4.5 6.3 5.8 6.1 ...</span></span>
-<span id="cb17-11"><a href="dplyr.html#cb17-11" tabindex="-1"></a><span class="co">#  $ Species: Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="dplyr.html#cb29-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb29-2"><a href="dplyr.html#cb29-2" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="dplyr.html#cb29-3" tabindex="-1"></a>iris_virginica <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="co"># create new data set as copy</span></span>
+<span id="cb29-4"><a href="dplyr.html#cb29-4" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># 1. only virginica</span></span>
+<span id="cb29-5"><a href="dplyr.html#cb29-5" tabindex="-1"></a>  <span class="fu">select</span>(Petal.Length, Species)  <span class="sc">%&gt;%</span> <span class="co"># 2. select columns </span></span>
+<span id="cb29-6"><a href="dplyr.html#cb29-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">plength =</span> Petal.Length) <span class="co"># 3. rename variable/column</span></span>
+<span id="cb29-7"><a href="dplyr.html#cb29-7" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="dplyr.html#cb29-8" tabindex="-1"></a><span class="fu">str</span>(iris_virginica)</span>
+<span id="cb29-9"><a href="dplyr.html#cb29-9" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 50 obs. of  2 variables:</span></span>
+<span id="cb29-10"><a href="dplyr.html#cb29-10" tabindex="-1"></a><span class="co">#  $ plength: num  6 5.1 5.9 5.6 5.8 6.6 4.5 6.3 5.8 6.1 ...</span></span>
+<span id="cb29-11"><a href="dplyr.html#cb29-11" tabindex="-1"></a><span class="co">#  $ Species: Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...</span></span></code></pre></div>
 </div>
 <div id="filter" class="section level3 hasAnchor" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> Filter<a href="dplyr.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -659,14 +659,14 @@ Also, you do not need quotes around your variable names.</p>
 </ul></li>
 <li>Mutate takes a <strong>variable name as input</strong> (existing or new) and some <strong>function or calculation</strong> to be done on that variable</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="dplyr.html#cb18-1" tabindex="-1"></a>iris_virginica <span class="ot">&lt;-</span> iris_virginica <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="dplyr.html#cb18-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">toupper</span>(Species), <span class="co"># 4. change content of Species and add new binary variable bigboi</span></span>
-<span id="cb18-3"><a href="dplyr.html#cb18-3" tabindex="-1"></a>         <span class="at">bigboi =</span> <span class="fu">ifelse</span>(plength <span class="sc">&gt;</span> <span class="fl">5.5</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb18-4"><a href="dplyr.html#cb18-4" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="dplyr.html#cb18-5" tabindex="-1"></a><span class="fu">table</span>(iris_virginica<span class="sc">$</span>Species)</span>
-<span id="cb18-6"><a href="dplyr.html#cb18-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-7"><a href="dplyr.html#cb18-7" tabindex="-1"></a><span class="co"># VIRGINICA </span></span>
-<span id="cb18-8"><a href="dplyr.html#cb18-8" tabindex="-1"></a><span class="co">#        50</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="dplyr.html#cb30-1" tabindex="-1"></a>iris_virginica <span class="ot">&lt;-</span> iris_virginica <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="dplyr.html#cb30-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">toupper</span>(Species), <span class="co"># 4. change content of Species and add new binary variable bigboi</span></span>
+<span id="cb30-3"><a href="dplyr.html#cb30-3" tabindex="-1"></a>         <span class="at">bigboi =</span> <span class="fu">ifelse</span>(plength <span class="sc">&gt;</span> <span class="fl">5.5</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb30-4"><a href="dplyr.html#cb30-4" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="dplyr.html#cb30-5" tabindex="-1"></a><span class="fu">table</span>(iris_virginica<span class="sc">$</span>Species)</span>
+<span id="cb30-6"><a href="dplyr.html#cb30-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb30-7"><a href="dplyr.html#cb30-7" tabindex="-1"></a><span class="co"># VIRGINICA </span></span>
+<span id="cb30-8"><a href="dplyr.html#cb30-8" tabindex="-1"></a><span class="co">#        50</span></span></code></pre></div>
 </div>
 <div id="group_by-summarize" class="section level3 hasAnchor" number="4.3.5">
 <h3><span class="header-section-number">4.3.5</span> group_by &amp; summarize<a href="dplyr.html#group_by-summarize" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -680,33 +680,33 @@ Also, you do not need quotes around your variable names.</p>
 <li>in summarize, define a name for the statistic, use a =, use a function like mean() for the measure</li>
 </ol></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="dplyr.html#cb19-1" tabindex="-1"></a><span class="fu">str</span>(Orange) <span class="co"># use different default data set</span></span>
-<span id="cb19-2"><a href="dplyr.html#cb19-2" tabindex="-1"></a><span class="co"># Classes &#39;nfnGroupedData&#39;, &#39;nfGroupedData&#39;, &#39;groupedData&#39; and &#39;data.frame&#39;:    35 obs. of  3 variables:</span></span>
-<span id="cb19-3"><a href="dplyr.html#cb19-3" tabindex="-1"></a><span class="co">#  $ Tree         : Ord.factor w/ 5 levels &quot;3&quot;&lt;&quot;1&quot;&lt;&quot;5&quot;&lt;&quot;2&quot;&lt;..: 2 2 2 2 2 2 2 4 4 4 ...</span></span>
-<span id="cb19-4"><a href="dplyr.html#cb19-4" tabindex="-1"></a><span class="co">#  $ age          : num  118 484 664 1004 1231 ...</span></span>
-<span id="cb19-5"><a href="dplyr.html#cb19-5" tabindex="-1"></a><span class="co">#  $ circumference: num  30 58 87 115 120 142 145 33 69 111 ...</span></span>
-<span id="cb19-6"><a href="dplyr.html#cb19-6" tabindex="-1"></a><span class="co">#  - attr(*, &quot;formula&quot;)=Class &#39;formula&#39;  language circumference ~ age | Tree</span></span>
-<span id="cb19-7"><a href="dplyr.html#cb19-7" tabindex="-1"></a><span class="co">#   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_EmptyEnv&gt; </span></span>
-<span id="cb19-8"><a href="dplyr.html#cb19-8" tabindex="-1"></a><span class="co">#  - attr(*, &quot;labels&quot;)=List of 2</span></span>
-<span id="cb19-9"><a href="dplyr.html#cb19-9" tabindex="-1"></a><span class="co">#   ..$ x: chr &quot;Time since December 31, 1968&quot;</span></span>
-<span id="cb19-10"><a href="dplyr.html#cb19-10" tabindex="-1"></a><span class="co">#   ..$ y: chr &quot;Trunk circumference&quot;</span></span>
-<span id="cb19-11"><a href="dplyr.html#cb19-11" tabindex="-1"></a><span class="co">#  - attr(*, &quot;units&quot;)=List of 2</span></span>
-<span id="cb19-12"><a href="dplyr.html#cb19-12" tabindex="-1"></a><span class="co">#   ..$ x: chr &quot;(days)&quot;</span></span>
-<span id="cb19-13"><a href="dplyr.html#cb19-13" tabindex="-1"></a><span class="co">#   ..$ y: chr &quot;(mm)&quot;</span></span>
-<span id="cb19-14"><a href="dplyr.html#cb19-14" tabindex="-1"></a></span>
-<span id="cb19-15"><a href="dplyr.html#cb19-15" tabindex="-1"></a>Orange <span class="sc">%&gt;%</span> </span>
-<span id="cb19-16"><a href="dplyr.html#cb19-16" tabindex="-1"></a>  <span class="fu">group_by</span>(Tree) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-17"><a href="dplyr.html#cb19-17" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(age),</span>
-<span id="cb19-18"><a href="dplyr.html#cb19-18" tabindex="-1"></a>            <span class="at">m_circumference =</span> <span class="fu">mean</span>(circumference),</span>
-<span id="cb19-19"><a href="dplyr.html#cb19-19" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb19-20"><a href="dplyr.html#cb19-20" tabindex="-1"></a><span class="co"># # A tibble: 5 × 4</span></span>
-<span id="cb19-21"><a href="dplyr.html#cb19-21" tabindex="-1"></a><span class="co">#   Tree  m_age m_circumference     n</span></span>
-<span id="cb19-22"><a href="dplyr.html#cb19-22" tabindex="-1"></a><span class="co">#   &lt;ord&gt; &lt;dbl&gt;           &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb19-23"><a href="dplyr.html#cb19-23" tabindex="-1"></a><span class="co"># 1 3      922.            94       7</span></span>
-<span id="cb19-24"><a href="dplyr.html#cb19-24" tabindex="-1"></a><span class="co"># 2 1      922.            99.6     7</span></span>
-<span id="cb19-25"><a href="dplyr.html#cb19-25" tabindex="-1"></a><span class="co"># 3 5      922.           111.      7</span></span>
-<span id="cb19-26"><a href="dplyr.html#cb19-26" tabindex="-1"></a><span class="co"># 4 2      922.           135.      7</span></span>
-<span id="cb19-27"><a href="dplyr.html#cb19-27" tabindex="-1"></a><span class="co"># 5 4      922.           139.      7</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="dplyr.html#cb31-1" tabindex="-1"></a><span class="fu">str</span>(Orange) <span class="co"># use different default data set</span></span>
+<span id="cb31-2"><a href="dplyr.html#cb31-2" tabindex="-1"></a><span class="co"># Classes &#39;nfnGroupedData&#39;, &#39;nfGroupedData&#39;, &#39;groupedData&#39; and &#39;data.frame&#39;:    35 obs. of  3 variables:</span></span>
+<span id="cb31-3"><a href="dplyr.html#cb31-3" tabindex="-1"></a><span class="co">#  $ Tree         : Ord.factor w/ 5 levels &quot;3&quot;&lt;&quot;1&quot;&lt;&quot;5&quot;&lt;&quot;2&quot;&lt;..: 2 2 2 2 2 2 2 4 4 4 ...</span></span>
+<span id="cb31-4"><a href="dplyr.html#cb31-4" tabindex="-1"></a><span class="co">#  $ age          : num  118 484 664 1004 1231 ...</span></span>
+<span id="cb31-5"><a href="dplyr.html#cb31-5" tabindex="-1"></a><span class="co">#  $ circumference: num  30 58 87 115 120 142 145 33 69 111 ...</span></span>
+<span id="cb31-6"><a href="dplyr.html#cb31-6" tabindex="-1"></a><span class="co">#  - attr(*, &quot;formula&quot;)=Class &#39;formula&#39;  language circumference ~ age | Tree</span></span>
+<span id="cb31-7"><a href="dplyr.html#cb31-7" tabindex="-1"></a><span class="co">#   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_EmptyEnv&gt; </span></span>
+<span id="cb31-8"><a href="dplyr.html#cb31-8" tabindex="-1"></a><span class="co">#  - attr(*, &quot;labels&quot;)=List of 2</span></span>
+<span id="cb31-9"><a href="dplyr.html#cb31-9" tabindex="-1"></a><span class="co">#   ..$ x: chr &quot;Time since December 31, 1968&quot;</span></span>
+<span id="cb31-10"><a href="dplyr.html#cb31-10" tabindex="-1"></a><span class="co">#   ..$ y: chr &quot;Trunk circumference&quot;</span></span>
+<span id="cb31-11"><a href="dplyr.html#cb31-11" tabindex="-1"></a><span class="co">#  - attr(*, &quot;units&quot;)=List of 2</span></span>
+<span id="cb31-12"><a href="dplyr.html#cb31-12" tabindex="-1"></a><span class="co">#   ..$ x: chr &quot;(days)&quot;</span></span>
+<span id="cb31-13"><a href="dplyr.html#cb31-13" tabindex="-1"></a><span class="co">#   ..$ y: chr &quot;(mm)&quot;</span></span>
+<span id="cb31-14"><a href="dplyr.html#cb31-14" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="dplyr.html#cb31-15" tabindex="-1"></a>Orange <span class="sc">%&gt;%</span> </span>
+<span id="cb31-16"><a href="dplyr.html#cb31-16" tabindex="-1"></a>  <span class="fu">group_by</span>(Tree) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-17"><a href="dplyr.html#cb31-17" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(age),</span>
+<span id="cb31-18"><a href="dplyr.html#cb31-18" tabindex="-1"></a>            <span class="at">m_circumference =</span> <span class="fu">mean</span>(circumference),</span>
+<span id="cb31-19"><a href="dplyr.html#cb31-19" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb31-20"><a href="dplyr.html#cb31-20" tabindex="-1"></a><span class="co"># # A tibble: 5 × 4</span></span>
+<span id="cb31-21"><a href="dplyr.html#cb31-21" tabindex="-1"></a><span class="co">#   Tree  m_age m_circumference     n</span></span>
+<span id="cb31-22"><a href="dplyr.html#cb31-22" tabindex="-1"></a><span class="co">#   &lt;ord&gt; &lt;dbl&gt;           &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb31-23"><a href="dplyr.html#cb31-23" tabindex="-1"></a><span class="co"># 1 3      922.            94       7</span></span>
+<span id="cb31-24"><a href="dplyr.html#cb31-24" tabindex="-1"></a><span class="co"># 2 1      922.            99.6     7</span></span>
+<span id="cb31-25"><a href="dplyr.html#cb31-25" tabindex="-1"></a><span class="co"># 3 5      922.           111.      7</span></span>
+<span id="cb31-26"><a href="dplyr.html#cb31-26" tabindex="-1"></a><span class="co"># 4 2      922.           135.      7</span></span>
+<span id="cb31-27"><a href="dplyr.html#cb31-27" tabindex="-1"></a><span class="co"># 5 4      922.           139.      7</span></span></code></pre></div>
 </div>
 </div>
 <div id="exercises-1" class="section level2 unnumbered hasAnchor">
@@ -731,24 +731,24 @@ Also, you do not need quotes around your variable names.</p>
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="dplyr.html#cb20-1" tabindex="-1"></a>iris_twospec <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb20-2"><a href="dplyr.html#cb20-2" tabindex="-1"></a>  <span class="fu">select</span>(Petal.Width, Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-3"><a href="dplyr.html#cb20-3" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;versicolor&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-4"><a href="dplyr.html#cb20-4" tabindex="-1"></a>  <span class="co"># or: filter(Species != &quot;virginica&quot;)</span></span>
-<span id="cb20-5"><a href="dplyr.html#cb20-5" tabindex="-1"></a>  <span class="co"># or: filter(Species == c(&quot;setosa&quot; | &quot;versicolor&quot;))</span></span>
-<span id="cb20-6"><a href="dplyr.html#cb20-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">pwidth =</span> Petal.Width) <span class="sc">%&gt;%</span> </span>
-<span id="cb20-7"><a href="dplyr.html#cb20-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pwidth_inch =</span> pwidth <span class="sc">/</span> <span class="fl">2.54</span>)</span>
-<span id="cb20-8"><a href="dplyr.html#cb20-8" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="dplyr.html#cb20-9" tabindex="-1"></a><span class="fu">head</span>(iris_twospec, <span class="dv">8</span>)</span>
-<span id="cb20-10"><a href="dplyr.html#cb20-10" tabindex="-1"></a><span class="co">#   pwidth Species pwidth_inch</span></span>
-<span id="cb20-11"><a href="dplyr.html#cb20-11" tabindex="-1"></a><span class="co"># 1    0.2  setosa  0.07874016</span></span>
-<span id="cb20-12"><a href="dplyr.html#cb20-12" tabindex="-1"></a><span class="co"># 2    0.2  setosa  0.07874016</span></span>
-<span id="cb20-13"><a href="dplyr.html#cb20-13" tabindex="-1"></a><span class="co"># 3    0.2  setosa  0.07874016</span></span>
-<span id="cb20-14"><a href="dplyr.html#cb20-14" tabindex="-1"></a><span class="co"># 4    0.2  setosa  0.07874016</span></span>
-<span id="cb20-15"><a href="dplyr.html#cb20-15" tabindex="-1"></a><span class="co"># 5    0.2  setosa  0.07874016</span></span>
-<span id="cb20-16"><a href="dplyr.html#cb20-16" tabindex="-1"></a><span class="co"># 6    0.4  setosa  0.15748031</span></span>
-<span id="cb20-17"><a href="dplyr.html#cb20-17" tabindex="-1"></a><span class="co"># 7    0.3  setosa  0.11811024</span></span>
-<span id="cb20-18"><a href="dplyr.html#cb20-18" tabindex="-1"></a><span class="co"># 8    0.2  setosa  0.07874016</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="dplyr.html#cb32-1" tabindex="-1"></a>iris_twospec <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a href="dplyr.html#cb32-2" tabindex="-1"></a>  <span class="fu">select</span>(Petal.Width, Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="dplyr.html#cb32-3" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;versicolor&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-4"><a href="dplyr.html#cb32-4" tabindex="-1"></a>  <span class="co"># or: filter(Species != &quot;virginica&quot;)</span></span>
+<span id="cb32-5"><a href="dplyr.html#cb32-5" tabindex="-1"></a>  <span class="co"># or: filter(Species == c(&quot;setosa&quot; | &quot;versicolor&quot;))</span></span>
+<span id="cb32-6"><a href="dplyr.html#cb32-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">pwidth =</span> Petal.Width) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-7"><a href="dplyr.html#cb32-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pwidth_inch =</span> pwidth <span class="sc">/</span> <span class="fl">2.54</span>)</span>
+<span id="cb32-8"><a href="dplyr.html#cb32-8" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="dplyr.html#cb32-9" tabindex="-1"></a><span class="fu">head</span>(iris_twospec, <span class="dv">8</span>)</span>
+<span id="cb32-10"><a href="dplyr.html#cb32-10" tabindex="-1"></a><span class="co">#   pwidth Species pwidth_inch</span></span>
+<span id="cb32-11"><a href="dplyr.html#cb32-11" tabindex="-1"></a><span class="co"># 1    0.2  setosa  0.07874016</span></span>
+<span id="cb32-12"><a href="dplyr.html#cb32-12" tabindex="-1"></a><span class="co"># 2    0.2  setosa  0.07874016</span></span>
+<span id="cb32-13"><a href="dplyr.html#cb32-13" tabindex="-1"></a><span class="co"># 3    0.2  setosa  0.07874016</span></span>
+<span id="cb32-14"><a href="dplyr.html#cb32-14" tabindex="-1"></a><span class="co"># 4    0.2  setosa  0.07874016</span></span>
+<span id="cb32-15"><a href="dplyr.html#cb32-15" tabindex="-1"></a><span class="co"># 5    0.2  setosa  0.07874016</span></span>
+<span id="cb32-16"><a href="dplyr.html#cb32-16" tabindex="-1"></a><span class="co"># 6    0.4  setosa  0.15748031</span></span>
+<span id="cb32-17"><a href="dplyr.html#cb32-17" tabindex="-1"></a><span class="co"># 7    0.3  setosa  0.11811024</span></span>
+<span id="cb32-18"><a href="dplyr.html#cb32-18" tabindex="-1"></a><span class="co"># 8    0.2  setosa  0.07874016</span></span></code></pre></div>
 </div>
 <div class="float">
 <img src="img/hadley-meme.webp" height="200" alt="Hadley Wickham, developer of the tidyverse" />
@@ -763,19 +763,19 @@ Also include the grouped n.</p>
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="dplyr.html#cb21-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="dplyr.html#cb21-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="dplyr.html#cb21-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
-<span id="cb21-4"><a href="dplyr.html#cb21-4" tabindex="-1"></a>            <span class="at">m_pwidth =</span> <span class="fu">mean</span>(Petal.Width),</span>
-<span id="cb21-5"><a href="dplyr.html#cb21-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb21-6"><a href="dplyr.html#cb21-6" tabindex="-1"></a>            <span class="at">m_swidth =</span> <span class="fu">mean</span>(Sepal.Width),</span>
-<span id="cb21-7"><a href="dplyr.html#cb21-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb21-8"><a href="dplyr.html#cb21-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb21-9"><a href="dplyr.html#cb21-9" tabindex="-1"></a><span class="co">#   Species    m_plength m_pwidth m_slength m_swidth     n</span></span>
-<span id="cb21-10"><a href="dplyr.html#cb21-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb21-11"><a href="dplyr.html#cb21-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46    0.246      5.01     3.43    50</span></span>
-<span id="cb21-12"><a href="dplyr.html#cb21-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26    1.33       5.94     2.77    50</span></span>
-<span id="cb21-13"><a href="dplyr.html#cb21-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55    2.03       6.59     2.97    50</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="dplyr.html#cb33-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="dplyr.html#cb33-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="dplyr.html#cb33-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
+<span id="cb33-4"><a href="dplyr.html#cb33-4" tabindex="-1"></a>            <span class="at">m_pwidth =</span> <span class="fu">mean</span>(Petal.Width),</span>
+<span id="cb33-5"><a href="dplyr.html#cb33-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb33-6"><a href="dplyr.html#cb33-6" tabindex="-1"></a>            <span class="at">m_swidth =</span> <span class="fu">mean</span>(Sepal.Width),</span>
+<span id="cb33-7"><a href="dplyr.html#cb33-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb33-8"><a href="dplyr.html#cb33-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
+<span id="cb33-9"><a href="dplyr.html#cb33-9" tabindex="-1"></a><span class="co">#   Species    m_plength m_pwidth m_slength m_swidth     n</span></span>
+<span id="cb33-10"><a href="dplyr.html#cb33-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb33-11"><a href="dplyr.html#cb33-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46    0.246      5.01     3.43    50</span></span>
+<span id="cb33-12"><a href="dplyr.html#cb33-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26    1.33       5.94     2.77    50</span></span>
+<span id="cb33-13"><a href="dplyr.html#cb33-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55    2.03       6.59     2.97    50</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -788,30 +788,30 @@ This keeps our code readable and tidy and allows us to keep edits in separate li
 It's easy to add new commands by using another pipe operator, or to leave edits out but commenting out the respective line of code.</p>
 <p>It is important to say that most things can be achieved with or without pipe and you may prefer different versions for different tasks.
 You have seen a basic example of the use of the pipe operator in Section @ref(#pipe1), so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="dplyr.html#cb22-1" tabindex="-1"></a><span class="co"># With pipe</span></span>
-<span id="cb22-2"><a href="dplyr.html#cb22-2" tabindex="-1"></a>iris_edit <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb22-3"><a href="dplyr.html#cb22-3" tabindex="-1"></a> <span class="fu">filter</span>(Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="co"># only big petals</span></span>
-<span id="cb22-4"><a href="dplyr.html#cb22-4" tabindex="-1"></a> <span class="fu">select</span>(Species, Petal.Length, Sepal.Length) <span class="sc">%&gt;%</span>  <span class="co"># only those columns</span></span>
-<span id="cb22-5"><a href="dplyr.html#cb22-5" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">random_calculation =</span> Petal.Length <span class="sc">*</span> Sepal.Length) <span class="co"># calculate random new variable</span></span>
-<span id="cb22-6"><a href="dplyr.html#cb22-6" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="dplyr.html#cb22-7" tabindex="-1"></a><span class="co"># Without pipe - two versions </span></span>
-<span id="cb22-8"><a href="dplyr.html#cb22-8" tabindex="-1"></a>iris_edit2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(iris, Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span>)</span>
-<span id="cb22-9"><a href="dplyr.html#cb22-9" tabindex="-1"></a>iris_edit2 <span class="ot">&lt;-</span> <span class="fu">select</span>(iris_edit2, Species, Petal.Length, Sepal.Length)</span>
-<span id="cb22-10"><a href="dplyr.html#cb22-10" tabindex="-1"></a>iris_edit2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(iris_edit2, <span class="at">random_calculation =</span> Petal.Length <span class="sc">*</span> Sepal.Length)</span>
-<span id="cb22-11"><a href="dplyr.html#cb22-11" tabindex="-1"></a></span>
-<span id="cb22-12"><a href="dplyr.html#cb22-12" tabindex="-1"></a>iris_edit3 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(</span>
-<span id="cb22-13"><a href="dplyr.html#cb22-13" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb22-14"><a href="dplyr.html#cb22-14" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
-<span id="cb22-15"><a href="dplyr.html#cb22-15" tabindex="-1"></a>      iris, Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span></span>
-<span id="cb22-16"><a href="dplyr.html#cb22-16" tabindex="-1"></a>    ),</span>
-<span id="cb22-17"><a href="dplyr.html#cb22-17" tabindex="-1"></a>    Species, Petal.Length, Sepal.Length</span>
-<span id="cb22-18"><a href="dplyr.html#cb22-18" tabindex="-1"></a>  ), </span>
-<span id="cb22-19"><a href="dplyr.html#cb22-19" tabindex="-1"></a>  <span class="at">random_calculation =</span> Petal.Length <span class="sc">*</span> Sepal.Length</span>
-<span id="cb22-20"><a href="dplyr.html#cb22-20" tabindex="-1"></a>)</span>
-<span id="cb22-21"><a href="dplyr.html#cb22-21" tabindex="-1"></a></span>
-<span id="cb22-22"><a href="dplyr.html#cb22-22" tabindex="-1"></a><span class="co"># Are the three versions equal?</span></span>
-<span id="cb22-23"><a href="dplyr.html#cb22-23" tabindex="-1"></a><span class="fu">all.equal</span>(iris_edit, iris_edit2) <span class="sc">&amp;</span> <span class="fu">all.equal</span>(iris_edit, iris_edit3)</span>
-<span id="cb22-24"><a href="dplyr.html#cb22-24" tabindex="-1"></a><span class="co"># [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="dplyr.html#cb34-1" tabindex="-1"></a><span class="co"># With pipe</span></span>
+<span id="cb34-2"><a href="dplyr.html#cb34-2" tabindex="-1"></a>iris_edit <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="dplyr.html#cb34-3" tabindex="-1"></a> <span class="fu">filter</span>(Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="co"># only big petals</span></span>
+<span id="cb34-4"><a href="dplyr.html#cb34-4" tabindex="-1"></a> <span class="fu">select</span>(Species, Petal.Length, Sepal.Length) <span class="sc">%&gt;%</span>  <span class="co"># only those columns</span></span>
+<span id="cb34-5"><a href="dplyr.html#cb34-5" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">random_calculation =</span> Petal.Length <span class="sc">*</span> Sepal.Length) <span class="co"># calculate random new variable</span></span>
+<span id="cb34-6"><a href="dplyr.html#cb34-6" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="dplyr.html#cb34-7" tabindex="-1"></a><span class="co"># Without pipe - two versions </span></span>
+<span id="cb34-8"><a href="dplyr.html#cb34-8" tabindex="-1"></a>iris_edit2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(iris, Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span>)</span>
+<span id="cb34-9"><a href="dplyr.html#cb34-9" tabindex="-1"></a>iris_edit2 <span class="ot">&lt;-</span> <span class="fu">select</span>(iris_edit2, Species, Petal.Length, Sepal.Length)</span>
+<span id="cb34-10"><a href="dplyr.html#cb34-10" tabindex="-1"></a>iris_edit2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(iris_edit2, <span class="at">random_calculation =</span> Petal.Length <span class="sc">*</span> Sepal.Length)</span>
+<span id="cb34-11"><a href="dplyr.html#cb34-11" tabindex="-1"></a></span>
+<span id="cb34-12"><a href="dplyr.html#cb34-12" tabindex="-1"></a>iris_edit3 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(</span>
+<span id="cb34-13"><a href="dplyr.html#cb34-13" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb34-14"><a href="dplyr.html#cb34-14" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
+<span id="cb34-15"><a href="dplyr.html#cb34-15" tabindex="-1"></a>      iris, Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span></span>
+<span id="cb34-16"><a href="dplyr.html#cb34-16" tabindex="-1"></a>    ),</span>
+<span id="cb34-17"><a href="dplyr.html#cb34-17" tabindex="-1"></a>    Species, Petal.Length, Sepal.Length</span>
+<span id="cb34-18"><a href="dplyr.html#cb34-18" tabindex="-1"></a>  ), </span>
+<span id="cb34-19"><a href="dplyr.html#cb34-19" tabindex="-1"></a>  <span class="at">random_calculation =</span> Petal.Length <span class="sc">*</span> Sepal.Length</span>
+<span id="cb34-20"><a href="dplyr.html#cb34-20" tabindex="-1"></a>)</span>
+<span id="cb34-21"><a href="dplyr.html#cb34-21" tabindex="-1"></a></span>
+<span id="cb34-22"><a href="dplyr.html#cb34-22" tabindex="-1"></a><span class="co"># Are the three versions equal?</span></span>
+<span id="cb34-23"><a href="dplyr.html#cb34-23" tabindex="-1"></a><span class="fu">all.equal</span>(iris_edit, iris_edit2) <span class="sc">&amp;</span> <span class="fu">all.equal</span>(iris_edit, iris_edit3)</span>
+<span id="cb34-24"><a href="dplyr.html#cb34-24" tabindex="-1"></a><span class="co"># [1] TRUE</span></span></code></pre></div>
 <p>As you can see, all three version produce the same output and all are technically correct.
 However, in the second example we keep re-assigning new edits to the same data frame (would be even more annoying but possible to assign each edit to a new data frame) and the third version is just quite the nightmare to read if you ask me.
 Also think about this:</p>
@@ -831,34 +831,34 @@ Why is that?</p>
 Usually, the pipe helps us not to drown in parentheses when conducting analyses.
 Let's e.g. calculate a mean value after filtering by Species setosa.</p>
 <p>So without a pipe, it might look like this:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="dplyr.html#cb23-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>]), <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb23-2"><a href="dplyr.html#cb23-2" tabindex="-1"></a><span class="co"># [1] 1.46</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="dplyr.html#cb35-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>]), <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb35-2"><a href="dplyr.html#cb35-2" tabindex="-1"></a><span class="co"># [1] 1.46</span></span></code></pre></div>
 <p>Using all pipes, the code would look a lot longer but still easier to read.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="dplyr.html#cb24-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="dplyr.html#cb24-2" tabindex="-1"></a><span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-3"><a href="dplyr.html#cb24-3" tabindex="-1"></a><span class="fu">pull</span>(Petal.Length) <span class="sc">%&gt;%</span></span>
-<span id="cb24-4"><a href="dplyr.html#cb24-4" tabindex="-1"></a><span class="fu">mean</span>() <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb24-5"><a href="dplyr.html#cb24-5" tabindex="-1"></a><span class="co"># [1] 1.46</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="dplyr.html#cb36-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="dplyr.html#cb36-2" tabindex="-1"></a><span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href="dplyr.html#cb36-3" tabindex="-1"></a><span class="fu">pull</span>(Petal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="dplyr.html#cb36-4" tabindex="-1"></a><span class="fu">mean</span>() <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb36-5"><a href="dplyr.html#cb36-5" tabindex="-1"></a><span class="co"># [1] 1.46</span></span></code></pre></div>
 <p>As a third alternative, we might also use a combination of the approaches, such as:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="dplyr.html#cb25-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(<span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(Petal.Length)), <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb25-2"><a href="dplyr.html#cb25-2" tabindex="-1"></a><span class="co"># [1] 1.46</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="dplyr.html#cb37-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(<span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(Petal.Length)), <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb37-2"><a href="dplyr.html#cb37-2" tabindex="-1"></a><span class="co"># [1] 1.46</span></span></code></pre></div>
 <p>As with most things in R and programming, different approaches may be easier in different situations, so it has merit to think outside the box at times!</p>
 <blockquote>
 <p>Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>:
 We want to edit the iris data to rename a Petal.Length to pl and mutate it to be multiplied by ten.
 Why does the first version work, but not the second one?</p>
 </blockquote>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="dplyr.html#cb26-1" tabindex="-1"></a><span class="co"># Version 1</span></span>
-<span id="cb26-2"><a href="dplyr.html#cb26-2" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb26-3"><a href="dplyr.html#cb26-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Petal.Length =</span> Petal.Length <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-4"><a href="dplyr.html#cb26-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">pl =</span> Petal.Length) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-5"><a href="dplyr.html#cb26-5" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span>
-<span id="cb26-6"><a href="dplyr.html#cb26-6" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="dplyr.html#cb26-7" tabindex="-1"></a><span class="co"># Version 2</span></span>
-<span id="cb26-8"><a href="dplyr.html#cb26-8" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb26-9"><a href="dplyr.html#cb26-9" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">pl =</span> Petal.Length) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-10"><a href="dplyr.html#cb26-10" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Petal.Length =</span> Petal.Length <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-11"><a href="dplyr.html#cb26-11" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="dplyr.html#cb38-1" tabindex="-1"></a><span class="co"># Version 1</span></span>
+<span id="cb38-2"><a href="dplyr.html#cb38-2" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb38-3"><a href="dplyr.html#cb38-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Petal.Length =</span> Petal.Length <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-4"><a href="dplyr.html#cb38-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">pl =</span> Petal.Length) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-5"><a href="dplyr.html#cb38-5" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span>
+<span id="cb38-6"><a href="dplyr.html#cb38-6" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="dplyr.html#cb38-7" tabindex="-1"></a><span class="co"># Version 2</span></span>
+<span id="cb38-8"><a href="dplyr.html#cb38-8" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb38-9"><a href="dplyr.html#cb38-9" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">pl =</span> Petal.Length) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-10"><a href="dplyr.html#cb38-10" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Petal.Length =</span> Petal.Length <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-11"><a href="dplyr.html#cb38-11" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
 <div class="webex-solution">
 <button>
 <i class='fa-solid fa-lightbulb' style='color: yellow;'></i>

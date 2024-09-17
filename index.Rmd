@@ -3,7 +3,7 @@ title: |
   <i class="fa-solid fa-mug-hot" style="color: #650279;"></i>
   Psychological Research in R
   <i class="fa-solid fa-mug-hot" style="color: #650279;"></i>
-subtitle: "An R Intro for people whose dog regularly ate their statistics homework."
+subtitle: "An R Intro for psychologists whose dog regularly ate their statistics homework."
 author: "Anni Tave Overlander"
 date: "Last update: `r Sys.Date()`"
 site: bookdown::bookdown_site

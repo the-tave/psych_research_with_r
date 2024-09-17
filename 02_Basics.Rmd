@@ -1,7 +1,7 @@
 
 # R Basics & Error Messages {#basics}
 
-![Iris Flower](img/iris.png){height = 150px}
+![Iris Flower](img/iris.png){height=150px}
 
 ## Basics
 <!-- Remove Image and plot borders -->
@@ -17,63 +17,129 @@
 
 R is an object-based language.
 The great advantage of that is we can assign values, vectors, text, matrices or almost anything else to variables and access them more easily later.
-To do that, we use the $\leftarrow$ like so:  \newline
+To do that, we use a left arrow $\leftarrow$ like so: 
 `x <- c(1, 2, 3)`
-Go ahead and try it out!
+Go ahead and try it out! <br>
 If you had too much fun assigning variables, you can remove them again from your work environment using the `rm()` command in the Console.
 So, if you assign the values 1, 2 and 3 to `x`, you can type `rm(x)` into the console, hit enter and x has disappeared from your environment!
 
-- Execute a line of code with `ctrl + enter` in the editor
-    - In console you just need to press `enter`
-- Text aka _strings_ need to be put in quotes so it can be recognized as such
-    - `some_text <- c("amazing", "wow")`
-- Comments can and should be added to your code using the `#`
+When you are working on a script, you can write and save all of your code.
+You can also execute any line of code with `ctrl + enter` in the editor as you go along to test your code.
+When you just want to run something once or test your code, you can enter it in the console where you just need to press `enter`/ `return`.
+
+In your script, comments can and should be added to your code using the `#`.
+It is considered good practice to use comments generously, which will also help you to understand whats going on when you look at something a couple of days/weeks/years later and keep and overview!
 
 
-### Basic Functions
+### Basic Functions {-}
+
+Assign values & look at a variable
 
 ```{r}
 a <- c(1, 2, 3, 4)
 b <- c(5, 7, 9, 11)
+a
+```
+
+Text aka _strings_ need to be put in quotes so it can be recognized as such
+
+```{r}
+some_text <- c("amazing", "wow")
+```
+
+
+Mean/average
+
+```{r}
 mean(a)
+```
+
+Standard deviation
+
+```{r}
 sd(b)
+```
+
+Minimum
+
+```{r}
 min(b)
 ```
 
+Maximum
 
 ```{r}
 max(b)
+```
+
+Add values
+
+```{r}
 a+b
+```
+
+Find the sum of all values in a vector
+
+```{r}
 sum(b)
+```
+
+Find the length of a vector
+
+```{r}
 length(a)
 ```
 
+Define a sequence
 
 ```{r}
 v <- 3:9
-v # look at the variable
-range(v)
-d <- c(10:15, 20:25)
+v
 ```
 
+Find the range of a vector
 
 ```{r}
-d # look at the variable
-d[1] # index
+range(v)
+```
+
+Define several sequences in one vector
+
+```{r}
+d <- c(10:15, 20:25)
+d
+```
+
+Now that we know how to assign values and how to find some basic stats on single vectors, we will look at how to extract specific values from vectors.
+We call this indexing and in R we can use square brackets to do so.
+
+Find the first value in a vector
+
+```{r}
+d[1]
+```
+
+Find the value where a vector has a specific value - this is especially interesting when we want to compare two vectors
+
+```{r}
 d[d==10]
+a[d==10]
+```
+
+Less convoluted: Find the index where a vector has a specific value
+
+```{r}
 which(d==12)
 ```
 
 You can practice these functions on your own and definitely check out the [Exercises](#exercises) section! 
 
-> **Brainteaser** <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>
+> **Brainteaser** <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>:
 > We define two variables in the following way: 
-
 > ```{r}
 > e <- 1:5
 > f <- 2:5
 > ```
-
 > Let's say we want to access the number 5 in both variables. 
 > How come `e[5]` works but `f[5]` does not? 
 
@@ -89,10 +155,15 @@ Next to numeric variables like `a` and `b` that hold numbers, and string variabl
 They can only hold the values **TRUE** or **FALSE** and are either assigned specifically by you, the user, or result from basically asking R a yes-or-no question.
 For example:
 
+Is 3 smaller than 7?
+
 ```{r}
-# Is 3 smaller than 7?
 3 < 7
-# Is 3 smaller than 2?
+```
+
+Is 3 smaller than 2?
+
+```{r}
 3 < 2
 ```
 
@@ -126,6 +197,8 @@ z <- TRUE
 z
 !z
 ```
+
+You can find a concise overview over all of these operators in the [Toolbox](#toolbox).
 
 ## Reading Error Messages
 
@@ -202,9 +275,11 @@ However, don't forget that R expects input after each pipe.
 If you accidentally end a line of code with a pipe, you will encounter the behavior where R just does nothing and you basically have a staring battle of who will give in first.
 The same fix will work here: Hit the Esc button, look at the code you were trying to run and figure out if there might have been a pipe that just went nowhere.
 
-> <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">When you need help figuring out how a function works, there are several ways to get it. Try typing **? "|>" ** into your console and hit enter!</i>
+> <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">When you need help figuring out how a function works, there are several ways to get it. <br> Try typing **?"|>" ** into your console and hit enter!</i>
 
-![Pobody's Nerfect [(source)](https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif?resize=540%2C302&ssl=1)](./img/nerfect.webp){#id .class width=auto height=150px}
+![](./img/nerfect.webp){height=150px}
+<figcaption style = "font-size: 7pt;">https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif</figcaption>
+<!-- Pobody's Nerfect [(source)](https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif?resize=540%2C302&ssl=1) -->
 
 So, always keep in mind: Mistakes happen to everyone.
 Error messages can be really frustrating but they really are meant to be helpful.

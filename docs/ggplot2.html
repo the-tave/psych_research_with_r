@@ -193,7 +193,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#basics-1"><i class="fa fa-check"></i><b>2.1</b> Basics</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i><b>2.1.1</b> Basic Functions</a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#basic-functions"><i class="fa fa-check"></i>Basic Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#logic"><i class="fa fa-check"></i><b>2.2</b> Logic</a></li>
 <li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#reading-error-messages"><i class="fa fa-check"></i><b>2.3</b> Reading Error Messages</a>
@@ -464,8 +464,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html"><i class="fa fa-check"></i>Toolbox</a>
 <ul>
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#shortcuts"><i class="fa fa-check"></i>Keyboard shortcuts to make your life easier</a></li>
-<li class="chapter" data-level="11.6" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i><b>11.6</b> Reading in Data</a></li>
-<li class="chapter" data-level="11.7" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i><b>11.7</b> Logic</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#reading-in-data"><i class="fa fa-check"></i>Reading in Data</a></li>
+<li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#logic-1"><i class="fa fa-check"></i>Logic</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -522,8 +522,8 @@ Psychological Research in R
 <li>...are trigonometric angle functions with a special relationship</li>
 <li>This relationship cannot be found with common statistics - the correlation</li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="480" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="480" /></p>
 <ul>
 <li>Data Viz helps us not to make wrong assumptions about our data!</li>
 </ul>
@@ -577,9 +577,9 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 </div>
 <div id="example-basic-bar-plot" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Example: Basic Bar Plot<a href="ggplot2.html#example-basic-bar-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="ggplot2.html#cb46-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb46-2"><a href="ggplot2.html#cb46-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width)) </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="ggplot2.html#cb58-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb58-2"><a href="ggplot2.html#cb58-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width)) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <div id="making-plots-prettier" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Making Plots Prettier<a href="ggplot2.html#making-plots-prettier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -603,18 +603,18 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 </div>
 <div id="example-bar-plot-with-color-and-fill" class="section level3 hasAnchor" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> Example: Bar Plot with color and fill<a href="ggplot2.html#example-bar-plot-with-color-and-fill" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="ggplot2.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb47-2"><a href="ggplot2.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deepskyblue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="ggplot2.html#cb59-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb59-2"><a href="ggplot2.html#cb59-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deepskyblue&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-45-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What could cause this distribution?</li>
 </ul>
 </div>
 <div id="example-bar-plot-with-color-and-fill-1" class="section level3 hasAnchor" number="7.3.3">
 <h3><span class="header-section-number">7.3.3</span> Example: Bar Plot with color and fill<a href="ggplot2.html#example-bar-plot-with-color-and-fill-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="ggplot2.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="ggplot2.html#cb48-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="ggplot2.html#cb60-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb60-2"><a href="ggplot2.html#cb60-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What do you notice about the code compared to before?</li>
 </ul>
@@ -640,15 +640,15 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 <p>Create a <strong>density plot</strong> that shows <em>Sepal.Length</em> from the <code>iris</code> data set. <br>
 <em>Fill</em> in the color depending on the Species and <em>color</em> the outlines with "white". <br>
 Make sure everything is visible and legible, so try to use an <em>alpha</em> of around 0.6.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="ggplot2.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> </span>
-<span id="cb49-2"><a href="ggplot2.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_XYZ</span>(<span class="fu">aes</span>(), <span class="at">alpha =</span> ?)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="ggplot2.html#cb61-1" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span> </span>
+<span id="cb61-2"><a href="ggplot2.html#cb61-2" tabindex="-1"></a>  <span class="fu">geom_XYZ</span>(<span class="fu">aes</span>(), <span class="at">alpha =</span> ?)</span></code></pre></div>
 </div>
 <div id="solution-1" class="section level3 hasAnchor" number="7.3.6">
 <h3><span class="header-section-number">7.3.6</span> Solution<a href="ggplot2.html#solution-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="ggplot2.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb50-2"><a href="ggplot2.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species), </span>
-<span id="cb50-3"><a href="ggplot2.html#cb50-3" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> .<span class="dv">6</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="ggplot2.html#cb62-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb62-2"><a href="ggplot2.html#cb62-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species), </span>
+<span id="cb62-3"><a href="ggplot2.html#cb62-3" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> .<span class="dv">6</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
 <div id="adding-labels-and-themes" class="section level2 hasAnchor" number="7.4">
@@ -668,22 +668,22 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 </ul>
 <div id="same-example-with-added-theme" class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Same example with added theme<a href="ggplot2.html#same-example-with-added-theme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="ggplot2.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb51-2"><a href="ggplot2.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb51-3"><a href="ggplot2.html#cb51-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="ggplot2.html#cb63-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb63-2"><a href="ggplot2.html#cb63-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb63-3"><a href="ggplot2.html#cb63-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 <ul>
 <li>What labels should we use in this plot?</li>
 </ul>
 </div>
 <div id="same-example-with-added-theme-and-labels" class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> Same example with added theme and labels<a href="ggplot2.html#same-example-with-added-theme-and-labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="ggplot2.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb52-2"><a href="ggplot2.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb52-3"><a href="ggplot2.html#cb52-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
-<span id="cb52-4"><a href="ggplot2.html#cb52-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Petal Width&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flower Count&quot;</span>,</span>
-<span id="cb52-5"><a href="ggplot2.html#cb52-5" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Size of Iris Flowers&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="ggplot2.html#cb64-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb64-2"><a href="ggplot2.html#cb64-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb64-3"><a href="ggplot2.html#cb64-3" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
+<span id="cb64-4"><a href="ggplot2.html#cb64-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Petal Width&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flower Count&quot;</span>,</span>
+<span id="cb64-5"><a href="ggplot2.html#cb64-5" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Size of Iris Flowers&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-50-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
 <div id="bivariate-visualizations" class="section level2 hasAnchor" number="7.5">
@@ -705,12 +705,12 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <div id="boxplot-example" class="section level3 hasAnchor" number="7.5.1">
 <h3><span class="header-section-number">7.5.1</span> Boxplot Example<a href="ggplot2.html#boxplot-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As suggested by one of you, we will look at the relationship of preferred music genre and music volume in our course:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="ggplot2.html#cb53-1" tabindex="-1"></a><span class="co"># seminar &lt;- readRDS(&quot;./data/seminar_data.Rds&quot;)</span></span>
-<span id="cb53-2"><a href="ggplot2.html#cb53-2" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x=</span>v07_genre, <span class="at">y=</span>v08_loudness, <span class="at">colour=</span>v07_genre, <span class="at">fill=</span>v07_genre)) <span class="sc">+</span></span>
-<span id="cb53-3"><a href="ggplot2.html#cb53-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
-<span id="cb53-4"><a href="ggplot2.html#cb53-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Preferred Music Genre&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Loudness (arbitrary units)&quot;</span>, </span>
-<span id="cb53-5"><a href="ggplot2.html#cb53-5" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Genre&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="878.4" /></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="ggplot2.html#cb65-1" tabindex="-1"></a><span class="co"># seminar &lt;- readRDS(&quot;./data/seminar_data.Rds&quot;)</span></span>
+<span id="cb65-2"><a href="ggplot2.html#cb65-2" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x=</span>v07_genre, <span class="at">y=</span>v08_loudness, <span class="at">colour=</span>v07_genre, <span class="at">fill=</span>v07_genre)) <span class="sc">+</span></span>
+<span id="cb65-3"><a href="ggplot2.html#cb65-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
+<span id="cb65-4"><a href="ggplot2.html#cb65-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Preferred Music Genre&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Loudness (arbitrary units)&quot;</span>, </span>
+<span id="cb65-5"><a href="ggplot2.html#cb65-5" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Genre&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="878.4" /></p>
 </div>
 <div id="exercise-boxplot" class="section level3 hasAnchor" number="7.5.2">
 <h3><span class="header-section-number">7.5.2</span> Exercise: Boxplot<a href="ggplot2.html#exercise-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -723,11 +723,11 @@ Try to add <em>labels</em> and a <em>theme</em>.</p>
 </div>
 <div id="solution-boxplot" class="section level3 hasAnchor" number="7.5.3">
 <h3><span class="header-section-number">7.5.3</span> Solution: Boxplot<a href="ggplot2.html#solution-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="ggplot2.html#cb54-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
-<span id="cb54-2"><a href="ggplot2.html#cb54-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length,</span>
-<span id="cb54-3"><a href="ggplot2.html#cb54-3" tabindex="-1"></a>                   <span class="at">color =</span> Species, <span class="at">fill =</span> Species), <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb54-4"><a href="ggplot2.html#cb54-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="ggplot2.html#cb66-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
+<span id="cb66-2"><a href="ggplot2.html#cb66-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length,</span>
+<span id="cb66-3"><a href="ggplot2.html#cb66-3" tabindex="-1"></a>                   <span class="at">color =</span> Species, <span class="at">fill =</span> Species), <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb66-4"><a href="ggplot2.html#cb66-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-52-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 <div id="inspiration-colors-and-palettes" class="section level3 hasAnchor" number="7.5.4">
 <h3><span class="header-section-number">7.5.4</span> Inspiration: colors and palettes<a href="ggplot2.html#inspiration-colors-and-palettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -745,7 +745,7 @@ Try to add <em>labels</em> and a <em>theme</em>.</p>
 </div>
 <div id="use-colors-and-palettes" class="section level3 hasAnchor" number="7.5.5">
 <h3><span class="header-section-number">7.5.5</span> Use: colors and palettes<a href="ggplot2.html#use-colors-and-palettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="960" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="960" /></p>
 <ul>
 <li><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Showing plots together like this is easy with <code>cowplot::plot_grid()</code>!</i></li>
 </ul>

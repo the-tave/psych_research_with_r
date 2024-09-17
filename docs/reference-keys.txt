@@ -7,7 +7,6 @@ workflow
 installing-packages
 basics
 basics-1
-basic-functions
 logic
 reading-error-messages
 best-practice
@@ -160,5 +159,3 @@ walkthrough-2
 walkthrough-3
 loops-write-a-for-loop-that-outputs-the-first-x-numbers-of-the-fibonacci-sequence-golden-ratio
 rmarkdown-start-your-document-in-a-certain-way-that-matches-the-template
-reading-in-data
-logic-1

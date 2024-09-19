@@ -1,5 +1,7 @@
 
-# `tidyverse`: Data munging with `dplyr` {#dplyr}
+# (PART) Into the `tidyverse` {-}
+
+# Data munging with `dplyr` {#dplyr}
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
@@ -46,11 +48,11 @@ At a glance:
 
 > The tidyverse is an opinionated **collection of R packages designed for data science**. All packages share an underlying design philosophy, grammar, and data structures. ([tidyverse.org](tidyverse.org))
 
-![Hex Logos](./img/hexagons.png){height=200px}
-
 So packages are pretty cool: They usually come from people who had a specific problem, found a solution and decided to share it with others so they can more easily fix new problems.
 Of course everyone has a different preference on how to work, which is why not every package and function will be intuitive to everyone.
 That is also why the definition of an "opinionated collection of R packages" is so fitting because the `tidyverse` is a framework consisting of many different packages that the authors find intuitive and useful.
+
+![Hex Logos](./img/hexagons.png){height=200px}
 
 Incidentally, I agree and I will show you why. 
 If you figure out at some point that your prefer another way - that's great, but the tidyverse is a solid starting point for most data science needs in psychology.

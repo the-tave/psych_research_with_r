@@ -1,12 +1,5 @@
 
-```{r overallsetup, include=FALSE, warnings = FALSE}
-knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE,
-                      collapse = T, comment = "#",
-                      message = F)
-
-library(dplyr)
-library(webexercises)
-```
+# (PART) First Steps {-}
 
 # Intro and Installation
 
@@ -54,24 +47,31 @@ For most things - especially during the learning phase - it makes sense to write
 To do so, simply click the !["New Script" button](./img/newfile.png){#id .class width=auto height=16px} button and choose 'R Script'.
 
 Once we have a new script created, we can learn some basic things that R is capable of and save it to check out later.
-Math
+Let's try to use R as a calculator first. 
+In the _code chunk_ below you will find some mathematical operations and their respective output.
+Here as well as in other places that show R code (such as forums, blogs or help pages) you can recognize a code chunk by its gray background and mono space formatting. 
+Output is presented with the `[1]` at the start of the line.
+
+#### Basic Math {-}
 
 ```{r basicbasics, collapse = T, comment = " "}
-# Basic Math
 1+2 
 2-3
 3*4
 4/3
 5^2
+```
 
-# Assigning Variables
+#### Assigning Values {-}
+
+```{r basicbasics2}
 a <- 3
 b <- 4
 a-b
 a*b+5
 ```
 
-In this `code chunk`, R is essentially being used as a calculator to perform basic math.
+In these code chunks, R is essentially being used as a calculator to perform basic math.
 While we want to make use of all the more powerful functions of R, it is important to grasp the basics and be able to use arithmetic for our purposes.
 Next to the basic mathematical operators, there are many nifty mathematical functions, such as `sqrt()` - _square root_, `sum()` or `pi`. 
 
@@ -81,16 +81,21 @@ We can check this property of a variable, e.g. `a` using the function `class(a)`
 
 Usually when we fire up R, we don't just want to work with single values numeric but with **data frames** or **vectors** ![Vector](./img/vector.png){#id .class width=auto height=20px} that can contain different classes of variables and several values respectively.
 
+#### Vectors{-}
+
 ```{r advancedbasics}
-# Vectors
 v <- c(6, 7, 8)
 class(v)
 d <- c("sunny", "rainy", "foggy")
 class(d)
+```
 
-# Data Frame
+#### Data Frame {-}
+
+```{r}
 e <- data.frame(v, d)
 class(e)
+e
 ```
 
 Notice that we did not just add all values one after the other, but followed a certain notation that begins with the function `c()`.
@@ -107,8 +112,9 @@ When we have our data in a neat data frame, what we usually want to do is access
 To do so, base R uses square brackets `[]` behind the name of a data frame to indicate "take this data, but only certain rows/columns/cells".
 Remember: The brackets understand the first input as rows and the second as columns - _rows right away_.
 
+#### Square Bracket Indexing {-}
+
 ```{r brackets}
-e 
 e[1, ]
 e[ , 1]
 

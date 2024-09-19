@@ -92,7 +92,7 @@ p4 <- ggplot() + geom_jitter(aes(data4[, 1], data4[, 2])) + labs(title = "4") + 
 cowplot::plot_grid(p1, p2, p3, p4, nrow = 2)
 ```
 
-`r hide("Soultion")`
+`r hide()`
 
 r1 = `r r1`, r2 = `r r2`, r3 = `r r3`, r4 = `r r4`
 
@@ -148,7 +148,7 @@ Calculate a correlation test using `cor.test()` to analyze the question.
 
 Try to formulate an interpretation as you would report it in a thesis or paper!
 
-`r hide("Solution")`
+`r hide()`
 
 ```{r}
 cor.test(seminar$v05_skill_tech, seminar$v10_motivation)

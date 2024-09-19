@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Working with existing Data | Psychological Research in R</title>
+  <title>About... | Psychological Research in R</title>
   <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Working with existing Data | Psychological Research in R" />
+  <meta property="og:title" content="About... | Psychological Research in R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
@@ -21,7 +21,7 @@ directly in R and R Markdown.</p>" />
   <meta name="github-repo" content="the-tave/psych_research_in_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Working with existing Data | Psychological Research in R" />
+  <meta name="twitter:title" content="About... | Psychological Research in R" />
   
   <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
@@ -38,8 +38,8 @@ directly in R and R Markdown.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ggplot2.html"/>
-<link rel="next" href="loops-and-conditionals.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="intro-and-installation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,13 +170,15 @@ div.csl-indent {
 
 <ul class="summary">
 <li>
-<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research in R 
-<i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #650279;"></i> Psychological Research in R 
+<i class="fa-solid fa-mug-hot" style="color: #650279;"></i></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="about....html"><a href="about....html"><i class="fa fa-check"></i>About...</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about..."><i class="fa fa-check"></i>About...</a></li>
+<li class="chapter" data-level="" data-path="about....html"><a href="about....html#this-book"><i class="fa fa-check"></i>...this book</a></li>
+<li class="chapter" data-level="" data-path="about....html"><a href="about....html#the-author"><i class="fa fa-check"></i>...the author</a></li>
 </ul></li>
 <li class="part"><span><b>I First Steps</b></span></li>
 <li class="chapter" data-level="1" data-path="intro-and-installation.html"><a href="intro-and-installation.html"><i class="fa fa-check"></i><b>1</b> Intro and Installation</a>
@@ -454,6 +456,9 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="toolbox.html"><a href="toolbox.html#lop"><i class="fa fa-check"></i>Incomplete List of Useful Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -471,319 +476,56 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exdata" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Working with existing Data<a href="exdata.html#exdata" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
-<p>Please also install the <em>wobblynameR</em> package (only available on GitHub).
-For that you need the <em>devtools</em> package first:</p>
-<ol style="list-style-type: decimal">
-<li><code>install.packages("devtools")</code></li>
-<li><code>devtools::install_github("the-tave/wobblynameR")</code></li>
-</ol>
-<div id="first-steps-seminar-data" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> First Steps: Seminar Data<a href="exdata.html#first-steps-seminar-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><br></p>
-<ul>
-<li>Download the data frame from ILIAS and save it in the data subfolder in your R-Project.</li>
-<li>Use the "Import Dataset" Menu under the <em>Environment</em> tab <img src="img/import_dataset.png" height="40" alt="Import Dataset" />
-<ul>
-<li>In that menu, we can select our data file &amp; choose some basic aspects of reading in that data</li>
-</ul></li>
-</ul>
-<p><br></p>
-<p><i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Make sure you have the right package installed for reading in specific data types! Here: Please install the readr package with install.packages("readr")</i></p>
-<p>In my experience, it is easiest to work with data where you have an idea of what to expect.
-<!-- Therefore, we will all participate in the following study and then use the data throughout the remainder of this course. --></p>
-<!-- [https://exp.wextor.eu/TheTave/PsychResearchR/](https://exp.wextor.eu/TheTave/PsychResearchR/) -->
+<div id="about..." class="section level1 unnumbered hasAnchor">
+<h1>About...<a href="about....html#about..." class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="this-book" class="section level2 unnumbered hasAnchor">
+<h2>...this book<a href="about....html#this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>It's completely based on a course, so you can either look up specific facts or go through each chapter as you would a lesson.</p>
+</blockquote>
+<p>This book is quite <em>opinionated</em>, meaning I included all the lovely things that <em>I</em> like to work with.
+You might prefer other packages and that is completely okay - I still appreciate you reading my suggestions.
+As with anything in life, a lot can be learned from other peoples approaches to things.</p>
+<p>Each chapter will end with a "Wrap-up <i class="fa-solid fa-anchor" style="color: teal;"></i> and Further Resources <i class="fa-solid fa-book" style="color: orange;"></i>"-section, i.e. a little collection of facts you should now know and some links for further reading.
+Also, in most chapters you will find some exercises or hidden code snippets, so you can test your skills as you go along.</p>
+<p><strong>Important</strong>: I will present you with a lot of different packages that I believe will make your life easier in this book.
+Please make sure that you have them installed if you want to try out the code.
+You can typically install any package by typing <code>install.packages("packagename")</code> - substituting packagename for the name of the package, e.g. dplyr - into your R console and hitting Enter.
+Some packages may not be installable this way, in which case I will explicitly mention how to install them where they are first used!</p>
+<!-- Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading. -->
+<!-- Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`. -->
+<!-- The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book. -->
 </div>
-<div id="different-types-of-data-sources" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Different types of data sources<a href="exdata.html#different-types-of-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Data collected from WEXTOR - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
-That means that this type of data has one row per participant and the values for each column (variable) are separated by a <em>delimiter</em> <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
-<p>When our data comes from an Excel file, it will often be exported as CSV because this type of storing data is pretty efficient and uses up very little space on the disk.
-A more modern but also more space-consuming way of storing Excel table data is in the XLSX format (Not an acronym, just stands for "Excel Spreadsheet").</p>
-<p>Many people use SPSS for statistical analysis and creating dataframes.
-These data will be stored in a file with the extension SAV.
-Generally speaking, SAV files are compatible with R.
-However, there are some specialties which can cause problems, such as SPSS labels.
-We won't go into depth on this, just know that R can sometimes recognize SPSS labelled variables as their own class, in which case the class of those variables should be corrected manually <a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
-<p>Finally, of course we can also encounter datafiles that were created in R.
-In this case the will have .Rds as the file extension.
-A special case of this is when data frames are included in base-R or in a package.
-For example, the dataset called <code>iris</code> comes with R as an example dataset.</p>
-<p>Therefore, we can run a function on it without having to load it at all:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="exdata.html#cb49-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span>
-<span id="cb49-2"><a href="exdata.html#cb49-2" tabindex="-1"></a><span class="co">#   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
-<span id="cb49-3"><a href="exdata.html#cb49-3" tabindex="-1"></a><span class="co"># 1          5.1         3.5          1.4         0.2  setosa</span></span>
-<span id="cb49-4"><a href="exdata.html#cb49-4" tabindex="-1"></a><span class="co"># 2          4.9         3.0          1.4         0.2  setosa</span></span>
-<span id="cb49-5"><a href="exdata.html#cb49-5" tabindex="-1"></a><span class="co"># 3          4.7         3.2          1.3         0.2  setosa</span></span>
-<span id="cb49-6"><a href="exdata.html#cb49-6" tabindex="-1"></a><span class="co"># 4          4.6         3.1          1.5         0.2  setosa</span></span>
-<span id="cb49-7"><a href="exdata.html#cb49-7" tabindex="-1"></a><span class="co"># 5          5.0         3.6          1.4         0.2  setosa</span></span>
-<span id="cb49-8"><a href="exdata.html#cb49-8" tabindex="-1"></a><span class="co"># 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
-<p>Depending on which type of data we want to work with, there are different ways of loading the data into R.</p>
-</div>
-<div id="reading-in-the-data" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Reading in the data<a href="exdata.html#reading-in-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are two main ways to load data: via the "Import Dataset" menu under the <em>Environment</em>-tab or (only) using code and if necessary packages.
-In the menu, simply select the option "Import Dataset" menu under the top-right <em>Environment</em>-tab and use <em>From text (readr)</em> for csv or other text files (such as .txt).
-Note that this menu also offers the possibility to load data from Excel and SPSS.
-However, this is much easier done by just using simple commands directly in your script:</p>
-<table>
-<thead>
-<tr class="header">
-<th>Data Source</th>
-<th>R command</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>WEXTOR (CSV)</td>
-<td><code>readr::read_delim("data.csv", delim = ";")</code></td>
-</tr>
-<tr class="even">
-<td>Excel (XLSX)</td>
-<td><code>xlsx::read.xlsx("data.xlsx", sheetIndex = 1)</code></td>
-</tr>
-<tr class="odd">
-<td>R Data Source (RDS)</td>
-<td><code>readRDS("data.Rds")</code></td>
-</tr>
-<tr class="even">
-<td>SPSS (SAV)</td>
-<td><code>foreign::read.spss("data.sav")</code></td>
-</tr>
-</tbody>
-</table>
-<div id="reading-in-the-data-1" class="section level3 hasAnchor" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Reading in the data<a href="exdata.html#reading-in-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="generated-code" class="section level4 hasAnchor" number="6.3.1.1">
-<h4><span class="header-section-number">6.3.1.1</span> Generated Code<a href="exdata.html#generated-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<!-- # ```{r include = F} -->
-<!-- # edited_data <- PsychResearchR_data[, c(1, 4:8, 12:32)] -->
-<!-- # edited_data <- edited_data |> select(-starts_with("vi_")) -->
-<!-- # write_csv(edited_data, "data/seminar_data_raw.csv") -->
-<!-- # ``` -->
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="exdata.html#cb50-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb50-2"><a href="exdata.html#cb50-2" tabindex="-1"></a>seminar_data_raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/seminar_data_raw.csv&quot;</span>, </span>
-<span id="cb50-3"><a href="exdata.html#cb50-3" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb50-4"><a href="exdata.html#cb50-4" tabindex="-1"></a><span class="fu">View</span>(seminar_data_raw)</span></code></pre></div>
-</div>
-</div>
-<div id="basic-edits" class="section level3 hasAnchor" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="exdata.html#basic-edits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Choose an appropriate name, e.g. <code>raw</code></li>
-<li>Put all <em>library commands</em> at the top of the script so you are ready to conduct all analyses</li>
-<li>You do not need the <em>View()</em> command in your script</li>
-<li>If you are not sure about the state of your data, look at it first!
-<ul>
-<li>View() opens the whole data in new tab; glimpse(), str() and head() give you a rough overview; names() shows you all variable names</li>
-</ul></li>
-<li>Some edits are already possible in the menu! Column types can (and sometimes should) be adjusted, e.g. recognizing dates</li>
-<li>Create a new dataset as a copy in which you do all further edits! E.g. <code>seminar</code> with proper varname prefix</li>
-</ol>
-</div>
-<div id="basic-edits-1" class="section level3 hasAnchor" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i><a href="exdata.html#basic-edits-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="result" class="section level4 hasAnchor" number="6.3.3.1">
-<h4><span class="header-section-number">6.3.3.1</span> Result<a href="exdata.html#result" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="exdata.html#cb51-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb51-2"><a href="exdata.html#cb51-2" tabindex="-1"></a><span class="fu">library</span>(wobblynameR)</span>
-<span id="cb51-3"><a href="exdata.html#cb51-3" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="exdata.html#cb51-4" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;./data/seminar_data_raw.csv&quot;</span>, </span>
-<span id="cb51-5"><a href="exdata.html#cb51-5" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb51-6"><a href="exdata.html#cb51-6" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.wx.5.start_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>),</span>
-<span id="cb51-7"><a href="exdata.html#cb51-7" tabindex="-1"></a>                     <span class="at">.wx.7.end_date =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">&quot;%m/%d/%y&quot;</span>), </span>
-<span id="cb51-8"><a href="exdata.html#cb51-8" tabindex="-1"></a>                     <span class="at">...24 =</span> <span class="fu">col_skip</span>()),</span>
-<span id="cb51-9"><a href="exdata.html#cb51-9" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb51-10"><a href="exdata.html#cb51-10" tabindex="-1"></a></span>
-<span id="cb51-11"><a href="exdata.html#cb51-11" tabindex="-1"></a><span class="co"># Add &quot;v&quot; as varname prefix to all variables</span></span>
-<span id="cb51-12"><a href="exdata.html#cb51-12" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">namepref0</span>(raw, <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
-</div>
-</div>
-</div>
-<div id="codebook" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Codebook<a href="exdata.html#codebook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>What variables are in the data? -&gt; <code>names(seminar)</code>
-<ul>
-<li>v.wx.1.id, v.wx.4.start_time, v.wx.5.start_date, v.wx.6.end_time, v.wx.7.end_date, v.wx.8.session_length, v01_gender, v02_age, v03_prog_exp, v04_bodyheight, v05_skill_tech, v06_loc, v07_genre, v08_loudness, v09_smoke, v10_motivation, v11_soul, v12_soul_phil, vrt_1, vrt_2, vrt_3, vz0_browser_screen_h, vz0_browser_screen_w</li>
-</ul></li>
-<li>What can they tell us? Which analyses might be of interest?</li>
-</ul>
-</div>
-<div id="descriptives" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Descriptives<a href="exdata.html#descriptives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>In any report, we need to give our readers/ listeners/... an overview of the data
-<ul>
-<li>We need to know the sample to judge the results!</li>
-<li>A sample of e.g. 10 female psychology students probably shows different results -generally speaking - than a sample of 10 male soldiers</li>
-</ul></li>
-</ul>
-<p>Name some common descriptives:</p>
-<ul>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-<li><input class='webex-solveme nospaces ignorecase' size='18' data-answer='["mean","median","mode","variance","standard deviation"]'/></li>
-</ul>
-<div class="webex-solution">
-<button>
-Show the solutions
-</button>
-<ul>
-<li>Mean</li>
-<li>Median</li>
-<li>Mode</li>
-<li>Variability, Variance, Standard Deviation</li>
-<li>Data Visualization...</li>
-</ul>
-</div>
-<div id="group_by-summarize-1" class="section level3 hasAnchor" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> group_by &amp; summarize<a href="exdata.html#group_by-summarize-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>With the dplyr-workflow, we can easily output group statistics</li>
-<li>Keywords: <strong>group_by()</strong> &amp; <strong>summarize()</strong></li>
-<li>The code is built like any other dplyr workflow with pipes ( %&gt;% ) in between each:
-<ol style="list-style-type: decimal">
-<li>Define/ name the data frame</li>
-<li>group_by(<em>variable_name</em>)</li>
-<li>in summarize, define a name for the statistic, use a =, use a function like mean() for the measure</li>
-</ol></li>
-</ul>
-<!-- ### Example: group_by & summarize -->
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="exdata.html#cb52-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb52-2"><a href="exdata.html#cb52-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb52-3"><a href="exdata.html#cb52-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_plength =</span> <span class="fu">mean</span>(Petal.Length),</span>
-<span id="cb52-4"><a href="exdata.html#cb52-4" tabindex="-1"></a>            <span class="at">med_pwidth =</span> <span class="fu">median</span>(Petal.Width),</span>
-<span id="cb52-5"><a href="exdata.html#cb52-5" tabindex="-1"></a>            <span class="at">m_slength =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb52-6"><a href="exdata.html#cb52-6" tabindex="-1"></a>            <span class="at">mode_swidth =</span> <span class="fu">getmode</span>(Sepal.Width),</span>
-<span id="cb52-7"><a href="exdata.html#cb52-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb52-8"><a href="exdata.html#cb52-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb52-9"><a href="exdata.html#cb52-9" tabindex="-1"></a><span class="co">#   Species    m_plength med_pwidth m_slength mode_swidth     n</span></span>
-<span id="cb52-10"><a href="exdata.html#cb52-10" tabindex="-1"></a><span class="co">#   &lt;fct&gt;          &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb52-11"><a href="exdata.html#cb52-11" tabindex="-1"></a><span class="co"># 1 setosa          1.46        0.2      5.01         3.4    50</span></span>
-<span id="cb52-12"><a href="exdata.html#cb52-12" tabindex="-1"></a><span class="co"># 2 versicolor      4.26        1.3      5.94         3      50</span></span>
-<span id="cb52-13"><a href="exdata.html#cb52-13" tabindex="-1"></a><span class="co"># 3 virginica       5.55        2        6.59         3      50</span></span></code></pre></div>
-</div>
-</div>
-<div id="exercises-2" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Exercises<a href="exdata.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="group_by-summarize-2" class="section level3 hasAnchor" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> group_by &amp; summarize<a href="exdata.html#group_by-summarize-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br>
-Follow the structure to group the edited seminar data by belief in the soul and output a summary with</p>
-<ul>
-<li>mean age</li>
-<li>mean technological skill</li>
-<li>mode music genre</li>
-<li>median volume of music</li>
-<li>grouped n (function <em>n()</em>)</li>
-</ul>
-<div class="webex-solution">
-<button>
-Solution
-</button>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="exdata.html#cb53-1" tabindex="-1"></a>seminar <span class="sc">%&gt;%</span> </span>
-<span id="cb53-2"><a href="exdata.html#cb53-2" tabindex="-1"></a>  <span class="fu">group_by</span>(v11_soul) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-3"><a href="exdata.html#cb53-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">m_age =</span> <span class="fu">mean</span>(v02_age),</span>
-<span id="cb53-4"><a href="exdata.html#cb53-4" tabindex="-1"></a>            <span class="at">m_tech_skill =</span> <span class="fu">mean</span>(v05_skill_tech),</span>
-<span id="cb53-5"><a href="exdata.html#cb53-5" tabindex="-1"></a>            <span class="at">mode_music =</span> <span class="fu">getmode</span>(v07_genre),</span>
-<span id="cb53-6"><a href="exdata.html#cb53-6" tabindex="-1"></a>            <span class="at">median_volume =</span> <span class="fu">median</span>(v08_loudness),</span>
-<span id="cb53-7"><a href="exdata.html#cb53-7" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb53-8"><a href="exdata.html#cb53-8" tabindex="-1"></a><span class="co"># # A tibble: 3 × 6</span></span>
-<span id="cb53-9"><a href="exdata.html#cb53-9" tabindex="-1"></a><span class="co">#   v11_soul m_age m_tech_skill mode_music median_volume     n</span></span>
-<span id="cb53-10"><a href="exdata.html#cb53-10" tabindex="-1"></a><span class="co">#   &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb53-11"><a href="exdata.html#cb53-11" tabindex="-1"></a><span class="co"># 1 dunno     23.4         29.4 techno              89       5</span></span>
-<span id="cb53-12"><a href="exdata.html#cb53-12" tabindex="-1"></a><span class="co"># 2 no        22           45   pop                 74.5     2</span></span>
-<span id="cb53-13"><a href="exdata.html#cb53-13" tabindex="-1"></a><span class="co"># 3 yes       22.5         42   rock                67.5     6</span></span></code></pre></div>
-</div>
-</div>
-<div id="prepare-seminar-data" class="section level3 hasAnchor" number="6.6.2">
-<h3><span class="header-section-number">6.6.2</span> Prepare seminar data<a href="exdata.html#prepare-seminar-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We have read in the "seminar_data_raw" and looked at some of the basic edits that we can do easily.
-However, in order to be able to work with the dataset in easily in the future, we should do some more advanced edits.
-Specifically, we will:</p>
-<ol style="list-style-type: decimal">
-<li>Change the date format so we get a start and end variable including time and date instead of separate date and time variables</li>
-<li>Remove the unnecessary original date and time variables</li>
-<li>Change the one missing value in <code>v12_soul_phil</code> to "dunno"</li>
-<li>Rename the ID variable to <code>ID</code> &amp; session length variable to <code>session_length</code></li>
-<li>Make our data type explicit using <code>as.data.frame()</code></li>
-<li>Save our edited data in an R data set (<code>Rds</code>) format so we can use it more easily later!</li>
-</ol>
-<p>I suggest using some of the <code>dplyr</code> commands that were introduced in the last chapter for edits 1 through 4.
-You can try to figure them out on your own and later look at the solution below.
-<strong>I highly recommend you follow along with these steps, as we will use this dataset in later chapters</strong><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
-<div class="webex-solution">
-<button>
-Solution
-</button>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="exdata.html#cb54-1" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> seminar <span class="sc">|&gt;</span> </span>
-<span id="cb54-2"><a href="exdata.html#cb54-2" tabindex="-1"></a>  <span class="co"># 1. Change date format </span></span>
-<span id="cb54-3"><a href="exdata.html#cb54-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">4.</span>start_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>),</span>
-<span id="cb54-4"><a href="exdata.html#cb54-4" tabindex="-1"></a>         <span class="at">end =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(v.wx.<span class="fl">7.</span>end_date, v.wx.<span class="fl">6.</span>end_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>), </span>
-<span id="cb54-5"><a href="exdata.html#cb54-5" tabindex="-1"></a>         <span class="at">.before =</span> v01_gender) <span class="sc">%&gt;%</span> <span class="co"># it is more efficient to have date and time together</span></span>
-<span id="cb54-6"><a href="exdata.html#cb54-6" tabindex="-1"></a>  <span class="co"># 2. Remove (now) unnecessary original date vars </span></span>
-<span id="cb54-7"><a href="exdata.html#cb54-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(v.wx.<span class="fl">4.</span>start_time, v.wx.<span class="fl">5.</span>start_date, v.wx.<span class="fl">6.</span>end_time, v.wx.<span class="fl">7.</span>end_date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb54-8"><a href="exdata.html#cb54-8" tabindex="-1"></a>  <span class="co"># 3. Change missing value to &quot;don&#39;t know&quot; - in this case makes sense in context</span></span>
-<span id="cb54-9"><a href="exdata.html#cb54-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">v12_soul_phil =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(v12_soul_phil), <span class="st">&quot;dunno&quot;</span>, v12_soul_phil)) <span class="sc">|&gt;</span> </span>
-<span id="cb54-10"><a href="exdata.html#cb54-10" tabindex="-1"></a>  <span class="co"># 4. Rename the ID &amp; session length variable</span></span>
-<span id="cb54-11"><a href="exdata.html#cb54-11" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ID =</span> v.wx.<span class="fl">1.</span>id,</span>
-<span id="cb54-12"><a href="exdata.html#cb54-12" tabindex="-1"></a>         <span class="at">session_length =</span> v.wx.<span class="fl">8.</span>session_length)</span>
-<span id="cb54-13"><a href="exdata.html#cb54-13" tabindex="-1"></a></span>
-<span id="cb54-14"><a href="exdata.html#cb54-14" tabindex="-1"></a><span class="co"># 5. Make data type explicit</span></span>
-<span id="cb54-15"><a href="exdata.html#cb54-15" tabindex="-1"></a>seminar <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(seminar)</span>
-<span id="cb54-16"><a href="exdata.html#cb54-16" tabindex="-1"></a></span>
-<span id="cb54-17"><a href="exdata.html#cb54-17" tabindex="-1"></a><span class="co"># 6. Save edited data frame in Rds format</span></span>
-<span id="cb54-18"><a href="exdata.html#cb54-18" tabindex="-1"></a><span class="fu">saveRDS</span>(seminar, <span class="st">&quot;./data/seminar_data.Rds&quot;</span>)</span></code></pre></div>
-</div>
-</div>
-</div>
-<div id="wrap-up-further-resources-4" class="section level2 unnumbered hasAnchor">
-<h2>Wrap-Up &amp; Further Resources<a href="exdata.html#wrap-up-further-resources-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<i class="fa-solid fa-anchor" style="color: teal;"></i>
-<ul style="color: teal;">
-<li>
-Reading in data works with commands like readRDS() but also the "Import Dataset" Menu
-</li>
-<li>
-Use the menu for WEXTOR data to get an overview and reproducible code
-</li>
-<li>
-Get/ create a codebook for your data
-</li>
-<li>
-Always report descriptive data
-</li>
-<li>
-dplyr's <code>group_by()</code> and <code>summarize()</code> can output grouped descriptives
-</li>
-</ul>
-<p><br></p>
-<i class="fa-solid fa-book" style="color: orange;"></i>
-<ul style="color: orange;">
-<li>
-<a href="https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r">Reading in Data in Different Formats</a>
-</li>
-<li>
-<a href="https://statsandr.com/blog/descriptive-statistics-in-r/">Stats and R: Descriptives</a>
-</li>
-</ul>
+<div id="the-author" class="section level2 unnumbered hasAnchor">
+<h2>...the author<a href="about....html#the-author" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I am Tave and I am currently working on my Ph.D. in Research Methods, Assessment and iscience.
+This online book is a little side project that is quite near and dear to my heart.</p>
+<p>In my experience, statistics and more so statistics programs can easily induce panic-like states in psychology students.
+And also in my experience, that can change over the course of one semester tops.
+Programming in R is a lot less scary than many may think and most of all, it can and <em>should be fun</em>!
+<!-- LINK TO HILARY PARKERS TALK WHEN IT IS AVAILABLE! OR FONTI KAR -->
+It is a weird, powerful language and can assist you with many everyday tasks.</p>
+<p>I hope to alleviate some of the aveRsion over the course of this course and help you see R's advantages.</p>
+<p>Please feel free to contact me if you have any questions or comments! You can reach out via e-mail: <a href="annika-tave.overlander@uni.kn">annika-tave.overlander@uni.kn</a> or you can submit a GitHub issue over at the repository for this book: <a href="https://github.com/the-tave/psych_research_in_r">https://github.com/the-tave/psych_research_in_r</a>.</p>
+<!-- You can render the HTML version of this example book without changing anything: -->
+<!-- 1. Find the **Build** pane in the RStudio IDE, and -->
+<!-- 1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files. -->
+<!-- Or build the book from the R console: -->
+<!-- ```{r, eval=FALSE} -->
+<!-- bookdown::render_book() -->
+<!-- ``` -->
+<!-- To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>. -->
+<!-- ## Preview book -->
+<!-- As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console: -->
+<!-- ```{r eval=FALSE} -->
+<!-- bookdown::serve_book() -->
+<!-- ``` -->
 
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="5">
-<li id="fn5"><p>...which often times is a comma, but not always! WEXTOR, for example uses semicolons.<a href="exdata.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>The function calls <code>as.numeric()</code> and <code>as.factor()</code> will suffice in most cases.<a href="exdata.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>This is very close to real-life practice, but you can also skip it and download the Rds-file from the GitHub repository <a href="https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds">here</a>.<a href="exdata.html#fnref7" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+
+
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -995,8 +737,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loops-and-conditionals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intro-and-installation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1027,7 +769,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/the-tave/psych_research_in_r/issues/06_WorkingwithData.Rmd",
+"link": "https://github.com/the-tave/psych_research_in_r/issues/index.Rmd",
 "text": "Edit"
 },
 "history": {

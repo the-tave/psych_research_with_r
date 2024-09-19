@@ -8,10 +8,10 @@ bookdown::gitbook:
       collapse: section
       before: |
         <li>
-        <a href="./"><i class="fa-solid fa-mug-hot" style="color: #650279;"></i> Psychological Research in R 
-        <i class="fa-solid fa-mug-hot" style="color: #650279;"></i></a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research in R 
+        <i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
+      # after: |
+      #   <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
       # extra_dependencies: awesomebox"
     edit: https://github.com/the-tave/psych_research_in_r/issues/%s
     download:

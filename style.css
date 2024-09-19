@@ -12,3 +12,30 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+/* Image Float hack */
+/* img[alt$=">"] {
+  float: right;
+}
+
+img[alt$="<"] {
+  float: left;
+}
+
+img[alt$="><"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
+} */
+
+.flr {
+  float: right;
+  margin-left: 10pt;
+}
+
+.fll {
+  float: left;
+  margin-right: 10pt;
+}

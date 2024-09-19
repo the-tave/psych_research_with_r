@@ -5,7 +5,7 @@ library(ggplot2)
 library(unikn)
 ```
 
-# `tidyverse`: Pretty plots with `ggplot2` {#ggplot2}
+# Pretty plots with `ggplot2` {#ggplot2}
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>

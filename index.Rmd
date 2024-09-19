@@ -1,8 +1,5 @@
 --- 
-title: |
-  <i class="fa-solid fa-mug-hot" style="color: #650279;"></i>
-  Psychological Research in R
-  <i class="fa-solid fa-mug-hot" style="color: #650279;"></i>
+title: "Psychological Research in R"
 subtitle: "An R Intro for psychologists whose dog regularly ate their statistics homework."
 author: "Anni Tave Overlander"
 date: "Last update: `r Sys.Date()`"
@@ -27,32 +24,37 @@ linestretch: 1.5
 geometry: footnotesep=20pt
 ---
 
-# About... {-}
+
+
+# Welcome! {-}
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
 
+<!-- Cover Art: https://shorturl.at/IA2Se -->
 
-## ...this book {-}
-
-**This book is still a work in progress! Most chapters are currently placeholders and will be filled over the next couple of weeks!**
-
-> It's completely based on a course, so you can either look up specific facts or go through each chapter as you would a lesson.
-
-Welcome! 
+**This book is a work in progress! Many chapters still contain placeholders/ bullet points and will be filled over the next couple of weeks!**
 
 Chances are, you are a psychology student and either starting to learn R or looking to refresh your memory.
 Or perhaps you need to look up a specific step that you _can never quite remember_ (or is that just me?).
-Maybe you also came across this resource by pure chance - lucky you! 
+Maybe you also came across this resource by pure chance - lucky you! <i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i>
 
 In any case I am glad you are here and hope you find both what you were and weren't looking for.
 This book is based on an in-person introductory R course from the [University of Konstanz](https://www.uni-konstanz.de/).
 I tried my very best to cover all the basics on working with R from the ground up. 
 Following the whole course should enable you to write your very own R Markdown report, taking full advantage of some of the most important and common features of R.
 
-That being said, this book is quite _opinionated_, meaning I included all the lovely things that _I_ like to work with.
+### About... {-}
+
+
+
+#### ...this book {-}
+
+> It's completely based on a course, so you can either look up specific facts or go through each chapter as you would a lesson.
+
+This book is quite _opinionated_, meaning I included all the lovely things that _I_ like to work with.
 You might prefer other packages and that is completely okay - I still appreciate you reading my suggestions.
 As with anything in life, a lot can be learned from other peoples approaches to things. 
 
@@ -70,7 +72,7 @@ Some packages may not be installable this way, in which case I will explicitly m
 
 <!-- The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book. -->
 
-## ...the author {-}
+#### ...the author {-}
 
 I am Tave and I am currently working on my Ph.D. in Research Methods, Assessment and iscience.
 This online book is a little side project that is quite near and dear to my heart.
@@ -116,6 +118,10 @@ Please feel free to contact me if you have any questions or comments! You can re
 ```{r setup, include=FALSE}
 library(webexercises)
 library(dplyr)
+
+knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE,
+                      collapse = T, comment = "#",
+                      message = F)
 
 seminar <- readRDS("./data/seminar_data.Rds")
 

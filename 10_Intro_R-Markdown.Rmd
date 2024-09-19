@@ -1,5 +1,7 @@
 
-# Intro to R Markdown
+# (PART) Reporting in R {-}
+
+# R Markdown
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
@@ -7,54 +9,87 @@
 ```
 
 
-![R Markdown Logo](./img/rmd.png)
+![](./img/rmd.png){.fll height=100px}
 
-## Creating whole documents in R
+In this last part we will learn one of the most nifty features of R, which is being able to create whole documents from the comfort of your R Studio.
+Because creating visualizations and statistics in R is great, but we need to able to show and report our work.
+Of course, results can be copied and plots can be exported, but the more steps one needs to take, the more prone to error the work becomes. When you write a report with this feature, analyses and plots can be embedded directly into the document.
+Basically, R Markdown is a text engine based on $\LaTeX$ that allows you to create documents, presentations, reports and much more.
+As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot below!
 
-- Creating visualizations and statistics in R is great, but we need to able to show and report our work.
-- Results can be copied and plots can be exported, but they can also be embedded directly into a document in R
-- R Markdown is a text engine based on $\LaTeX$ that allows you to create documents, presentations, reports...
+![_**Example Screenshot of a Thesis written in R Markdown**_](./img/MArmdex.png){height=250px}
 
-![MA thesis Example](./img/MArmdex.png){height=250px}
+![](./img/rmd-click.png){.flr height=170px} 
 
-### Example
-
-Please create a demo RMarkdown document and "knit" it. 
-![Create a demo Rmd](./img/rmd-click.png){#id .class width=auto height=140px} ... or go to File > New File > R Markdown to create a new Rmd document. 
-Give it a name or keep all the defaults.
+There are many possibilities and luckily, there are also usually templates and guidelines to go along with them.
+For your first R Markdown document, you can create a demo Rmd with the "New File" menu as shown, or go to File > New File > R Markdown to create a new Rmd document. 
+Give it a name or keep all the defaults for now.
 It will create a document with some demo content.
 When you click the "knit"-button below the main menu, you will need to save the file and it will create the output.
 Try to play around with the text and read the demo content - it explains the basic functions!
-
 You can use the document you create now as a sort of cheatsheet and template for what you can do later.
+ 
+<!-- ## Document Basics -->
 
+RMarkdown has some basics that need to be learned and might take some getting used to.
+It also has many features and powerful tools for layout and styling, so spending the time it takes to learn is a good investment.
+By default, RMarkdown can create HTML^[HTML is used in most if not all websites and stands for _hypertext markup language_.] documents.
+Don't worry if that sounds like more programming to you - while it is possible to use special _HTML tags_ in R Markdown, it is by no means necessary.
 
-## Document Basics
+You can also create other types of documents, such as a pdf for which you need a special package to render $\LaTeX$.
+The most efficient is usually `tinytex`, which first needs to be installed as the package itself and afterwards it can run its own installation of everything you need for your reporting:
 
-<br>
+```{r eval = F}
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
 
-- RMarkdown has some basics that need to be learned
-- It also has many features and powerful tools for layout and styling
-- By default, RMarkdown can create html documents - if you want a pdf, you need a special package to render $\LaTeX$, I recommend `tinytex`
-    - `install.packages("tinytex")`
-    - `tinytex::install_tinytex()`
+## YAML header (_Yet Another Markdown Language_)
 
-### YAML header (_Yet Another Markdown Language_)
+Apart from the document processors that are necessary, R Markdown files also follow a specific structure in order to be recognized as the right type of file.
+Every R Markdown document starts with the so-called YAML header, which stands for _Yet Another Markdown Language_. 
+This defines most of the "hard facts" concerning our document, such the output format, e.g. `html_document`, title, subtitle, author, date... 
+We can also define further characteristics, e.g. `toc` (table of content) or `self-contained` (this should be set to true, otherwise R will not copy images etc. and the document will not work properly on other devices).
 
-- This defines the output format of our document, e.g. `html_document`
-- We can set our title, subtitle, author, date... 
-- We can define further characteristics, e.g. `toc` (table of content) or `self-contained` (this should be set to true, otherwise R will not copy images etc. and the document will not work properly on other devices)
+> <i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;"> The YAML header needs to be indented in a certain way, otheriwse the commands are not recognized! </i>
 
-- <i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-The YAML header needs to be indented in a certain way, otheriwse the commands are not recognized! </i>
-- <i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;">
-In the YAML header, `true` and `false` are not capitalized, unlike in the rest of R! </i>
+```{r yamlexample, eval = F}
+---
+title: "My Title"
+subtitle: |
+    | A Super, Very,
+    | Insanely Long
+    | Awesome Subtitle
+    | In Four Lines
+author: "A Great Author"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    self-containted: true
+---
+
+# First Chapter
+
+Start text after a blank line! 
+```
+
+As you can see above, the YAML header is surrounded by three minus signs --- and has quite specific formatting.
+Setting values like title and author are similar to assigning strings to variables - they have to be put in quotes.
+One exception to this rule can be seen in the subtitle, which starts with a vertical rule | - if that is the case, you can define very long text without the quotes and even control the exact format and line break.
+Another nifty feature is being able to use inline R Code, to e.g. insert today's date automatically with \` r Sys.Date()\`.
+
+For the output, it is important to stick with this type of indentation, where every setting belonging to the document command is indented further than the document definition.
+
+> <i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;"> In the YAML header, `true` and `false` are not capitalized, unlike in the rest of R! </i>
     
-### Markdown Basics
+## Markdown Basics
 
-<br>
+When you have defined the document basics to your liking, it is time to get started on the actual text.
+While other text processors offer buttons for text formatting, R Markdown requires this formatting to be included in the text.
+Think of Markdown as the back-end of your document and the output as the front-end!
 
-Text formatting generally works with characters in the text:
+Here is an overview of the most important formatting features:
 
 - _italics_ with \_italics\_
 - **bold** with \*\*bold\*\*
@@ -62,17 +97,39 @@ Text formatting generally works with characters in the text:
 - Unordered lists are created with \-
 - Ordered lists with 1., 2. ...
 
-## \#\# Heading Basics
-### \#\#\# Sub Header 3. level
-#### \#\#\#\# 4th level
-##### \#\#\#\#\# 5th level
-###### \#\#\#\#\#\# 6th level
+To structure your text, you can set headings with the \# pound sign.
+The more pound signs, the smaller the heading (sub-levels).
 
-Thats's it.
+\# First Heading <br>
+\#\# Sub Header 2. level <br>
+\#\#\# Sub Header 3. level <br>
+\#\#\#\# 4th level <br>
+\#\#\#\#\# 5th level <br>
+\#\#\#\#\#\# 6th level 
 
 Realistically, we _may_ want to go down to the 4th level heading, but usually no further.
 
+### Tables {-}
+
+To create tables, we also need to specify rows and columns with symbols right in the text. 
+Anything above the line of minus signs is identified as the header and anything below as the table content.
+This is a fairly simple way to create automatically formatted, clean tables.
+
+Header 1 \| Header 2 <br>
+-----\|----- <br> 
+Great content \| Fantastic content <br>
+
+Becomes:
+
+Header 1 | Header 2 
+-----|-----
+Great content | Fantastic content
+
+It is also possible to use inline Code to report statistics, although it may be more efficient for reporting to create tables with `kable`, which you can read more about [here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html).
+
 ## Special Features
+
+
 
 - Print mathematical equations
 - Show code and its output
@@ -104,26 +161,10 @@ Remember these tags should only be used when creating a html document!
     - Header 1 | Header 2
     - _then a row of - - - | - - - to represent the lines_
     - And the content separated | into as many columns as defined
-    
-### Table Example
-
-<br>
-
-Header 1 \| Header 2 <br>
------\|----- <br> 
-Great content \| Fantastic content <br>
-
-<br> Becomes: <br>
-
-Header 1 | Header 2 
------|-----
-Great content | Fantastic content
 
 
 
 ## Including R
-
-<br>
 
 - Including R code can be achieved by either inserting so-called code chunks or using inline code
 - Code chunks are useful if several lines of code need to be evaluated and/ or shown 
@@ -188,8 +229,7 @@ mean(y)
 <li> [RMarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)</li>
 <li> [RMarkdown Chunk Options](https://yihui.org/knitr/options/)</li>
 <li> [YouTube: Presentations with Quarto](https://www.youtube.com/watch?v=01KifhHDkFk&ab_channel=EquitableEquations)</li>
-
 </ul>
 
 
-![Shakespeare writing RMarkdown](img/shakespeare.jpg){height=550px}
+![Shakespeare writing RMarkdown (AI generated using the [bing image creator](https://www.bing.com/images/create))](img/shakespeare.jpg){height=550px}

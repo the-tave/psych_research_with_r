@@ -112,7 +112,7 @@ This is the main function for "opening the canvas", so it basically prepares R f
 Commonly, we define the data set (the _Data_ layer of the schematic) and which variables to plot in this function (the _Mapping_ layer).
 The mapping needs the _aesthetics_ function `aes()` as input, in which the variable(s) to be plotted will be defined.
 
-> <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">It's important to remember that the package is
+> <i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i><i style="color: #a34c21;">It's important to remember that the package is
 called _ggplot**2**_ while the function call is _ggplot_!</i>
     
 ### `geom_XYZ()` {-}
@@ -286,7 +286,7 @@ cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() +
                    nrow = 1)
 ```
 
-> <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Showing plots together like this is easy with `cowplot::plot_grid()`!</i>
+> <i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i><i style="color: #a34c21;">Showing plots together like this is easy with `cowplot::plot_grid()`!</i>
 
 ## Wrap-Up & Further Resources {-}
 

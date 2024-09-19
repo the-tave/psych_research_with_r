@@ -58,7 +58,7 @@ If you just type `hi there` in the console and hit Enter, R will give you an err
 But if you type `"hi there"`, it will echo the text back to you.
 
 
-![](./img/varname.webp){height=200px}
+![](./img/varname.png){height=200px}
 <figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/</figcaption>
 
 

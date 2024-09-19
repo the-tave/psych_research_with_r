@@ -201,7 +201,12 @@ t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater")
 
 ## ANOVA
 
-![ANOVA principle](./img/anova.svg)
+```{r anovaprince, echo = F, fig.cap="ANOVA principle"}
+show_fig("./img/anova")
+```
+
+
+<!-- ![ANOVA principle](./img/anova.svg) -->
   
 
 - Like a t-test for more than two groups

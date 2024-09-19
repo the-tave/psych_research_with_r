@@ -82,8 +82,12 @@
 
     - Becomes: [Google Link](https://www.google.com/) (clickable Link)
 - **Image:** 
-    - "![image description](C:/path/to/your/image.png)"
-    - Different file formats, such as JPG, PNG, SVG or GIF
+
+```{r eval = F}
+![image description](C:/path/to/your/image.png)
+```
+
+- Different file formats, such as JPG, PNG, SVG or GIF
     
 
 - When including an image, make sure you are using the right file path, image name & file extension! So that...
@@ -161,7 +165,7 @@ ggplot(penguins, aes(x=species, y=bill_length_mm, color=species, fill=species), 
 ### Walkthrough
 
 - Note that it is a little complex to include the result right in the caption
-    - ggplot2 cannot handle $\LaTeX$ notation so we need to use package latex2exp
+    - ggplot2 cannot handle \LaTeX notation so we need to use package latex2exp
     - the TeX function from that package cannot handle the list-output from apa_print()$full_result so we need to "unlist" that
 - Using RMarkdown, it is much easier to include the statistic right in the text with inline code:
     - \`*r apa_print(penguinmodel)$full\_result*\`  <br> 

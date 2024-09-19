@@ -15,7 +15,7 @@ Personally, I got started because I had super talented people to learn from that
 If you found this book helpful and want to thank me or you have some suggestions or wishes for the future, please write me an email! 
 I hope to keep improving this intro and possibly adding to it, so I would also love to get some contributions!
 
-`r hide("<a href='mailto:annika-tave.overlander@uni.kn'> <i class='fa-solid fa-envelope' style='color: purple;'></i> </a>")`
+`r hide("<a href='mailto:annika-tave.overlander@uni.kn'> <i class='fa-solid fa-envelope' style='color: #a34c21;'></i> </a>")`
 `r unhide()`
 
 So, here are my last pieces of wisdom inspired by things I learned and people I met at the [useR! conference 2024](https://events.linuxfoundation.org/user/):
@@ -75,7 +75,7 @@ Keep teaching yourself R - you have a lot of great resources!
 And keep an open mind to keep finding cool features, such as the `emphatic` package, which lets you color rows in tables very easily. 
 
 
-```{r emphatic}
+```{r emphatic, eval = knitr::is_html_output(excludes = "epub")}
 iris |> 
   group_by(Species) |> 
   summarize(Mean_Sepal_Length = mean(Sepal.Length)) |> 

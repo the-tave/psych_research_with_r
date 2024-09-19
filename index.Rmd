@@ -118,6 +118,7 @@ Please feel free to contact me if you have any questions or comments! You can re
 ```{r setup, include=FALSE}
 library(webexercises)
 library(dplyr)
+library(svglite)
 
 knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE,
                       collapse = T, comment = "#",
@@ -135,4 +136,16 @@ knitr::opts_chunk$set(
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'dplyr', 'ggplot2', 'webexercises'
 ), 'packages.bib')
+
+# Function to show svgs in pdf - hopefully! https://stackoverflow.com/questions/50165404/how-to-make-a-pdf-using-bookdown-including-svg-images/56044642#56044642
+show_fig <- function(f)
+  {if (knitr::is_latex_output())
+  {
+    output = xfun::with_ext(f, 'pdf')
+    rsvg::rsvg_pdf(xfun::with_ext(f,'svg'), file=output)
+  } else {
+    output = xfun::with_ext(f, 'svg')
+  }
+  knitr::include_graphics(output)
+}
 ```

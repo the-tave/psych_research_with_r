@@ -1,3 +1,5 @@
+fig:nerfect
+fig:anovaprince
 fig:tree-age
 fig:tree-age-elaborate
 intro-and-installation
@@ -41,20 +43,12 @@ boxplot-example
 exercise-boxplot
 inspiration-colors-and-palettes
 exdata
-first-steps-seminar-data
 different-types-of-data-sources
 reading-in-the-data
-reading-in-the-data-1
-generated-code
-basic-edits
-basic-edits-1
-result
 codebook
 descriptives
 group_by-summarize-1
-exercises-2
-group_by-summarize-2
-prepare-seminar-data
+missing-data
 loops-and-conditionals
 what-is-a-loop
 what-are-conditionals
@@ -121,7 +115,7 @@ r-markdown
 yaml-header-yet-another-markdown-language
 markdown-basics
 special-features
-latex
+section
 html
 including-r
 code-chunks

@@ -1,5 +1,5 @@
 
-# (PART) The Nitty Gritty {-}
+# (PART) The Nitty-Gritty {-}
 
 # Working with existing Data {#exdata}
 
@@ -8,36 +8,25 @@
 <!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
 
+After learning how to get your data to be the right format and how to look at said data, it now gets down to the nitty-gritty.
+In this chapter we will talk about where data can come from and how to get it inside of R. 
+For that, we will talk about different ways of reading data into R to get the right format and also some first steps that should be taken with data in order to work with it properly.
 
-Please also install the _wobblynameR_ package (only available on GitHub). 
-For that you need the _devtools_ package first:
+We will work with some new packages, so please make sure you have the `readr` package as well as the `wobblynameR` package, which is only available on GitHub. 
+To install it, you will first need the `devtools` package and then use it to install from GitHub:
 
-1. `install.packages("devtools")`
-2. `devtools::install_github("the-tave/wobblynameR")`
+```{r eval = F}
+install.packages("devtools")
+devtools::install_github("the-tave/wobblynameR")
+```
 
-    
-## First Steps: Seminar Data
-
-<br>
-
-- Download the data frame from ILIAS and save it in the data subfolder in your R-Project.
-- Use the "Import Dataset" Menu under the _Environment_ tab ![Import Dataset](./img/import_dataset.png){height=40px}
-    - In that menu, we can select our data file & choose some basic aspects of reading in that data 
-
-<br>
-
-<i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">Make sure you have the right package installed for reading in specific data types! Here: Please install the readr package with install.packages("readr")</i>
-
-
-
-In my experience, it is easiest to work with data where you have an idea of what to expect.
 <!-- Therefore, we will all participate in the following study and then use the data throughout the remainder of this course. -->
 
 <!-- [https://exp.wextor.eu/TheTave/PsychResearchR/](https://exp.wextor.eu/TheTave/PsychResearchR/) -->
 
 ## Different types of data sources
 
-Data collected from WEXTOR - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
+Data collected from [WEXTOR](https://www.wextor.eu) - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
 That means that this type of data has one row per participant and the values for each column (variable) are separated by a _delimiter_ ^[...which often times is a comma, but not always! WEXTOR, for example uses semicolons.].
 
 When our data comes from an Excel file, it will often be exported as CSV because this type of storing data is pretty efficient and uses up very little space on the disk.
@@ -76,11 +65,18 @@ Excel (XLSX) | `xlsx::read.xlsx("data.xlsx", sheetIndex = 1)`
 R Data Source (RDS) | `readRDS("data.Rds")`
 SPSS (SAV) | `foreign::read.spss("data.sav")`
 
+You can follow along these exact code examples if you download the _seminar_data_raw_ data frame from GitHub and save it in the data subfolder in your R-Project.
+You can find it under this link: [https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv](https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv).^[If you are connected to the internet anyway you can also use this link as the file path without downloading the data first!]
 
+![](./img/import_dataset.png){.flr height=60px}
 
+Use the "Import Dataset" Menu under the _Environment_ tab in the upper right corner of R Studio. 
+In that menu, there are different options for different operations, but for CSV files I recommend the _From Text (readr)_ option.
+Then we can select our data file and choose some basic aspects of reading in that data.
 
-### Reading in the data
-#### Generated Code
+One of the reasons why i prefer this option over others is that a lot of the times it will recognize the data specifications on its own, so when you have selected the data file on you computer and copy out the generated Code from the Code Preview, it will look something like this:
+
+### Generated Code {-}
 
 <!-- # ```{r include = F} -->
 <!-- # edited_data <- PsychResearchR_data[, c(1, 4:8, 12:32)] -->
@@ -88,37 +84,55 @@ SPSS (SAV) | `foreign::read.spss("data.sav")`
 <!-- # write_csv(edited_data, "data/seminar_data_raw.csv") -->
 <!-- # ``` -->
 
-
-
 ```{r eval = F}
 library(readr)
-seminar_data_raw <- read_delim("data/seminar_data_raw.csv", 
-    delim = ";", escape_double = FALSE, trim_ws = TRUE)
+seminar_data_raw <- read_delim("data/seminar_data_raw.csv")
 View(seminar_data_raw)
 ```
 
+The `read_delim()` function needs the file path to the data file as the minimum input requirement.
+There are many basic edits that can already easily be made in this function, which can also be selected in the menu.
+For example, even though "csv" stands for _comma-separated values_ these tiypes of files sometimes use a semicolon as a delimiter.
+When reading in the data, this is sometimes recognized automatically, but when the data looks a bit funky in the preview, making sure the right delimiter is selected is a solid first step.
 
-### Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i>
+![Example of wonky-looking data in the Import Dataset Menu](./img/importcsv.png)
 
+### Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i>  {-}
 
-
-1. Choose an appropriate name, e.g. `raw`
-2. Put all _library commands_ at the top of the script so you are ready to conduct all analyses
-3. You do not need the _View()_ command in your script
-4. If you are not sure about the state of your data, look at it first!
-    - View() opens the whole data in new tab; glimpse(), str() and head() give you a rough overview; names() shows you all variable names
-5. Some edits are already possible in the menu! Column types can (and sometimes should) be adjusted, e.g. recognizing dates
-6. Create a new dataset as a copy in which you do all further edits! E.g. `seminar` with proper varname prefix
-
+There are a lot more quite basic edits that we can achieve from the comfort of the Import Dataset menu.
+In this case, we will make explicit some specifications that are automatically recognized, namely `delim = ","` - i.e. the correct delimiter, `escape_double = FALSE` - i.e. double quotes are not treated as a special character^[Escape characters are very important and very confusing. Just know that some special characters can be recognized either as plain text or as a request to do something (as code).] and `trim_ws = TRUE` - i.e. if there are white spaces in the data, they should be trimmed.
 
 
-### Basic Edits <i class="fa-solid fa-paintbrush" style="color: darkgreen;"></i>
-#### Result
+We can also specify some column types in this menu.
+Most columns will probably be fine staying the type they are automatically recognized as but especially some date formats are not properly recognized by R.
+So it makes sense to look through the data preview and do a quick visual check whether the data you see is displayed properly and the values make sense.
+If that check reveals that something is wrong, the little gray triangle next to the variable name offers many column types to choose from and find the one that suits your data.
+In our example, we will make sure that the start and end date variables are recognized as dates in the right format.
+For that we will choose the _Date_ format and trigger a prompt asking for the correct format with some placeholders.
+When talking about dates, placeholders like m, d and y should be intuitive enough - suffice it to say that a capital Y stand for the whole year (e.g., 2024) while a small y stands for a shortened year format (e.g., 24).
+
+Another handy column type is `col_skip()` which does just that - skip that specific column.
+It may seem strange to exclude some data from the get-go, but some data files will end with a delimiter and R recognizes that as another column.
+This is also the case for this data file from [WEXTOR](https://www.wextor.eu), which is why we will skip the last column (which is completely empty).
+
+Moreover, we can take full advantage of both menu and script by copying the code that is generated from the menu into our script. 
+This automatically gives us a nice structure to start a new script for analyses with a first library command at the top (for `readr`) and reading in the data as a first step of analysis.
+As a best practice, we will change the name of our raw data set in R to "raw".
+This data set can remain untouched throughout all other data munging steps which allows us to revise edits or go back a step if something goes wrong with having to reload the data (especially with a big data set, reading it in can take a bit of time).
+
+As a last first step, we will use the `namepref0()` ("name-prefix-zero") function from the `wobblynameR` package to add the prefix "v" to every variable name.
+There are different reasons why a consistent prefix might be useful - in this case the variable names start with a number, which can cause problems in R.
+The function takes the whole data frame as input and outputs that data frame with all variables renamed, which we will save in a new data frame called "seminar".
+The resulting code - the first part of which can be completely generated by the menu - looks like this:
+
+### Result {-}
 
 ```{r warnings = F}
+# Library commands on top
 library(readr)
 library(wobblynameR)
 
+# Generated code
 raw <- read_delim("./data/seminar_data_raw.csv", 
     delim = ",", escape_double = FALSE, 
     col_types = cols(.wx.5.start_date = col_date(format = "%m/%d/%y"),
@@ -131,25 +145,23 @@ seminar <- namepref0(raw, "v")
 ```
 
 
-
 ## Codebook
 
+In my experience, it is easiest to work with data where you have an idea of what to expect.
+Even if you create your survey or experiment, you may forget what exactly is in which variable.
+With the `str()` function we can get a solid overview of the data structure and with `names(seminar)` R will output all variable names in the seminar data frame.
 
-
-- What variables are in the data? -> `names(seminar)`
-    - `r names(seminar)`
-- What can they tell us? Which analyses might be of interest?
-
-
+When you work with someone's data, it is a good idea to either consult their codebook.
+It might also help you in deciding what type of analyses might make sense with which variables.
 
 ## Descriptives
 
+Next to the general overview of what is contained in the data, descriptive statistics are very useful to look at for the variables of interest.
+Also, in any report, we need to give our readers or listeners an overview of the data to better judge the actual meaning of the results.
+Basically, we need to know the sample to judge the results!
+A sample of e.g. 10 female psychology students probably shows different results - generally speaking - than a sample of 10 male soldiers.
 
-- In any report, we need to give our readers/ listeners/... an overview of the data
-    - We need to know the sample to judge the results!
-    - A sample of e.g. 10 female psychology students probably shows different results -generally speaking - than a sample of 10 male soldiers
-
-Name some common descriptives:
+Name some common descriptive statistics:
 
 - `r fitb(c("mean", "median", "mode", "variance", "standard deviation"), ignore_case = TRUE)`
 - `r fitb(c("mean", "median", "mode", "variance", "standard deviation"), ignore_case = TRUE)`
@@ -169,16 +181,13 @@ Name some common descriptives:
 
 ### group_by & summarize 
 
-
-- With the dplyr-workflow, we can easily output group statistics
-- Keywords: **group_by()** & **summarize()**
-- The code is built like any other dplyr workflow with pipes ( %>% ) in between each:
-    1. Define/ name the data frame
-    2. group_by(_variable_name_)
-    3. in summarize, define a name for the statistic, use a =, use a function like mean() for the measure
-
-
-<!-- ### Example: group_by & summarize -->
+With the `dplyr`-workflow, we can easily output group statistics with the keywords: `group_by()` and `summarize()`
+The code is built like any other `dplyr` workflow with pipes ( %>% ) in between each function.
+Commonly, you will first define the name of the data frame - in the first example we will use the `iris` data.
+Then choose the variable that should be used for grouping, such as gender or in this case _Species_.
+Make sure that this variable is recognized as either a factor or character and try to choose a variable that has not too many groups, otherwise it might get too crowded and confusing rather than helpful.
+Then you can pipe this grouped data into the summarize function and define some names for the measures that will we used in the output as well as the measure you would like to use - i.e. commonly `mean()` `median()` or `sd()`. 
+You can also use `n()` to display the group sizes.
 
 ```{r group-by-example}
 iris %>% 
@@ -190,9 +199,27 @@ iris %>%
             n = n())
 ```
     
-## Exercises
+## Missing Data
 
-### group_by & summarize
+In R, missing data or `NA`s (which stands for "Not Available") occur when some values in your dataset are absent or not recorded. 
+This is important to note because missing data can affect your analyses and the conclusions you draw from your research. 
+R treats these missing values as a special case, so they don't interfere with calculations in the same way as other values. 
+You can identify missing data using functions like `is.na()`, and there are various methods to handle them, such as removing rows with missing values or using statistical techniques to estimate them. 
+
+This can easily be done with the `dplyr` tools we already know and a bit of logic: 
+If a variable _X_ in the data set _data_ has one or more missing values, you can use 
+
+```{r eval = F}
+data_edited <- data |> 
+  filter(!is.na(X))
+```
+
+to filter in only those rows in the variable that as _not_ NA (thus the !).
+Handling missing data properly ensures that your analysis is accurate and reliable.
+    
+## Exercises {-}
+
+### group_by & summarize {-}
 
 <br> 
 Follow the structure to group the edited seminar data by belief in the soul and output a summary with 
@@ -217,7 +244,7 @@ seminar %>%
 
 `r unhide()`
 
-### Prepare seminar data
+### Prepare seminar data {-}
 
 We have read in the "seminar_data_raw" and looked at some of the basic edits that we can do easily. 
 However, in order to be able to work with the dataset in easily in the future, we should do some more advanced edits.
@@ -278,4 +305,3 @@ saveRDS(seminar, "./data/seminar_data.Rds")
 <li> [Reading in Data in Different Formats](https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r)</li>
 <li> [Stats and R: Descriptives](https://statsandr.com/blog/descriptive-statistics-in-r/) </li>
 </ul>
-

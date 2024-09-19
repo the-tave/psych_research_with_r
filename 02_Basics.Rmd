@@ -208,7 +208,7 @@ Therefore, we will look at some of the most common wordings to decipher what R n
 
 Think of error messages not as discouraging faults of your program but rather as invites to help you help R understand what you are trying to achieve.
 
-#### _Error: unexpected 'X' in "Y"_ {-}
+### _Error: unexpected 'X' in "Y"_ {-}
 
 This message is fairly straightforward: 
 R expected a certain kind of symbol at the place where we put 'X' and is now confused because our input did not match the expectation.
@@ -219,7 +219,7 @@ Therefore, when we accidentally input a decimal as '3,141', we will receive the 
 
 **Fix: Replace the 'x' in "Y" with something that R can understand.** Or alternatively: Make sure that we meant the input like that. 
 
-#### _Error: object 'A' not found_ {-}
+### _Error: object 'A' not found_ {-}
 
 This, too, is pretty understandable message:
 The object that you are trying to access and use cannot be found by R.
@@ -275,10 +275,14 @@ However, don't forget that R expects input after each pipe.
 If you accidentally end a line of code with a pipe, you will encounter the behavior where R just does nothing and you basically have a staring battle of who will give in first.
 The same fix will work here: Hit the Esc button, look at the code you were trying to run and figure out if there might have been a pipe that just went nowhere.
 
-> <i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;">When you need help figuring out how a function works, there are several ways to get it. <br> Try typing **?"|>" ** into your console and hit enter!</i>
+> <i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i><i style="color: #a34c21;">When you need help figuring out how a function works, there are several ways to get it. <br> Try typing **?"|>" ** into your console and hit enter!</i>
 
-![](./img/nerfect.webp){height=150px}
-<figcaption style = "font-size: 7pt;">https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif</figcaption>
+```{r nerfect, eval = knitr::is_html_output(excludes = "epub"), fig.cap="https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif", fig.height=2}
+knitr::include_url("./img/nerfect.webp")
+```
+
+<!-- ![](./img/nerfect.webp){height=150px} -->
+<!-- <figcaption style = "font-size: 7pt;">https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif</figcaption> -->
 <!-- Pobody's Nerfect [(source)](https://i1.wp.com/thegameofnerds.com/wp-content/uploads/2017/01/tumblr_ojym90eixm1si3gq6o1_540.gif?resize=540%2C302&ssl=1) -->
 
 So, always keep in mind: Mistakes happen to everyone.

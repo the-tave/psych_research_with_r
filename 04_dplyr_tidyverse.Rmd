@@ -30,7 +30,7 @@ While `library()` makes all functions from a package available, you can also onl
 This works with the notation `package::function()` and is particularly useful if (1) the package is extremely large, takes a long time to load and/or you really only need the one function or (b) the function name you want to use is not unique, i.e. there are several packages that contain a function of that name. 
 For example, the function _filter_ exists in more than one package, so you might use `dplyr::filter()` in your code to make explicit that you want to use the `filter()` function from the `dplyr` package.
 
-<i class="fa-solid fa-lightbulb" style="color: purple;"></i><i style="color: purple;"> When this is the case, you will get the message "The following objects are masked from..." in the console when you load the package. This is also good to keep in mind if you run into unexpected errors - maybe you meant to use the function from another package but R is using the one you loaded last? </i>
+<i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i><i style="color: #a34c21;"> When this is the case, you will get the message "The following objects are masked from..." in the console when you load the package. This is also good to keep in mind if you run into unexpected errors - maybe you meant to use the function from another package but R is using the one you loaded last? </i>
 
 In the interest of creating reproducible code, it can also make sense to use the `package::function()` notation, so you can explicitly show others which function you used.
 
@@ -217,7 +217,7 @@ head(iris_twospec, 8)
 
 `r unhide()`
 
-![Hadley Wickham, developer of the tidyverse](./img/hadley-meme.webp){height=200px}
+![Hadley Wickham, developer of the tidyverse](./img/hadley-meme.png){height=200px}
 
 ### Group Statistics {-}
 

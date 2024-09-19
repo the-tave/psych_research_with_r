@@ -14,7 +14,7 @@
 In this last part we will learn one of the most nifty features of R, which is being able to create whole documents from the comfort of your R Studio.
 Because creating visualizations and statistics in R is great, but we need to able to show and report our work.
 Of course, results can be copied and plots can be exported, but the more steps one needs to take, the more prone to error the work becomes. When you write a report with this feature, analyses and plots can be embedded directly into the document.
-Basically, R Markdown is a text engine based on $\LaTeX$ that allows you to create documents, presentations, reports and much more.
+Basically, R Markdown is a text engine based on LaTeX that allows you to create documents, presentations, reports and much more.
 As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot below!
 
 ![_**Example Screenshot of a Thesis written in R Markdown**_](./img/MArmdex.png){height=250px}
@@ -36,7 +36,7 @@ It also has many features and powerful tools for layout and styling, so spending
 By default, RMarkdown can create HTML^[HTML is used in most if not all websites and stands for _hypertext markup language_.] documents.
 Don't worry if that sounds like more programming to you - while it is possible to use special _HTML tags_ in R Markdown, it is by no means necessary.
 
-You can also create other types of documents, such as a pdf for which you need a special package to render $\LaTeX$.
+You can also create other types of documents, such as a pdf for which you need a special package to render \LaTeX.
 The most efficient is usually `tinytex`, which first needs to be installed as the package itself and afterwards it can run its own installation of everything you need for your reporting:
 
 ```{r eval = F}
@@ -51,7 +51,7 @@ Every R Markdown document starts with the so-called YAML header, which stands fo
 This defines most of the "hard facts" concerning our document, such the output format, e.g. `html_document`, title, subtitle, author, date... 
 We can also define further characteristics, e.g. `toc` (table of content) or `self-contained` (this should be set to true, otherwise R will not copy images etc. and the document will not work properly on other devices).
 
-> <i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;"> The YAML header needs to be indented in a certain way, otheriwse the commands are not recognized! </i>
+> <i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i> <i style="color: #a34c21;"> The YAML header needs to be indented in a certain way, otheriwse the commands are not recognized! </i>
 
 ```{r yamlexample, eval = F}
 ---
@@ -81,7 +81,7 @@ Another nifty feature is being able to use inline R Code, to e.g. insert today's
 
 For the output, it is important to stick with this type of indentation, where every setting belonging to the document command is indented further than the document definition.
 
-> <i class="fa-solid fa-lightbulb" style="color: purple;"></i> <i style="color: purple;"> In the YAML header, `true` and `false` are not capitalized, unlike in the rest of R! </i>
+> <i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i> <i style="color: #a34c21;"> In the YAML header, `true` and `false` are not capitalized, unlike in the rest of R! </i>
     
 ## Markdown Basics
 
@@ -137,9 +137,9 @@ It is also possible to use inline Code to report statistics, although it may be 
 - Profit from existing templates
 - General rule of thumb: Rmd documents are rendered depending on their output format
     - If you plan on creating an html, you can use plain html to make adjustments and use special features.
-    - If you create a pdf, they will most likely not work and you should use $\LaTeX$ notation.
+    - If you create a pdf, they will most likely not work and you should use \LaTeX notation.
 
-### $\LaTeX$
+### \LaTeX
 
 Especially useful for writing equations:
 
@@ -147,7 +147,7 @@ Especially useful for writing equations:
 - \$ \\ beta \$ $\rightarrow$ $\beta$
 - \$ R^2 \$ $\rightarrow$ $R^2$
 - and, by the way,  \$ \\ rightarrow \$ becomes $\rightarrow$ 
-- and \$ \\ LaTeX \$ becomes $\LaTeX$
+- and \$ \\ LaTeX \$ becomes \LaTeX
 - \\ newline creates a new line and \\ newpage creates a new page
     
 ### HTML

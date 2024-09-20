@@ -1,0 +1,24 @@
+Variable name	Variable Description	Original Question
+v.wx.1.id	subject ID	
+v.wx.4.start_time	starting time	
+v.wx.5.start_date	starting date	
+v.wx.6.end_time	ending time	
+v.wx.7.end_date	ending date	
+v.wx.8.session_length	duration	in seconds
+v01_gender	gender	How do you identify (your gender)? ( male; female;  non-binary; other; I prefer not to answer)?
+v02_age	age in years	Your age:?
+v03_prog_exp	programming experience	Have you worked with R or another programming language before?  (Yes - with R [1]; Yes - only with a different language (e.g. Python or Matlab) [2]; No  [0]?)
+v04_bodyheight	height in centimeters	How tall are you in centimeters?
+v05_skill_tech	tech + programming skills	How skilled do you think you are when it comes to technology and programming? (I'm not very skilled [0]; I'm really good at it [100])?
+v06_loc	preferred location to live	"Where would you most like to live? Choose from this list (Africa [1]; Antarctica [2];  Asia [3]; Oceania (Australia, New Zealand etc.) [4]; Europe [5]; USA [6]; Canada [7]; Mexico [8]; Central America [9]; South America [10] ; Middle East [11]; West Indies [12])"
+v07_genre	favorite music genre	What is your favorite music genre? (Rock; Pop; Hip Hop; Jazz; Techno; Schlager; Metal) 
+v08_loudness	preffered music loudness	"When you listen to that genre of music, do you listen to it...?(very quiet [0]; super loud [100])"
+v09_smoke	smoking	Do you smoke? (No [0]; Only at parties or socially [1]; Yes [2])
+v10_motivation	learning motivation for programming	How motivated are you to learn more about programming?  (I need a little push [0];  I'm super motivated! [100])
+v11_soul	belief in soul	And lastly: Do you believe in the soul? ( Yes; No; I haven't made up my mind [dunno])
+v12_soul_phil	belief in soul and body connection	"If you do, which of these best describes your opinion? ( I believe the soul and the body are essentially the same and connected (monism); I believe that soul and body are two seperate entities (dualism); I haven't made up my mind [dunno])"
+vrt_1	reaction time 1	
+vrt_2	reacrion time 2	
+vrt_3	reaction time 3	
+vz0_browser_screen_h	screen height	in Pixels
+vz0_browser_screen_w	screen width	in Pixels

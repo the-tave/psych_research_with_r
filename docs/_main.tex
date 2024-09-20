@@ -135,7 +135,7 @@
 \makeatother
 \subtitle{An R Intro for psychologists whose dog regularly ate their statistics homework.}
 \author{Anni Tave Overlander}
-\date{Last update: 2024-09-19}
+\date{Last update: 2024-09-20}
 
 \begin{document}
 \maketitle
@@ -1029,11 +1029,11 @@ Solution
 
 \FunctionTok{str}\NormalTok{(scores7a); }\FunctionTok{str}\NormalTok{(scores7b)}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 20 obs. of  2 variables:}
-\CommentTok{\#  $ age: int  15 12 12 12 12 14 15 13 15 12 ...}
-\CommentTok{\#  $ iq : num  95.3 94.2 79.1 125.2 87.7 ...}
+\CommentTok{\#  $ age: int  15 14 15 14 13 12 13 13 13 15 ...}
+\CommentTok{\#  $ iq : num  98 100 117 103 97 ...}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 20 obs. of  2 variables:}
-\CommentTok{\#  $ age: int  14 14 14 15 13 13 15 13 12 12 ...}
-\CommentTok{\#  $ iq : num  78.9 97.3 114.4 96.5 96.1 ...}
+\CommentTok{\#  $ age: int  13 13 14 13 12 12 14 15 12 12 ...}
+\CommentTok{\#  $ iq : num  106.5 92.8 101.5 101 96.6 ...}
 
 \CommentTok{\# Add information about the class}
 \NormalTok{scores7a}\SpecialCharTok{$}\NormalTok{class }\OtherTok{\textless{}{-}} \StringTok{"7a"}
@@ -1045,8 +1045,8 @@ Solution
 \CommentTok{\# Check the overall data frame for plausibility}
 \FunctionTok{str}\NormalTok{(allscores)}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 40 obs. of  3 variables:}
-\CommentTok{\#  $ age  : int  15 12 12 12 12 14 15 13 15 12 ...}
-\CommentTok{\#  $ iq   : num  95.3 94.2 79.1 125.2 87.7 ...}
+\CommentTok{\#  $ age  : int  15 14 15 14 13 12 13 13 13 15 ...}
+\CommentTok{\#  $ iq   : num  98 100 117 103 97 ...}
 \CommentTok{\#  $ class: chr  "7a" "7a" "7a" "7a" ...}
 \FunctionTok{table}\NormalTok{(allscores}\SpecialCharTok{$}\NormalTok{class)}
 \CommentTok{\# }
@@ -1780,7 +1780,7 @@ We won't get too mathematical, but just know they are trigonometric angle functi
 Commonly in psychology, relation = correlation, which assumes a linear relationship.
 However, when we take a look at both the correlation between sine and cosine as well as their relationship represented visually, we might see a problem:
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-30-1.pdf}
+\includegraphics{_main_files/figure-html/unnamed-chunk-34-1.pdf}
 
 We can see that the two variables clearly have a certain type of relation with each other which is definitely not linear.
 But if we only reported the very very small correlation of .001, one could assume they had no relation at all!
@@ -1838,7 +1838,7 @@ called \emph{ggplot\textbf{2}} while the function call is \emph{ggplot}!
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-31-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-35-1} \end{flushleft}
 
 \subsection{Making Plots Prettier}\label{making-plots-prettier}
 
@@ -1887,7 +1887,7 @@ called \emph{ggplot\textbf{2}} while the function call is \emph{ggplot}!
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-32-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-36-1} \end{flushleft}
 
 \begin{quote}
 What could cause this distribution?
@@ -1900,7 +1900,7 @@ What could cause this distribution?
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-33-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-37-1} \end{flushleft}
 
 \begin{quote}
 What do you notice about the code compared to before?
@@ -1955,7 +1955,7 @@ Make sure everything is visible and legible, so try to use an \emph{alpha} of ar
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-35-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-39-1} \end{flushleft}
 
 \section{Adding labels and themes}\label{adding-labels-and-themes}
 
@@ -2041,7 +2041,7 @@ As suggested by one of you, we will look at the relationship of preferred music 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-36-1.pdf}
+\includegraphics{_main_files/figure-html/unnamed-chunk-40-1.pdf}
 
 \subsection{Exercise: Boxplot}\label{exercise-boxplot}
 
@@ -2061,7 +2061,7 @@ Solution
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-37-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-41-1} \end{flushleft}
 
 \subsection{Inspiration: colors and palettes}\label{inspiration-colors-and-palettes}
 
@@ -2087,7 +2087,7 @@ Solution
   Have fun with it!
 \end{itemize}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-38-1.pdf}
+\includegraphics{_main_files/figure-html/unnamed-chunk-42-1.pdf}
 
 \begin{quote}
 Showing plots together like this is easy with \texttt{cowplot::plot\_grid()}!
@@ -2972,7 +2972,7 @@ Don't forget to play and create fun loops!
   Go over examples (inspired by your thesis analyses )
 \end{itemize}
 
-\section{\texorpdfstring{Statistics Re-cap I}{Statistics Re-cap  I}}\label{statistics-re-cap-i}
+\section{\texorpdfstring{Statistics Re-cap }{Statistics Re-cap }}\label{statistics-re-cap}
 
 What do you remember from statistics:
 
@@ -2988,8 +2988,6 @@ What do you remember from statistics:
   What do they have in common \& what differentiates them?
 \end{itemize}
 
-\subsection{\texorpdfstring{Statistics Re-cap II}{Statistics Re-cap  II}}\label{statistics-re-cap-ii}
-
 They measure \emph{group differences}
 
 \begin{itemize}
@@ -3002,32 +3000,39 @@ They measure \emph{group differences}
   ANOVA \(\rightarrow\) three or more groups with one (or more) continuous attribute(s)
 \end{itemize}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-54-1.pdf}
+\includegraphics{_main_files/figure-html/unnamed-chunk-58-1.pdf}
 
 \subsection{Pre-Requisites}\label{pre-requisites}
 
 \begin{itemize}
 \tightlist
 \item
-  Load the seminar data using \texttt{seminar\ \textless{}-\ readRDS("./data/seminar\_data.Rds")}
+  Load the seminar data using
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Please make sure you are using the R dataset from the
-    zip folder in ILIAS, not the original csv file we first used!
-  \end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seminar }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"./data/seminar\_data.Rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+- Please make sure you are using the R dataset from the <br>
+zip folder in ILIAS, not the original csv file we first used!
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
 \item
   Add a ``dummy variable'' (only two possible values 0 and 1)
   for believing in a soul, where 1 means \emph{yes} and 0 means \emph{no or unsure}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{seminar\$soul\_dummy\ \textless{}-}
-    \texttt{ifelse(seminar\$v11\_soul\ ==\ "yes",\ 1,\ 0)}
-  \end{itemize}
 \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seminar}\SpecialCharTok{$}\NormalTok{soul\_dummy }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(seminar}\SpecialCharTok{$}\NormalTok{v11\_soul }\SpecialCharTok{==} \StringTok{"yes"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \section{\texorpdfstring{\(\chi^2\)}{\textbackslash chi\^{}2}}\label{chi2}
 
@@ -3056,7 +3061,8 @@ They measure \emph{group differences}
   \(E_i\) is the expected frequency in each category, calculated as: \[E_i = \frac{(row \ total) \times (column \ total)}{grand \ total}\]
 \item
   Example: Believing in the soul by gender
-\item
+\end{itemize}
+
 \begin{verbatim}
 #        
 #          0  1 Sum
@@ -3064,11 +3070,11 @@ They measure \emph{group differences}
 #   woman  6  5  11
 #   Sum    7  6  13
 \end{verbatim}
-\end{itemize}
 
 \subsection{How to in R}\label{how-to-in-r}
 
 \begin{itemize}
+\tightlist
 \item
   The \texttt{chisq.test()} function only needs (categorical!) \emph{x, y} as input
 
@@ -3077,18 +3083,18 @@ They measure \emph{group differences}
   \item
     Especially with a small sample, we can add the parameter \emph{simulate.p.value = T}, which bootstraps the analysis 2000 times
   \end{itemize}
-\item
+\end{itemize}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{chisq.test}\NormalTok{(seminar}\SpecialCharTok{$}\NormalTok{v01\_gender, seminar}\SpecialCharTok{$}\NormalTok{soul\_dummy, }\AttributeTok{simulate.p.value =}\NormalTok{ T)}
 \CommentTok{\# }
-\CommentTok{\#     Pearson\textquotesingle{}s Chi{-}squared test with simulated p{-}value (based on 2000 replicates)}
+\CommentTok{\#   Pearson\textquotesingle{}s Chi{-}squared test with simulated p{-}value (based on 2000 replicates)}
 \CommentTok{\# }
 \CommentTok{\# data:  seminar$v01\_gender and seminar$soul\_dummy}
 \CommentTok{\# X{-}squared = 0.014069, df = NA, p{-}value = 1}
 \end{Highlighting}
 \end{Shaded}
-\end{itemize}
 
 \subsection{\texorpdfstring{Exercise }{Exercise  }}\label{exercise-3}
 
@@ -3096,7 +3102,7 @@ We want to explore whether \textbf{belief in the soul (dummy)} is associated wit
 
 Calculate a simple chisq.test and interpret the results.
 
-\subsection{\texorpdfstring{Solution }{Solution  }}\label{solution-2}
+Solution
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3117,10 +3123,41 @@ Calculate a simple chisq.test and interpret the results.
 \end{Highlighting}
 \end{Shaded}
 
+How would you interpret this result?
+
 \begin{itemize}
 \tightlist
 \item
-  Interpretation?
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    Dualists prefer Rock music.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Music preferences influence the soul beliefs of a person.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    There is no significant association between belief in the soul and music preference by genre.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Chi squared is confusing.
+  \end{enumerate}
 \end{itemize}
 
 \section{t-Test}\label{t-test}
@@ -3211,9 +3248,10 @@ Calculate a simple chisq.test and interpret the results.
 
 \subsection{Examples}\label{examples}
 
+\textbf{One sided - ``greater'' assumes that mean(x) is larger than mean(y)}
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# One sided {-} "greater" assumes that mean(x) is larger than mean(y)}
 \FunctionTok{t.test}\NormalTok{(}\AttributeTok{x =} \DecValTok{10}\SpecialCharTok{:}\DecValTok{20}\NormalTok{, }\AttributeTok{y =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{)}
 \CommentTok{\# }
 \CommentTok{\#   Welch Two Sample t{-}test}
@@ -3226,9 +3264,15 @@ Calculate a simple chisq.test and interpret the results.
 \CommentTok{\# sample estimates:}
 \CommentTok{\# mean of x mean of y }
 \CommentTok{\#        15         5}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{\# Two sided using formula \textasciitilde{} Does seminar motivation differ}
-\CommentTok{\# depending on the soul{-}belief of students?}
+\textbf{Two sided using formula \textasciitilde{} }
+
+Does seminar motivation differ depending on the soul-belief of students?
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{t.test}\NormalTok{(v10\_motivation }\SpecialCharTok{\textasciitilde{}}\NormalTok{ soul\_dummy, }\AttributeTok{data =}\NormalTok{ seminar)}
 \CommentTok{\# }
 \CommentTok{\#   Welch Two Sample t{-}test}
@@ -3250,9 +3294,9 @@ We want to test whether the \textbf{gender} stereotype that men are \textbf{more
 
 Perform a one-sided two-sample t-test and interpret the results.
 
-Hint: The grouping variable ``v01\_gender'' is sorted alphabetically - so choose the ``alternative'' accordingly!
+\emph{Hint: The grouping variable ``v01\_gender'' is sorted alphabetically - so choose the ``alternative'' accordingly!}
 
-\subsection{\texorpdfstring{Solution }{Solution }}\label{solution-3}
+Solution
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3271,16 +3315,41 @@ Hint: The grouping variable ``v01\_gender'' is sorted alphabetically - so choose
 \end{Highlighting}
 \end{Shaded}
 
+How would you interpret this result?
+
 \begin{itemize}
 \tightlist
 \item
-  Interpretation?
-
-  \begin{itemize}
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
   \tightlist
   \item
-    There are no significant gender differences in technological skill.
-  \end{itemize}
+    There are no significant gender differences in technological skill.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Gender influences the thechnological skill of a person.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Women have significantly more tech skills than men.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    T-Tests are confusing.
+  \end{enumerate}
 \end{itemize}
 
 \section{ANOVA}\label{anova}
@@ -4081,7 +4150,7 @@ Solution Data Viz
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-71-1.pdf}
+\includegraphics{_main_files/figure-html/unnamed-chunk-78-1.pdf}
 
 \section*{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-7}
 \addcontentsline{toc}{section}{Wrap-Up \& Further Resources}
@@ -4121,7 +4190,7 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 In this last part we will learn one of the most nifty features of R, which is being able to create whole documents from the comfort of your R Studio.
 Because creating visualizations and statistics in R is great, but we need to able to show and report our work.
 Of course, results can be copied and plots can be exported, but the more steps one needs to take, the more prone to error the work becomes. When you write a report with this feature, analyses and plots can be embedded directly into the document.
-Basically, R Markdown is a text engine based on \LaTeX that allows you to create documents, presentations, reports and much more.
+Basically, R Markdown is a text engine based on LaTeX that allows you to create documents, presentations, reports and much more.
 As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot below!
 
 \begin{figure}
@@ -4791,7 +4860,7 @@ Create a boxplot and add results right in the caption!
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-85-1.pdf}
+\includegraphics{_main_files/figure-html/unnamed-chunk-92-1.pdf}
 
 \subsection{Walkthrough}\label{walkthrough-3}
 

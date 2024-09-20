@@ -20,8 +20,6 @@ install.packages("devtools")
 devtools::install_github("the-tave/wobblynameR")
 ```
 
-<!-- Therefore, we will all participate in the following study and then use the data throughout the remainder of this course. -->
-
 <!-- [https://exp.wextor.eu/TheTave/PsychResearchR/](https://exp.wextor.eu/TheTave/PsychResearchR/) -->
 
 ## Different types of data sources

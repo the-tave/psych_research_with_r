@@ -24,8 +24,6 @@ linestretch: 1.5
 geometry: footnotesep=20pt
 ---
 
-
-
 # Welcome! {-}
 
 ```{=html}
@@ -66,12 +64,6 @@ Please make sure that you have them installed if you want to try out the code.
 You can typically install any package by typing `install.packages("packagename")` - substituting packagename for the name of the package, e.g. dplyr - into your R console and hitting Enter.
 Some packages may not be installable this way, in which case I will explicitly mention how to install them where they are first used!
 
-<!-- Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading. -->
-
-<!-- Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`. -->
-
-<!-- The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book. -->
-
 #### ...the author {-}
 
 I am Tave and I am currently working on my Ph.D. in Research Methods, Assessment and iscience.
@@ -79,41 +71,12 @@ This online book is a little side project that is quite near and dear to my hear
 
 In my experience, statistics and more so statistics programs can easily induce panic-like states in psychology students.
 And also in my experience, that can change over the course of one semester tops.
-Programming in R is a lot less scary than many may think and most of all, it can and _should be fun_! 
-<!-- LINK TO HILARY PARKERS TALK WHEN IT IS AVAILABLE! OR FONTI KAR -->
+Programming in R is a lot less scary than many may think and most of all, it can and _should be fun_!
 It is a weird, powerful language and can assist you with many everyday tasks.
-
 
 I hope to alleviate some of the aveRsion over the course of this course and help you see R's advantages.
 
 Please feel free to contact me if you have any questions or comments! You can reach out via e-mail: [annika-tave.overlander@uni.kn](annika-tave.overlander@uni.kn) or you can submit a GitHub issue over at the repository for this book: [https://github.com/the-tave/psych_research_in_r](https://github.com/the-tave/psych_research_in_r).
-
-
-
-
-
-<!-- You can render the HTML version of this example book without changing anything: -->
-
-<!-- 1. Find the **Build** pane in the RStudio IDE, and -->
-
-<!-- 1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files. -->
-
-<!-- Or build the book from the R console: -->
-
-<!-- ```{r, eval=FALSE} -->
-<!-- bookdown::render_book() -->
-<!-- ``` -->
-
-<!-- To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>. -->
-
-<!-- ## Preview book -->
-
-<!-- As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console: -->
-
-<!-- ```{r eval=FALSE} -->
-<!-- bookdown::serve_book() -->
-<!-- ``` -->
-
 
 ```{r setup, include=FALSE}
 library(webexercises)
@@ -122,15 +85,9 @@ library(svglite)
 
 knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE,
                       collapse = T, comment = "#",
-                      message = F)
+                      message = F, fig.path = "_main_files/figure-html/")
 
 seminar <- readRDS("./data/seminar_data.Rds")
-
-knitr::opts_chunk$set(
-  # collapse = TRUE,
-  # comment = "#>",
-  fig.path = "_main_files/figure-html/"
-)
 
 # automatically create a bib database for R packages
 knitr::write_bib(c(

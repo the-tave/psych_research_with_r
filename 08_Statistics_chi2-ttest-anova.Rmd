@@ -1,14 +1,5 @@
 
 ```{r include=FALSE, warnings = FALSE}
-# knitr::opts_chunk$set(echo = T, include = T, warnings = FALSE)
-
-# library(knitr)
-# library(papaja)
-# library(ggplot2)
-# library(dplyr)
-# library(unikn)
-
-# seminar <- readRDS("./data/seminar_data.Rds")
 seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 ```
 
@@ -16,7 +7,6 @@ seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 
 ```{=html}
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
-<!-- <link rel="stylesheet" href="./img/fontawesome.min.css"> -->
 ```
 
 
@@ -25,7 +15,7 @@ seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 - Learn how to check assumptions
 - Go over examples (inspired by your thesis analyses <i class="fa-regular fa-face-smile"></i>)
 
-## Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i> I
+## Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i>
 
 What do you remember from statistics: 
 
@@ -33,8 +23,6 @@ What do you remember from statistics:
 - What is the t-test?
 - What is an ANOVA?
 - What do they have in common & what differentiates them?
-
-### Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i> II
 
 They measure _group differences_
 
@@ -57,17 +45,21 @@ ggplot(iris, aes(x = Species, y = Sepal.Length, color = Species, fill = Species)
 
 ### Pre-Requisites
 
-<br>
+- Load the seminar data using 
 
-- Load the seminar data using `seminar <- readRDS("./data/seminar_data.Rds")`
+```{r eval = F}
+seminar <- readRDS("./data/seminar_data.Rds")
+```
+
     - Please make sure you are using the R dataset from the <br>
     zip folder in ILIAS, not the original csv file we first used!
 - Add a "dummy variable" (only two possible values 0 and 1) <br>
 for believing in a soul, where 1 means _yes_ and 0 means _no or unsure_
-    - `seminar$soul_dummy <-` <br>
-    `ifelse(seminar$v11_soul == "yes", 1, 0)`
 
- 
+```{r eval=F}
+seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
+```
+
 ## $\chi^2$
 
 - $\chi^2$ Test for Independence: Determines if there is an association between **two categorical variables** in a contingency table
@@ -83,40 +75,38 @@ for believing in a soul, where 1 means _yes_ and 0 means _no or unsure_
 - \( E_i \) is the expected frequency in each category, calculated as: $$E_i = \frac{(row \ total) \times (column \ total)}{grand \ total}$$
 
 - Example: Believing in the soul by gender
-- 
-  ```{r echo = F}
-  addmargins(table(seminar$v01_gender, seminar$soul_dummy))
-  ```
+
+```{r echo = F}
+addmargins(table(seminar$v01_gender, seminar$soul_dummy))
+```
 
 ### How to in R
 
 - The `chisq.test()` function only needs (categorical!) _x, y_ as input
     - Especially with a small sample, we can add the parameter _simulate.p.value = T_, which bootstraps the analysis 2000 times
     
-- 
-  ```{r}
-  chisq.test(seminar$v01_gender, seminar$soul_dummy, simulate.p.value = T)
-  ```
+```{r}
+chisq.test(seminar$v01_gender, seminar$soul_dummy, simulate.p.value = T)
+```
 
 ### Exercise <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i>
 
-<br>
-
 We want to explore whether **belief in the soul (dummy)** is associated with **music preference**. 
-
-<br>
 
 Calculate a simple chisq.test and interpret the results.
 
-### Solution <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i>
+`r hide("Solution <i class='fa-solid fa-ghost' style='color: #dcdcdc;'></i> <i class='fa-solid fa-music'></i>")`
 
 ```{r}
 chisq.test(seminar$v07_genre, seminar$soul_dummy)
 addmargins(table(seminar$v07_genre, seminar$soul_dummy))
 ```
 
-- Interpretation? 
-<!-- There is no significant association between belief in the soul and music preference by genre. -->
+`r unhide()` 
+
+How would you interpret this result?
+
+`r mcq(c("Dualists prefer Rock music.", "Music preferences influence the soul beliefs of a person.", answer = "There is no significant association between belief in the soul and music preference by genre.", "Chi squared is confusing."))`
 
 ## t-Test
 
@@ -156,37 +146,40 @@ addmargins(table(seminar$v07_genre, seminar$soul_dummy))
 
 ### Examples
 
-```{r}
-# One sided - "greater" assumes that mean(x) is larger than mean(y)
-t.test(x = 10:20, y = 0:10, alternative = "greater")
+**One sided - "greater" assumes that mean(x) is larger than mean(y)**
 
-# Two sided using formula ~ Does seminar motivation differ
-# depending on the soul-belief of students?
+```{r}
+t.test(x = 10:20, y = 0:10, alternative = "greater")
+```
+
+**Two sided using formula ~ **
+
+Does seminar motivation differ depending on the soul-belief of students?
+
+```{r}
 t.test(v10_motivation ~ soul_dummy, data = seminar)
 ```
 
-### Exercise <i class="fa-solid fa-computer"></i> 
 
-<br>
+### Exercise <i class="fa-solid fa-computer"></i> 
 
 We want to test whether the **gender** stereotype that men are **more skilled with technology** appears in our seminar sample.
 
-<br> 
-
 Perform a one-sided two-sample t-test and interpret the results.
 
-<br>
+_Hint: The grouping variable "v01_gender" is sorted alphabetically - so choose the "alternative" accordingly!_
 
-Hint: The grouping variable "v01_gender" is sorted alphabetically - so choose the "alternative" accordingly!
-
-### Solution <i class="fa-solid fa-computer"></i> 
+`r hide("Solution <i class='fa-solid fa-computer'></i> ")`
 
 ```{r}
 t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater")
 ```
 
-- Interpretation?
-    - There are no significant gender differences in technological skill.
+`r unhide()`
+
+How would you interpret this result?
+
+`r mcq(c(answer = "There are no significant gender differences in technological skill.", "Gender influences the thechnological skill of a person.", "Women have significantly more tech skills than men.", "T-Tests are confusing."))`
 
 
 <!-- # ```{r} -->
@@ -205,9 +198,6 @@ t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater")
 show_fig("./img/anova")
 ```
 
-
-<!-- ![ANOVA principle](./img/anova.svg) -->
-  
 
 - Like a t-test for more than two groups
 - Why do we not just calculate several t-tests?

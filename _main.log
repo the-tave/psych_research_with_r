@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.19)  19 SEP 2024 17:30
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.19)  20 SEP 2024 13:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1107,8 +1107,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [59]
 Missing character: There is no ツ (U+30C4) in font [lmroman10-regular]:mapping=tex-text;!
-File: _main_files/figure-html/unnamed-chunk-30-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-30-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-34-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-34-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1126,15 +1126,15 @@ Underfull \vbox (badness 3439) has occurred while \output is active []
 [61]
 
 [62]
-File: _main_files/figure-html/unnamed-chunk-31-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-31-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-35-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-35-1.pdf>
 
 
 [63]
-File: _main_files/figure-html/unnamed-chunk-32-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-32-1.pdf>
-File: _main_files/figure-html/unnamed-chunk-33-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-33-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-36-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-37-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-37-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1146,8 +1146,8 @@ Underfull \vbox (badness 2326) has occurred while \output is active []
 
 
 [65]
-File: _main_files/figure-html/unnamed-chunk-35-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-35-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-39-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-39-1.pdf>
 
 
 [66]
@@ -1159,10 +1159,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [67]
-File: _main_files/figure-html/unnamed-chunk-36-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-36-1.pdf>
-File: _main_files/figure-html/unnamed-chunk-37-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-37-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-40-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-40-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-41-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-41-1.pdf>
 
 Underfull \vbox (badness 7944) has occurred while \output is active []
 
@@ -1178,8 +1178,8 @@ Overfull \hbox (3.29535pt too wide) in paragraph at lines 2082--2084
 []\TU/lmr/m/n/10 Create a color palette with all colors that you need and use it with \TU/lmtt/m/n/10 scale_color_manual()
  []
 
-File: _main_files/figure-html/unnamed-chunk-38-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-38-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-42-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-42-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1341,22 +1341,19 @@ File: ./img/forbeep.png Graphic file (type bmp)
 
 ]
 Chapter 8.
+File: _main_files/figure-html/unnamed-chunk-58-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-58-1.pdf>
 
 
 [99]
-File: _main_files/figure-html/unnamed-chunk-54-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-54-1.pdf>
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 3032.
+(Font)              scaled to size 14.4pt on input line 3037.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.4013pt on input line 3032.
+(Font)              scaled to size 14.4013pt on input line 3037.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 3032.
+(Font)              scaled to size 14.39845pt on input line 3037.
 File: ./img/chidist.png Graphic file (type bmp)
 <./img/chidist.png>
-
-Underfull \vbox (badness 1436) has occurred while \output is active []
-
 
 
 [100]
@@ -1367,6 +1364,20 @@ Underfull \vbox (badness 1577) has occurred while \output is active []
 [101]
 
 [102]
+Underfull \hbox (badness 10000) in paragraph at lines 3135--3136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3143--3144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3151--3152
+
+ []
+
 File: ./img/tdist.png Graphic file (type bmp)
 <./img/tdist.png>
 
@@ -1376,28 +1387,39 @@ File: ./img/tdist.png Graphic file (type bmp)
 [104]
 
 [105]
+Underfull \hbox (badness 10000) in paragraph at lines 3327--3328
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3335--3336
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3343--3344
+
+ []
+
+
+
+[106]
 File: ./img/anova.pdf Graphic file (type pdf)
 <use ./img/anova.pdf>
 
 
-[106]
-
 [107]
-Overfull \vbox (1.62921pt too high) detected at line 3418
- []
-
-
 
 [108]
 
 [109]
 
 [110]
+
+[111]
 File: ./img/sweet-anova.png Graphic file (type bmp)
 <./img/sweet-anova.png>
 
-
-[111]
 
 [112]
 Chapter 9.
@@ -1430,17 +1452,17 @@ Underfull \vbox (badness 5878) has occurred while \output is active []
 File: _main_files/figure-html/tree-age-elaborate-1.pdf Graphic file (type pdf)
 <use _main_files/figure-html/tree-age-elaborate-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3845--3846
+Underfull \hbox (badness 10000) in paragraph at lines 3914--3915
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3853--3854
+Underfull \hbox (badness 10000) in paragraph at lines 3922--3923
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3861--3862
+Underfull \hbox (badness 10000) in paragraph at lines 3930--3931
 
  []
 
@@ -1461,8 +1483,8 @@ File: _main_files/figure-html/age-sess-1.pdf Graphic file (type pdf)
 [122]
 
 [123]
-File: _main_files/figure-html/unnamed-chunk-71-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-71-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-78-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-78-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1544,15 +1566,15 @@ File: ./img/rmd.png Graphic file (type bmp)
 [143]
 
 [144]
-File: _main_files/figure-html/unnamed-chunk-85-1.pdf Graphic file (type pdf)
-<use _main_files/figure-html/unnamed-chunk-85-1.pdf>
+File: _main_files/figure-html/unnamed-chunk-92-1.pdf Graphic file (type pdf)
+<use _main_files/figure-html/unnamed-chunk-92-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [145]
-Overfull \hbox (24.51427pt too wide) in paragraph at lines 4808--4809
+Overfull \hbox (24.51427pt too wide) in paragraph at lines 4877--4878
 []\TU/lmr/m/n/10 the TeX function from that package cannot handle the list-output from apa_print()$full_result
  []
 
@@ -1599,10 +1621,10 @@ File: ./img/Rmd-exc1.png Graphic file (type bmp)
 <./img/Rmd-exc1.png>
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 5037.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 5106.
 
 
-Overfull \vbox (2.04181pt too high) detected at line 5049
+Overfull \vbox (2.04181pt too high) detected at line 5118
  []
 
 
@@ -1647,10 +1669,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20763 strings out of 476234
- 385495 string characters out of 5785538
- 937185 words of memory out of 5000000
- 42960 multiletter control sequences out of 15000+600000
+ 20760 strings out of 476234
+ 385447 string characters out of 5785538
+ 936985 words of memory out of 5000000
+ 42957 multiletter control sequences out of 15000+600000
  565930 words of font info for 113 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,8n,123p,1002b,521s stack positions out of 10000i,1000n,20000p,200000b,200000s

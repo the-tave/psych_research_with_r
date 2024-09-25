@@ -485,26 +485,26 @@ Please create it for the first 15 numbers in the Fibonacci sequence and save the
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="practice.html#cb118-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb118-2"><a href="practice.html#cb118-2" tabindex="-1"></a></span>
-<span id="cb118-3"><a href="practice.html#cb118-3" tabindex="-1"></a><span class="co"># Simple and clear</span></span>
-<span id="cb118-4"><a href="practice.html#cb118-4" tabindex="-1"></a>fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="fu">rep</span>(<span class="cn">NA</span>, n<span class="dv">-2</span>))</span>
-<span id="cb118-5"><a href="practice.html#cb118-5" tabindex="-1"></a></span>
-<span id="cb118-6"><a href="practice.html#cb118-6" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n){</span>
-<span id="cb118-7"><a href="practice.html#cb118-7" tabindex="-1"></a>  fibonacci[i] <span class="ot">&lt;-</span> fibonacci[i<span class="dv">-1</span>] <span class="sc">+</span> fibonacci[i<span class="dv">-2</span>]</span>
-<span id="cb118-8"><a href="practice.html#cb118-8" tabindex="-1"></a>}</span>
-<span id="cb118-9"><a href="practice.html#cb118-9" tabindex="-1"></a>fibonacci</span>
-<span id="cb118-10"><a href="practice.html#cb118-10" tabindex="-1"></a><span class="co">#  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</span></span>
-<span id="cb118-11"><a href="practice.html#cb118-11" tabindex="-1"></a></span>
-<span id="cb118-12"><a href="practice.html#cb118-12" tabindex="-1"></a><span class="co"># Alternative with while loop</span></span>
-<span id="cb118-13"><a href="practice.html#cb118-13" tabindex="-1"></a>fibonacci <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb118-14"><a href="practice.html#cb118-14" tabindex="-1"></a></span>
-<span id="cb118-15"><a href="practice.html#cb118-15" tabindex="-1"></a><span class="cf">while</span>(<span class="fu">length</span>(fibonacci) <span class="sc">&lt;</span> n){</span>
-<span id="cb118-16"><a href="practice.html#cb118-16" tabindex="-1"></a>  new_num <span class="ot">&lt;-</span> fibonacci[<span class="fu">length</span>(fibonacci)] <span class="sc">+</span> fibonacci[<span class="fu">length</span>(fibonacci) <span class="sc">-</span> <span class="dv">1</span>]</span>
-<span id="cb118-17"><a href="practice.html#cb118-17" tabindex="-1"></a>  fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(fibonacci, new_num)</span>
-<span id="cb118-18"><a href="practice.html#cb118-18" tabindex="-1"></a>}</span>
-<span id="cb118-19"><a href="practice.html#cb118-19" tabindex="-1"></a>fibonacci</span>
-<span id="cb118-20"><a href="practice.html#cb118-20" tabindex="-1"></a><span class="co">#  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="practice.html#cb117-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb117-2"><a href="practice.html#cb117-2" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="practice.html#cb117-3" tabindex="-1"></a><span class="co"># Simple and clear</span></span>
+<span id="cb117-4"><a href="practice.html#cb117-4" tabindex="-1"></a>fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="fu">rep</span>(<span class="cn">NA</span>, n<span class="dv">-2</span>))</span>
+<span id="cb117-5"><a href="practice.html#cb117-5" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="practice.html#cb117-6" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n){</span>
+<span id="cb117-7"><a href="practice.html#cb117-7" tabindex="-1"></a>  fibonacci[i] <span class="ot">&lt;-</span> fibonacci[i<span class="dv">-1</span>] <span class="sc">+</span> fibonacci[i<span class="dv">-2</span>]</span>
+<span id="cb117-8"><a href="practice.html#cb117-8" tabindex="-1"></a>}</span>
+<span id="cb117-9"><a href="practice.html#cb117-9" tabindex="-1"></a>fibonacci</span>
+<span id="cb117-10"><a href="practice.html#cb117-10" tabindex="-1"></a><span class="co">#  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</span></span>
+<span id="cb117-11"><a href="practice.html#cb117-11" tabindex="-1"></a></span>
+<span id="cb117-12"><a href="practice.html#cb117-12" tabindex="-1"></a><span class="co"># Alternative with while loop</span></span>
+<span id="cb117-13"><a href="practice.html#cb117-13" tabindex="-1"></a>fibonacci <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb117-14"><a href="practice.html#cb117-14" tabindex="-1"></a></span>
+<span id="cb117-15"><a href="practice.html#cb117-15" tabindex="-1"></a><span class="cf">while</span>(<span class="fu">length</span>(fibonacci) <span class="sc">&lt;</span> n){</span>
+<span id="cb117-16"><a href="practice.html#cb117-16" tabindex="-1"></a>  new_num <span class="ot">&lt;-</span> fibonacci[<span class="fu">length</span>(fibonacci)] <span class="sc">+</span> fibonacci[<span class="fu">length</span>(fibonacci) <span class="sc">-</span> <span class="dv">1</span>]</span>
+<span id="cb117-17"><a href="practice.html#cb117-17" tabindex="-1"></a>  fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>(fibonacci, new_num)</span>
+<span id="cb117-18"><a href="practice.html#cb117-18" tabindex="-1"></a>}</span>
+<span id="cb117-19"><a href="practice.html#cb117-19" tabindex="-1"></a>fibonacci</span>
+<span id="cb117-20"><a href="practice.html#cb117-20" tabindex="-1"></a><span class="co">#  [1]   1   1   2   3   5   8  13  21  34  55  89 144 233 377 610</span></span></code></pre></div>
 </div>
 </div>
 <div id="rmarkdown-start-your-document-in-a-certain-way-that-matches-the-template" class="section level2 hasAnchor" number="11.5">
@@ -520,30 +520,30 @@ Be mindful of which elements need to be defined in the YAML header and which nee
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="practice.html#cb119-1" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb119-2"><a href="practice.html#cb119-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Exercise 1&quot;</span></span>
-<span id="cb119-3"><a href="practice.html#cb119-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;A great author&quot;</span></span>
-<span id="cb119-4"><a href="practice.html#cb119-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;2024-07-02&quot;</span></span>
-<span id="cb119-5"><a href="practice.html#cb119-5" tabindex="-1"></a>output<span class="sc">:</span> </span>
-<span id="cb119-6"><a href="practice.html#cb119-6" tabindex="-1"></a>  pdf_document<span class="sc">:</span></span>
-<span id="cb119-7"><a href="practice.html#cb119-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb119-8"><a href="practice.html#cb119-8" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb119-9"><a href="practice.html#cb119-9" tabindex="-1"></a></span>
-<span id="cb119-10"><a href="practice.html#cb119-10" tabindex="-1"></a><span class="co"># First Chapter</span></span>
-<span id="cb119-11"><a href="practice.html#cb119-11" tabindex="-1"></a></span>
-<span id="cb119-12"><a href="practice.html#cb119-12" tabindex="-1"></a>Some text <span class="cf">in</span> <span class="sc">**</span>bold<span class="sc">**</span>.</span>
-<span id="cb119-13"><a href="practice.html#cb119-13" tabindex="-1"></a></span>
-<span id="cb119-14"><a href="practice.html#cb119-14" tabindex="-1"></a><span class="do">## A subchapter</span></span>
-<span id="cb119-15"><a href="practice.html#cb119-15" tabindex="-1"></a></span>
-<span id="cb119-16"><a href="practice.html#cb119-16" tabindex="-1"></a>Some text <span class="cf">in</span> _cursive_.</span>
-<span id="cb119-17"><a href="practice.html#cb119-17" tabindex="-1"></a></span>
-<span id="cb119-18"><a href="practice.html#cb119-18" tabindex="-1"></a><span class="co"># Second Chapter</span></span>
-<span id="cb119-19"><a href="practice.html#cb119-19" tabindex="-1"></a></span>
-<span id="cb119-20"><a href="practice.html#cb119-20" tabindex="-1"></a>Here is an overview of the iris dataset<span class="sc">:</span></span>
-<span id="cb119-21"><a href="practice.html#cb119-21" tabindex="-1"></a></span>
-<span id="cb119-22"><a href="practice.html#cb119-22" tabindex="-1"></a><span class="st">``</span>{r} <span class="co"># make sure to include three ` here!</span></span>
-<span id="cb119-23"><a href="practice.html#cb119-23" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="dv">3</span>)</span>
-<span id="cb119-24"><a href="practice.html#cb119-24" tabindex="-1"></a><span class="st">``</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="practice.html#cb118-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb118-2"><a href="practice.html#cb118-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Exercise 1&quot;</span></span>
+<span id="cb118-3"><a href="practice.html#cb118-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;A great author&quot;</span></span>
+<span id="cb118-4"><a href="practice.html#cb118-4" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;2024-07-02&quot;</span></span>
+<span id="cb118-5"><a href="practice.html#cb118-5" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb118-6"><a href="practice.html#cb118-6" tabindex="-1"></a>  pdf_document<span class="sc">:</span></span>
+<span id="cb118-7"><a href="practice.html#cb118-7" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb118-8"><a href="practice.html#cb118-8" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb118-9"><a href="practice.html#cb118-9" tabindex="-1"></a></span>
+<span id="cb118-10"><a href="practice.html#cb118-10" tabindex="-1"></a><span class="co"># First Chapter</span></span>
+<span id="cb118-11"><a href="practice.html#cb118-11" tabindex="-1"></a></span>
+<span id="cb118-12"><a href="practice.html#cb118-12" tabindex="-1"></a>Some text <span class="cf">in</span> <span class="sc">**</span>bold<span class="sc">**</span>.</span>
+<span id="cb118-13"><a href="practice.html#cb118-13" tabindex="-1"></a></span>
+<span id="cb118-14"><a href="practice.html#cb118-14" tabindex="-1"></a><span class="do">## A subchapter</span></span>
+<span id="cb118-15"><a href="practice.html#cb118-15" tabindex="-1"></a></span>
+<span id="cb118-16"><a href="practice.html#cb118-16" tabindex="-1"></a>Some text <span class="cf">in</span> _cursive_.</span>
+<span id="cb118-17"><a href="practice.html#cb118-17" tabindex="-1"></a></span>
+<span id="cb118-18"><a href="practice.html#cb118-18" tabindex="-1"></a><span class="co"># Second Chapter</span></span>
+<span id="cb118-19"><a href="practice.html#cb118-19" tabindex="-1"></a></span>
+<span id="cb118-20"><a href="practice.html#cb118-20" tabindex="-1"></a>Here is an overview of the iris dataset<span class="sc">:</span></span>
+<span id="cb118-21"><a href="practice.html#cb118-21" tabindex="-1"></a></span>
+<span id="cb118-22"><a href="practice.html#cb118-22" tabindex="-1"></a><span class="st">``</span>{r} <span class="co"># make sure to include three ` here!</span></span>
+<span id="cb118-23"><a href="practice.html#cb118-23" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="dv">3</span>)</span>
+<span id="cb118-24"><a href="practice.html#cb118-24" tabindex="-1"></a><span class="st">``</span></span></code></pre></div>
 </div>
 <div class="tenor-gif-embed" data-postid="11365139" data-share-method="host" data-aspect-ratio="1.42857" data-width="60%">
 <a href="https://tenor.com/view/hadley-wickham-rstats-typing-rcode-gif-11365139">Hadley Wickham GIF</a>from <a href="https://tenor.com/search/hadley-gifs">Hadley GIFs</a>

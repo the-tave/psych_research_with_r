@@ -59,9 +59,9 @@ ggplot(Orange, aes(x = age, y = circumference, color = age)) +
 The pearson correlation coefficient _r_ measures **association between two numeric variables**.
 The variables need to 
 
-    - be _continuous_ & interval-scaled
-    - be _normally distributed_ & should have _no outliers_
-    - have a _linear relationship_.
+- be _continuous_ & interval-scaled
+- be _normally distributed_ & should have _no outliers_
+- have a _linear relationship_.
     
 Its range is from -1 to 1 which would mean a perfect negative or positive association, respectively.
 The closer _r_ is to 0, the weaker the correlation.

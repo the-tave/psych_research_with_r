@@ -39,32 +39,36 @@ ggplot(Orange, aes(x = age, y = circumference, color = age)) +
   theme(legend.position = "none")
 ```
 
-### Pre-Requisites
+<!-- ### Pre-Requisites -->
 
-<br>
+<!-- <br> -->
 
-- Load the seminar data using
-    - Please make sure you are using the R dataset from the <br>
-    zip folder in ILIAS, not the original csv file we first used!
+<!-- - Load the seminar data using -->
+<!--     - Please make sure you are using the R dataset from the <br> -->
+<!--     zip folder in ILIAS, not the original csv file we first used! -->
 
-```{r}
-seminar <- readRDS("./data/seminar_data.Rds") # the filepath might need adjustment for you
-```
+<!-- ```{r} -->
+<!-- seminar <- readRDS("./data/seminar_data.Rds") # the filepath might need adjustment for you -->
+<!-- ``` -->
 
-- Some of you were having trouble loading the data - please repeat the different types of data in R and the different commands used to load them! (from week 6)
-- **Who is having trouble opening the slides as HTML?**
+<!-- - Some of you were having trouble loading the data - please repeat the different types of data in R and the different commands used to load them! (from week 6) -->
+<!-- - **Who is having trouble opening the slides as HTML?** -->
 
 ## Correlation
 
-<br>
+The pearson correlation coefficient _r_ measures **association between two numeric variables**.
+The variables need to 
 
-- The pearson correlation coefficient r measures association between two numeric variables
-- The variables need to 
     - be _continuous_ & interval-scaled
     - be _normally distributed_ & should have _no outliers_
-    - have a _linear relationship_
-- Its range is from -1 to 1
-    - The closer to 0, the weaker the correlation
+    - have a _linear relationship_.
+    
+Its range is from -1 to 1 which would mean a perfect negative or positive association, respectively.
+The closer _r_ is to 0, the weaker the correlation.
+
+Since there will usually be some variation and noise in the data, I believe it makes sense to get a feeling for what different associations might look like.
+So, you can play a game of "guess the correlation": Look at the four plots below and guess for each how strong the correlation could be be!
+Remember - a **positive** correlation means "**the more X, the more Y**" and a **negative** correlation means "**the more X, the less Y**".
     
 ### Guess the correlation!
 

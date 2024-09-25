@@ -362,7 +362,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="9" data-path="association-statistics.html"><a href="association-statistics.html"><i class="fa fa-check"></i><b>9</b> Association Statistics</a>
 <ul>
-<li class="chapter" data-level="9.0.1" data-path="association-statistics.html"><a href="association-statistics.html#pre-requisites-1"><i class="fa fa-check"></i><b>9.0.1</b> Pre-Requisites</a></li>
 <li class="chapter" data-level="9.1" data-path="association-statistics.html"><a href="association-statistics.html#correlation"><i class="fa fa-check"></i><b>9.1</b> Correlation</a>
 <ul>
 <li class="chapter" data-level="9.1.1" data-path="association-statistics.html"><a href="association-statistics.html#guess-the-correlation"><i class="fa fa-check"></i><b>9.1.1</b> Guess the correlation!</a></li>
@@ -578,11 +577,11 @@ Solution
 <span id="cb29-8"><a href="best-practice.html#cb29-8" tabindex="-1"></a></span>
 <span id="cb29-9"><a href="best-practice.html#cb29-9" tabindex="-1"></a><span class="fu">str</span>(scores7a); <span class="fu">str</span>(scores7b)</span>
 <span id="cb29-10"><a href="best-practice.html#cb29-10" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  15 14 15 12 14 14 13 15 15 12 ...</span></span>
-<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  108.6 80.9 115.6 89.8 98.1 ...</span></span>
+<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  15 15 14 13 12 13 14 12 15 14 ...</span></span>
+<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  135.9 83.1 105 100.5 81.2 ...</span></span>
 <span id="cb29-13"><a href="best-practice.html#cb29-13" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  14 12 13 14 15 14 15 12 12 12 ...</span></span>
-<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  115.7 128.5 104.1 92.8 97.5 ...</span></span>
+<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  12 15 15 15 15 13 14 12 13 15 ...</span></span>
+<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  98.3 141.6 93.4 129.9 88.1 ...</span></span>
 <span id="cb29-16"><a href="best-practice.html#cb29-16" tabindex="-1"></a></span>
 <span id="cb29-17"><a href="best-practice.html#cb29-17" tabindex="-1"></a><span class="co"># Add information about the class</span></span>
 <span id="cb29-18"><a href="best-practice.html#cb29-18" tabindex="-1"></a>scores7a<span class="sc">$</span>class <span class="ot">&lt;-</span> <span class="st">&quot;7a&quot;</span></span>
@@ -594,8 +593,8 @@ Solution
 <span id="cb29-24"><a href="best-practice.html#cb29-24" tabindex="-1"></a><span class="co"># Check the overall data frame for plausibility</span></span>
 <span id="cb29-25"><a href="best-practice.html#cb29-25" tabindex="-1"></a><span class="fu">str</span>(allscores)</span>
 <span id="cb29-26"><a href="best-practice.html#cb29-26" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 40 obs. of  3 variables:</span></span>
-<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  15 14 15 12 14 14 13 15 15 12 ...</span></span>
-<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  108.6 80.9 115.6 89.8 98.1 ...</span></span>
+<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  15 15 14 13 12 13 14 12 15 14 ...</span></span>
+<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  135.9 83.1 105 100.5 81.2 ...</span></span>
 <span id="cb29-29"><a href="best-practice.html#cb29-29" tabindex="-1"></a><span class="co">#  $ class: chr  &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; ...</span></span>
 <span id="cb29-30"><a href="best-practice.html#cb29-30" tabindex="-1"></a><span class="fu">table</span>(allscores<span class="sc">$</span>class)</span>
 <span id="cb29-31"><a href="best-practice.html#cb29-31" tabindex="-1"></a><span class="co"># </span></span>

@@ -91,7 +91,6 @@ reporting-with-the-apa-papaja-packages
 usage
 usage-in-r-markdown
 association-statistics
-pre-requisites-1
 correlation
 guess-the-correlation
 correlation-in-r

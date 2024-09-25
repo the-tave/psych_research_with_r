@@ -17,6 +17,7 @@ bookdown::gitbook:
     download:
     - pdf
   includes:
+    in_header: "www/googlee264360c3a046302.html"
     after_body: www/webex.js
   md_extensions: -smart
 # bookdown::epub_book: default

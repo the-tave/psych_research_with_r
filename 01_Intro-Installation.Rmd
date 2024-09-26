@@ -155,6 +155,16 @@ You can test whether it works by running `iris %>% pull(Sepal.Length) %>% mean()
 We will get to know the syntax in depth another time, but just so you know what's going on:
 This line of code takes the data set `iris`, which is included in R by default, "pulls" the variable `Sepal.Length` out of the data and runs the `mean()` function on it, to calculate the average sepal length, which should be `r iris %>% pull(Sepal.Length) %>% mean()`.
 
+### Posit Cloud {-}
+
+If you would like to be able to use R with several devices or simply want to start out and see what all the fuss is about, you can use the free online version of R Studio over at [https://posit.cloud/](https://posit.cloud/){target="_blank"}.
+There, you can do most anything that you can also do locally on your own machine, online.
+It's a great way of working with R online without any commitment.
+
+However, if you plan to really learn R or also if your teacher plans you really learn R, I would recommend following the above steps to use it your own computer.
+Some calculations or operations can require a bit more computation power that might be slower via the internet.
+
+
 ## Wrap-Up & Further Resources {-}
 
 <i class="fa-solid fa-anchor" style="color: teal;"></i>

@@ -372,10 +372,10 @@ ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness,
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [Guess the Correlation](https://www.guessthecorrelation.com/)</li>
-<li> [Explanation: Correlation](https://statisticsbyjim.com/basics/correlation-coefficient-formula/)</li>
-<li> [Linear Regression in R](https://www.datacamp.com/tutorial/linear-regression-R)</li>
-<li> [lm() cheatsheet](https://www.codecademy.com/learn/learn-linear-regression-in-r/modules/linear-regression-in-r/cheatsheet/)</li>
+<li> [Guess the Correlation](https://www.guessthecorrelation.com/){target="_blank"}</li>
+<li> [Explanation: Correlation](https://statisticsbyjim.com/basics/correlation-coefficient-formula/){target="_blank"}</li>
+<li> [Linear Regression in R](https://www.datacamp.com/tutorial/linear-regression-R){target="_blank"}</li>
+<li> [lm() cheatsheet](https://www.codecademy.com/learn/learn-linear-regression-in-r/modules/linear-regression-in-r/cheatsheet/){target="_blank"}</li>
 </ul>
 
 

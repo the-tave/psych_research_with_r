@@ -125,7 +125,7 @@ Header 1 | Header 2
 -----|-----
 Great content | Fantastic content
 
-It is also possible to use inline Code to report statistics, although it may be more efficient for reporting to create tables with `kable`, which you can read more about [here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html).
+It is also possible to use inline Code to report statistics, although it may be more efficient for reporting to create tables with `kable`, which you can read more about [here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html){target="_blank"}.
 
 ## Special Features
 
@@ -223,13 +223,13 @@ mean(y)
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [YouTube: What is R Markdown?](https://www.youtube.com/watch?v=asHhuHRxhvo&ab_channel=EquitableEquations/)</li>
-<li> [LaTeX Cheatsheet](https://wch.github.io/latexsheet/)</li>
-<li> [HTML Cheatsheet](https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf)</li>
-<li> [RMarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)</li>
-<li> [RMarkdown Chunk Options](https://yihui.org/knitr/options/)</li>
-<li> [YouTube: Presentations with Quarto](https://www.youtube.com/watch?v=01KifhHDkFk&ab_channel=EquitableEquations)</li>
+<li> [YouTube: What is R Markdown?](https://www.youtube.com/watch?v=asHhuHRxhvo&ab_channel=EquitableEquations/){target="_blank"}</li>
+<li> [LaTeX Cheatsheet](https://wch.github.io/latexsheet/){target="_blank"}</li>
+<li> [HTML Cheatsheet](https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf){target="_blank"}</li>
+<li> [RMarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/){target="_blank"}</li>
+<li> [RMarkdown Chunk Options](https://yihui.org/knitr/options/){target="_blank"}</li>
+<li> [YouTube: Presentations with Quarto](https://www.youtube.com/watch?v=01KifhHDkFk&ab_channel=EquitableEquations){target="_blank"}</li>
 </ul>
 
 
-![Shakespeare writing RMarkdown (AI generated using the [bing image creator](https://www.bing.com/images/create))](img/shakespeare.jpg){height=550px}
+![Shakespeare writing RMarkdown (AI generated using the [bing image creator](https://www.bing.com/images/create){target="_blank"})](img/shakespeare.jpg){height=550px}

@@ -102,7 +102,7 @@ With `ggplot2` you can build your plots layer by layer.
 Here you can see a schematic of the different elements that can be added to any plot:
 
 ![](./img/ggplot2layers.png)
-<figcaption style = "font-size: 7pt;">https://ggplot2.tidyverse.org/articles/ggplot2.html </figcaption>
+<figcaption style = "font-size: 7pt;">[https://ggplot2.tidyverse.org/articles/ggplot2.html](https://ggplot2.tidyverse.org/articles/ggplot2.html){target="_blank"}</figcaption>
 
 There are two main functions, or rather types of function in this package.
 
@@ -226,7 +226,7 @@ ggplot(iris) +
     - We can add color to show groups
 - Showing the relationship of two variables to each other is crucial for understanding our data
     - We can still add color to make existing groups clearer or add a third variable
-- For a broad overview of which visualization (and statistic) to use for which type of data, visit the [Statistics Picker](https://the-tave.shinyapps.io/Statistics-Picker/) (currently only available in German)
+- For a broad overview of which visualization (and statistic) to use for which type of data, visit the [Statistics Picker](https://the-tave.shinyapps.io/Statistics-Picker/){target="_blank"} (currently only available in German)
     - Most common are boxplots, scatterplots & line graphs
     
 ### Boxplot Example
@@ -308,13 +308,13 @@ cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() +
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplot2.html)  </li>
-<li> [R Graphics Cookbook](https://r-graphics.org/) </li>
-<li> [unikn](https://hneth.github.io/unikn/index.html) </li>
-<li> [viridis](https://sjmgarnier.github.io/viridisLite/reference/viridis.html) </li>
-<li> [papaja](https://www.rdocumentation.org/packages/papaja/versions/0.1.2) </li>
-<li> [Beautiful Plotting Guide](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) Very extensive, I still profit from this guide a lot :) </li>
-<li> [More color palettes explained](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually) </li>
+<li> [ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplot2.html){target="_blank"}  </li>
+<li> [R Graphics Cookbook](https://r-graphics.org/){target="_blank"} </li>
+<li> [unikn](https://hneth.github.io/unikn/index.html){target="_blank"} </li>
+<li> [viridis](https://sjmgarnier.github.io/viridisLite/reference/viridis.html){target="_blank"} </li>
+<li> [papaja](https://www.rdocumentation.org/packages/papaja/versions/0.1.2){target="_blank"} </li>
+<li> [Beautiful Plotting Guide](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/){target="_blank"} Very extensive, I still profit from this guide a lot :) </li>
+<li> [More color palettes explained](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually){target="_blank"} </li>
 </ul>
 
 
@@ -352,12 +352,11 @@ ggplot(my_data, aes(x = X, y = Y, fill = Group)) +
   scale_fill_manual(values = my_col) +
   theme_void() +
   theme(legend.position = "none")
-
 ```
 
 <!-- ## gganimate {-} -->
 
-<!-- <!-- Include this  section before big push because it takes forever to render! --> -->
+<!-- <!-- Include this  section before big push because it takes forever to render! --> 
 
 <!-- ```{r gganimate, eval = T} -->
 <!-- library(gganimate) -->

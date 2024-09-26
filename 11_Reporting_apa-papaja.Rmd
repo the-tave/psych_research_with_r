@@ -211,11 +211,11 @@ ggplot(penguins) +
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [MarkdownGuide](https://www.markdownguide.org/basic-syntax/)</li>
-<li> [Another Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)</li>
-<li> [ggsignif package example](https://statisticsglobe.com/ggsignif-package-r) </li>
-<li> [Bibliography and Citation](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html)</li>
+<li> [MarkdownGuide](https://www.markdownguide.org/basic-syntax/){target="_blank"}</li>
+<li> [Another Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/){target="_blank"}</li>
+<li> [ggsignif package example](https://statisticsglobe.com/ggsignif-package-r){target="_blank"} </li>
+<li> [Bibliography and Citation](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html){target="_blank"}</li>
 </ul>
 
 
-![Palmer Penguins](./img/palmer_penguins.png){width=auto height=450px}
+![Palmer Penguins from [the palmer penguins package](https://github.com/mcnakhaee/palmerpenguins){target="_blank"}](./img/palmer_penguins.png){width=auto height=450px}

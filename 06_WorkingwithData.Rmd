@@ -24,7 +24,7 @@ devtools::install_github("the-tave/wobblynameR")
 
 ## Different types of data sources
 
-Data collected from [WEXTOR](https://www.wextor.eu) - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
+Data collected from [WEXTOR](https://www.wextor.eu){target="_blank"} - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
 That means that this type of data has one row per participant and the values for each column (variable) are separated by a _delimiter_ ^[...which often times is a comma, but not always! WEXTOR, for example uses semicolons.].
 
 When our data comes from an Excel file, it will often be exported as CSV because this type of storing data is pretty efficient and uses up very little space on the disk.
@@ -64,7 +64,7 @@ R Data Source (RDS) | `readRDS("data.Rds")`
 SPSS (SAV) | `foreign::read.spss("data.sav")`
 
 You can follow along these exact code examples if you download the _seminar_data_raw_ data frame from GitHub and save it in the data subfolder in your R-Project.
-You can find it under this link: [https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv](https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv).^[If you are connected to the internet anyway you can also use this link as the file path without downloading the data first!]
+You can find it under this link: [https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv](https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv){target="_blank"}.^[If you are connected to the internet anyway you can also use this link as the file path without downloading the data first!]
 
 ![](./img/import_dataset.png){.flr height=60px}
 
@@ -90,7 +90,7 @@ View(seminar_data_raw)
 
 The `read_delim()` function needs the file path to the data file as the minimum input requirement.
 There are many basic edits that can already easily be made in this function, which can also be selected in the menu.
-For example, even though "csv" stands for _comma-separated values_ these tiypes of files sometimes use a semicolon as a delimiter.
+For example, even though "csv" stands for _comma-separated values_ these types of files sometimes use a semicolon as a delimiter.
 When reading in the data, this is sometimes recognized automatically, but when the data looks a bit funky in the preview, making sure the right delimiter is selected is a solid first step.
 
 ![Example of wonky-looking data in the Import Dataset Menu](./img/importcsv.png)
@@ -111,7 +111,7 @@ When talking about dates, placeholders like m, d and y should be intuitive enoug
 
 Another handy column type is `col_skip()` which does just that - skip that specific column.
 It may seem strange to exclude some data from the get-go, but some data files will end with a delimiter and R recognizes that as another column.
-This is also the case for this data file from [WEXTOR](https://www.wextor.eu), which is why we will skip the last column (which is completely empty).
+This is also the case for this data file from [WEXTOR](https://www.wextor.eu){target="_blank"}, which is why we will skip the last column (which is completely empty).
 
 Moreover, we can take full advantage of both menu and script by copying the code that is generated from the menu into our script. 
 This automatically gives us a nice structure to start a new script for analyses with a first library command at the top (for `readr`) and reading in the data as a first step of analysis.
@@ -257,7 +257,7 @@ Specifically, we will:
 
 I suggest using some of the `dplyr` commands that were introduced in the last chapter for edits 1 through 4. 
 You can try to figure them out on your own and later look at the solution below.
-**I highly recommend you follow along with these steps, as we will use this dataset in later chapters**^[This is very close to real-life practice, but you can also skip it and download the Rds-file from the GitHub repository [here](https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds).]
+**I highly recommend you follow along with these steps, as we will use this dataset in later chapters**^[This is very close to real-life practice, but you can also skip it and download the Rds-file from the GitHub repository [here](https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds){target="_blank"}.]
 
 `r hide("Solution")`
 
@@ -300,6 +300,6 @@ saveRDS(seminar, "./data/seminar_data.Rds")
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [Reading in Data in Different Formats](https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r)</li>
-<li> [Stats and R: Descriptives](https://statsandr.com/blog/descriptive-statistics-in-r/) </li>
+<li> [Reading in Data in Different Formats](https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r){target="_blank"}</li>
+<li> [Stats and R: Descriptives](https://statsandr.com/blog/descriptive-statistics-in-r/){target="_blank"} </li>
 </ul>

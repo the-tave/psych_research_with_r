@@ -65,7 +65,7 @@ seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 - $\chi^2$ Test for Independence: Determines if there is an association between **two categorical variables** in a contingency table
     - compares the observed frequencies in each category of a contingency table to the frequencies expected if the variables were independent
 
-![Chi squared distribution](./img/chidist.png)k
+![Chi squared distribution](./img/chidist.png)
 
 ### Calculation: 
 
@@ -152,7 +152,7 @@ How would you interpret this result?
 t.test(x = 10:20, y = 0:10, alternative = "greater")
 ```
 
-**Two sided using formula ~ **
+**Two sided using formula notation with the ~ tilde**
 
 Does seminar motivation differ depending on the soul-belief of students?
 
@@ -316,12 +316,13 @@ papaja::apa_print(model)$full_result |> suppressMessages()
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [Statistics Picker](https://the-tave.shinyapps.io/Statistics-Picker/)</li>
-<li> [Chi2-test (Statology)](https://www.statology.org/chi-square-test-of-independence-in-r/) </li>
-<li> [t-test (Statology)](https://www.statology.org/two-sample-t-test/) </li>
-<li> [ANOVA (Statology)](https://www.statology.org/interpret-anova-results-in-r/) </li>
+<li> [Statistics Picker](https://the-tave.shinyapps.io/Statistics-Picker/){target="_blank"}</li>
+<li> [Chi2-test (Statology)](https://www.statology.org/chi-square-test-of-independence-in-r/){target="_blank"} </li>
+<li> [t-test (Statology)](https://www.statology.org/two-sample-t-test/){target="_blank"} </li>
+<li> [ANOVA (Statology)](https://www.statology.org/interpret-anova-results-in-r/){target="_blank"} </li>
 <li> _Discovering Statistics Using R_ [@field2012] </li>
 </ul>
 
 <!-- #id .class  -->
 ![Cute ANOVA curves](./img/sweet-anova.png){width=auto height=200px}
+<figcaption style = "font-size: 7pt;">[https://www.pinterest.de/pin/59180182590147005/](https://www.pinterest.de/pin/59180182590147005/){target="_blank"}</figcaption>

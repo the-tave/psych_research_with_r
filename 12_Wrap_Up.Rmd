@@ -98,9 +98,9 @@ iris |>
 
 <i class="fa-solid fa-book" style="color: orange;"> Further Resources </i>
 <ul style="color: orange;">
-<li> [StatLearning Shiny App (Uni Leiden)](https://solo-fsw.shinyapps.io/NewStatLearning/)</li>
-<li> [GitHub: Ohwhaley package](https://github.com/fontikar/ohwhaley)</li>
-<li> [YouTube: useR! conference](https://www.youtube.com/@useRConference_global) </li>
+<li> [StatLearning Shiny App (Uni Leiden)](https://solo-fsw.shinyapps.io/NewStatLearning/){target="_blank"}</li>
+<li> [GitHub: Ohwhaley package](https://github.com/fontikar/ohwhaley){target="_blank"}</li>
+<li> [YouTube: useR! conference](https://www.youtube.com/@useRConference_global){target="_blank"} </li>
 </ul>
 
 # Practice{-}
@@ -113,7 +113,7 @@ The Fibonacci sequence is defined as a sequence in which each number is the sum 
 That means, starting at 1 the sequence is: 1, 1, 2, 3, 5, 8, 13...
 Please create it for the first 15 numbers in the Fibonacci sequence and save the numbers to a variable called _fibonacci_.
 
-More info: [https://en.wikipedia.org/wiki/Fibonacci_sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence).
+More info: [https://en.wikipedia.org/wiki/Fibonacci_sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence){target="_blank"}.
 
 `r hide()`
 

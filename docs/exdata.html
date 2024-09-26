@@ -483,7 +483,7 @@ To install it, you will first need the <code>devtools</code> package and then us
 <!-- [https://exp.wextor.eu/TheTave/PsychResearchR/](https://exp.wextor.eu/TheTave/PsychResearchR/) -->
 <div id="different-types-of-data-sources" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Different types of data sources<a href="exdata.html#different-types-of-data-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Data collected from <a href="https://www.wextor.eu">WEXTOR</a> - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
+<p>Data collected from <a href="https://www.wextor.eu" target="_blank">WEXTOR</a> - like from many other sources - will be exported in the CSV format, which stands for comma-separated values.
 That means that this type of data has one row per participant and the values for each column (variable) are separated by a <em>delimiter</em> <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
 <p>When our data comes from an Excel file, it will often be exported as CSV because this type of storing data is pretty efficient and uses up very little space on the disk.
 A more modern but also more space-consuming way of storing Excel table data is in the XLSX format (Not an acronym, just stands for "Excel Spreadsheet").</p>
@@ -540,7 +540,7 @@ However, this is much easier done by just using simple commands directly in your
 </tbody>
 </table>
 <p>You can follow along these exact code examples if you download the <em>seminar_data_raw</em> data frame from GitHub and save it in the data subfolder in your R-Project.
-You can find it under this link: <a href="https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv">https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv</a>.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+You can find it under this link: <a href="https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv" target="_blank">https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv</a>.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
 <p><img src="img/import_dataset.png" class="flr" height="60" /></p>
 <p>Use the "Import Dataset" Menu under the <em>Environment</em> tab in the upper right corner of R Studio.
 In that menu, there are different options for different operations, but for CSV files I recommend the <em>From Text (readr)</em> option.
@@ -558,7 +558,7 @@ Then we can select our data file and choose some basic aspects of reading in tha
 <span id="cb52-3"><a href="exdata.html#cb52-3" tabindex="-1"></a><span class="fu">View</span>(seminar_data_raw)</span></code></pre></div>
 <p>The <code>read_delim()</code> function needs the file path to the data file as the minimum input requirement.
 There are many basic edits that can already easily be made in this function, which can also be selected in the menu.
-For example, even though "csv" stands for <em>comma-separated values</em> these tiypes of files sometimes use a semicolon as a delimiter.
+For example, even though "csv" stands for <em>comma-separated values</em> these types of files sometimes use a semicolon as a delimiter.
 When reading in the data, this is sometimes recognized automatically, but when the data looks a bit funky in the preview, making sure the right delimiter is selected is a solid first step.</p>
 <div class="float">
 <img src="img/importcsv.png" alt="Example of wonky-looking data in the Import Dataset Menu" />
@@ -578,7 +578,7 @@ For that we will choose the <em>Date</em> format and trigger a prompt asking for
 When talking about dates, placeholders like m, d and y should be intuitive enough - suffice it to say that a capital Y stand for the whole year (e.g., 2024) while a small y stands for a shortened year format (e.g., 24).</p>
 <p>Another handy column type is <code>col_skip()</code> which does just that - skip that specific column.
 It may seem strange to exclude some data from the get-go, but some data files will end with a delimiter and R recognizes that as another column.
-This is also the case for this data file from <a href="https://www.wextor.eu">WEXTOR</a>, which is why we will skip the last column (which is completely empty).</p>
+This is also the case for this data file from <a href="https://www.wextor.eu" target="_blank">WEXTOR</a>, which is why we will skip the last column (which is completely empty).</p>
 <p>Moreover, we can take full advantage of both menu and script by copying the code that is generated from the menu into our script.
 This automatically gives us a nice structure to start a new script for analyses with a first library command at the top (for <code>readr</code>) and reading in the data as a first step of analysis.
 As a best practice, we will change the name of our raw data set in R to "raw".
@@ -774,10 +774,10 @@ dplyr's <code>group_by()</code> and <code>summarize()</code> can output grouped 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li>
-<a href="https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r">Reading in Data in Different Formats</a>
+<a href="https://www.datafiles.samhsa.gov/get-help/format-specific-issues/how-do-i-read-data-r" target="_blank">Reading in Data in Different Formats</a>
 </li>
 <li>
-<a href="https://statsandr.com/blog/descriptive-statistics-in-r/">Stats and R: Descriptives</a>
+<a href="https://statsandr.com/blog/descriptive-statistics-in-r/" target="_blank">Stats and R: Descriptives</a>
 </li>
 </ul>
 
@@ -790,7 +790,7 @@ dplyr's <code>group_by()</code> and <code>summarize()</code> can output grouped 
 <li id="fn6"><p>The function calls <code>as.numeric()</code> and <code>as.factor()</code> will suffice in most cases.<a href="exdata.html#fnref6" class="footnote-back">↩︎</a></p></li>
 <li id="fn7"><p>If you are connected to the internet anyway you can also use this link as the file path without downloading the data first!<a href="exdata.html#fnref7" class="footnote-back">↩︎</a></p></li>
 <li id="fn8"><p>Escape characters are very important and very confusing. Just know that some special characters can be recognized either as plain text or as a request to do something (as code).<a href="exdata.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>This is very close to real-life practice, but you can also skip it and download the Rds-file from the GitHub repository <a href="https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds">here</a>.<a href="exdata.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>This is very close to real-life practice, but you can also skip it and download the Rds-file from the GitHub repository <a href="https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds" target="_blank">here</a>.<a href="exdata.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>

@@ -46,7 +46,7 @@ At a glance:
 
 ## The tidyverse
 
-> The tidyverse is an opinionated **collection of R packages designed for data science**. All packages share an underlying design philosophy, grammar, and data structures. ([tidyverse.org](tidyverse.org))
+> The tidyverse is an opinionated **collection of R packages designed for data science**. All packages share an underlying design philosophy, grammar, and data structures. ([tidyverse.org](tidyverse.org){target="_blank"})
 
 So packages are pretty cool: They usually come from people who had a specific problem, found a solution and decided to share it with others so they can more easily fix new problems.
 Of course everyone has a different preference on how to work, which is why not every package and function will be intuitive to everyone.
@@ -356,13 +356,17 @@ In the second version, we rename the variable Petal.Length to pl and afterwards 
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [R for Data Science](https://r4ds.hadley.nz/) Book </li>
-<li> [dplyr vignette](https://dplyr.tidyverse.org/) </li>
-<li> [Pipe operator](https://r4ds.hadley.nz/data-transform.html#sec-the-pipe) </li>
-<li> Cheatsheet: [https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf) </li>
-<li> [YouTube: 20 R Packages that you should know](https://www.youtube.com/watch?v=npOf6aXdguY&ab_channel=RichardOnData) - you for sure don't need them all, but there are some nice inspirations for working with packages in there </li>
+<li> [R for Data Science](https://r4ds.hadley.nz/){target="_blank"} Book </li>
+<li> [dplyr vignette](https://dplyr.tidyverse.org/){target="_blank"} </li>
+<li> [Pipe operator](https://r4ds.hadley.nz/data-transform.html#sec-the-pipe){target="_blank"} </li>
+<li> Cheatsheet: [https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf){target="_blank"} </li>
+<li> [YouTube: 20 R Packages that you should know](https://www.youtube.com/watch?v=npOf6aXdguY&ab_channel=RichardOnData){target="_blank"} - you for sure don't need them all, but there are some nice inspirations for working with packages in there </li>
 </ul>
 
 ![Which idiot...](./img/idiotic.png){#id .class width=auto height=400px}
+
+
+
+<figcaption style = "font-size: 7pt;">[https://programmerhumor.io/debugging-memes/well-played-3/](https://programmerhumor.io/debugging-memes/well-played-3/){target="_blank"}</figcaption>
 
 

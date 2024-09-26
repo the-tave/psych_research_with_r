@@ -517,7 +517,10 @@ for believing in a soul, where 1 means <em>yes</em> and 0 means <em>no or unsure
 <li>compares the observed frequencies in each category of a contingency table to the frequencies expected if the variables were independent</li>
 </ul></li>
 </ul>
-<p><img src="img/chidist.png" alt="Chi squared distribution" />k</p>
+<div class="float">
+<img src="img/chidist.png" alt="Chi squared distribution" />
+<div class="figcaption">Chi squared distribution</div>
+</div>
 <div id="calculation" class="section level3 hasAnchor" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Calculation:<a href="difference-statistics.html#calculation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -643,7 +646,7 @@ Solution <i class='fa-solid fa-ghost' style='color: #dcdcdc;'></i> <i class='fa-
 <span id="cb77-10"><a href="difference-statistics.html#cb77-10" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
 <span id="cb77-11"><a href="difference-statistics.html#cb77-11" tabindex="-1"></a><span class="co"># mean of x mean of y </span></span>
 <span id="cb77-12"><a href="difference-statistics.html#cb77-12" tabindex="-1"></a><span class="co">#        15         5</span></span></code></pre></div>
-<p><strong>Two sided using formula ~ </strong></p>
+<p><strong>Two sided using formula notation with the ~ tilde</strong></p>
 <p>Does seminar motivation differ depending on the soul-belief of students?</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="difference-statistics.html#cb78-1" tabindex="-1"></a><span class="fu">t.test</span>(v10_motivation <span class="sc">~</span> soul_dummy, <span class="at">data =</span> seminar)</span>
 <span id="cb78-2"><a href="difference-statistics.html#cb78-2" tabindex="-1"></a><span class="co"># </span></span>
@@ -876,16 +879,16 @@ Read the documentation of each function for more options
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li>
-<a href="https://the-tave.shinyapps.io/Statistics-Picker/">Statistics Picker</a>
+<a href="https://the-tave.shinyapps.io/Statistics-Picker/" target="_blank">Statistics Picker</a>
 </li>
 <li>
-<a href="https://www.statology.org/chi-square-test-of-independence-in-r/">Chi2-test (Statology)</a>
+<a href="https://www.statology.org/chi-square-test-of-independence-in-r/" target="_blank">Chi2-test (Statology)</a>
 </li>
 <li>
-<a href="https://www.statology.org/two-sample-t-test/">t-test (Statology)</a>
+<a href="https://www.statology.org/two-sample-t-test/" target="_blank">t-test (Statology)</a>
 </li>
 <li>
-<a href="https://www.statology.org/interpret-anova-results-in-r/">ANOVA (Statology)</a>
+<a href="https://www.statology.org/interpret-anova-results-in-r/" target="_blank">ANOVA (Statology)</a>
 </li>
 <li>
 <em>Discovering Statistics Using R</em> <span class="citation">(<a href="references.html#ref-field2012">Field et al., 2012</a>)</span>
@@ -896,6 +899,9 @@ Read the documentation of each function for more options
 <img src="img/sweet-anova.png" height="200" alt="Cute ANOVA curves" />
 <div class="figcaption">Cute ANOVA curves</div>
 </div>
+<figcaption style="font-size: 7pt;">
+<a href="https://www.pinterest.de/pin/59180182590147005/" target="_blank">https://www.pinterest.de/pin/59180182590147005/</a>
+</figcaption>
 
 </div>
 </div>

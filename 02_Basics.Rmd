@@ -393,6 +393,6 @@ we need all commas to separate numbers in a vector, not a semicolon
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [StackOverflow](https://stackoverflow.com/)</li>
-<li> [Discovering Statistics Using R](https://katalog.uni-konstanz.de/libero/WebOpac.cls?VERSION=2&ACTION=DISPLAY&RSN=2222774&DATA=KON&TOKEN=nGIfSiZsIA5826&Z=1&SET=1) Book by Andy Field, available from KIM </li>
+<li> [StackOverflow](https://stackoverflow.com/){target="_blank"}</li>
+<li> [Discovering Statistics Using R](https://katalog.uni-konstanz.de/libero/WebOpac.cls?VERSION=2&ACTION=DISPLAY&RSN=2222774&DATA=KON&TOKEN=nGIfSiZsIA5826&Z=1&SET=1){target="_blank"} Book by Andy Field, available from KIM </li>
 </ul>

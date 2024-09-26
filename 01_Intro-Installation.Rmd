@@ -27,8 +27,8 @@ The slightly tricky part is learning how to give those instructions.
 
 ## Installing R and R Studio
 
-- Download & Install the newest `r version$version.string` at [https://cloud.r-project.org/](https://cloud.r-project.org/)
-- Download and install R Studio at [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+- Download & Install the newest `r version$version.string` at [https://cloud.r-project.org/](https://cloud.r-project.org/){target="_blank"}
+- Download and install R Studio at [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/){target="_blank"}
 
 R as a language can be used on its own.
 However, it is not very modern, quite hard to use and frankly just no fun.
@@ -139,7 +139,7 @@ Luckily, many many people have developed many many packages that contain differe
 
 ## Installing Packages 
 
-![Hexagon Package logos](./img/hexagons.png){#id .class width=auto height=60px}
+![Hexagon Package logos](./img/hexagons.png){height=60px}
 
 Most packages are available on CRAN - the Comprehensive R Archive Network.
 That being the case you can easily install the package you want to have with the command `install.packages("packagename")`.
@@ -169,7 +169,7 @@ This line of code takes the data set `iris`, which is included in R by default, 
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [Tadaa Data: R für Psychos (german)](https://r-intro.tadaa-data.de/index.html) </li>
-<li> [Kaggle: Intro to R](https://www.kaggle.com/code/hamelg/intro-to-r-part-4-variables)  </li>
-<li> [Tidyverse](https://www.tidyverse.org/) </li>
+<li> [Tadaa Data: R für Psychos (german)](https://r-intro.tadaa-data.de/index.html){target="_blank"} </li>
+<li> [Kaggle: Intro to R](https://www.kaggle.com/code/hamelg/intro-to-r-part-4-variables){target="_blank"}  </li>
+<li> [Tidyverse](https://www.tidyverse.org/){target="_blank"} </li>
 </ul>

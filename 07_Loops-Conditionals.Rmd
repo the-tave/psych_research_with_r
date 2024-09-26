@@ -27,7 +27,7 @@
 - Conditionals define different actions for different conditions
 - They follow intuitive language:
     - **if**: define action to take when condition is met (logical)
-    - **else if**: defince action for another condition
+    - **else if**: define action for another condition
     - **else**: define action for everything else
 - **ifelse** is the shortcut-function we already got to know for recoding with `mutate()`
     - defines exactly 1 condition, 1 action, 1 alternative
@@ -338,15 +338,17 @@ for(i in 1:nrow(seminar)){
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 
-<li>[For loops (W3 Schools)](https://www.w3schools.com/r/r_for_loop.asp/)</li>
-<li>[For loops (R bloggers)](https://www.r-bloggers.com/2015/12/how-to-write-the-first-for-loop-in-r/)</li>
-<li>[For loops (DataMentor)](https://www.datamentor.io/r-programming/for-loop) Here are also links the the other types of loop and a visualization</li>
-<li>[Loops in R (datacamp)](https://www.datacamp.com/tutorial/tutorial-on-loops-in-r)Very thorough! :)</li>
+<li>[For loops (W3 Schools)](https://www.w3schools.com/r/r_for_loop.asp/){target="_blank"}</li>
+<li>[For loops (R bloggers)](https://www.r-bloggers.com/2015/12/how-to-write-the-first-for-loop-in-r/){target="_blank"}</li>
+<li>[For loops (DataMentor)](https://www.datamentor.io/r-programming/for-loop){target="_blank"} Here are also links the the other types of loop and a visualization</li>
+<li>[Loops in R (datacamp)](https://www.datacamp.com/tutorial/tutorial-on-loops-in-r){target="_blank"} Very thorough! :)</li>
 <br>
-<li>[dplyr Exercises](https://sjspielman.github.io/datascience_for_biologists/exercises/dplyr.html) Great to keep practicing over the holidays :)</li>
+<li>[dplyr Exercises](https://sjspielman.github.io/datascience_for_biologists/exercises/dplyr.html){target="_blank"} Great to keep practicing over the holidays :)</li>
 </ul>
 
-[Lightbot](https://lightbot.com/hour-of-code.html)
+[Lightbot](https://lightbot.com/hour-of-code.html){target="_blank"}
 
 
 ![For Loop Meme](./img/forbeep.png){width="auto" height="600px"}
+
+<figcaption style = "font-size: 7pt;">[https://medium.com/nerd-for-tech/what-are-for-loops-b7215db28e83](https://medium.com/nerd-for-tech/what-are-for-loops-b7215db28e83){target="_blank"}</figcaption>

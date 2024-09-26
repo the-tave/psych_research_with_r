@@ -15,7 +15,7 @@ You can achieve most things in many different ways - _best practice_ refers to t
 Some of the things you will read about might not make sense to you intuitively and that's ok.
 Realistically, there are some mistakes that everyone must make for themselves.
 When you do, I just want you to remember that here is some advice that you have either heard before or will read up on now to get out of the pickle you may be in!
-Maybe you would like to bookmark the [toolbox](#toolbox) to always find an overview of nifty tips, tricks and hacks?
+Maybe you would like to bookmark the [Toolbox](#toolbox) to always find an overview of nifty tips, tricks and hacks?
 
 
 ## Naming Conventions {#varnames}
@@ -188,7 +188,7 @@ In the following, you can try to create your own R project and see how to use th
 <!-- # ``` -->
 
 1. Create a subfolder called "data" in your R project.
-2. Download the file "mindfulness_data.Rds" from [GitHub](https://github.com/the-tave/psych_research_in_r/blob/main/data/mindfulness_data.Rds) and save it in that folder.
+2. Download the file "mindfulness_data.Rds" from [GitHub](https://github.com/the-tave/psych_research_in_r/blob/main/data/mindfulness_data.Rds){target="_blank"} and save it in that folder.
 3. Now try to load it into your script and check whether it worked by executing this code:
 
 ```{r}
@@ -197,7 +197,7 @@ str(mindful)
 ```
 
 ![](./img/code_reuse.jpg){height=200px}
-<figcaption style = "font-size: 7pt;">https://www.reddit.com/r/ProgrammerHumor/comments/11a1fqi/code_reuse/#lightbox</figcaption>
+<figcaption style = "font-size: 7pt;">[https://www.reddit.com/r/ProgrammerHumor/comments/11a1fqi/code_reuse/#lightbox](https://www.reddit.com/r/ProgrammerHumor/comments/11a1fqi/code_reuse/#lightbox){target="_blank"}</figcaption>
 
 
 ## Make R your own
@@ -233,17 +233,17 @@ Personally, I work really well with the `Merbivore` theme - what is your favorit
  
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [R Projects: A quick overview](https://thedavidchen.github.io/post/rstudio-why-use-projects/) </li>
-<li> [Starting your R projects](https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html) </li>
-<li> [RStudio Projects and Directories](https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/) (rather thorough) </li>
-<li> [Some ideas on improving your workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) (this can seem a bit advanced, but try reading through anyway and see what sticks with you. Building good habits at the beginning of your learning journey will make your life a lot easier down the line!)
+<li> [R Projects: A quick overview](https://thedavidchen.github.io/post/rstudio-why-use-projects/){target="_blank"} </li>
+<li> [Starting your R projects](https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html){target="_blank"} </li>
+<li> [RStudio Projects and Directories](https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/) (rather thorough){target="_blank"} </li>
+<li> [Some ideas on improving your workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/){target="_blank"} (This can seem a bit advanced, but try reading through anyway and see what sticks with you. Building good habits at the beginning of your learning journey will make your life a lot easier down the line!)
 </ul>
 
 ## Working with Version Control {-}
 
 ...can sound scary and daunting to learn.
 I believe this to be a more advanced feature which is a bit much for a (non-programmer) beginner, so I will mention it last.
-However, using version control systems such as [GitHub](https://github.com/) can be really great to keep track of your work, share with others and also ask for help. 
+However, using version control systems such as [GitHub](https://github.com/){target="_blank"} can be really great to keep track of your work, share with others and also ask for help. 
 
-If you want to start learning about Git and GitHub, I suggest [starting your journey](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git) directly on the GitHub Docs webpage.
-For those who may already have some experience, here is a nice blog article bringing up some of the slips and falls one might take when working with GitHub: [Hack your way to a good Git history (Maëlle Salmon)](https://www.r-bloggers.com/2024/06/hack-your-way-to-a-good-git-history/).
+If you want to start learning about Git and GitHub, I suggest [starting your journey](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git){target="_blank"} directly on the GitHub Docs webpage.
+For those who may already have some experience, here is a nice blog article bringing up some of the slips and falls one might take when working with GitHub: [Hack your way to a good Git history (Maëlle Salmon)](https://www.r-bloggers.com/2024/06/hack-your-way-to-a-good-git-history/){target="_blank"}.

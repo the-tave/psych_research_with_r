@@ -40,7 +40,7 @@ Or perhaps you need to look up a specific step that you _can never quite remembe
 Maybe you also came across this resource by pure chance - lucky you! <i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i>
 
 In any case I am glad you are here and hope you find both what you were and weren't looking for.
-This book is based on an in-person introductory R course from the [University of Konstanz](https://www.uni-konstanz.de/).
+This book is based on an in-person introductory R course from the [University of Konstanz](https://www.uni-konstanz.de/){ target="_blank"}.
 I tried my very best to cover all the basics on working with R from the ground up. 
 Following the whole course should enable you to write your very own R Markdown report, taking full advantage of some of the most important and common features of R.
 
@@ -76,7 +76,7 @@ It is a weird, powerful language and can assist you with many everyday tasks.
 
 I hope to alleviate some of the aveRsion over the course of this course and help you see R's advantages.
 
-Please feel free to contact me if you have any questions or comments! You can reach out via e-mail: [annika-tave.overlander@uni.kn](annika-tave.overlander@uni.kn) or you can submit a GitHub issue over at the repository for this book: [https://github.com/the-tave/psych_research_in_r](https://github.com/the-tave/psych_research_in_r).
+Please feel free to contact me if you have any questions or comments! You can reach out via e-mail: [annika-tave.overlander@uni.kn](annika-tave.overlander@uni.kn) or you can submit a GitHub issue over at the repository for this book: [https://github.com/the-tave/psych_research_in_r](https://github.com/the-tave/psych_research_in_r){ target="_blank"}.
 
 ```{r setup, include=FALSE}
 library(webexercises)

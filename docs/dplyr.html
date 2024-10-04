@@ -4,24 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Data munging with dplyr | Psychological Research in R</title>
+  <title>Chapter 4 Data munging with dplyr | Psychological Research with R</title>
   <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Data munging with dplyr | Psychological Research in R" />
+  <meta property="og:title" content="Chapter 4 Data munging with dplyr | Psychological Research with R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
-  <meta name="github-repo" content="the-tave/psych_research_in_r" />
+  <meta name="github-repo" content="the-tave/psych_research_with_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Data munging with dplyr | Psychological Research in R" />
+  <meta name="twitter:title" content="Chapter 4 Data munging with dplyr | Psychological Research with R" />
   
   <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
@@ -170,7 +170,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li>
-<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research in R 
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research with R 
 <i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
 
 <li class="divider"></li>
@@ -464,7 +464,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Research in R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Research with R</a>
           </h1>
         </div>
 
@@ -770,13 +770,13 @@ Solution
 </div>
 <div id="piping-hot" class="section level2 unnumbered hasAnchor">
 <h2>Piping Hot %&gt;%<a href="dplyr.html#piping-hot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You already heard about the pipe operator in Section @ref(#pipe1).
+<p>You already heard about the pipe operator in Section <a href="basics.html#pipe1"><strong>??</strong></a>.
 The pipe - available as a native R pipe |&gt; or a <code>tidyverse</code> pipe from the <code>magrittr</code> package %&gt;%<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> - takes the input from the left-hand to the right-hand.
 In simpler terms, it takes the operation you did before the pipe and uses is as input for the function after the pipe.
 This keeps our code readable and tidy and allows us to keep edits in separate lines, but we still only have to run one command for every task we need
 It's easy to add new commands by using another pipe operator, or to leave edits out but commenting out the respective line of code.</p>
 <p>It is important to say that most things can be achieved with or without pipe and you may prefer different versions for different tasks.
-You have seen a basic example of the use of the pipe operator in Section @ref(#pipe1), so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.</p>
+You have seen a basic example of the use of the pipe operator in Section <a href="basics.html#pipe1"><strong>??</strong></a>, so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="dplyr.html#cb37-1" tabindex="-1"></a><span class="co"># With pipe</span></span>
 <span id="cb37-2"><a href="dplyr.html#cb37-2" tabindex="-1"></a>iris_edit <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
 <span id="cb37-3"><a href="dplyr.html#cb37-3" tabindex="-1"></a> <span class="fu">filter</span>(Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="co"># only big petals</span></span>
@@ -1147,7 +1147,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/the-tave/psych_research_in_r/issues/04_dplyr_tidyverse.Rmd",
+"link": "https://github.com/the-tave/psych_research_with_r/issues/04_dplyr_tidyverse.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,24 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Best Practice | Psychological Research in R</title>
+  <title>Chapter 3 Best Practice | Psychological Research with R</title>
   <meta name="description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Best Practice | Psychological Research in R" />
+  <meta property="og:title" content="Chapter 3 Best Practice | Psychological Research with R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
-  <meta name="github-repo" content="the-tave/psych_research_in_r" />
+  <meta name="github-repo" content="the-tave/psych_research_with_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Best Practice | Psychological Research in R" />
+  <meta name="twitter:title" content="Chapter 3 Best Practice | Psychological Research with R" />
   
   <meta name="twitter:description" content="<p>This is an online introduction to R targetted especially at psychologists.
 It should guide the reader through the first challenges in working with R
@@ -170,7 +170,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li>
-<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research in R 
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research with R 
 <i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
 
 <li class="divider"></li>
@@ -464,7 +464,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Research in R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Research with R</a>
           </h1>
         </div>
 
@@ -580,11 +580,11 @@ Solution
 <span id="cb29-8"><a href="best-practice.html#cb29-8" tabindex="-1"></a></span>
 <span id="cb29-9"><a href="best-practice.html#cb29-9" tabindex="-1"></a><span class="fu">str</span>(scores7a); <span class="fu">str</span>(scores7b)</span>
 <span id="cb29-10"><a href="best-practice.html#cb29-10" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  12 12 12 15 15 14 13 15 13 13 ...</span></span>
-<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  94.3 91.1 113.9 76.1 129.4 ...</span></span>
+<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  15 15 14 13 12 12 13 12 12 14 ...</span></span>
+<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  74.9 95.7 109.4 120.1 87.2 ...</span></span>
 <span id="cb29-13"><a href="best-practice.html#cb29-13" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  14 14 15 15 12 15 12 14 14 13 ...</span></span>
-<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  84.8 100.4 90 120.4 82.1 ...</span></span>
+<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  15 15 13 12 13 12 12 15 15 12 ...</span></span>
+<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  123.7 68.6 79.5 113.7 95.9 ...</span></span>
 <span id="cb29-16"><a href="best-practice.html#cb29-16" tabindex="-1"></a></span>
 <span id="cb29-17"><a href="best-practice.html#cb29-17" tabindex="-1"></a><span class="co"># Add information about the class</span></span>
 <span id="cb29-18"><a href="best-practice.html#cb29-18" tabindex="-1"></a>scores7a<span class="sc">$</span>class <span class="ot">&lt;-</span> <span class="st">&quot;7a&quot;</span></span>
@@ -596,8 +596,8 @@ Solution
 <span id="cb29-24"><a href="best-practice.html#cb29-24" tabindex="-1"></a><span class="co"># Check the overall data frame for plausibility</span></span>
 <span id="cb29-25"><a href="best-practice.html#cb29-25" tabindex="-1"></a><span class="fu">str</span>(allscores)</span>
 <span id="cb29-26"><a href="best-practice.html#cb29-26" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 40 obs. of  3 variables:</span></span>
-<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  12 12 12 15 15 14 13 15 13 13 ...</span></span>
-<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  94.3 91.1 113.9 76.1 129.4 ...</span></span>
+<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  15 15 14 13 12 12 13 12 12 14 ...</span></span>
+<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  74.9 95.7 109.4 120.1 87.2 ...</span></span>
 <span id="cb29-29"><a href="best-practice.html#cb29-29" tabindex="-1"></a><span class="co">#  $ class: chr  &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; ...</span></span>
 <span id="cb29-30"><a href="best-practice.html#cb29-30" tabindex="-1"></a><span class="fu">table</span>(allscores<span class="sc">$</span>class)</span>
 <span id="cb29-31"><a href="best-practice.html#cb29-31" tabindex="-1"></a><span class="co"># </span></span>
@@ -621,7 +621,7 @@ If you want to change the working directory you can use the command <code>setwd(
 Which folder is R working in - is it the one you expected?</p>
 </blockquote>
 <p>While this way of structuring your work in folders and directories is very common, it can pose some issues down the line.
-Usually, we will work with our own data files (see Chapter @ref(#exdata)) and read them into our script to use them for analyses.
+Usually, we will work with our own data files (see Chapter <a href="exdata.html#exdata">6</a>) and read them into our script to use them for analyses.
 If they happen to be in a different folder than our working directory, we will need to use the complete file path to tell R where to find this data file.
 When we now ask someone else to try out the code - either because we need help or because we are handing in an assignment - they will raise an eyebrow because chances are that they do not have the specified file path available on their machine.</p>
 <blockquote>
@@ -990,7 +990,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/the-tave/psych_research_in_r/issues/03_BestPractice.Rmd",
+"link": "https://github.com/the-tave/psych_research_with_r/issues/03_BestPractice.Rmd",
 "text": "Edit"
 },
 "history": {

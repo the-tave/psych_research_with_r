@@ -147,7 +147,7 @@ If you want to change the working directory you can use the command `setwd()` an
 > Which folder is R working in - is it the one you expected?
 
 While this way of structuring your work in folders and directories is very common, it can pose some issues down the line.
-Usually, we will work with our own data files (see Chapter \@ref(#exdata)) and read them into our script to use them for analyses.
+Usually, we will work with our own data files (see Chapter \@ref(exdata)) and read them into our script to use them for analyses.
 If they happen to be in a different folder than our working directory, we will need to use the complete file path to tell R where to find this data file.
 When we now ask someone else to try out the code - either because we need help or because we are handing in an assignment - they will raise an eyebrow because chances are that they do not have the specified file path available on their machine.
 

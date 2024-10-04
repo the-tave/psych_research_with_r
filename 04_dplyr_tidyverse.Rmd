@@ -241,14 +241,14 @@ iris %>%
 
 ## Piping Hot %>% {-}
 
-You already heard about the pipe operator in Section \@ref(#pipe1). 
+You already heard about the pipe operator in Section \@ref(pipe1). 
 The pipe - available as a native R pipe |> or a `tidyverse` pipe from the `magrittr` package %>%^[The two pipes can pretty much the same operations - for specific differences see https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/] - takes the input from the left-hand to the right-hand.
 In simpler terms, it takes the operation you did before the pipe and uses is as input for the function after the pipe.
 This keeps our code readable and tidy and allows us to keep edits in separate lines, but we still only have to run one command for every task we need
 It's easy to add new commands by using another pipe operator, or to leave edits out but commenting out the respective line of code.
 
 It is important to say that most things can be achieved with or without pipe and you may prefer different versions for different tasks.
-You have seen a basic example of the use of the pipe operator in Section \@ref(#pipe1), so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.
+You have seen a basic example of the use of the pipe operator in Section \@ref(pipe1), so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.
 
 ```{r pipe}
 # With pipe

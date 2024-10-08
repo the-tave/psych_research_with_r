@@ -15,9 +15,14 @@ In this last part we will learn one of the most nifty features of R, which is be
 Because creating visualizations and statistics in R is great, but we need to able to show and report our work.
 Of course, results can be copied and plots can be exported, but the more steps one needs to take, the more prone to error the work becomes. When you write a report with this feature, analyses and plots can be embedded directly into the document.
 Basically, R Markdown is a text engine based on LaTeX that allows you to create documents, presentations, reports and much more.
-As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot below!
+As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot Figure \@ref(fig:maexample) below!
 
-![_**Example Screenshot of a Thesis written in R Markdown**_](./img/MArmdex.png){height=250px}
+<!-- ![_**Example Screenshot of a Thesis written in R Markdown**_](./img/MArmdex.png){height=250px} -->
+
+```{r maexample, echo = F, out.height="60%", fig.cap="Example Screenshot of a Thesis written in R Markdown.", out.extra= 'class="boxshade"'}
+knitr::include_graphics("./img/MArmdex.png")
+```
+
 
 ![](./img/rmd-click.png){.flr height=170px} 
 
@@ -77,11 +82,15 @@ Start text after a blank line!
 As you can see above, the YAML header is surrounded by three minus signs --- and has quite specific formatting.
 Setting values like title and author are similar to assigning strings to variables - they have to be put in quotes.
 One exception to this rule can be seen in the subtitle, which starts with a vertical rule | - if that is the case, you can define very long text without the quotes and even control the exact format and line break.
-Another nifty feature is being able to use inline R Code, to e.g. insert today's date automatically with \` r Sys.Date()\`.
+Another nifty feature is being able to use inline R Code, to e.g. insert today's date automatically with \` Sys.Date()\`.
 
 For the output, it is important to stick with this type of indentation, where every setting belonging to the document command is indented further than the document definition.
 
 > <i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i> <i style="color: #a34c21;"> In the YAML header, `true` and `false` are not capitalized, unlike in the rest of R! </i>
+
+For different types of output there are some different features that may be stylish or useful.
+For example, in HTML you can format the table of contents to float with **toc_float: true**.
+In a pdf document, this option would not make sense so it will not work. 
     
 ## Markdown Basics
 
@@ -208,6 +217,38 @@ Remember these tags should only be used when creating a html document!
 ```{r error=TRUE}
 mean(y)
 ```
+
+### Including Links & Images
+
+- An image to R Markdown is essentially a **link to an image file on your computer**
+    - That's why they share similar notation
+- **Web Link:** 
+    - 
+      "[Google Link](www.google.com)"
+
+    - Becomes: [Google Link](https://www.google.com/) (clickable Link)
+- **Image:** 
+
+```{r eval = F}
+![image description](C:/path/to/your/image.png)
+```
+
+- Different file formats, such as JPG, PNG, SVG or GIF
+    
+
+- When including an image, make sure you are using the right file path, image name & file extension! So that...
+- "![RMarkdown Logo]("./img/rmd.png")"
+
+- ...becomes...
+- ![RMarkdown Logo](./img/rmd.png)
+
+### Inline Code
+
+- To simply include variables or values in text, we can use inline code \`_r  code_ \`
+- Simply type one back tick ` and r - the program will auto complete the command
+- Examples:
+    - The average sepal length of iris flowers is <br>
+    \`_r mean(iris\$Sepal.Length)_\`  $\rightarrow$ `r round(mean(iris$Sepal.Length), 3)`
 
 ## Wrap-Up & Further Resources {-}
  

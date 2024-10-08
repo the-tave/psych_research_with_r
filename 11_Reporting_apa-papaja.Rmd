@@ -9,105 +9,28 @@
 
 ![Happy Papaya Logo](./img/papaja.png)
 
+Indentation and spacing is very important! 
+In the text, it is better to add more. 
+In the YAML header, it may not be recognized properly with improper spacing
 
+## The `papaja` Package
 
-## Quiz - Rmd specific
+- reporting is very easy with these packages
+- they provide "wrapper" functions around statistical tests that allow for dynamic, correctly formatted reports
 
-1. What do I need to do to make my text **_look like this_**?
-    - \*\*\_look like this\_\*\*
-2. I want to add a subtitle to my document, where might I do that?
-    - Add 'subtitle: "A great subtitle" ' to the **YAML header**
-3. How do I generate a section header in my document?
-    - With the pound sign \# Header
-4. Oh no, my header isn't showing up right! What could have happened?
-    - There needs to be a space between the \# and the header
+- most can be accomplished with the papaja package
+- only the chi^2 test needs the `apa` package but the principle is the same
 
-### Quiz - general R
+### Markdown Templates
 
-1. What package contains the functions `select, filter & mutate`?
-    - `dplyr` (or `tidyverse`)
-2. Assume I have created some R project and I read a file with the following command - what does this tell you about the folder on my computer?
-    ```{r eval = F}
-    greatdata <- readr::read_csv(file = "./data/somefile.CSV")
-    ```
-    - The folder containing the R project contains a subfolder called "data" and in there is a CSV file called "somefile.csv".
+papaja has R Markdown templates and they are awesome for writing scientifically sound papers according to [APA guidelines](https://apastyle.apa.org/style-grammar-guidelines)
 
-### Quiz - general R
+There are many other awesome templates that are available for styling and creating R Markdown documents.
+The example in Figure \@ref(fig:maexample) was written with the oxforddown template! 
+You can write nicely formatted letters with the linl package! 
 
-3. I want to load a csv file into R with `readRDS()`. Why isn't it working?
-    - The read commands are specific to the file format. readRDS() is for R files, read.csv() or readr::read_csv() are needed for csv files
-4. What do you know when you look at the command `bigfive$extraversion`?
-    - There is a data set called `bigfive` and we're accessing a variable called `extraversion`
-
-### Quiz - general R
-
-5. What keywords for loops and conditionals do you remember?
-    - _for, while, if, else, ifelse_...
-6. I want to calculate a t-test on soul-belief (yes or no) and age in our seminar data. Why won't this command work?
-    ```{r eval = F}
-    t.test(v02_age, soul_dummy, data = seminar)
-    ```
-    - When we have a grouping variable like soul_dummy, we need to use formula notation: `v02_age ~ soul_dummy`
-     
-## Back to Rmd: Last session
-
-<br>
-
-- First off: the option of formatting the table of contents to float in html is **toc_float: true**
-- Create Rmd: ![Create a demo Rmd](./img/rmd-click.png){height=100px} or File > New File > R Markdown
-- **YAML header** defines format of the document as well as key info such as title, date, etc.
-- Text formatting:
-    - _italics_ with \_italics\_
-    - **bold** with \*\*bold\*\*
-    - Unordered lists are created with \-
-    - Ordered lists with 1., 2. ...
-    
-### Last session
-
-- Code chunks are inserted via the menu Code > Insert Chunk and should look like this:
-- \```{r} <br>
-  \# _code goes here_ <br>
-  \```
-    - keyboard shortcut ctrl + alt + i / command + option + i
-    - Chunk options can specify how to treat code, e.g. `echo = FALSE` only shows output but does not "echo" the actual code
-- Indentation and spacing is very important! In the text, it is better to add more. In the YAML header, it may not be recognized properly with improper spacing
-
-### Including Links & Images
-
-- An image to R Markdown is essentially a **link to an image file on your computer**
-    - That's why they share similar notation
-- **Web Link:** 
-    - 
-      "[Google Link](www.google.com)"
-
-    - Becomes: [Google Link](https://www.google.com/) (clickable Link)
-- **Image:** 
-
-```{r eval = F}
-![image description](C:/path/to/your/image.png)
-```
-
-- Different file formats, such as JPG, PNG, SVG or GIF
-    
-
-- When including an image, make sure you are using the right file path, image name & file extension! So that...
-- "![RMarkdown Logo]("./img/rmd.png")"
-
-- ...becomes...
-- ![RMarkdown Logo](./img/rmd.png)
-
-### Inline Code
-
-- To simply include variables or values in text, we can use inline code \`_r  code_ \`
-- Simply type one back tick ` and r - the program will auto complete the command
-- Examples:
-    - The average sepal length of iris flowers is <br>
-    \`_r mean(iris\$Sepal.Length)_\`  $\rightarrow$ `r round(mean(iris$Sepal.Length), 3)`
-    
 
 ## Taking full advantage of R
-
-<br>
 
 1. Conduct Analysis, e.g. an ANOVA
 2. Write about your analysis & report results (with proper statistics)
@@ -129,8 +52,6 @@ car::leveneTest(aov(bill_length_mm ~ species, data = penguins)) # yay
 penguinmodel <- aov(bill_length_mm ~ species, data = penguins)
 ```
 
-### Walkthrough
-
 ```{r}
 # Run & save post-hoc Tests
 TukeyHSD(penguinmodel)
@@ -147,9 +68,6 @@ suppressMessages(library(papaja))
 suppressMessages(apa_result <- apa_print(penguinmodel)$full_result)
 ```
 
-
-### Walkthrough
-
 Create a boxplot and add results right in the caption!
 
 ```{r fig.height = 3, warning=F}
@@ -161,8 +79,6 @@ ggplot(penguins, aes(x=species, y=bill_length_mm, color=species, fill=species), 
   scale_color_brewer(palette = 5) +
   scale_fill_brewer(palette = 5)
 ```
-
-### Walkthrough
 
 - Note that it is a little complex to include the result right in the caption
     - ggplot2 cannot handle \LaTeX notation so we need to use package latex2exp
@@ -206,13 +122,12 @@ ggplot(penguins) +
 <li> Single values/ results can be reported with inline code</li>
 </ul>
 
-
-<br>
-
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
 <li> [MarkdownGuide](https://www.markdownguide.org/basic-syntax/){target="_blank"}</li>
 <li> [Another Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/){target="_blank"}</li>
+<li> [apa package](https://cran.r-project.org/web/packages/apa/vignettes/introduction.html) </li>
+<li> [papaja package](https://frederikaust.com/papaja_man/) </li>
 <li> [ggsignif package example](https://statisticsglobe.com/ggsignif-package-r){target="_blank"} </li>
 <li> [Bibliography and Citation](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html){target="_blank"}</li>
 </ul>

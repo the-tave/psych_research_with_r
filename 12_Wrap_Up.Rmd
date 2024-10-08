@@ -93,9 +93,6 @@ iris |>
 </ul>
 
 
-
-<br>
-
 <i class="fa-solid fa-book" style="color: orange;"> Further Resources </i>
 <ul style="color: orange;">
 <li> [StatLearning Shiny App (Uni Leiden)](https://solo-fsw.shinyapps.io/NewStatLearning/){target="_blank"}</li>
@@ -104,6 +101,41 @@ iris |>
 </ul>
 
 # Practice{-}
+
+## Quiz: R
+
+1. What package contains the functions `select, filter & mutate`?
+    - `dplyr` (or `tidyverse`)
+2. Assume I have created some R project and I read a file with the following command - what does this tell you about the folder on my computer?
+    ```{r eval = F}
+    greatdata <- readr::read_csv(file = "./data/somefile.CSV")
+    ```
+    - The folder containing the R project contains a subfolder called "data" and in there is a CSV file called "somefile.csv".
+
+3. I want to load a csv file into R with `readRDS()`. Why isn't it working?
+    - The read commands are specific to the file format. readRDS() is for R files, read.csv() or readr::read_csv() are needed for csv files
+4. What do you know when you look at the command `bigfive$extraversion`?
+    - There is a data set called `bigfive` and we're accessing a variable called `extraversion`
+
+5. What keywords for loops and conditionals do you remember?
+    - _for, while, if, else, ifelse_...
+6. I want to calculate a t-test on soul-belief (yes or no) and age in our seminar data. Why won't this command work?
+    ```{r eval = F}
+    t.test(v02_age, soul_dummy, data = seminar)
+    ```
+    - When we have a grouping variable like soul_dummy, we need to use formula notation: `v02_age ~ soul_dummy`
+     
+
+## Quiz: R Markdown
+
+1. What do I need to do to make my text **_look like this_**?
+    - \*\*\_look like this\_\*\*
+2. I want to add a subtitle to my document, where might I do that?
+    - Add 'subtitle: "A great subtitle" ' to the **YAML header**
+3. How do I generate a section header in my document?
+    - With the pound sign \# Header
+4. Oh no, my header isn't showing up right! What could have happened?
+    - There needs to be a space between the \# and the header
 
 ## Loops: Write a for-loop that outputs the first X numbers of the Fibonacci sequence ("golden ratio")
 

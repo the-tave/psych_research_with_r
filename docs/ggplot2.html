@@ -489,7 +489,7 @@ Moreover, many common statistics make assumptions about the <em>distribution</em
 We won't get too mathematical, but just know they are trigonometric angle functions with a special relationship.
 Commonly in psychology, relation = correlation, which assumes a linear relationship.
 However, when we take a look at both the correlation between sine and cosine as well as their relationship represented visually, we might see a problem:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>We can see that the two variables clearly have a certain type of relation with each other which is definitely not linear.
 But if we only reported the very very small correlation of .001, one could assume they had no relation at all!
 Keeping that in mind, let's see how we can create beautiful and concise visualizations in R!</p>
@@ -540,7 +540,7 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 <h2><span class="header-section-number">5.3</span> Your First Bar Plot<a href="ggplot2.html#your-first-bar-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="ggplot2.html#cb42-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb42-2"><a href="ggplot2.html#cb42-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width)) </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <div id="making-plots-prettier" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Making Plots Prettier<a href="ggplot2.html#making-plots-prettier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -566,13 +566,13 @@ called <em>ggplot<strong>2</strong></em> while the function call is <em>ggplot</
 <h3><span class="header-section-number">5.3.2</span> Example: Bar Plot with color and fill<a href="ggplot2.html#example-bar-plot-with-color-and-fill" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="ggplot2.html#cb43-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb43-2"><a href="ggplot2.html#cb43-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width), <span class="at">color =</span> <span class="st">&quot;deepskyblue3&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;deepskyblue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 <blockquote>
 <p><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What could cause this distribution?</p>
 </blockquote>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="ggplot2.html#cb44-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb44-2"><a href="ggplot2.html#cb44-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">color =</span> Species, <span class="at">fill =</span> Species))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 <blockquote>
 <p><i class="fa-solid fa-lightbulb" style="color: yellow;"></i> What do you notice about the code compared to before?</p>
 </blockquote>
@@ -606,7 +606,7 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="ggplot2.html#cb46-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span> </span>
 <span id="cb46-2"><a href="ggplot2.html#cb46-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species), </span>
 <span id="cb46-3"><a href="ggplot2.html#cb46-3" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> .<span class="dv">6</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
 <div id="adding-labels-and-themes" class="section level2 hasAnchor" number="5.5">
@@ -655,7 +655,7 @@ Make sure everything is visible and legible, so try to use an <em>alpha</em> of 
 <span id="cb48-3"><a href="ggplot2.html#cb48-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span></span>
 <span id="cb48-4"><a href="ggplot2.html#cb48-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Preferred Music Genre&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Loudness (arbitrary units)&quot;</span>, </span>
 <span id="cb48-5"><a href="ggplot2.html#cb48-5" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Genre&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="878.4" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="878.4" /></p>
 </div>
 <div id="exercise-boxplot" class="section level3 hasAnchor" number="5.6.2">
 <h3><span class="header-section-number">5.6.2</span> Exercise: Boxplot<a href="ggplot2.html#exercise-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -671,7 +671,7 @@ Solution
 <span id="cb49-2"><a href="ggplot2.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length,</span>
 <span id="cb49-3"><a href="ggplot2.html#cb49-3" tabindex="-1"></a>                   <span class="at">color =</span> Species, <span class="at">fill =</span> Species), <span class="at">alpha =</span> .<span class="dv">6</span>) <span class="sc">+</span></span>
 <span id="cb49-4"><a href="ggplot2.html#cb49-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal Length&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="878.4" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 </div>
 <div id="inspiration-colors-and-palettes" class="section level3 hasAnchor" number="5.6.3">
@@ -687,7 +687,7 @@ Solution
 </ul></li>
 <li>Have fun with it!</li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="960" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="960" /></p>
 <blockquote>
 <p><i class="fa-solid fa-lightbulb" style="color: #a34c21;"></i><i style="color: #a34c21;">Showing plots together like this is easy with <code>cowplot::plot_grid()</code>!</i></p>
 </blockquote>

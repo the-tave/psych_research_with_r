@@ -12,6 +12,10 @@ If you have no prior experience with R, the different names can get a little bit
 There is R, but there is also R Studio and the two serve different purposes in your workflow.
 So in the following I will try to make a clear distinction and guide you through the installation of both R and R Studio.
 
+```{r echo = F, fig.cap="R and R Studio as a schematic. R Studio is the 'pretty frame' for R, which can and should be used with packages that in turn contain different functions. The 'tidyverse' is included as a special teaser - it is a meta-package which has many packages that follow a similar workflow and logic."}
+knitr::include_graphics("./img/R_scheme.png")
+```
+
 
 ## What is R? What is R Studio?
 

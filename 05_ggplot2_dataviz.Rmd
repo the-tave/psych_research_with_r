@@ -226,7 +226,7 @@ ggplot(iris) +
     - We can add color to show groups
 - Showing the relationship of two variables to each other is crucial for understanding our data
     - We can still add color to make existing groups clearer or add a third variable
-- For a broad overview of which visualization (and statistic) to use for which type of data, visit the [Statistics Picker](https://the-tave.shinyapps.io/Statistics-Picker/){target="_blank"} (currently only available in German)
+- For a broad overview of which visualization (and statistic) to use for which type of data, visit the [Statistics Picker](https://the-tave.shinyapps.io/Statistik-Picker/){target="_blank"} (currently only available in German)
     - Most common are boxplots, scatterplots & line graphs
     
 ### Boxplot Example

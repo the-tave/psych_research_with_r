@@ -316,7 +316,7 @@ papaja::apa_print(model)$full_result |> suppressMessages()
 
 <i class="fa-solid fa-book" style="color: orange;"></i>
 <ul style="color: orange;">
-<li> [Statistics Picker](https://the-tave.shinyapps.io/Statistics-Picker/){target="_blank"}</li>
+<li> [Statistics Picker](https://the-tave.shinyapps.io/Statistik-Picker/){target="_blank"}</li>
 <li> [Chi2-test (Statology)](https://www.statology.org/chi-square-test-of-independence-in-r/){target="_blank"} </li>
 <li> [t-test (Statology)](https://www.statology.org/two-sample-t-test/){target="_blank"} </li>
 <li> [ANOVA (Statology)](https://www.statology.org/interpret-anova-results-in-r/){target="_blank"} </li>

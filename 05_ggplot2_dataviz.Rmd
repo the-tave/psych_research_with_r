@@ -313,6 +313,7 @@ cowplot::plot_grid(boxy + scale_color_brewer() + scale_fill_brewer() +
 <li> [unikn](https://hneth.github.io/unikn/index.html){target="_blank"} </li>
 <li> [viridis](https://sjmgarnier.github.io/viridisLite/reference/viridis.html){target="_blank"} </li>
 <li> [papaja](https://www.rdocumentation.org/packages/papaja/versions/0.1.2){target="_blank"} </li>
+<li> [From Data to Viz Guide](https://www.data-to-viz.com/) </li>
 <li> [Beautiful Plotting Guide](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/){target="_blank"} Very extensive, I still profit from this guide a lot :) </li>
 <li> [More color palettes explained](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually){target="_blank"} </li>
 </ul>

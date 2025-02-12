@@ -9,7 +9,7 @@
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 The Power of R &amp; R Markdown | Psychological Research with R" />
   <meta property="og:type" content="book" />
@@ -502,41 +502,41 @@ You can write nicely formatted letters with the linl package!</p>
 <div id="walkthrough" class="section level3 hasAnchor" number="11.2.1">
 <h3><span class="header-section-number">11.2.1</span> Walkthrough<a href="the-power-of-r-r-markdown.html#walkthrough" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We will use the package <code>palmerpenguins</code> (<code>install.packages("palmerpenguins")</code>) and see whether penguins from different islands have different body mass.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="the-power-of-r-r-markdown.html#cb106-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb106-2"><a href="the-power-of-r-r-markdown.html#cb106-2" tabindex="-1"></a></span>
-<span id="cb106-3"><a href="the-power-of-r-r-markdown.html#cb106-3" tabindex="-1"></a><span class="co"># Test assumption of homoscedasticity</span></span>
-<span id="cb106-4"><a href="the-power-of-r-r-markdown.html#cb106-4" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)) <span class="co"># yay</span></span>
-<span id="cb106-5"><a href="the-power-of-r-r-markdown.html#cb106-5" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = median)</span></span>
-<span id="cb106-6"><a href="the-power-of-r-r-markdown.html#cb106-6" tabindex="-1"></a><span class="co">#        Df F value Pr(&gt;F)</span></span>
-<span id="cb106-7"><a href="the-power-of-r-r-markdown.html#cb106-7" tabindex="-1"></a><span class="co"># group   2  2.2425 0.1078</span></span>
-<span id="cb106-8"><a href="the-power-of-r-r-markdown.html#cb106-8" tabindex="-1"></a><span class="co">#       339</span></span></code></pre></div>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="the-power-of-r-r-markdown.html#cb107-1" tabindex="-1"></a><span class="co"># Run &amp; save ANOVA</span></span>
-<span id="cb107-2"><a href="the-power-of-r-r-markdown.html#cb107-2" tabindex="-1"></a>penguinmodel <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span></code></pre></div>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="the-power-of-r-r-markdown.html#cb108-1" tabindex="-1"></a><span class="co"># Run &amp; save post-hoc Tests</span></span>
-<span id="cb108-2"><a href="the-power-of-r-r-markdown.html#cb108-2" tabindex="-1"></a><span class="fu">TukeyHSD</span>(penguinmodel)</span>
-<span id="cb108-3"><a href="the-power-of-r-r-markdown.html#cb108-3" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
-<span id="cb108-4"><a href="the-power-of-r-r-markdown.html#cb108-4" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
-<span id="cb108-5"><a href="the-power-of-r-r-markdown.html#cb108-5" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb108-6"><a href="the-power-of-r-r-markdown.html#cb108-6" tabindex="-1"></a><span class="co"># Fit: aov(formula = bill_length_mm ~ species, data = penguins)</span></span>
-<span id="cb108-7"><a href="the-power-of-r-r-markdown.html#cb108-7" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb108-8"><a href="the-power-of-r-r-markdown.html#cb108-8" tabindex="-1"></a><span class="co"># $species</span></span>
-<span id="cb108-9"><a href="the-power-of-r-r-markdown.html#cb108-9" tabindex="-1"></a><span class="co">#                       diff       lwr        upr     p adj</span></span>
-<span id="cb108-10"><a href="the-power-of-r-r-markdown.html#cb108-10" tabindex="-1"></a><span class="co"># Chinstrap-Adelie 10.042433  9.024859 11.0600064 0.0000000</span></span>
-<span id="cb108-11"><a href="the-power-of-r-r-markdown.html#cb108-11" tabindex="-1"></a><span class="co"># Gentoo-Adelie     8.713487  7.867194  9.5597807 0.0000000</span></span>
-<span id="cb108-12"><a href="the-power-of-r-r-markdown.html#cb108-12" tabindex="-1"></a><span class="co"># Gentoo-Chinstrap -1.328945 -2.381868 -0.2760231 0.0088993</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="the-power-of-r-r-markdown.html#cb105-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb105-2"><a href="the-power-of-r-r-markdown.html#cb105-2" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="the-power-of-r-r-markdown.html#cb105-3" tabindex="-1"></a><span class="co"># Test assumption of homoscedasticity</span></span>
+<span id="cb105-4"><a href="the-power-of-r-r-markdown.html#cb105-4" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)) <span class="co"># yay</span></span>
+<span id="cb105-5"><a href="the-power-of-r-r-markdown.html#cb105-5" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb105-6"><a href="the-power-of-r-r-markdown.html#cb105-6" tabindex="-1"></a><span class="co">#        Df F value Pr(&gt;F)</span></span>
+<span id="cb105-7"><a href="the-power-of-r-r-markdown.html#cb105-7" tabindex="-1"></a><span class="co"># group   2  2.2425 0.1078</span></span>
+<span id="cb105-8"><a href="the-power-of-r-r-markdown.html#cb105-8" tabindex="-1"></a><span class="co">#       339</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="the-power-of-r-r-markdown.html#cb106-1" tabindex="-1"></a><span class="co"># Run &amp; save ANOVA</span></span>
+<span id="cb106-2"><a href="the-power-of-r-r-markdown.html#cb106-2" tabindex="-1"></a>penguinmodel <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="the-power-of-r-r-markdown.html#cb107-1" tabindex="-1"></a><span class="co"># Run &amp; save post-hoc Tests</span></span>
+<span id="cb107-2"><a href="the-power-of-r-r-markdown.html#cb107-2" tabindex="-1"></a><span class="fu">TukeyHSD</span>(penguinmodel)</span>
+<span id="cb107-3"><a href="the-power-of-r-r-markdown.html#cb107-3" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
+<span id="cb107-4"><a href="the-power-of-r-r-markdown.html#cb107-4" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
+<span id="cb107-5"><a href="the-power-of-r-r-markdown.html#cb107-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb107-6"><a href="the-power-of-r-r-markdown.html#cb107-6" tabindex="-1"></a><span class="co"># Fit: aov(formula = bill_length_mm ~ species, data = penguins)</span></span>
+<span id="cb107-7"><a href="the-power-of-r-r-markdown.html#cb107-7" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb107-8"><a href="the-power-of-r-r-markdown.html#cb107-8" tabindex="-1"></a><span class="co"># $species</span></span>
+<span id="cb107-9"><a href="the-power-of-r-r-markdown.html#cb107-9" tabindex="-1"></a><span class="co">#                       diff       lwr        upr     p adj</span></span>
+<span id="cb107-10"><a href="the-power-of-r-r-markdown.html#cb107-10" tabindex="-1"></a><span class="co"># Chinstrap-Adelie 10.042433  9.024859 11.0600064 0.0000000</span></span>
+<span id="cb107-11"><a href="the-power-of-r-r-markdown.html#cb107-11" tabindex="-1"></a><span class="co"># Gentoo-Adelie     8.713487  7.867194  9.5597807 0.0000000</span></span>
+<span id="cb107-12"><a href="the-power-of-r-r-markdown.html#cb107-12" tabindex="-1"></a><span class="co"># Gentoo-Chinstrap -1.328945 -2.381868 -0.2760231 0.0088993</span></span></code></pre></div>
 <ul>
 <li>For anova, we want to report the full statistics, a.k.a "full_result" from <code>papaja::apa_print()</code></li>
-<li><div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="the-power-of-r-r-markdown.html#cb109-1" tabindex="-1"></a><span class="fu">library</span>(papaja)</span>
-<span id="cb109-2"><a href="the-power-of-r-r-markdown.html#cb109-2" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel)<span class="sc">$</span>full_result</span></code></pre></div></li>
+<li><div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="the-power-of-r-r-markdown.html#cb108-1" tabindex="-1"></a><span class="fu">library</span>(papaja)</span>
+<span id="cb108-2"><a href="the-power-of-r-r-markdown.html#cb108-2" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel)<span class="sc">$</span>full_result</span></code></pre></div></li>
 </ul>
 <p>Create a boxplot and add results right in the caption!</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="the-power-of-r-r-markdown.html#cb110-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb110-2"><a href="the-power-of-r-r-markdown.html#cb110-2" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x=</span>species, <span class="at">y=</span>bill_length_mm, <span class="at">color=</span>species, <span class="at">fill=</span>species), <span class="at">na.rm=</span>T) <span class="sc">+</span></span>
-<span id="cb110-3"><a href="the-power-of-r-r-markdown.html#cb110-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb110-4"><a href="the-power-of-r-r-markdown.html#cb110-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bill Length (mm)&quot;</span>, </span>
-<span id="cb110-5"><a href="the-power-of-r-r-markdown.html#cb110-5" tabindex="-1"></a>       <span class="at">caption =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="fu">unlist</span>(apa_result))) <span class="sc">+</span></span>
-<span id="cb110-6"><a href="the-power-of-r-r-markdown.html#cb110-6" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb110-7"><a href="the-power-of-r-r-markdown.html#cb110-7" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="the-power-of-r-r-markdown.html#cb109-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb109-2"><a href="the-power-of-r-r-markdown.html#cb109-2" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x=</span>species, <span class="at">y=</span>bill_length_mm, <span class="at">color=</span>species, <span class="at">fill=</span>species), <span class="at">na.rm=</span>T) <span class="sc">+</span></span>
+<span id="cb109-3"><a href="the-power-of-r-r-markdown.html#cb109-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> <span class="fu">theme_apa</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb109-4"><a href="the-power-of-r-r-markdown.html#cb109-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bill Length (mm)&quot;</span>, </span>
+<span id="cb109-5"><a href="the-power-of-r-r-markdown.html#cb109-5" tabindex="-1"></a>       <span class="at">caption =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="fu">unlist</span>(apa_result))) <span class="sc">+</span></span>
+<span id="cb109-6"><a href="the-power-of-r-r-markdown.html#cb109-6" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb109-7"><a href="the-power-of-r-r-markdown.html#cb109-7" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
 <ul>
 <li>Note that it is a little complex to include the result right in the caption
@@ -547,7 +547,7 @@ You can write nicely formatted letters with the linl package!</p>
 <li>Using RMarkdown, it is much easier to include the statistic right in the text with inline code:
 <ul>
 <li>`<em>r apa_print(penguinmodel)$full_result</em>` <br></li>
-<li><span class="math inline">\(\rightarrow\)</span> <span style="font-size: 24px"> <span class="math inline">\(F(2, 339) = 410.60\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .708\)</span>, 90% CI <span class="math inline">\([.669, .740]\)</span> </span></li>
+<li><span class="math inline">\(\rightarrow\)</span> <span style="font-size: 24px"> <span class="math inline">\(F(2, 339) = 410.60\)</span>, <span class="math inline">\(\mathit{MSE} = 8.76\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .708\)</span> </span></li>
 </ul></li>
 </ul>
 </div>
@@ -560,19 +560,19 @@ Please use the <code>penguins</code> dataset from the <code>palmerpenguins</code
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="the-power-of-r-r-markdown.html#cb111-1" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins))</span>
-<span id="cb111-2"><a href="the-power-of-r-r-markdown.html#cb111-2" tabindex="-1"></a>penguinmodel2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
-<span id="cb111-3"><a href="the-power-of-r-r-markdown.html#cb111-3" tabindex="-1"></a>posthoc <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(penguinmodel2)</span>
-<span id="cb111-4"><a href="the-power-of-r-r-markdown.html#cb111-4" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel2)<span class="sc">$</span>full_result</span>
-<span id="cb111-5"><a href="the-power-of-r-r-markdown.html#cb111-5" tabindex="-1"></a></span>
-<span id="cb111-6"><a href="the-power-of-r-r-markdown.html#cb111-6" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
-<span id="cb111-7"><a href="the-power-of-r-r-markdown.html#cb111-7" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm, <span class="at">color =</span> species, <span class="at">fill =</span> species), </span>
-<span id="cb111-8"><a href="the-power-of-r-r-markdown.html#cb111-8" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb111-9"><a href="the-power-of-r-r-markdown.html#cb111-9" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span> </span>
-<span id="cb111-10"><a href="the-power-of-r-r-markdown.html#cb111-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb111-11"><a href="the-power-of-r-r-markdown.html#cb111-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flipper Length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb111-12"><a href="the-power-of-r-r-markdown.html#cb111-12" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb111-13"><a href="the-power-of-r-r-markdown.html#cb111-13" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="the-power-of-r-r-markdown.html#cb110-1" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="fu">aov</span>(flipper_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins))</span>
+<span id="cb110-2"><a href="the-power-of-r-r-markdown.html#cb110-2" tabindex="-1"></a>penguinmodel2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(bill_length_mm <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
+<span id="cb110-3"><a href="the-power-of-r-r-markdown.html#cb110-3" tabindex="-1"></a>posthoc <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(penguinmodel2)</span>
+<span id="cb110-4"><a href="the-power-of-r-r-markdown.html#cb110-4" tabindex="-1"></a>apa_result <span class="ot">&lt;-</span> <span class="fu">apa_print</span>(penguinmodel2)<span class="sc">$</span>full_result</span>
+<span id="cb110-5"><a href="the-power-of-r-r-markdown.html#cb110-5" tabindex="-1"></a></span>
+<span id="cb110-6"><a href="the-power-of-r-r-markdown.html#cb110-6" tabindex="-1"></a><span class="fu">ggplot</span>(penguins) <span class="sc">+</span></span>
+<span id="cb110-7"><a href="the-power-of-r-r-markdown.html#cb110-7" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm, <span class="at">color =</span> species, <span class="at">fill =</span> species), </span>
+<span id="cb110-8"><a href="the-power-of-r-r-markdown.html#cb110-8" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb110-9"><a href="the-power-of-r-r-markdown.html#cb110-9" tabindex="-1"></a>  <span class="fu">theme_apa</span>() <span class="sc">+</span> </span>
+<span id="cb110-10"><a href="the-power-of-r-r-markdown.html#cb110-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb110-11"><a href="the-power-of-r-r-markdown.html#cb110-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Penguin Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Flipper Length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb110-12"><a href="the-power-of-r-r-markdown.html#cb110-12" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb110-13"><a href="the-power-of-r-r-markdown.html#cb110-13" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="wrap-up-further-resources-9" class="section level2 unnumbered hasAnchor">

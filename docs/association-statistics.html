@@ -9,7 +9,7 @@
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Association Statistics | Psychological Research with R" />
   <meta property="og:type" content="book" />
@@ -475,7 +475,7 @@ div.csl-indent {
 The association can be positive (the larger x, the larger y) or negative (the larger x, the smaller y), which is reflected by the sign of the coefficient: <em>r = 1</em> would be a perfect positive correlation and <em>r = -1</em> would be a perfect negative correlation.</p>
 <p>Hopefully, you have heard this one thousand times already, so let me tell you for the thousand and first time: <strong>Correlation does not imply causation</strong>.
 The correlation coefficient r only tells us about the direction and strength of the association and nothing about the causal relation.
-However, in the regression model we can check whether Y changes on the basis of X, so we can include assumptions of cause and effect in our model<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+However, in the regression model we can check whether Y changes on the basis of X, so we can include assumptions of cause and effect in our model<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
 <div class="figure"><span style="display:block;" id="fig:tree-age"></span>
 <img src="_main_files/figure-html/tree-age-1.png" alt="Age and circumference of orange trees shown in a scatterplot. We can see that there seems to be a positive relationship between the two measures: The older the tree, the larger the circumference." width="672" />
 <p class="caption">
@@ -530,22 +530,22 @@ Solution
 <li>You can specify some other aspects of the calculation, such as statistical method (e.g. "spearman") or how to deal with missing data</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="association-statistics.html#cb85-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
-<span id="cb85-2"><a href="association-statistics.html#cb85-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">10</span>)</span>
-<span id="cb85-3"><a href="association-statistics.html#cb85-3" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span>
-<span id="cb85-4"><a href="association-statistics.html#cb85-4" tabindex="-1"></a><span class="co"># [1] -0.3333333</span></span>
-<span id="cb85-5"><a href="association-statistics.html#cb85-5" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
-<span id="cb85-6"><a href="association-statistics.html#cb85-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb85-7"><a href="association-statistics.html#cb85-7" tabindex="-1"></a><span class="co">#   Pearson&#39;s product-moment correlation</span></span>
-<span id="cb85-8"><a href="association-statistics.html#cb85-8" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb85-9"><a href="association-statistics.html#cb85-9" tabindex="-1"></a><span class="co"># data:  x and y</span></span>
-<span id="cb85-10"><a href="association-statistics.html#cb85-10" tabindex="-1"></a><span class="co"># t = -1, df = 8, p-value = 0.3466</span></span>
-<span id="cb85-11"><a href="association-statistics.html#cb85-11" tabindex="-1"></a><span class="co"># alternative hypothesis: true correlation is not equal to 0</span></span>
-<span id="cb85-12"><a href="association-statistics.html#cb85-12" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb85-13"><a href="association-statistics.html#cb85-13" tabindex="-1"></a><span class="co">#  -0.7959163  0.3749953</span></span>
-<span id="cb85-14"><a href="association-statistics.html#cb85-14" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
-<span id="cb85-15"><a href="association-statistics.html#cb85-15" tabindex="-1"></a><span class="co">#        cor </span></span>
-<span id="cb85-16"><a href="association-statistics.html#cb85-16" tabindex="-1"></a><span class="co"># -0.3333333</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="association-statistics.html#cb84-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
+<span id="cb84-2"><a href="association-statistics.html#cb84-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">10</span>)</span>
+<span id="cb84-3"><a href="association-statistics.html#cb84-3" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span>
+<span id="cb84-4"><a href="association-statistics.html#cb84-4" tabindex="-1"></a><span class="co"># [1] -0.3333333</span></span>
+<span id="cb84-5"><a href="association-statistics.html#cb84-5" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
+<span id="cb84-6"><a href="association-statistics.html#cb84-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb84-7"><a href="association-statistics.html#cb84-7" tabindex="-1"></a><span class="co">#   Pearson&#39;s product-moment correlation</span></span>
+<span id="cb84-8"><a href="association-statistics.html#cb84-8" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb84-9"><a href="association-statistics.html#cb84-9" tabindex="-1"></a><span class="co"># data:  x and y</span></span>
+<span id="cb84-10"><a href="association-statistics.html#cb84-10" tabindex="-1"></a><span class="co"># t = -1, df = 8, p-value = 0.3466</span></span>
+<span id="cb84-11"><a href="association-statistics.html#cb84-11" tabindex="-1"></a><span class="co"># alternative hypothesis: true correlation is not equal to 0</span></span>
+<span id="cb84-12"><a href="association-statistics.html#cb84-12" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb84-13"><a href="association-statistics.html#cb84-13" tabindex="-1"></a><span class="co">#  -0.7959163  0.3749953</span></span>
+<span id="cb84-14"><a href="association-statistics.html#cb84-14" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb84-15"><a href="association-statistics.html#cb84-15" tabindex="-1"></a><span class="co">#        cor </span></span>
+<span id="cb84-16"><a href="association-statistics.html#cb84-16" tabindex="-1"></a><span class="co"># -0.3333333</span></span></code></pre></div>
 <div id="handling-missing-data" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Handling missing data<a href="association-statistics.html#handling-missing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -554,15 +554,15 @@ Solution
 <li>You can often add the argument <code>na.rm = TRUE</code> to a function for "NA remove"</li>
 </ul></li>
 <li>In the <code>cor()</code> function, we define to only use complete observations</li>
-<li><div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="association-statistics.html#cb86-1" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb86-2"><a href="association-statistics.html#cb86-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="cn">NA</span>) <span class="co"># same length but 1 data point is missing</span></span>
-<span id="cb86-3"><a href="association-statistics.html#cb86-3" tabindex="-1"></a><span class="fu">cor</span>(k, m)</span>
-<span id="cb86-4"><a href="association-statistics.html#cb86-4" tabindex="-1"></a><span class="co"># [1] NA</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="association-statistics.html#cb85-1" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb85-2"><a href="association-statistics.html#cb85-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="cn">NA</span>) <span class="co"># same length but 1 data point is missing</span></span>
+<span id="cb85-3"><a href="association-statistics.html#cb85-3" tabindex="-1"></a><span class="fu">cor</span>(k, m)</span>
+<span id="cb85-4"><a href="association-statistics.html#cb85-4" tabindex="-1"></a><span class="co"># [1] NA</span></span></code></pre></div></li>
 <li>With <code>use = "complete.obs"</code> we define to only use pairs of observations that are not missing</li>
-<li><div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="association-statistics.html#cb87-1" tabindex="-1"></a><span class="fu">cor</span>(k, m, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span>
+<li><div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="association-statistics.html#cb86-1" tabindex="-1"></a><span class="fu">cor</span>(k, m, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span>
+<span id="cb86-2"><a href="association-statistics.html#cb86-2" tabindex="-1"></a><span class="co"># [1] 0.8315218</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="association-statistics.html#cb87-1" tabindex="-1"></a><span class="fu">cor</span>(k[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], m[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
 <span id="cb87-2"><a href="association-statistics.html#cb87-2" tabindex="-1"></a><span class="co"># [1] 0.8315218</span></span></code></pre></div></li>
-<li><div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="association-statistics.html#cb88-1" tabindex="-1"></a><span class="fu">cor</span>(k[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], m[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb88-2"><a href="association-statistics.html#cb88-2" tabindex="-1"></a><span class="co"># [1] 0.8315218</span></span></code></pre></div></li>
 </ul>
 </div>
 <div id="exercise-5" class="section level3 hasAnchor" number="9.2.2">
@@ -575,18 +575,18 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="association-statistics.html#cb89-1" tabindex="-1"></a><span class="fu">cor.test</span>(seminar<span class="sc">$</span>v05_skill_tech, seminar<span class="sc">$</span>v10_motivation)</span>
-<span id="cb89-2"><a href="association-statistics.html#cb89-2" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb89-3"><a href="association-statistics.html#cb89-3" tabindex="-1"></a><span class="co">#   Pearson&#39;s product-moment correlation</span></span>
-<span id="cb89-4"><a href="association-statistics.html#cb89-4" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb89-5"><a href="association-statistics.html#cb89-5" tabindex="-1"></a><span class="co"># data:  seminar$v05_skill_tech and seminar$v10_motivation</span></span>
-<span id="cb89-6"><a href="association-statistics.html#cb89-6" tabindex="-1"></a><span class="co"># t = 1.386, df = 11, p-value = 0.1932</span></span>
-<span id="cb89-7"><a href="association-statistics.html#cb89-7" tabindex="-1"></a><span class="co"># alternative hypothesis: true correlation is not equal to 0</span></span>
-<span id="cb89-8"><a href="association-statistics.html#cb89-8" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
-<span id="cb89-9"><a href="association-statistics.html#cb89-9" tabindex="-1"></a><span class="co">#  -0.2100186  0.7724602</span></span>
-<span id="cb89-10"><a href="association-statistics.html#cb89-10" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
-<span id="cb89-11"><a href="association-statistics.html#cb89-11" tabindex="-1"></a><span class="co">#       cor </span></span>
-<span id="cb89-12"><a href="association-statistics.html#cb89-12" tabindex="-1"></a><span class="co"># 0.3855856</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="association-statistics.html#cb88-1" tabindex="-1"></a><span class="fu">cor.test</span>(seminar<span class="sc">$</span>v05_skill_tech, seminar<span class="sc">$</span>v10_motivation)</span>
+<span id="cb88-2"><a href="association-statistics.html#cb88-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb88-3"><a href="association-statistics.html#cb88-3" tabindex="-1"></a><span class="co">#   Pearson&#39;s product-moment correlation</span></span>
+<span id="cb88-4"><a href="association-statistics.html#cb88-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb88-5"><a href="association-statistics.html#cb88-5" tabindex="-1"></a><span class="co"># data:  seminar$v05_skill_tech and seminar$v10_motivation</span></span>
+<span id="cb88-6"><a href="association-statistics.html#cb88-6" tabindex="-1"></a><span class="co"># t = 1.386, df = 11, p-value = 0.1932</span></span>
+<span id="cb88-7"><a href="association-statistics.html#cb88-7" tabindex="-1"></a><span class="co"># alternative hypothesis: true correlation is not equal to 0</span></span>
+<span id="cb88-8"><a href="association-statistics.html#cb88-8" tabindex="-1"></a><span class="co"># 95 percent confidence interval:</span></span>
+<span id="cb88-9"><a href="association-statistics.html#cb88-9" tabindex="-1"></a><span class="co">#  -0.2100186  0.7724602</span></span>
+<span id="cb88-10"><a href="association-statistics.html#cb88-10" tabindex="-1"></a><span class="co"># sample estimates:</span></span>
+<span id="cb88-11"><a href="association-statistics.html#cb88-11" tabindex="-1"></a><span class="co">#       cor </span></span>
+<span id="cb88-12"><a href="association-statistics.html#cb88-12" tabindex="-1"></a><span class="co"># 0.3855856</span></span></code></pre></div>
 <p>"With r = 0.386 there is a positive association of moderate strength between previous technological skill and motivation for the seminaR. This association is not significant (p = 0.193), likely due to the small sample size."</p>
 </div>
 </div>
@@ -638,13 +638,13 @@ Explanation
 </div>
 <div id="visual-inspection" class="section level3 hasAnchor" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Visual Inspection<a href="association-statistics.html#visual-inspection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="association-statistics.html#cb90-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> age)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb90-2"><a href="association-statistics.html#cb90-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">&quot;lightgray&quot;</span>, </span>
-<span id="cb90-3"><a href="association-statistics.html#cb90-3" tabindex="-1"></a>              <span class="at">linewidth =</span> .<span class="dv">7</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> </span>
-<span id="cb90-4"><a href="association-statistics.html#cb90-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb90-5"><a href="association-statistics.html#cb90-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Do trees get thicker with age?&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb90-6"><a href="association-statistics.html#cb90-6" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="dv">7</span>) <span class="sc">+</span> </span>
-<span id="cb90-7"><a href="association-statistics.html#cb90-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="association-statistics.html#cb89-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> age)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb89-2"><a href="association-statistics.html#cb89-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">&quot;lightgray&quot;</span>, </span>
+<span id="cb89-3"><a href="association-statistics.html#cb89-3" tabindex="-1"></a>              <span class="at">linewidth =</span> .<span class="dv">7</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> </span>
+<span id="cb89-4"><a href="association-statistics.html#cb89-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb89-5"><a href="association-statistics.html#cb89-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Do trees get thicker with age?&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb89-6"><a href="association-statistics.html#cb89-6" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="dv">7</span>) <span class="sc">+</span> </span>
+<span id="cb89-7"><a href="association-statistics.html#cb89-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:tree-age-elaborate"></span>
 <img src="_main_files/figure-html/tree-age-elaborate-1.png" alt="Scatterplot of orange tree age and cirumference from before with the regression line added. Notice that the variable which is used as the independent X (age) is plotted on the X axis for intuitive reading of the plot." width="672" />
 <p class="caption">
@@ -657,15 +657,15 @@ Figure 9.2: Scatterplot of orange tree age and cirumference from before with the
 <h3><span class="header-section-number">9.3.3</span> Build the model<a href="association-statistics.html#build-the-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="do-trees-get-thicker-with-age" class="section level4 hasAnchor" number="9.3.3.1">
 <h4><span class="header-section-number">9.3.3.1</span> Do trees get thicker with age?<a href="association-statistics.html#do-trees-get-thicker-with-age" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="association-statistics.html#cb91-1" tabindex="-1"></a>Treelm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> circumference <span class="sc">~</span> age, <span class="at">data =</span> Orange)</span>
-<span id="cb91-2"><a href="association-statistics.html#cb91-2" tabindex="-1"></a>Treelm</span>
-<span id="cb91-3"><a href="association-statistics.html#cb91-3" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb91-4"><a href="association-statistics.html#cb91-4" tabindex="-1"></a><span class="co"># Call:</span></span>
-<span id="cb91-5"><a href="association-statistics.html#cb91-5" tabindex="-1"></a><span class="co"># lm(formula = circumference ~ age, data = Orange)</span></span>
-<span id="cb91-6"><a href="association-statistics.html#cb91-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb91-7"><a href="association-statistics.html#cb91-7" tabindex="-1"></a><span class="co"># Coefficients:</span></span>
-<span id="cb91-8"><a href="association-statistics.html#cb91-8" tabindex="-1"></a><span class="co"># (Intercept)          age  </span></span>
-<span id="cb91-9"><a href="association-statistics.html#cb91-9" tabindex="-1"></a><span class="co">#     17.3997       0.1068</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="association-statistics.html#cb90-1" tabindex="-1"></a>Treelm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> circumference <span class="sc">~</span> age, <span class="at">data =</span> Orange)</span>
+<span id="cb90-2"><a href="association-statistics.html#cb90-2" tabindex="-1"></a>Treelm</span>
+<span id="cb90-3"><a href="association-statistics.html#cb90-3" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb90-4"><a href="association-statistics.html#cb90-4" tabindex="-1"></a><span class="co"># Call:</span></span>
+<span id="cb90-5"><a href="association-statistics.html#cb90-5" tabindex="-1"></a><span class="co"># lm(formula = circumference ~ age, data = Orange)</span></span>
+<span id="cb90-6"><a href="association-statistics.html#cb90-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb90-7"><a href="association-statistics.html#cb90-7" tabindex="-1"></a><span class="co"># Coefficients:</span></span>
+<span id="cb90-8"><a href="association-statistics.html#cb90-8" tabindex="-1"></a><span class="co"># (Intercept)          age  </span></span>
+<span id="cb90-9"><a href="association-statistics.html#cb90-9" tabindex="-1"></a><span class="co">#     17.3997       0.1068</span></span></code></pre></div>
 <ul>
 <li>The lm alone gives us the mathematical formula</li>
 <li>To look at the statistical results, we need to use another function such as <code>print()</code> or <code>summary()</code></li>
@@ -674,25 +674,25 @@ Figure 9.2: Scatterplot of orange tree age and cirumference from before with the
 </div>
 <div id="analyze-the-model" class="section level3 hasAnchor" number="9.3.4">
 <h3><span class="header-section-number">9.3.4</span> Analyze the model<a href="association-statistics.html#analyze-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="association-statistics.html#cb92-1" tabindex="-1"></a><span class="fu">summary</span>(Treelm)</span>
-<span id="cb92-2"><a href="association-statistics.html#cb92-2" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb92-3"><a href="association-statistics.html#cb92-3" tabindex="-1"></a><span class="co"># Call:</span></span>
-<span id="cb92-4"><a href="association-statistics.html#cb92-4" tabindex="-1"></a><span class="co"># lm(formula = circumference ~ age, data = Orange)</span></span>
-<span id="cb92-5"><a href="association-statistics.html#cb92-5" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb92-6"><a href="association-statistics.html#cb92-6" tabindex="-1"></a><span class="co"># Residuals:</span></span>
-<span id="cb92-7"><a href="association-statistics.html#cb92-7" tabindex="-1"></a><span class="co">#     Min      1Q  Median      3Q     Max </span></span>
-<span id="cb92-8"><a href="association-statistics.html#cb92-8" tabindex="-1"></a><span class="co"># -46.310 -14.946  -0.076  19.697  45.111 </span></span>
-<span id="cb92-9"><a href="association-statistics.html#cb92-9" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb92-10"><a href="association-statistics.html#cb92-10" tabindex="-1"></a><span class="co"># Coefficients:</span></span>
-<span id="cb92-11"><a href="association-statistics.html#cb92-11" tabindex="-1"></a><span class="co">#              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb92-12"><a href="association-statistics.html#cb92-12" tabindex="-1"></a><span class="co"># (Intercept) 17.399650   8.622660   2.018   0.0518 .  </span></span>
-<span id="cb92-13"><a href="association-statistics.html#cb92-13" tabindex="-1"></a><span class="co"># age          0.106770   0.008277  12.900 1.93e-14 ***</span></span>
-<span id="cb92-14"><a href="association-statistics.html#cb92-14" tabindex="-1"></a><span class="co"># ---</span></span>
-<span id="cb92-15"><a href="association-statistics.html#cb92-15" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb92-16"><a href="association-statistics.html#cb92-16" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb92-17"><a href="association-statistics.html#cb92-17" tabindex="-1"></a><span class="co"># Residual standard error: 23.74 on 33 degrees of freedom</span></span>
-<span id="cb92-18"><a href="association-statistics.html#cb92-18" tabindex="-1"></a><span class="co"># Multiple R-squared:  0.8345,  Adjusted R-squared:  0.8295 </span></span>
-<span id="cb92-19"><a href="association-statistics.html#cb92-19" tabindex="-1"></a><span class="co"># F-statistic: 166.4 on 1 and 33 DF,  p-value: 1.931e-14</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="association-statistics.html#cb91-1" tabindex="-1"></a><span class="fu">summary</span>(Treelm)</span>
+<span id="cb91-2"><a href="association-statistics.html#cb91-2" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb91-3"><a href="association-statistics.html#cb91-3" tabindex="-1"></a><span class="co"># Call:</span></span>
+<span id="cb91-4"><a href="association-statistics.html#cb91-4" tabindex="-1"></a><span class="co"># lm(formula = circumference ~ age, data = Orange)</span></span>
+<span id="cb91-5"><a href="association-statistics.html#cb91-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb91-6"><a href="association-statistics.html#cb91-6" tabindex="-1"></a><span class="co"># Residuals:</span></span>
+<span id="cb91-7"><a href="association-statistics.html#cb91-7" tabindex="-1"></a><span class="co">#     Min      1Q  Median      3Q     Max </span></span>
+<span id="cb91-8"><a href="association-statistics.html#cb91-8" tabindex="-1"></a><span class="co"># -46.310 -14.946  -0.076  19.697  45.111 </span></span>
+<span id="cb91-9"><a href="association-statistics.html#cb91-9" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb91-10"><a href="association-statistics.html#cb91-10" tabindex="-1"></a><span class="co"># Coefficients:</span></span>
+<span id="cb91-11"><a href="association-statistics.html#cb91-11" tabindex="-1"></a><span class="co">#              Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb91-12"><a href="association-statistics.html#cb91-12" tabindex="-1"></a><span class="co"># (Intercept) 17.399650   8.622660   2.018   0.0518 .  </span></span>
+<span id="cb91-13"><a href="association-statistics.html#cb91-13" tabindex="-1"></a><span class="co"># age          0.106770   0.008277  12.900 1.93e-14 ***</span></span>
+<span id="cb91-14"><a href="association-statistics.html#cb91-14" tabindex="-1"></a><span class="co"># ---</span></span>
+<span id="cb91-15"><a href="association-statistics.html#cb91-15" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb91-16"><a href="association-statistics.html#cb91-16" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb91-17"><a href="association-statistics.html#cb91-17" tabindex="-1"></a><span class="co"># Residual standard error: 23.74 on 33 degrees of freedom</span></span>
+<span id="cb91-18"><a href="association-statistics.html#cb91-18" tabindex="-1"></a><span class="co"># Multiple R-squared:  0.8345,  Adjusted R-squared:  0.8295 </span></span>
+<span id="cb91-19"><a href="association-statistics.html#cb91-19" tabindex="-1"></a><span class="co"># F-statistic: 166.4 on 1 and 33 DF,  p-value: 1.931e-14</span></span></code></pre></div>
 <ul>
 <li>Interpretation?
 <ul>
@@ -710,26 +710,26 @@ Figure 9.2: Scatterplot of orange tree age and cirumference from before with the
 <button>
 Solution (code)
 </button>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="association-statistics.html#cb93-1" tabindex="-1"></a>age_sess <span class="ot">&lt;-</span> <span class="fu">lm</span>(session_length <span class="sc">~</span> v02_age, <span class="at">data =</span> seminar)</span>
-<span id="cb93-2"><a href="association-statistics.html#cb93-2" tabindex="-1"></a><span class="fu">summary</span>(age_sess)</span>
-<span id="cb93-3"><a href="association-statistics.html#cb93-3" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb93-4"><a href="association-statistics.html#cb93-4" tabindex="-1"></a><span class="co"># Call:</span></span>
-<span id="cb93-5"><a href="association-statistics.html#cb93-5" tabindex="-1"></a><span class="co"># lm(formula = session_length ~ v02_age, data = seminar)</span></span>
-<span id="cb93-6"><a href="association-statistics.html#cb93-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb93-7"><a href="association-statistics.html#cb93-7" tabindex="-1"></a><span class="co"># Residuals:</span></span>
-<span id="cb93-8"><a href="association-statistics.html#cb93-8" tabindex="-1"></a><span class="co">#     Min      1Q  Median      3Q     Max </span></span>
-<span id="cb93-9"><a href="association-statistics.html#cb93-9" tabindex="-1"></a><span class="co"># -34.978  -5.605   1.209  13.395  36.141 </span></span>
-<span id="cb93-10"><a href="association-statistics.html#cb93-10" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb93-11"><a href="association-statistics.html#cb93-11" tabindex="-1"></a><span class="co"># Coefficients:</span></span>
-<span id="cb93-12"><a href="association-statistics.html#cb93-12" tabindex="-1"></a><span class="co">#             Estimate Std. Error t value Pr(&gt;|t|)  </span></span>
-<span id="cb93-13"><a href="association-statistics.html#cb93-13" tabindex="-1"></a><span class="co"># (Intercept)  182.706     61.517   2.970   0.0127 *</span></span>
-<span id="cb93-14"><a href="association-statistics.html#cb93-14" tabindex="-1"></a><span class="co"># v02_age       -4.186      2.689  -1.557   0.1478  </span></span>
-<span id="cb93-15"><a href="association-statistics.html#cb93-15" tabindex="-1"></a><span class="co"># ---</span></span>
-<span id="cb93-16"><a href="association-statistics.html#cb93-16" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb93-17"><a href="association-statistics.html#cb93-17" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb93-18"><a href="association-statistics.html#cb93-18" tabindex="-1"></a><span class="co"># Residual standard error: 21.23 on 11 degrees of freedom</span></span>
-<span id="cb93-19"><a href="association-statistics.html#cb93-19" tabindex="-1"></a><span class="co"># Multiple R-squared:  0.1805,  Adjusted R-squared:  0.106 </span></span>
-<span id="cb93-20"><a href="association-statistics.html#cb93-20" tabindex="-1"></a><span class="co"># F-statistic: 2.423 on 1 and 11 DF,  p-value: 0.1478</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="association-statistics.html#cb92-1" tabindex="-1"></a>age_sess <span class="ot">&lt;-</span> <span class="fu">lm</span>(session_length <span class="sc">~</span> v02_age, <span class="at">data =</span> seminar)</span>
+<span id="cb92-2"><a href="association-statistics.html#cb92-2" tabindex="-1"></a><span class="fu">summary</span>(age_sess)</span>
+<span id="cb92-3"><a href="association-statistics.html#cb92-3" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb92-4"><a href="association-statistics.html#cb92-4" tabindex="-1"></a><span class="co"># Call:</span></span>
+<span id="cb92-5"><a href="association-statistics.html#cb92-5" tabindex="-1"></a><span class="co"># lm(formula = session_length ~ v02_age, data = seminar)</span></span>
+<span id="cb92-6"><a href="association-statistics.html#cb92-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb92-7"><a href="association-statistics.html#cb92-7" tabindex="-1"></a><span class="co"># Residuals:</span></span>
+<span id="cb92-8"><a href="association-statistics.html#cb92-8" tabindex="-1"></a><span class="co">#     Min      1Q  Median      3Q     Max </span></span>
+<span id="cb92-9"><a href="association-statistics.html#cb92-9" tabindex="-1"></a><span class="co"># -34.978  -5.605   1.209  13.395  36.141 </span></span>
+<span id="cb92-10"><a href="association-statistics.html#cb92-10" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb92-11"><a href="association-statistics.html#cb92-11" tabindex="-1"></a><span class="co"># Coefficients:</span></span>
+<span id="cb92-12"><a href="association-statistics.html#cb92-12" tabindex="-1"></a><span class="co">#             Estimate Std. Error t value Pr(&gt;|t|)  </span></span>
+<span id="cb92-13"><a href="association-statistics.html#cb92-13" tabindex="-1"></a><span class="co"># (Intercept)  182.706     61.517   2.970   0.0127 *</span></span>
+<span id="cb92-14"><a href="association-statistics.html#cb92-14" tabindex="-1"></a><span class="co"># v02_age       -4.186      2.689  -1.557   0.1478  </span></span>
+<span id="cb92-15"><a href="association-statistics.html#cb92-15" tabindex="-1"></a><span class="co"># ---</span></span>
+<span id="cb92-16"><a href="association-statistics.html#cb92-16" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb92-17"><a href="association-statistics.html#cb92-17" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb92-18"><a href="association-statistics.html#cb92-18" tabindex="-1"></a><span class="co"># Residual standard error: 21.23 on 11 degrees of freedom</span></span>
+<span id="cb92-19"><a href="association-statistics.html#cb92-19" tabindex="-1"></a><span class="co"># Multiple R-squared:  0.1805,  Adjusted R-squared:  0.106 </span></span>
+<span id="cb92-20"><a href="association-statistics.html#cb92-20" tabindex="-1"></a><span class="co"># F-statistic: 2.423 on 1 and 11 DF,  p-value: 0.1478</span></span></code></pre></div>
 </div>
 <p><br></p>
 <div class="webex-solution">
@@ -757,10 +757,10 @@ Solution (interpretation)
 <div id="anova-exercise" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> ANOVA Exercise<a href="association-statistics.html#anova-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Reminder: There are generally 3 steps to an ANOVA</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="association-statistics.html#cb94-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 1.</span></span>
-<span id="cb94-2"><a href="association-statistics.html#cb94-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 2.</span></span>
-<span id="cb94-3"><a href="association-statistics.html#cb94-3" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
-<span id="cb94-4"><a href="association-statistics.html#cb94-4" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model) <span class="co"># 3.</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="association-statistics.html#cb93-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 1.</span></span>
+<span id="cb93-2"><a href="association-statistics.html#cb93-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v11_soul, <span class="at">data =</span> seminar) <span class="co"># 2.</span></span>
+<span id="cb93-3"><a href="association-statistics.html#cb93-3" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
+<span id="cb93-4"><a href="association-statistics.html#cb93-4" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model) <span class="co"># 3.</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Check assumptions with Levene Test</li>
 <li>Build the model to perform an omnibus ANOVA</li>
@@ -775,20 +775,20 @@ Solution (interpretation)
 <button>
 Solution omnibus ANOVA
 </button>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="association-statistics.html#cb95-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
-<span id="cb95-2"><a href="association-statistics.html#cb95-2" tabindex="-1"></a><span class="co"># Warning in leveneTest.default(y = y, group = group, ...): group coerced to</span></span>
-<span id="cb95-3"><a href="association-statistics.html#cb95-3" tabindex="-1"></a><span class="co"># factor.</span></span>
-<span id="cb95-4"><a href="association-statistics.html#cb95-4" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = median)</span></span>
-<span id="cb95-5"><a href="association-statistics.html#cb95-5" tabindex="-1"></a><span class="co">#       Df F value Pr(&gt;F)</span></span>
-<span id="cb95-6"><a href="association-statistics.html#cb95-6" tabindex="-1"></a><span class="co"># group  2  0.3112 0.7394</span></span>
-<span id="cb95-7"><a href="association-statistics.html#cb95-7" tabindex="-1"></a><span class="co">#       10</span></span>
-<span id="cb95-8"><a href="association-statistics.html#cb95-8" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
-<span id="cb95-9"><a href="association-statistics.html#cb95-9" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
-<span id="cb95-10"><a href="association-statistics.html#cb95-10" tabindex="-1"></a><span class="co">#               Df Sum Sq Mean Sq F value  Pr(&gt;F)   </span></span>
-<span id="cb95-11"><a href="association-statistics.html#cb95-11" tabindex="-1"></a><span class="co"># v12_soul_phil  2 1164.8   582.4   8.797 0.00625 **</span></span>
-<span id="cb95-12"><a href="association-statistics.html#cb95-12" tabindex="-1"></a><span class="co"># Residuals     10  662.1    66.2                   </span></span>
-<span id="cb95-13"><a href="association-statistics.html#cb95-13" tabindex="-1"></a><span class="co"># ---</span></span>
-<span id="cb95-14"><a href="association-statistics.html#cb95-14" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="association-statistics.html#cb94-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
+<span id="cb94-2"><a href="association-statistics.html#cb94-2" tabindex="-1"></a><span class="co"># Warning in leveneTest.default(y = y, group = group, ...): group coerced to</span></span>
+<span id="cb94-3"><a href="association-statistics.html#cb94-3" tabindex="-1"></a><span class="co"># factor.</span></span>
+<span id="cb94-4"><a href="association-statistics.html#cb94-4" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb94-5"><a href="association-statistics.html#cb94-5" tabindex="-1"></a><span class="co">#       Df F value Pr(&gt;F)</span></span>
+<span id="cb94-6"><a href="association-statistics.html#cb94-6" tabindex="-1"></a><span class="co"># group  2  0.3112 0.7394</span></span>
+<span id="cb94-7"><a href="association-statistics.html#cb94-7" tabindex="-1"></a><span class="co">#       10</span></span>
+<span id="cb94-8"><a href="association-statistics.html#cb94-8" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
+<span id="cb94-9"><a href="association-statistics.html#cb94-9" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
+<span id="cb94-10"><a href="association-statistics.html#cb94-10" tabindex="-1"></a><span class="co">#               Df Sum Sq Mean Sq F value  Pr(&gt;F)   </span></span>
+<span id="cb94-11"><a href="association-statistics.html#cb94-11" tabindex="-1"></a><span class="co"># v12_soul_phil  2 1164.8   582.4   8.797 0.00625 **</span></span>
+<span id="cb94-12"><a href="association-statistics.html#cb94-12" tabindex="-1"></a><span class="co"># Residuals     10  662.1    66.2                   </span></span>
+<span id="cb94-13"><a href="association-statistics.html#cb94-13" tabindex="-1"></a><span class="co"># ---</span></span>
+<span id="cb94-14"><a href="association-statistics.html#cb94-14" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span></code></pre></div>
 </div>
 <p><br></p>
 <p>Look for pairwise differences even if the overall ANOVA does not reach significance.</p>
@@ -796,17 +796,17 @@ Solution omnibus ANOVA
 <button>
 Solution pairwise comparison
 </button>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="association-statistics.html#cb96-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span>
-<span id="cb96-2"><a href="association-statistics.html#cb96-2" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
-<span id="cb96-3"><a href="association-statistics.html#cb96-3" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
-<span id="cb96-4"><a href="association-statistics.html#cb96-4" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb96-5"><a href="association-statistics.html#cb96-5" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ v12_soul_phil, data = seminar)</span></span>
-<span id="cb96-6"><a href="association-statistics.html#cb96-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb96-7"><a href="association-statistics.html#cb96-7" tabindex="-1"></a><span class="co"># $v12_soul_phil</span></span>
-<span id="cb96-8"><a href="association-statistics.html#cb96-8" tabindex="-1"></a><span class="co">#                      diff        lwr       upr     p adj</span></span>
-<span id="cb96-9"><a href="association-statistics.html#cb96-9" tabindex="-1"></a><span class="co"># dunno-dualism    9.714286  -5.678116 25.106687 0.2419042</span></span>
-<span id="cb96-10"><a href="association-statistics.html#cb96-10" tabindex="-1"></a><span class="co"># monism-dualism -13.666667 -31.879202  4.545868 0.1490289</span></span>
-<span id="cb96-11"><a href="association-statistics.html#cb96-11" tabindex="-1"></a><span class="co"># monism-dunno   -23.380952 -38.773354 -7.988551 0.0049965</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="association-statistics.html#cb95-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span>
+<span id="cb95-2"><a href="association-statistics.html#cb95-2" tabindex="-1"></a><span class="co">#   Tukey multiple comparisons of means</span></span>
+<span id="cb95-3"><a href="association-statistics.html#cb95-3" tabindex="-1"></a><span class="co">#     95% family-wise confidence level</span></span>
+<span id="cb95-4"><a href="association-statistics.html#cb95-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb95-5"><a href="association-statistics.html#cb95-5" tabindex="-1"></a><span class="co"># Fit: aov(formula = v08_loudness ~ v12_soul_phil, data = seminar)</span></span>
+<span id="cb95-6"><a href="association-statistics.html#cb95-6" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb95-7"><a href="association-statistics.html#cb95-7" tabindex="-1"></a><span class="co"># $v12_soul_phil</span></span>
+<span id="cb95-8"><a href="association-statistics.html#cb95-8" tabindex="-1"></a><span class="co">#                      diff        lwr       upr     p adj</span></span>
+<span id="cb95-9"><a href="association-statistics.html#cb95-9" tabindex="-1"></a><span class="co"># dunno-dualism    9.714286  -5.678116 25.106687 0.2419042</span></span>
+<span id="cb95-10"><a href="association-statistics.html#cb95-10" tabindex="-1"></a><span class="co"># monism-dualism -13.666667 -31.879202  4.545868 0.1490289</span></span>
+<span id="cb95-11"><a href="association-statistics.html#cb95-11" tabindex="-1"></a><span class="co"># monism-dunno   -23.380952 -38.773354 -7.988551 0.0049965</span></span></code></pre></div>
 </div>
 <p><br></p>
 <p>Choose and create an appropriate visualization for this data!</p>
@@ -814,13 +814,13 @@ Solution pairwise comparison
 <button>
 Solution Data Viz
 </button>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="association-statistics.html#cb97-1" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x =</span> v12_soul_phil, <span class="at">y =</span> v08_loudness, </span>
-<span id="cb97-2"><a href="association-statistics.html#cb97-2" tabindex="-1"></a>                    <span class="at">color =</span> v12_soul_phil, <span class="at">fill =</span> v12_soul_phil)) <span class="sc">+</span></span>
-<span id="cb97-3"><a href="association-statistics.html#cb97-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
-<span id="cb97-4"><a href="association-statistics.html#cb97-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb97-5"><a href="association-statistics.html#cb97-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb97-6"><a href="association-statistics.html#cb97-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Soul Philosophy&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Preferred Volume (arbitrary units)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb97-7"><a href="association-statistics.html#cb97-7" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="association-statistics.html#cb96-1" tabindex="-1"></a><span class="fu">ggplot</span>(seminar, <span class="fu">aes</span>(<span class="at">x =</span> v12_soul_phil, <span class="at">y =</span> v08_loudness, </span>
+<span id="cb96-2"><a href="association-statistics.html#cb96-2" tabindex="-1"></a>                    <span class="at">color =</span> v12_soul_phil, <span class="at">fill =</span> v12_soul_phil)) <span class="sc">+</span></span>
+<span id="cb96-3"><a href="association-statistics.html#cb96-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
+<span id="cb96-4"><a href="association-statistics.html#cb96-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb96-5"><a href="association-statistics.html#cb96-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb96-6"><a href="association-statistics.html#cb96-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Soul Philosophy&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Preferred Volume (arbitrary units)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb96-7"><a href="association-statistics.html#cb96-7" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 </div>
 <!-- ```{r} -->
@@ -868,9 +868,9 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 <a href="https://www.codecademy.com/learn/learn-linear-regression-in-r/modules/linear-regression-in-r/cheatsheet/" target="_blank">lm() cheatsheet</a>
 </li>
 </ul>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="association-statistics.html#cb98-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> Tree)) <span class="sc">+</span></span>
-<span id="cb98-2"><a href="association-statistics.html#cb98-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>) <span class="sc">+</span></span>
-<span id="cb98-3"><a href="association-statistics.html#cb98-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Tree)) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="association-statistics.html#cb97-1" tabindex="-1"></a><span class="fu">ggplot</span>(Orange, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> circumference, <span class="at">color =</span> Tree)) <span class="sc">+</span></span>
+<span id="cb97-2"><a href="association-statistics.html#cb97-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Tree Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trunk Circumference&quot;</span>) <span class="sc">+</span></span>
+<span id="cb97-3"><a href="association-statistics.html#cb97-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Tree)) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/orange-pretty-1.png" width="672" /></p>
 
 </div>
@@ -880,8 +880,8 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 
 <div class="footnotes">
 <hr />
-<ol start="10">
-<li id="fn10"><p>A linear model that is ill-defined might still become significant and thus misleading, so your modeling decisions should always be made with a theoretical basis.<a href="association-statistics.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<ol start="11">
+<li id="fn11"><p>A linear model that is ill-defined might still become significant and thus misleading, so your modeling decisions should always be made with a theoretical basis.<a href="association-statistics.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>

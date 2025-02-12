@@ -123,9 +123,15 @@ for(i in c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")){
 
 <br>
 
-Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>: What is the class() of i here?
+> Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>:
+What is the class() of i here?
 
-- character
+`r hide("<i class='fa-solid fa-lightbulb' style='color: yellow;'></i>")`
+
+character
+
+`r unhide()`
+
 
 
 ### More sophisticated 
@@ -141,9 +147,14 @@ for(i in 1:length(vector)){
 
 <br>
 
-Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>: And what is the class() of i now?
+> Brainteaser <i class="fa-solid fa-lightbulb" style="color: yellow;"></i>:
+And what is the class() of i now?
 
-- integer (numeric)
+`r hide("<i class='fa-solid fa-lightbulb' style='color: yellow;'></i>")`
+
+integer (numeric)
+
+`r unhide()`
 
 
 ### With saving values

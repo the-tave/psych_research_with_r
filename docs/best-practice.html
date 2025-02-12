@@ -9,7 +9,7 @@
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Best Practice | Psychological Research with R" />
   <meta property="og:type" content="book" />
@@ -573,11 +573,11 @@ Solution
 <span id="cb29-8"><a href="best-practice.html#cb29-8" tabindex="-1"></a></span>
 <span id="cb29-9"><a href="best-practice.html#cb29-9" tabindex="-1"></a><span class="fu">str</span>(scores7a); <span class="fu">str</span>(scores7b)</span>
 <span id="cb29-10"><a href="best-practice.html#cb29-10" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  14 14 15 12 14 12 14 14 15 14 ...</span></span>
-<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  120.2 76.5 105.2 90.5 88.5 ...</span></span>
+<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  12 14 14 15 15 12 13 14 12 13 ...</span></span>
+<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  104.3 94.8 112.9 93.1 105.9 ...</span></span>
 <span id="cb29-13"><a href="best-practice.html#cb29-13" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  12 15 13 14 15 12 15 14 13 12 ...</span></span>
-<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  110.9 79.5 98.9 101.4 94.1 ...</span></span>
+<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  13 15 15 14 15 13 12 13 12 13 ...</span></span>
+<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  96.2 94.8 92.6 130.6 83.4 ...</span></span>
 <span id="cb29-16"><a href="best-practice.html#cb29-16" tabindex="-1"></a></span>
 <span id="cb29-17"><a href="best-practice.html#cb29-17" tabindex="-1"></a><span class="co"># Add information about the class</span></span>
 <span id="cb29-18"><a href="best-practice.html#cb29-18" tabindex="-1"></a>scores7a<span class="sc">$</span>class <span class="ot">&lt;-</span> <span class="st">&quot;7a&quot;</span></span>
@@ -589,8 +589,8 @@ Solution
 <span id="cb29-24"><a href="best-practice.html#cb29-24" tabindex="-1"></a><span class="co"># Check the overall data frame for plausibility</span></span>
 <span id="cb29-25"><a href="best-practice.html#cb29-25" tabindex="-1"></a><span class="fu">str</span>(allscores)</span>
 <span id="cb29-26"><a href="best-practice.html#cb29-26" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 40 obs. of  3 variables:</span></span>
-<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  14 14 15 12 14 12 14 14 15 14 ...</span></span>
-<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  120.2 76.5 105.2 90.5 88.5 ...</span></span>
+<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  12 14 14 15 15 12 13 14 12 13 ...</span></span>
+<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  104.3 94.8 112.9 93.1 105.9 ...</span></span>
 <span id="cb29-29"><a href="best-practice.html#cb29-29" tabindex="-1"></a><span class="co">#  $ class: chr  &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; ...</span></span>
 <span id="cb29-30"><a href="best-practice.html#cb29-30" tabindex="-1"></a><span class="fu">table</span>(allscores<span class="sc">$</span>class)</span>
 <span id="cb29-31"><a href="best-practice.html#cb29-31" tabindex="-1"></a><span class="co"># </span></span>

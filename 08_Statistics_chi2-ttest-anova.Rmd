@@ -9,33 +9,41 @@ seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 <script src="https://kit.fontawesome.com/0e67562c4f.js" crossorigin="anonymous"></script>
 ```
 
-
-- Re-cap of statistics: t-test, Chi$^2$ and ANOVA
-- Learn how to calculate in R
-- Learn how to check assumptions
-- Go over examples (inspired by your thesis analyses <i class="fa-regular fa-face-smile"></i>)
+In this chapter, you will learn how to conduct some of the most common statistical analyses in R.
+We will start with a re-cap of the statistics to get everyone on the same page, going over why the $\chi^2$ test, t-test and ANOVA are all in the same chapter and when to use each.
+Then I want to mention some assumptions we have to check and lastly go over some examples fueled by students' ideas who attended my seminar that this work is based on. <i class="fa-regular fa-face-smile"></i>
 
 ## Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i>
 
-What do you remember from statistics: 
+Think about what do you remember from statistics and try to answer the two questions below: 
 
 - What is Chi$^2$ / $\chi^2$?
 - What is the t-test?
 - What is an ANOVA?
-- What do they have in common & what differentiates them?
+
+What do they have in common?
+
+`r hide()`
 
 They measure _group differences_
 
-- $\chi^2$ $\rightarrow$ nominal data
-- t-Test $\rightarrow$ one or two _groups_ with a continuous attribute
-- ANOVA $\rightarrow$ three or more groups with one (or more) continuous attribute(s)
+`r unhide()`
+
+
+What differentiates them?
+
+`r hide()`
+
+They are used for data of different scale levels
+
+`r unhide()`
     
 ```{r echo = F, fig.height=3.5}
 uni_colors <- usecol(pal = pal_unikn_ppt, n = 6)[1:3] # das trickst den Mechanismus aus, der da weiß reinknallt
 
 ggplot(iris, aes(x = Species, y = Sepal.Length, color = Species, fill = Species)) +
   geom_boxplot(alpha = .6) +
-  labs(Y = "Sepal Length", title = "ANOVA: Lengths of Flower Petals") +
+  labs(Y = "Sepal Length", title = "Lengths of Flower Petals") +
   scale_color_manual(values = uni_colors) +
   scale_fill_manual(values = uni_colors) +
   theme_apa() +
@@ -43,16 +51,39 @@ ggplot(iris, aes(x = Species, y = Sepal.Length, color = Species, fill = Species)
 
 ```
 
+These three measures all provide us information on _differences_ either between naturally occurring groups (e.g. people of different genders) or between experimentally manipulated sub-samples (e.g. treatment vs. control group in a medical drug trial).
+
+The $\chi^2$ statistic is commonly used on nominal data, e.g. if you want to compare proportions. 
+Usually, the $\chi^2$ test is used with two binary variables, but it also works with more categories.
+Considering the setup with the drug trials, we could check whether women and men received the drug and the placebo equally often.
+
+With the t-Test it gets a bit trickier since there is more than one variant: Depending on the situation you can use the one-sample, two-sample or paired-samples t-test.
+Generally speaking, you want to test one or two groups on a continuous attribute.
+
+In the analysis of variance $\rightarrow$ _ANOVA_ you want to test three or more groups with one (or more) continuous attribute(s). 
+I like to think of it as an augmentation of the t-test which takes into account some issues that we would face if we just used several t-tests in a setting with more than two groups (spoiler: It's called alpha-inflation and we do not want it).
+
+This is a very basic overview of these tests, but it should give you a reminder if you have heard this before.
+I will go over the purposes again as we look at the coding examples below.
+If you think you might need a refresher on these stats that goes a little deeper, hop on over to the [Stats Picker](https://the-tave.shinyapps.io/Statistik-Picker) and to the Deep Dive tab.
+There you will find some more information on multivariate statistics and how to use them. 
+
 ### Pre-Requisites
 
-- Load the seminar data using 
+If you have been following along with the structure of this book, you will know what an R project is and that you were asked to create a folder called "data" in the according project folder in order to make the following command work to load the seminar data.
+If you just want to access the tidily cleaned data directly, you can go to [the GitHub page](https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds){target="_blank"} and download the datafile there.
+Alternatively, there is a direct way to include data from GitHub in your script as long as you are connected to the internet, which you can find commented out below:
 
 ```{r eval = F}
 seminar <- readRDS("./data/seminar_data.Rds")
+
+# Access the data directly from GitHub
+# seminar <- readRDS(gzcon(url("https://github.com/the-tave/psych_research_in_r/raw/main/data/seminar_data.Rds")))
 ```
 
-    - Please make sure you are using the R dataset from the <br>
-    zip folder in ILIAS, not the original csv file we first used!
+Next, we will add a so-called _dummy-variable_ about believeing in the soul. 
+It is not called "dummy" because we want to judge anybody's belief, but rather because it serves as a stand-in for a more complex variable, just like a test dummy is a stand-in for a real person.^[For more in-depth information on dummy variables you can visit: [https://stats.oarc.ucla.edu/wp-content/uploads/2016/02/p046.pdf](https://stats.oarc.ucla.edu/wp-content/uploads/2016/02/p046.pdf).]
+
 - Add a "dummy variable" (only two possible values 0 and 1) <br>
 for believing in a soul, where 1 means _yes_ and 0 means _no or unsure_
 

@@ -8,8 +8,8 @@ bookdown::gitbook:
       collapse: section
       before: |
         <li>
-        <a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research with R 
-        <i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
+        <a href="./"><i class="fa-solid fa-mug-hot" style="color: #800080;"></i> Psychological Research with R 
+        <i class="fa-solid fa-mug-hot" style="color: #800080;"></i></a></li>
       # after: |
       #   <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
       # extra_dependencies: awesomebox"

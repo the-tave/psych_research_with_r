@@ -170,8 +170,8 @@ div.csl-indent {
 
 <ul class="summary">
 <li>
-<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research with R 
-<i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #800080;"></i> Psychological Research with R 
+<i class="fa-solid fa-mug-hot" style="color: #800080;"></i></a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a>
@@ -204,7 +204,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-unexpected-x-in-y"><i class="fa fa-check"></i><em>Error: unexpected 'X' in "Y"</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-object-a-not-found"><i class="fa fa-check"></i><em>Error: object 'A' not found</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-r-does-nothing-after-running-a-command"><i class="fa fa-check"></i><em>Error</em>: R does nothing after running a command</a></li>
-<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe1"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#wrap-up-further-resources-1"><i class="fa fa-check"></i>Wrap-Up &amp; Further Resources</a></li>
@@ -634,8 +634,8 @@ However, if R is "unfinished" with a command, you see a <code>+</code> instead.
 This happens when R can`t work with the command because there is something missing, which in most cases, will be a closing parenthesis.</p>
 <p><strong>Fix: Click in your console and use the <code>Esc</code> button to cancel the command. Then, look at the code you were trying to run and see if there is some closing statement such as <code>)</code> missing and try again.</strong></p>
 </div>
-<div id="pipe1" class="section level3 unnumbered hasAnchor">
-<h3>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code><a href="basics.html#pipe1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pipe" class="section level3 unnumbered hasAnchor">
+<h3>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code><a href="basics.html#pipe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next to missing closing parentheses, a classic source for this behavior is the so-called pipe operator, created with either <code>|&gt;</code> (native R pipe, available since R version 4.1.0) or <code>%&gt;%</code> (tidyverse pipe from the <code>magrittr</code> package).
 It will be used a lot starting in Chapter <a href="dplyr.html#dplyr">4</a> and it is probably one of my personal favorite R features.
 The pipe allows you to use previous operations in the next one easily and clearly.

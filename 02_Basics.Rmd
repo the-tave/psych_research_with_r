@@ -248,7 +248,7 @@ This happens when R can`t work with the command because there is something missi
     
 **Fix: Click in your console and use the `Esc` button to cancel the command. Then, look at the code you were trying to run and see if there is some closing statement such as `)` missing and try again.**
 
-### The pipe operator `|>` or `%>%` {-#pipe1}
+### The pipe operator `|>` or `%>%` {-#pipe}
 
 Next to missing closing parentheses, a classic source for this behavior is the so-called pipe operator, created with either `|>` (native R pipe, available since R version 4.1.0) or `%>%` (tidyverse pipe from the `magrittr` package).
 It will be used a lot starting in Chapter \@ref(dplyr) and it is probably one of my personal favorite R features.

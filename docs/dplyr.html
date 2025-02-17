@@ -170,8 +170,8 @@ div.csl-indent {
 
 <ul class="summary">
 <li>
-<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research with R 
-<i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #800080;"></i> Psychological Research with R 
+<i class="fa-solid fa-mug-hot" style="color: #800080;"></i></a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a>
@@ -204,7 +204,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-unexpected-x-in-y"><i class="fa fa-check"></i><em>Error: unexpected 'X' in "Y"</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-object-a-not-found"><i class="fa fa-check"></i><em>Error: object 'A' not found</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-r-does-nothing-after-running-a-command"><i class="fa fa-check"></i><em>Error</em>: R does nothing after running a command</a></li>
-<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe1"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#wrap-up-further-resources-1"><i class="fa fa-check"></i>Wrap-Up &amp; Further Resources</a></li>
@@ -551,11 +551,11 @@ It contains information on iris flowers of different species and we will use the
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="dplyr.html#cb31-1" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(iris)</span>
 <span id="cb31-2"><a href="dplyr.html#cb31-2" tabindex="-1"></a><span class="co"># Rows: 150</span></span>
 <span id="cb31-3"><a href="dplyr.html#cb31-3" tabindex="-1"></a><span class="co"># Columns: 5</span></span>
-<span id="cb31-4"><a href="dplyr.html#cb31-4" tabindex="-1"></a><span class="co"># $ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.…</span></span>
-<span id="cb31-5"><a href="dplyr.html#cb31-5" tabindex="-1"></a><span class="co"># $ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.…</span></span>
-<span id="cb31-6"><a href="dplyr.html#cb31-6" tabindex="-1"></a><span class="co"># $ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.…</span></span>
-<span id="cb31-7"><a href="dplyr.html#cb31-7" tabindex="-1"></a><span class="co"># $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.…</span></span>
-<span id="cb31-8"><a href="dplyr.html#cb31-8" tabindex="-1"></a><span class="co"># $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</span></span></code></pre></div>
+<span id="cb31-4"><a href="dplyr.html#cb31-4" tabindex="-1"></a><span class="co"># $ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.8, 4.8, 4.3, 5.8, 5.7, 5.4, 5.1, 5.7, 5.1, 5.4, 5.1, 4.6, 5.1, 4.8,…</span></span>
+<span id="cb31-5"><a href="dplyr.html#cb31-5" tabindex="-1"></a><span class="co"># $ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.0, 4.0, 4.4, 3.9, 3.5, 3.8, 3.8, 3.4, 3.7, 3.6, 3.3, 3.4,…</span></span>
+<span id="cb31-6"><a href="dplyr.html#cb31-6" tabindex="-1"></a><span class="co"># $ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.6, 1.4, 1.1, 1.2, 1.5, 1.3, 1.4, 1.7, 1.5, 1.7, 1.5, 1.0, 1.7, 1.9,…</span></span>
+<span id="cb31-7"><a href="dplyr.html#cb31-7" tabindex="-1"></a><span class="co"># $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2,…</span></span>
+<span id="cb31-8"><a href="dplyr.html#cb31-8" tabindex="-1"></a><span class="co"># $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, seto…</span></span></code></pre></div>
 <div id="imagine..." class="section level3 unnumbered hasAnchor">
 <h3>Imagine...<a href="dplyr.html#imagine..." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When working with "real" data, aka survey or experimental data, we will usually need to reshape, filter and generally edit the data a bit.
@@ -762,13 +762,13 @@ Solution
 </div>
 <div id="piping-hot" class="section level2 unnumbered hasAnchor">
 <h2>Piping Hot %&gt;%<a href="dplyr.html#piping-hot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You already heard about the pipe operator in Section <a href="basics.html#pipe1"><strong>??</strong></a>.
+<p>You already heard about the pipe operator in Section <a href="basics.html#pipe"><strong>??</strong></a>.
 The pipe - available as a native R pipe |&gt; or a <code>tidyverse</code> pipe from the <code>magrittr</code> package %&gt;%<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> - takes the input from the left-hand to the right-hand.
 In simpler terms, it takes the operation you did before the pipe and uses is as input for the function after the pipe.
 This keeps our code readable and tidy and allows us to keep edits in separate lines, but we still only have to run one command for every task we need
 It's easy to add new commands by using another pipe operator, or to leave edits out but commenting out the respective line of code.</p>
 <p>It is important to say that most things can be achieved with or without pipe and you may prefer different versions for different tasks.
-You have seen a basic example of the use of the pipe operator in Section <a href="basics.html#pipe1"><strong>??</strong></a>, so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.</p>
+You have seen a basic example of the use of the pipe operator in Section <a href="basics.html#pipe"><strong>??</strong></a>, so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="dplyr.html#cb37-1" tabindex="-1"></a><span class="co"># With pipe</span></span>
 <span id="cb37-2"><a href="dplyr.html#cb37-2" tabindex="-1"></a>iris_edit <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
 <span id="cb37-3"><a href="dplyr.html#cb37-3" tabindex="-1"></a> <span class="fu">filter</span>(Petal.Length <span class="sc">&gt;</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="co"># only big petals</span></span>

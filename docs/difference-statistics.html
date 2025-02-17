@@ -170,8 +170,8 @@ div.csl-indent {
 
 <ul class="summary">
 <li>
-<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research with R 
-<i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #800080;"></i> Psychological Research with R 
+<i class="fa-solid fa-mug-hot" style="color: #800080;"></i></a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a>
@@ -204,7 +204,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-unexpected-x-in-y"><i class="fa fa-check"></i><em>Error: unexpected 'X' in "Y"</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-object-a-not-found"><i class="fa fa-check"></i><em>Error: object 'A' not found</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-r-does-nothing-after-running-a-command"><i class="fa fa-check"></i><em>Error</em>: R does nothing after running a command</a></li>
-<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe1"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#wrap-up-further-resources-1"><i class="fa fa-check"></i>Wrap-Up &amp; Further Resources</a></li>
@@ -561,11 +561,10 @@ The function allows some other inputs as you can see in the example.
 Especially with a small sample, we can add the input <em>simulate.p.value = T</em>, which bootstraps the analysis 2000 times to better estimate an accurate p-value.</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="difference-statistics.html#cb74-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v01_gender, seminar<span class="sc">$</span>soul_dummy, <span class="at">simulate.p.value =</span> T)</span>
 <span id="cb74-2"><a href="difference-statistics.html#cb74-2" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb74-3"><a href="difference-statistics.html#cb74-3" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test with simulated p-value (based on 2000</span></span>
-<span id="cb74-4"><a href="difference-statistics.html#cb74-4" tabindex="-1"></a><span class="co">#   replicates)</span></span>
-<span id="cb74-5"><a href="difference-statistics.html#cb74-5" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb74-6"><a href="difference-statistics.html#cb74-6" tabindex="-1"></a><span class="co"># data:  seminar$v01_gender and seminar$soul_dummy</span></span>
-<span id="cb74-7"><a href="difference-statistics.html#cb74-7" tabindex="-1"></a><span class="co"># X-squared = 0.014069, df = NA, p-value = 1</span></span></code></pre></div>
+<span id="cb74-3"><a href="difference-statistics.html#cb74-3" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test with simulated p-value (based on 2000 replicates)</span></span>
+<span id="cb74-4"><a href="difference-statistics.html#cb74-4" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb74-5"><a href="difference-statistics.html#cb74-5" tabindex="-1"></a><span class="co"># data:  seminar$v01_gender and seminar$soul_dummy</span></span>
+<span id="cb74-6"><a href="difference-statistics.html#cb74-6" tabindex="-1"></a><span class="co"># X-squared = 0.014069, df = NA, p-value = 1</span></span></code></pre></div>
 </div>
 <div id="exercise-3" class="section level3 hasAnchor" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Exercise <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i><a href="difference-statistics.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -576,20 +575,19 @@ Especially with a small sample, we can add the input <em>simulate.p.value = T</e
 Solution <i class='fa-solid fa-ghost' style='color: #dcdcdc;'></i> <i class='fa-solid fa-music'></i>
 </button>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="difference-statistics.html#cb75-1" tabindex="-1"></a><span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy)</span>
-<span id="cb75-2"><a href="difference-statistics.html#cb75-2" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
-<span id="cb75-3"><a href="difference-statistics.html#cb75-3" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
-<span id="cb75-4"><a href="difference-statistics.html#cb75-4" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb75-5"><a href="difference-statistics.html#cb75-5" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test</span></span>
-<span id="cb75-6"><a href="difference-statistics.html#cb75-6" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb75-7"><a href="difference-statistics.html#cb75-7" tabindex="-1"></a><span class="co"># data:  seminar$v07_genre and seminar$soul_dummy</span></span>
-<span id="cb75-8"><a href="difference-statistics.html#cb75-8" tabindex="-1"></a><span class="co"># X-squared = 2.1357, df = 2, p-value = 0.3437</span></span>
-<span id="cb75-9"><a href="difference-statistics.html#cb75-9" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
-<span id="cb75-10"><a href="difference-statistics.html#cb75-10" tabindex="-1"></a><span class="co">#         </span></span>
-<span id="cb75-11"><a href="difference-statistics.html#cb75-11" tabindex="-1"></a><span class="co">#           0  1 Sum</span></span>
-<span id="cb75-12"><a href="difference-statistics.html#cb75-12" tabindex="-1"></a><span class="co">#   pop     2  3   5</span></span>
-<span id="cb75-13"><a href="difference-statistics.html#cb75-13" tabindex="-1"></a><span class="co">#   rock    3  3   6</span></span>
-<span id="cb75-14"><a href="difference-statistics.html#cb75-14" tabindex="-1"></a><span class="co">#   techno  2  0   2</span></span>
-<span id="cb75-15"><a href="difference-statistics.html#cb75-15" tabindex="-1"></a><span class="co">#   Sum     7  6  13</span></span></code></pre></div>
+<span id="cb75-2"><a href="difference-statistics.html#cb75-2" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared approximation may be incorrect</span></span>
+<span id="cb75-3"><a href="difference-statistics.html#cb75-3" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb75-4"><a href="difference-statistics.html#cb75-4" tabindex="-1"></a><span class="co">#   Pearson&#39;s Chi-squared test</span></span>
+<span id="cb75-5"><a href="difference-statistics.html#cb75-5" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb75-6"><a href="difference-statistics.html#cb75-6" tabindex="-1"></a><span class="co"># data:  seminar$v07_genre and seminar$soul_dummy</span></span>
+<span id="cb75-7"><a href="difference-statistics.html#cb75-7" tabindex="-1"></a><span class="co"># X-squared = 2.1357, df = 2, p-value = 0.3437</span></span>
+<span id="cb75-8"><a href="difference-statistics.html#cb75-8" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
+<span id="cb75-9"><a href="difference-statistics.html#cb75-9" tabindex="-1"></a><span class="co">#         </span></span>
+<span id="cb75-10"><a href="difference-statistics.html#cb75-10" tabindex="-1"></a><span class="co">#           0  1 Sum</span></span>
+<span id="cb75-11"><a href="difference-statistics.html#cb75-11" tabindex="-1"></a><span class="co">#   pop     2  3   5</span></span>
+<span id="cb75-12"><a href="difference-statistics.html#cb75-12" tabindex="-1"></a><span class="co">#   rock    3  3   6</span></span>
+<span id="cb75-13"><a href="difference-statistics.html#cb75-13" tabindex="-1"></a><span class="co">#   techno  2  0   2</span></span>
+<span id="cb75-14"><a href="difference-statistics.html#cb75-14" tabindex="-1"></a><span class="co">#   Sum     7  6  13</span></span></code></pre></div>
 </div>
 <p>How would you interpret this result?</p>
 <p><select class='webex-select'><option value='blank'></option><option value=''>Dualists prefer Rock music.</option><option value=''>Music preferences influence the soul beliefs of a person.</option><option value='answer'>There is no significant association between belief in the soul and music preference by genre.</option><option value=''>Chi squared is confusing.</option></select></p>
@@ -841,19 +839,18 @@ Figure 8.1: ANOVA principle
 <h3><span class="header-section-number">8.5.1</span> Usage<a href="difference-statistics.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="difference-statistics.html#cb83-1" tabindex="-1"></a><span class="co"># Chi (add format = &quot;rmarkdown&quot; if needed)</span></span>
 <span id="cb83-2"><a href="difference-statistics.html#cb83-2" tabindex="-1"></a>apa<span class="sc">::</span><span class="fu">chisq_apa</span>(<span class="fu">chisq.test</span>(seminar<span class="sc">$</span>v07_genre, seminar<span class="sc">$</span>soul_dummy))</span>
-<span id="cb83-3"><a href="difference-statistics.html#cb83-3" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared</span></span>
-<span id="cb83-4"><a href="difference-statistics.html#cb83-4" tabindex="-1"></a><span class="co"># approximation may be incorrect</span></span>
-<span id="cb83-5"><a href="difference-statistics.html#cb83-5" tabindex="-1"></a><span class="co"># chi^2(2) = 2.14, p = .344</span></span>
-<span id="cb83-6"><a href="difference-statistics.html#cb83-6" tabindex="-1"></a></span>
-<span id="cb83-7"><a href="difference-statistics.html#cb83-7" tabindex="-1"></a><span class="co"># t-test</span></span>
-<span id="cb83-8"><a href="difference-statistics.html#cb83-8" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(<span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>))<span class="sc">$</span>full_result</span>
-<span id="cb83-9"><a href="difference-statistics.html#cb83-9" tabindex="-1"></a><span class="co"># [1] &quot;$\\Delta M = 10.50$, 95\\% CI $[-109.56, \\infty]$, $t(1.28) = 0.39$, $p = .377$&quot;</span></span>
-<span id="cb83-10"><a href="difference-statistics.html#cb83-10" tabindex="-1"></a></span>
-<span id="cb83-11"><a href="difference-statistics.html#cb83-11" tabindex="-1"></a><span class="co"># ANOVA</span></span>
-<span id="cb83-12"><a href="difference-statistics.html#cb83-12" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(model)<span class="sc">$</span>full_result <span class="sc">|&gt;</span> <span class="fu">suppressMessages</span>()</span>
-<span id="cb83-13"><a href="difference-statistics.html#cb83-13" tabindex="-1"></a><span class="co"># $as_factorv07_genre</span></span>
-<span id="cb83-14"><a href="difference-statistics.html#cb83-14" tabindex="-1"></a><span class="co"># [1] &quot;$F(2, 10) = 2.56$, $\\mathit{MSE} = 120.80$, $p = .126$, $\\hat{\\eta}^2_G = .339$&quot;</span></span>
-<span id="cb83-15"><a href="difference-statistics.html#cb83-15" tabindex="-1"></a><span class="co"># suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us &quot;For one-way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.&quot;&quot;</span></span></code></pre></div>
+<span id="cb83-3"><a href="difference-statistics.html#cb83-3" tabindex="-1"></a><span class="co"># Warning in chisq.test(seminar$v07_genre, seminar$soul_dummy): Chi-squared approximation may be incorrect</span></span>
+<span id="cb83-4"><a href="difference-statistics.html#cb83-4" tabindex="-1"></a><span class="co"># chi^2(2) = 2.14, p = .344</span></span>
+<span id="cb83-5"><a href="difference-statistics.html#cb83-5" tabindex="-1"></a></span>
+<span id="cb83-6"><a href="difference-statistics.html#cb83-6" tabindex="-1"></a><span class="co"># t-test</span></span>
+<span id="cb83-7"><a href="difference-statistics.html#cb83-7" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(<span class="fu">t.test</span>(v05_skill_tech <span class="sc">~</span> v01_gender, <span class="at">data =</span> seminar, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>))<span class="sc">$</span>full_result</span>
+<span id="cb83-8"><a href="difference-statistics.html#cb83-8" tabindex="-1"></a><span class="co"># [1] &quot;$\\Delta M = 10.50$, 95\\% CI $[-109.56, \\infty]$, $t(1.28) = 0.39$, $p = .377$&quot;</span></span>
+<span id="cb83-9"><a href="difference-statistics.html#cb83-9" tabindex="-1"></a></span>
+<span id="cb83-10"><a href="difference-statistics.html#cb83-10" tabindex="-1"></a><span class="co"># ANOVA</span></span>
+<span id="cb83-11"><a href="difference-statistics.html#cb83-11" tabindex="-1"></a>papaja<span class="sc">::</span><span class="fu">apa_print</span>(model)<span class="sc">$</span>full_result <span class="sc">|&gt;</span> <span class="fu">suppressMessages</span>()</span>
+<span id="cb83-12"><a href="difference-statistics.html#cb83-12" tabindex="-1"></a><span class="co"># $as_factorv07_genre</span></span>
+<span id="cb83-13"><a href="difference-statistics.html#cb83-13" tabindex="-1"></a><span class="co"># [1] &quot;$F(2, 10) = 2.56$, $\\mathit{MSE} = 120.80$, $p = .126$, $\\hat{\\eta}^2_G = .339$&quot;</span></span>
+<span id="cb83-14"><a href="difference-statistics.html#cb83-14" tabindex="-1"></a><span class="co"># suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us &quot;For one-way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.&quot;&quot;</span></span></code></pre></div>
 </div>
 <div id="usage-in-r-markdown" class="section level3 hasAnchor" number="8.5.2">
 <h3><span class="header-section-number">8.5.2</span> Usage in R Markdown<a href="difference-statistics.html#usage-in-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>

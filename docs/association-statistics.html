@@ -170,8 +170,8 @@ div.csl-indent {
 
 <ul class="summary">
 <li>
-<a href="./"><i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i> Psychological Research with R 
-<i class="fa-solid fa-mug-hot" style="color: #a34c21;"></i></a></li>
+<a href="./"><i class="fa-solid fa-mug-hot" style="color: #800080;"></i> Psychological Research with R 
+<i class="fa-solid fa-mug-hot" style="color: #800080;"></i></a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a>
@@ -204,7 +204,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-unexpected-x-in-y"><i class="fa fa-check"></i><em>Error: unexpected 'X' in "Y"</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-object-a-not-found"><i class="fa fa-check"></i><em>Error: object 'A' not found</em></a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#error-r-does-nothing-after-running-a-command"><i class="fa fa-check"></i><em>Error</em>: R does nothing after running a command</a></li>
-<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe1"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#pipe"><i class="fa fa-check"></i>The pipe operator <code>|&gt;</code> or <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="basics.html"><a href="basics.html#wrap-up-further-resources-1"><i class="fa fa-check"></i>Wrap-Up &amp; Further Resources</a></li>
@@ -775,19 +775,18 @@ Solution (interpretation)
 Solution omnibus ANOVA
 </button>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="association-statistics.html#cb94-1" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
-<span id="cb94-2"><a href="association-statistics.html#cb94-2" tabindex="-1"></a><span class="co"># Warning in leveneTest.default(y = y, group = group, ...): group coerced to</span></span>
-<span id="cb94-3"><a href="association-statistics.html#cb94-3" tabindex="-1"></a><span class="co"># factor.</span></span>
-<span id="cb94-4"><a href="association-statistics.html#cb94-4" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = median)</span></span>
-<span id="cb94-5"><a href="association-statistics.html#cb94-5" tabindex="-1"></a><span class="co">#       Df F value Pr(&gt;F)</span></span>
-<span id="cb94-6"><a href="association-statistics.html#cb94-6" tabindex="-1"></a><span class="co"># group  2  0.3112 0.7394</span></span>
-<span id="cb94-7"><a href="association-statistics.html#cb94-7" tabindex="-1"></a><span class="co">#       10</span></span>
-<span id="cb94-8"><a href="association-statistics.html#cb94-8" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
-<span id="cb94-9"><a href="association-statistics.html#cb94-9" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
-<span id="cb94-10"><a href="association-statistics.html#cb94-10" tabindex="-1"></a><span class="co">#               Df Sum Sq Mean Sq F value  Pr(&gt;F)   </span></span>
-<span id="cb94-11"><a href="association-statistics.html#cb94-11" tabindex="-1"></a><span class="co"># v12_soul_phil  2 1164.8   582.4   8.797 0.00625 **</span></span>
-<span id="cb94-12"><a href="association-statistics.html#cb94-12" tabindex="-1"></a><span class="co"># Residuals     10  662.1    66.2                   </span></span>
-<span id="cb94-13"><a href="association-statistics.html#cb94-13" tabindex="-1"></a><span class="co"># ---</span></span>
-<span id="cb94-14"><a href="association-statistics.html#cb94-14" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span></code></pre></div>
+<span id="cb94-2"><a href="association-statistics.html#cb94-2" tabindex="-1"></a><span class="co"># Warning in leveneTest.default(y = y, group = group, ...): group coerced to factor.</span></span>
+<span id="cb94-3"><a href="association-statistics.html#cb94-3" tabindex="-1"></a><span class="co"># Levene&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb94-4"><a href="association-statistics.html#cb94-4" tabindex="-1"></a><span class="co">#       Df F value Pr(&gt;F)</span></span>
+<span id="cb94-5"><a href="association-statistics.html#cb94-5" tabindex="-1"></a><span class="co"># group  2  0.3112 0.7394</span></span>
+<span id="cb94-6"><a href="association-statistics.html#cb94-6" tabindex="-1"></a><span class="co">#       10</span></span>
+<span id="cb94-7"><a href="association-statistics.html#cb94-7" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(v08_loudness <span class="sc">~</span> v12_soul_phil, <span class="at">data =</span> seminar)</span>
+<span id="cb94-8"><a href="association-statistics.html#cb94-8" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
+<span id="cb94-9"><a href="association-statistics.html#cb94-9" tabindex="-1"></a><span class="co">#               Df Sum Sq Mean Sq F value  Pr(&gt;F)   </span></span>
+<span id="cb94-10"><a href="association-statistics.html#cb94-10" tabindex="-1"></a><span class="co"># v12_soul_phil  2 1164.8   582.4   8.797 0.00625 **</span></span>
+<span id="cb94-11"><a href="association-statistics.html#cb94-11" tabindex="-1"></a><span class="co"># Residuals     10  662.1    66.2                   </span></span>
+<span id="cb94-12"><a href="association-statistics.html#cb94-12" tabindex="-1"></a><span class="co"># ---</span></span>
+<span id="cb94-13"><a href="association-statistics.html#cb94-13" tabindex="-1"></a><span class="co"># Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span></code></pre></div>
 </div>
 <p><br></p>
 <p>Look for pairwise differences even if the overall ANOVA does not reach significance.</p>

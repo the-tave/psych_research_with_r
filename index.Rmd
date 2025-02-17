@@ -45,7 +45,7 @@ This book is based on an in-person introductory R course from the [University of
 I tried my very best to cover all the basics on working with R from the ground up. 
 Following the whole course should enable you to write your very own R Markdown report, taking full advantage of some of the most important and common features of R.
 
-### About... {-}
+### About {-}
 
 
 

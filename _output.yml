@@ -16,8 +16,17 @@ bookdown::gitbook:
     edit: https://github.com/the-tave/psych_research_with_r/issues/%s
     download:
     - pdf
+    sharing:
+      facebook: false
+      twitter: false
+      linkedin: true
+      github: true
+      weibo: false
+      instapaper: false
+      vk: false
+      all: ["instapaper", "linkedin", "github"]
   includes:
-    # in_header: "www/googlee264360c3a046302.html"
+    # in_header: "googlee264360c3a046302.html"
     after_body: www/webex.js
   md_extensions: -smart
 # bookdown::epub_book: default

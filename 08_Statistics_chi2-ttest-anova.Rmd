@@ -51,7 +51,7 @@ ggplot(iris, aes(x = Species, y = Sepal.Length, color = Species, fill = Species)
 
 ```
 
-These three measures all provide us information on _differences_ either between naturally occurring groups (e.g. people of different genders) or between experimentally manipulated sub-samples (e.g. treatment vs. control group in a medical drug trial).
+These three measures all provide us information on _differences_ either between naturally occurring groups (e.g. people of different genders) or between experimentally manipulated sub-samples (e.g. treatment vs. control group in a medical drug trial).^[You will usually see the $Chi^2$ test classified as an association statistic, which is technically more to the point. However, I like to think of it as quantifying differences between groups. After all, if you find systematic differences between groups in two given measures, that must mean that those measures are not independent, i.e. associated with each other.]
 
 The $\chi^2$ statistic is commonly used on nominal data, e.g. if you want to compare proportions. 
 Usually, the $\chi^2$ test is used with two binary variables, but it also works with more categories.
@@ -84,37 +84,54 @@ seminar <- readRDS("./data/seminar_data.Rds")
 Next, we will add a so-called _dummy-variable_ about believeing in the soul. 
 It is not called "dummy" because we want to judge anybody's belief, but rather because it serves as a stand-in for a more complex variable, just like a test dummy is a stand-in for a real person.^[For more in-depth information on dummy variables you can visit: [https://stats.oarc.ucla.edu/wp-content/uploads/2016/02/p046.pdf](https://stats.oarc.ucla.edu/wp-content/uploads/2016/02/p046.pdf).]
 
-- Add a "dummy variable" (only two possible values 0 and 1) <br>
-for believing in a soul, where 1 means _yes_ and 0 means _no or unsure_
+Here, we basically want to create a dummy variable for believing in the soul where we summarize all those who said they don't know or they definitely don't believe into one category that we can later contrast with all those who said they do believe.
+So in the new variable,  1 means _yes_ and 0 means _no or unsure_.
 
 ```{r eval=F}
 seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 ```
 
+### Statistical Significnace
+
+In parametric statistics (which is the most common/basic kind), we make our test decision based on the distribution of out given test statistic.
+This is because for any test statistic that we can calculate, we can make a prediction about its **distribution** if the true value were zero, i.e. no effect.
+We would expected most values to fall in a certain range and if we find an empirical value (based on our data) that falls beyond that range, we conclude that it is so unlikely to find a value that extreme if we actually assume that range to be surrounding the true value.
+We then conclude statistical significance because the empirical value of the test statistic is significantly different to the theoretical value distribution we would have if there were no true effect.
+
+This measure of "how unlikely is our empirical value" is reflected in the **p-value**.
+Commonly, we accept a threshold of $\alpha = .05$ as sufficiently unlikely. 
+It means that we would theoretically expect a value that extreme or more extreme in only 5% of all cases.
+
 ## $\chi^2$
 
-- $\chi^2$ Test for Independence: Determines if there is an association between **two categorical variables** in a contingency table
-    - compares the observed frequencies in each category of a contingency table to the frequencies expected if the variables were independent
-
-![Chi squared distribution](./img/chidist.png)
-
-### Calculation: 
-
-- $$\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$$
-
-- \( O_i \) is the observed frequency in each category
-- \( E_i \) is the expected frequency in each category, calculated as: $$E_i = \frac{(row \ total) \times (column \ total)}{grand \ total}$$
-
-- Example: Believing in the soul by gender
+The $\chi^2$ Test for Independence determines if there is an association between **two categorical variables** in a contingency table.
+To do so, it compares the observed frequencies in each category of that contingency table to the frequencies expected if the variables were independent.
+For example, if there were no association (i.e. _statistical independence_) between gender and believing in the soul, then the proportion of men and women who believe in a soul should be about equal.
 
 ```{r echo = F}
 addmargins(table(seminar$v01_gender, seminar$soul_dummy))
 ```
 
+The test statistic $\chi^2$ is calculated as follows:
+
+$$\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$$
+
+where 
+    - \( O_i \) is the observed frequency in each category
+    - \( E_i \) is the expected frequency in each category, calculated as: $$E_i = \frac{(row \ total) \times (column \ total)}{grand \ total}$$
+
+The distribution of $\chi^2$ depends on the number of categories k or more precisely, the degrees of freedom, df. 
+In a scenario where we have just one variable and we want to test empirical frequencies to expected ones, k is equal to the number of categories and df = k-1.
+If we have two variables and we want to test their association as described above, k is not really relevant here and we focus on the degrees of freedom, calculated as df = (#rows - 1)x(#columns - 1).
+
+![Chi squared distribution](./img/chidist.png)
+
 ### How to in R
 
-- The `chisq.test()` function only needs (categorical!) _x, y_ as input
-    - Especially with a small sample, we can add the parameter _simulate.p.value = T_, which bootstraps the analysis 2000 times
+In R, you calculated the $Chi^2$ test using the function `chisq.test()`, which only needs (categorical!) _x, y_ as input.
+Here, we will look at the previous example of gender and soul belief and therefore add those two variables.
+The function allows some other inputs as you can see in the example.
+Especially with a small sample, we can add the input _simulate.p.value = T_, which bootstraps the analysis 2000 times to better estimate an accurate p-value.
     
 ```{r}
 chisq.test(seminar$v01_gender, seminar$soul_dummy, simulate.p.value = T)
@@ -357,3 +374,4 @@ papaja::apa_print(model)$full_result |> suppressMessages()
 <!-- #id .class  -->
 ![Cute ANOVA curves](./img/sweet-anova.png){width=auto height=200px}
 <figcaption style = "font-size: 7pt;">[https://www.pinterest.de/pin/59180182590147005/](https://www.pinterest.de/pin/59180182590147005/){target="_blank"}</figcaption>
+

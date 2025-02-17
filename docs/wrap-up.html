@@ -335,12 +335,12 @@ div.csl-indent {
 <li class="chapter" data-level="8.1" data-path="difference-statistics.html"><a href="difference-statistics.html#statistics-re-cap"><i class="fa fa-check"></i><b>8.1</b> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i></a>
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="difference-statistics.html"><a href="difference-statistics.html#pre-requisites"><i class="fa fa-check"></i><b>8.1.1</b> Pre-Requisites</a></li>
+<li class="chapter" data-level="8.1.2" data-path="difference-statistics.html"><a href="difference-statistics.html#statistical-significnace"><i class="fa fa-check"></i><b>8.1.2</b> Statistical Significnace</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="difference-statistics.html"><a href="difference-statistics.html#chi2"><i class="fa fa-check"></i><b>8.2</b> <span class="math inline">\(\chi^2\)</span></a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="difference-statistics.html"><a href="difference-statistics.html#calculation"><i class="fa fa-check"></i><b>8.2.1</b> Calculation:</a></li>
-<li class="chapter" data-level="8.2.2" data-path="difference-statistics.html"><a href="difference-statistics.html#how-to-in-r"><i class="fa fa-check"></i><b>8.2.2</b> How to in R</a></li>
-<li class="chapter" data-level="8.2.3" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-3"><i class="fa fa-check"></i><b>8.2.3</b> Exercise <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i></a></li>
+<li class="chapter" data-level="8.2.1" data-path="difference-statistics.html"><a href="difference-statistics.html#how-to-in-r"><i class="fa fa-check"></i><b>8.2.1</b> How to in R</a></li>
+<li class="chapter" data-level="8.2.2" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-3"><i class="fa fa-check"></i><b>8.2.2</b> Exercise <i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i> <i class="fa-solid fa-music"></i></a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="difference-statistics.html"><a href="difference-statistics.html#t-test"><i class="fa fa-check"></i><b>8.3</b> t-Test</a>
 <ul>
@@ -505,7 +505,7 @@ Maybe you need to report a lot of your code and show visualizations in your thes
 </div>
 <div id="r-is-really-fun" class="section level2 unnumbered hasAnchor">
 <h2>R is really fun!<a href="wrap-up.html#r-is-really-fun" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are many reasons why so many people in so many fields of expertise choose this weird language<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> as their primary means of communication.
+<p>There are many reasons why so many people in so many fields of expertise choose this weird language<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> as their primary means of communication.
 One of them is definitely the powerful yet sometimes completely silly and useless things you can do with it (Thanks to Scott Chamberlain and Amanda Dobbyn for the package!):</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="wrap-up.html#cb112-1" tabindex="-1"></a>cowsay<span class="sc">::</span><span class="fu">say</span>(<span class="st">&quot;What the duck is this?&quot;</span>, <span class="at">by =</span> <span class="st">&quot;duck&quot;</span>)</span>
 <span id="cb112-2"><a href="wrap-up.html#cb112-2" tabindex="-1"></a><span class="co"># </span></span>
@@ -574,8 +574,8 @@ Use the slides from this course as templates to learn from. <i class="fa-solid f
 </div>
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p>I highly recommend this lovely talk on <a href="https://youtu.be/KOQBfC1WPwM?si=M_eStpWXBf56UGy7">keeping R weird</a> by Kelly Bodwin.<a href="wrap-up.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<ol start="14">
+<li id="fn14"><p>I highly recommend this lovely talk on <a href="https://youtu.be/KOQBfC1WPwM?si=M_eStpWXBf56UGy7">keeping R weird</a> by Kelly Bodwin.<a href="wrap-up.html#fnref14" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>
@@ -805,15 +805,15 @@ window.onload = function() {
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
 "whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["instapaper", "linkedin", "github"]
 },
 "fontsettings": {
 "theme": "white",

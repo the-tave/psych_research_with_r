@@ -22,6 +22,7 @@ description: |
 github-repo: the-tave/psych_research_with_r
 linestretch: 1.5
 geometry: footnotesep=20pt
+google-site-verification: "xH0nM_y8ICbhWWAYOfd0R8xalUYsUtCX4nKENjE0lzo"
 ---
 
 # Welcome! {-}

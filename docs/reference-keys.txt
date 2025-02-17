@@ -76,8 +76,8 @@ result-1
 difference-statistics
 statistics-re-cap
 pre-requisites
+statistical-significnace
 chi2
-calculation
 how-to-in-r
 exercise-3
 t-test

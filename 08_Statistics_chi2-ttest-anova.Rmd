@@ -158,7 +158,9 @@ How would you interpret this result?
 
 ## t-Test
 
-- There are 3 broad categories of t-test:
+As I've mentioned before, there is not really _the one_ t-test to rule them all.
+Instead, the t-statistic which the t-tests are built around is calculated slightly differently depending on the actual situation.
+There are three categories of t-test:
 
 - **one-sample** t-test:
     - Test one sample against a known mean value
@@ -169,14 +171,14 @@ How would you interpret this result?
     
 ### Test statistic _t_ 
 
-- Test statistic T has a known distribution that depends on the **degrees of freedom**, calculated as n-1
-- Most (probable) T values are around 0
-    - The further away the T value is from 0, the less likely it is caused by chance alone $\rightarrow$ _significance_
+The Test statistic T has a known distribution that depends on the **degrees of freedom df**, calculated as n-1.
+It is similar to what we saw with the $\chi^2$ distribution but the t-distribution looks a lot more like the normal distribution.
+Most (probable or to be expected) T values are around 0, so te further away or _more extreme_ the T value is from 0, the less likely it is caused by chance alone. $\rightarrow$ _significance_
 
 
 ![T distribution](./img/tdist.png)
 
-### Test statistic _t_ 
+It is calculated as follows:
 
 - One sample: $$ t = \frac{\bar{X} - \mu}{\frac{s}{\sqrt{n}}} $$
 

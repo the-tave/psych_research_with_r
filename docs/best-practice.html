@@ -176,7 +176,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about..."><i class="fa fa-check"></i>About...</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about"><i class="fa fa-check"></i>About</a></li>
 </ul></li>
 <li class="part"><span><b>I First Steps</b></span></li>
 <li class="chapter" data-level="1" data-path="intro-and-installation.html"><a href="intro-and-installation.html"><i class="fa fa-check"></i><b>1</b> Intro and Installation</a>
@@ -345,10 +345,9 @@ div.csl-indent {
 <li class="chapter" data-level="8.3" data-path="difference-statistics.html"><a href="difference-statistics.html#t-test"><i class="fa fa-check"></i><b>8.3</b> t-Test</a>
 <ul>
 <li class="chapter" data-level="8.3.1" data-path="difference-statistics.html"><a href="difference-statistics.html#test-statistic-t"><i class="fa fa-check"></i><b>8.3.1</b> Test statistic <em>t</em></a></li>
-<li class="chapter" data-level="8.3.2" data-path="difference-statistics.html"><a href="difference-statistics.html#test-statistic-t-1"><i class="fa fa-check"></i><b>8.3.2</b> Test statistic <em>t</em></a></li>
-<li class="chapter" data-level="8.3.3" data-path="difference-statistics.html"><a href="difference-statistics.html#how-to-in-r-1"><i class="fa fa-check"></i><b>8.3.3</b> How to in R</a></li>
-<li class="chapter" data-level="8.3.4" data-path="difference-statistics.html"><a href="difference-statistics.html#examples"><i class="fa fa-check"></i><b>8.3.4</b> Examples</a></li>
-<li class="chapter" data-level="8.3.5" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-4"><i class="fa fa-check"></i><b>8.3.5</b> Exercise <i class="fa-solid fa-computer"></i></a></li>
+<li class="chapter" data-level="8.3.2" data-path="difference-statistics.html"><a href="difference-statistics.html#how-to-in-r-1"><i class="fa fa-check"></i><b>8.3.2</b> How to in R</a></li>
+<li class="chapter" data-level="8.3.3" data-path="difference-statistics.html"><a href="difference-statistics.html#examples"><i class="fa fa-check"></i><b>8.3.3</b> Examples</a></li>
+<li class="chapter" data-level="8.3.4" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-4"><i class="fa fa-check"></i><b>8.3.4</b> Exercise <i class="fa-solid fa-computer"></i></a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="difference-statistics.html"><a href="difference-statistics.html#anova"><i class="fa fa-check"></i><b>8.4</b> ANOVA</a>
 <ul>
@@ -573,11 +572,11 @@ Solution
 <span id="cb29-8"><a href="best-practice.html#cb29-8" tabindex="-1"></a></span>
 <span id="cb29-9"><a href="best-practice.html#cb29-9" tabindex="-1"></a><span class="fu">str</span>(scores7a); <span class="fu">str</span>(scores7b)</span>
 <span id="cb29-10"><a href="best-practice.html#cb29-10" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  14 13 12 15 12 13 13 15 13 12 ...</span></span>
-<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  79.7 85.8 92.1 54 111.3 ...</span></span>
+<span id="cb29-11"><a href="best-practice.html#cb29-11" tabindex="-1"></a><span class="co">#  $ age: int  12 14 12 14 13 15 13 15 14 15 ...</span></span>
+<span id="cb29-12"><a href="best-practice.html#cb29-12" tabindex="-1"></a><span class="co">#  $ iq : num  99.2 79.7 94 109.7 99.9 ...</span></span>
 <span id="cb29-13"><a href="best-practice.html#cb29-13" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  15 14 15 15 13 12 15 13 14 12 ...</span></span>
-<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  63.8 70.6 84.8 94.9 77.7 ...</span></span>
+<span id="cb29-14"><a href="best-practice.html#cb29-14" tabindex="-1"></a><span class="co">#  $ age: int  14 12 14 14 15 13 14 14 15 12 ...</span></span>
+<span id="cb29-15"><a href="best-practice.html#cb29-15" tabindex="-1"></a><span class="co">#  $ iq : num  114.2 78.6 103.8 97.3 81.6 ...</span></span>
 <span id="cb29-16"><a href="best-practice.html#cb29-16" tabindex="-1"></a></span>
 <span id="cb29-17"><a href="best-practice.html#cb29-17" tabindex="-1"></a><span class="co"># Add information about the class</span></span>
 <span id="cb29-18"><a href="best-practice.html#cb29-18" tabindex="-1"></a>scores7a<span class="sc">$</span>class <span class="ot">&lt;-</span> <span class="st">&quot;7a&quot;</span></span>
@@ -589,8 +588,8 @@ Solution
 <span id="cb29-24"><a href="best-practice.html#cb29-24" tabindex="-1"></a><span class="co"># Check the overall data frame for plausibility</span></span>
 <span id="cb29-25"><a href="best-practice.html#cb29-25" tabindex="-1"></a><span class="fu">str</span>(allscores)</span>
 <span id="cb29-26"><a href="best-practice.html#cb29-26" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 40 obs. of  3 variables:</span></span>
-<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  14 13 12 15 12 13 13 15 13 12 ...</span></span>
-<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  79.7 85.8 92.1 54 111.3 ...</span></span>
+<span id="cb29-27"><a href="best-practice.html#cb29-27" tabindex="-1"></a><span class="co">#  $ age  : int  12 14 12 14 13 15 13 15 14 15 ...</span></span>
+<span id="cb29-28"><a href="best-practice.html#cb29-28" tabindex="-1"></a><span class="co">#  $ iq   : num  99.2 79.7 94 109.7 99.9 ...</span></span>
 <span id="cb29-29"><a href="best-practice.html#cb29-29" tabindex="-1"></a><span class="co">#  $ class: chr  &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; ...</span></span>
 <span id="cb29-30"><a href="best-practice.html#cb29-30" tabindex="-1"></a><span class="fu">table</span>(allscores<span class="sc">$</span>class)</span>
 <span id="cb29-31"><a href="best-practice.html#cb29-31" tabindex="-1"></a><span class="co"># </span></span>

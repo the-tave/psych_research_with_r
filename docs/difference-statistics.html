@@ -176,7 +176,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about..."><i class="fa fa-check"></i>About...</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about"><i class="fa fa-check"></i>About</a></li>
 </ul></li>
 <li class="part"><span><b>I First Steps</b></span></li>
 <li class="chapter" data-level="1" data-path="intro-and-installation.html"><a href="intro-and-installation.html"><i class="fa fa-check"></i><b>1</b> Intro and Installation</a>
@@ -345,10 +345,9 @@ div.csl-indent {
 <li class="chapter" data-level="8.3" data-path="difference-statistics.html"><a href="difference-statistics.html#t-test"><i class="fa fa-check"></i><b>8.3</b> t-Test</a>
 <ul>
 <li class="chapter" data-level="8.3.1" data-path="difference-statistics.html"><a href="difference-statistics.html#test-statistic-t"><i class="fa fa-check"></i><b>8.3.1</b> Test statistic <em>t</em></a></li>
-<li class="chapter" data-level="8.3.2" data-path="difference-statistics.html"><a href="difference-statistics.html#test-statistic-t-1"><i class="fa fa-check"></i><b>8.3.2</b> Test statistic <em>t</em></a></li>
-<li class="chapter" data-level="8.3.3" data-path="difference-statistics.html"><a href="difference-statistics.html#how-to-in-r-1"><i class="fa fa-check"></i><b>8.3.3</b> How to in R</a></li>
-<li class="chapter" data-level="8.3.4" data-path="difference-statistics.html"><a href="difference-statistics.html#examples"><i class="fa fa-check"></i><b>8.3.4</b> Examples</a></li>
-<li class="chapter" data-level="8.3.5" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-4"><i class="fa fa-check"></i><b>8.3.5</b> Exercise <i class="fa-solid fa-computer"></i></a></li>
+<li class="chapter" data-level="8.3.2" data-path="difference-statistics.html"><a href="difference-statistics.html#how-to-in-r-1"><i class="fa fa-check"></i><b>8.3.2</b> How to in R</a></li>
+<li class="chapter" data-level="8.3.3" data-path="difference-statistics.html"><a href="difference-statistics.html#examples"><i class="fa fa-check"></i><b>8.3.3</b> Examples</a></li>
+<li class="chapter" data-level="8.3.4" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-4"><i class="fa fa-check"></i><b>8.3.4</b> Exercise <i class="fa-solid fa-computer"></i></a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="difference-statistics.html"><a href="difference-statistics.html#anova"><i class="fa fa-check"></i><b>8.4</b> ANOVA</a>
 <ul>
@@ -598,44 +597,40 @@ Solution <i class='fa-solid fa-ghost' style='color: #dcdcdc;'></i> <i class='fa-
 </div>
 <div id="t-test" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> t-Test<a href="difference-statistics.html#t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As I've mentioned before, there is not really <em>the one</em> t-test to rule them all.
+Instead, the t-statistic which the t-tests are built around is calculated slightly differently depending on the actual situation.
+There are three categories of t-test:</p>
 <ul>
-<li><p>There are 3 broad categories of t-test:</p></li>
-<li><p><strong>one-sample</strong> t-test:</p>
+<li><strong>one-sample</strong> t-test:
 <ul>
 <li>Test one sample against a known mean value</li>
 </ul></li>
-<li><p><strong>two-sample</strong> t-test (independent):</p>
+<li><strong>two-sample</strong> t-test (independent):
 <ul>
 <li>Test two sample-means against each other (independent samples)</li>
 </ul></li>
-<li><p><strong>paired two-sample</strong> t-test:</p>
+<li><strong>paired two-sample</strong> t-test:
 <ul>
 <li>Test two dependent sample-means against each other (e.g. repeated measures)</li>
 </ul></li>
 </ul>
 <div id="test-statistic-t" class="section level3 hasAnchor" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Test statistic <em>t</em><a href="difference-statistics.html#test-statistic-t" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Test statistic T has a known distribution that depends on the <strong>degrees of freedom</strong>, calculated as n-1</li>
-<li>Most (probable) T values are around 0
-<ul>
-<li>The further away the T value is from 0, the less likely it is caused by chance alone <span class="math inline">\(\rightarrow\)</span> <em>significance</em></li>
-</ul></li>
-</ul>
+<p>The Test statistic T has a known distribution that depends on the <strong>degrees of freedom df</strong>, calculated as n-1.
+It is similar to what we saw with the <span class="math inline">\(\chi^2\)</span> distribution but the t-distribution looks a lot more like the normal distribution.
+Most (probable or to be expected) T values are around 0, so te further away or <em>more extreme</em> the T value is from 0, the less likely it is caused by chance alone. <span class="math inline">\(\rightarrow\)</span> <em>significance</em></p>
 <div class="float">
 <img src="img/tdist.png" alt="T distribution" />
 <div class="figcaption">T distribution</div>
 </div>
-</div>
-<div id="test-statistic-t-1" class="section level3 hasAnchor" number="8.3.2">
-<h3><span class="header-section-number">8.3.2</span> Test statistic <em>t</em><a href="difference-statistics.html#test-statistic-t-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is calculated as follows:</p>
 <ul>
 <li><p>One sample: <span class="math display">\[ t = \frac{\bar{X} - \mu}{\frac{s}{\sqrt{n}}} \]</span></p></li>
 <li><p>Two sample: <span class="math display">\[t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \]</span></p></li>
 </ul>
 </div>
-<div id="how-to-in-r-1" class="section level3 hasAnchor" number="8.3.3">
-<h3><span class="header-section-number">8.3.3</span> How to in R<a href="difference-statistics.html#how-to-in-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="how-to-in-r-1" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> How to in R<a href="difference-statistics.html#how-to-in-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>The basic function is <code>t.test()</code> for any type of t.test</li>
 <li>One sample needs inputs <em>x, mu</em> (if x is from a data set you should specify <em>data</em>)</li>
@@ -648,8 +643,8 @@ Solution <i class='fa-solid fa-ghost' style='color: #dcdcdc;'></i> <i class='fa-
 <li>One-sided test needs <em>alternative = 'greater'</em> (assumes first group mean to be larger than second; otherwise "less")</li>
 </ul>
 </div>
-<div id="examples" class="section level3 hasAnchor" number="8.3.4">
-<h3><span class="header-section-number">8.3.4</span> Examples<a href="difference-statistics.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="examples" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> Examples<a href="difference-statistics.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>One sided - "greater" assumes that mean(x) is larger than mean(y)</strong></p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="difference-statistics.html#cb76-1" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
 <span id="cb76-2"><a href="difference-statistics.html#cb76-2" tabindex="-1"></a><span class="co"># </span></span>
@@ -678,8 +673,8 @@ Solution <i class='fa-solid fa-ghost' style='color: #dcdcdc;'></i> <i class='fa-
 <span id="cb77-11"><a href="difference-statistics.html#cb77-11" tabindex="-1"></a><span class="co"># mean in group 0 mean in group 1 </span></span>
 <span id="cb77-12"><a href="difference-statistics.html#cb77-12" tabindex="-1"></a><span class="co">#        68.28571        66.00000</span></span></code></pre></div>
 </div>
-<div id="exercise-4" class="section level3 hasAnchor" number="8.3.5">
-<h3><span class="header-section-number">8.3.5</span> Exercise <i class="fa-solid fa-computer"></i><a href="difference-statistics.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-4" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> Exercise <i class="fa-solid fa-computer"></i><a href="difference-statistics.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We want to test whether the <strong>gender</strong> stereotype that men are <strong>more skilled with technology</strong> appears in our seminar sample.</p>
 <p>Perform a one-sided two-sample t-test and interpret the results.</p>
 <p><em>Hint: The grouping variable "v01_gender" is sorted alphabetically - so choose the "alternative" accordingly!</em></p>

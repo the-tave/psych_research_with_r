@@ -82,7 +82,6 @@ how-to-in-r
 exercise-3
 t-test
 test-statistic-t
-test-statistic-t-1
 how-to-in-r-1
 examples
 exercise-4

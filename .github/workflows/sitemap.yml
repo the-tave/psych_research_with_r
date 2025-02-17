@@ -2,8 +2,7 @@ name: Generate Sitemap
 
 on:
   push:
-    branches:
-      - main  # or master, depending on your default branch
+    branches: [ main ]  # or master, depending on your default branch
       
 jobs:
   sitemap_job:
@@ -19,3 +18,6 @@ jobs:
       uses: cicirello/generate-sitemap@v1
       with:
         base-url-path: https://the-tave.github.io/ # Actual GitHub Pages URL psych_research_with_r/
+        path-to-root: docs # probably necessary???
+        include-pdf: false
+        sitemap-format: xml

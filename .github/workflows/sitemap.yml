@@ -17,7 +17,7 @@ jobs:
       id: sitemap
       uses: cicirello/generate-sitemap@v1
       with:
-        base-url-path: https://the-tave.github.io/ # Actual GitHub Pages URL psych_research_with_r/
+        base-url-path: https://the-tave.github.io/psych_research_with_r/ # Actual GitHub Pages URL psych_research_with_r/
         path-to-root: docs # probably necessary???
         sitemap-format: xml
         

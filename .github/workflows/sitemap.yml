@@ -1,0 +1,21 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your default branch
+  schedule:
+    - cron: '0 0 * * 0'  # Runs weekly on Sunday at midnight
+
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+    name: Generate a sitemap
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v3
+      
+    - name: Generate the sitemap
+      uses: cicirello/generate-sitemap@v1
+      with:
+        base-url-path: https://the-tave.github.io/psych_research_with_r/ # Actual GitHub Pages URL

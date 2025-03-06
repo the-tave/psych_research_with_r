@@ -298,7 +298,9 @@ TukeyHSD(model)
 
 - Interpretation?
     - There are no significant pairwise differences in our (small) sample.
-    - But we can simulate a larger sample (for fun)
+
+    
+  - But we can simulate a larger sample (for fun)
 
 ### Addendum for demonstration only: Bootstrapped Data for larger sample size
 
@@ -315,41 +317,79 @@ summary(bootstrapped_model)
 TukeyHSD(bootstrapped_model)
 ```
 
+Try to formulate a full interpretation of both the original as well as the bootstrapped data!
+You can look at a suggestion below after you are done.
 
-## Reporting with the `apa` & `papaja` packages
+`r hide()`
+
+"In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (`r apa_print(model)$full_result |> suppressMessages()`). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (`r apa_print(bootstrapped_model)$statistic |> suppressMessages()`), which is also supported by the large effect size (`r apa_print(bootstrapped_model)$estimate |> suppressMessages()`)."
+ 
+`r unhide()`
+
+### ANOVA Exercise
+
+Reminder: There are generally 3 steps to an ANOVA
+
+```{r loud-soul, eval = F}
+car::leveneTest(v08_loudness ~ v11_soul, data = seminar) # 1.
+model <- aov(v08_loudness ~ v11_soul, data = seminar) # 2.
+summary(model)
+TukeyHSD(model) # 3.
+```
+
+
+1. Check assumptions with Levene Test
+2. Build the model to perform an omnibus ANOVA
+3. Perform post-hoc tests to check pairwise differences (usually only if the omnibus ANOVA is significant)
+
+### Exercise
+
+**Does the preferred music volume depend on someone's soul philosophy?** <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
 
 <br>
 
-- You know the `papaja` package already for `theme_apa()` in data visualization
-- The package also has many wrapper functions to make reporting in R & R Markdown a lot easier
-    - "apa_print()" 
-    - Chi$^2$ Test reporting cannot be achieved with this, so we use apa::chisq_apa() for that
+Perform an ANOVA on our seminar data to explore the question (v08 & v12). 
 
-### Usage
+`r hide("Solution omnibus ANOVA")`
 
-```{r apa1}
-# Chi (add format = "rmarkdown" if needed)
-apa::chisq_apa(chisq.test(seminar$v07_genre, seminar$soul_dummy))
-
-# t-test
-papaja::apa_print(t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater"))$full_result
-
-# ANOVA
-papaja::apa_print(model)$full_result |> suppressMessages()
-# suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us "For one-way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.""
+```{r leveneex}
+car::leveneTest(v08_loudness ~ v12_soul_phil, data = seminar)
+model <- aov(v08_loudness ~ v12_soul_phil, data = seminar)
+summary(model)
 ```
 
-### Usage in R Markdown
+`r unhide()`
 
-- This presentation is based on R Markdown, so we can make use of the pretty printing options right here
-- By using `apa_print(model)$full_result`, we can automatically report results inside our documents:
+<br>
 
-- "In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (`r apa_print(model)$full_result |> suppressMessages()`). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (`r apa_print(bootstrapped_model)$statistic |> suppressMessages()`), which is also supported by the large effect size (`r apa_print(bootstrapped_model)$estimate |> suppressMessages()`)."
+Look for pairwise differences even if the overall ANOVA does not reach significance.
 
+`r hide("Solution pairwise comparison")`
 
+```{r tukeyex}
+TukeyHSD(model)
+```
 
+`r unhide()`
 
- 
+<br>
+
+Choose and create an appropriate visualization for this data!
+
+`r hide("Solution Data Viz")`
+
+```{r solvizanova, fig.height=4}
+ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness, 
+                    color = v12_soul_phil, fill = v12_soul_phil)) +
+  geom_boxplot(alpha = .7) + 
+  theme_minimal() + 
+  theme(legend.position = "none") +
+  labs(x = "Soul Philosophy", y = "Preferred Volume (arbitrary units)") +
+  scale_color_brewer(palette = 4) + scale_fill_brewer(palette = 4)
+```
+
+`r unhide()`
+
 ## Wrap-Up & Further Resources {-}
  
 <i class="fa-solid fa-anchor" style="color: teal;"></i>

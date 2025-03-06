@@ -191,7 +191,7 @@ In the following, you can try to create your own R project and see how to use th
 2. Download the file "mindfulness_data.Rds" from [GitHub](https://github.com/the-tave/psych_research_in_r/blob/main/data/mindfulness_data.Rds){target="_blank"} and save it in that folder.
 3. Now try to load it into your script and check whether it worked by executing this code:
 
-```{r}
+```{r mindful}
 mindful <- readRDS("./data/mindfulness_data.Rds") # relative filepath
 str(mindful)
 ```

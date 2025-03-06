@@ -20,7 +20,8 @@ library(ggplot2)
 
 In this chapter we will look into the correlation and linear regression model in R. 
 
-I will assume that you have a basic understanding of what all statistics mentioned in this book are, as they are commonly used among psychologists. However, let's start with a brief statistics re-cap to be on the same page. <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i>
+I will assume that you have a basic understanding of what all statistics mentioned in this book are, as they are commonly used among psychologists. 
+However, let's start with a brief statistics re-cap to be on the same page. <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i>
 
 Both the correlation - usually reported with Pearson's _r_ coefficient -  and the regression - also known as (general) linear model - give us measures of **association**. 
 The association can be positive (the larger x, the larger y) or negative (the larger x, the smaller y), which is reflected by the sign of the coefficient: _r = 1_ would be a perfect positive correlation and _r = -1_ would be a perfect negative correlation.
@@ -154,7 +155,7 @@ Try to formulate an interpretation as you would report it in a thesis or paper!
 
 `r hide()`
 
-```{r}
+```{r cor9}
 cor.test(seminar$v05_skill_tech, seminar$v10_motivation)
 ```
 
@@ -171,7 +172,7 @@ You can look at the explanation for those that would not work below!
 
 1. `cor(seminar$v02_age, seminar$v04_bodyheight` `r torf(FALSE)`
 2. `cor(seminar$v02_age, seminar$v08_loudness)` `r torf(TRUE)`
-3. `cor(seminar$v08_loudness, seminar$v06_loc)``r torf(FALSE)`
+3. `cor(seminar$v08_loudness, seminar$v06_loc)` `r torf(FALSE)`
     
 `r hide("Explanation")`
 
@@ -229,7 +230,7 @@ Treelm
 
 ### Analyze the model
 
-```{r}
+```{r treelm-2}
 summary(Treelm)
 ```
 
@@ -248,7 +249,7 @@ Use the `lm()` function and report the significance level of the predictor as we
 
 `r hide("Solution (code)")`
 
-```{r}
+```{r age-sess1}
 age_sess <- lm(session_length ~ v02_age, data = seminar)
 summary(age_sess)
 ```
@@ -261,7 +262,7 @@ summary(age_sess)
 
 "The age of a person does not significantly predict the time it took them to complete the survey (p = .148). The model equation is 182.7 -4.19X with age explaining about 18% of the variance in session length for the survey."
 
-```{r age-sess, fig.height=3, echo = F}
+```{r age-sess-viz, fig.height=3, echo = F}
 ggplot(seminar, aes(x = v02_age, y = session_length)) +
  geom_point(size = 3) +
  geom_smooth(method = "lm", se=FALSE, color="lightgray", linewidth = .7, formula = y ~ x) +
@@ -279,69 +280,7 @@ ggplot(seminar, aes(x = v02_age, y = session_length)) +
     - It tell us the proportion of the variation in the dependent variable that is predictable from the independent variable(s)
     - We _could_ also calculate it by hand using the `cor()` function and squaring the result
 
-## ANOVA Exercise
 
-Reminder: There are generally 3 steps to an ANOVA
-
-```{r loud-soul, eval = F}
-car::leveneTest(v08_loudness ~ v11_soul, data = seminar) # 1.
-model <- aov(v08_loudness ~ v11_soul, data = seminar) # 2.
-summary(model)
-TukeyHSD(model) # 3.
-```
-
-
-1. Check assumptions with Levene Test
-2. Build the model to perform an omnibus ANOVA
-3. Perform post-hoc tests to check pairwise differences (usually only if the omnibus ANOVA is significant)
-
-### Exercise
-
-**Does the preferred music volume depend on someone's soul philosophy?** <i class="fa-solid fa-music"></i><i class="fa-solid fa-ghost" style="color: #dcdcdc;"></i>
-
-<br>
-
-Perform an ANOVA on our seminar data to explore the question (v08 & v12). 
-
-`r hide("Solution omnibus ANOVA")`
-
-```{r}
-car::leveneTest(v08_loudness ~ v12_soul_phil, data = seminar)
-model <- aov(v08_loudness ~ v12_soul_phil, data = seminar)
-summary(model)
-```
-
-`r unhide()`
-
-<br>
-
-Look for pairwise differences even if the overall ANOVA does not reach significance.
-
-`r hide("Solution pairwise comparison")`
-
-```{r}
-TukeyHSD(model)
-```
-
-`r unhide()`
-
-<br>
-
-Choose and create an appropriate visualization for this data!
-
-`r hide("Solution Data Viz")`
-
-```{r fig.height=4}
-ggplot(seminar, aes(x = v12_soul_phil, y = v08_loudness, 
-                    color = v12_soul_phil, fill = v12_soul_phil)) +
-  geom_boxplot(alpha = .7) + 
-  theme_minimal() + 
-  theme(legend.position = "none") +
-  labs(x = "Soul Philosophy", y = "Preferred Volume (arbitrary units)") +
-  scale_color_brewer(palette = 4) + scale_fill_brewer(palette = 4)
-```
-
-`r unhide()`
 
 
 

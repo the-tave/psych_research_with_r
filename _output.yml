@@ -26,7 +26,7 @@ bookdown::gitbook:
       vk: false
       all: ["instapaper", "linkedin", "github"]
   includes:
-    # in_header: "googlee264360c3a046302.html"
+    in_header: header.html
     after_body: www/webex.js
   md_extensions: -smart
 # bookdown::epub_book: default
@@ -35,3 +35,4 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+  

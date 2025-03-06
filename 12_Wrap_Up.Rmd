@@ -276,7 +276,7 @@ Package Name | General Purpose
 ------|-----
 psych | Advanced statistical testing / modeling e.g. factor analysis
 tibble | Alternative for creating data frames
-tidyr | Clean up daata & simple reshaping
+tidyr | Clean up data & simple reshaping
 dropR | Dropout analysis (by experimental condition)
 foreign | Handling data from SPSS
 corrplot | Create correlation plots/ matrices

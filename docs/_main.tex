@@ -121,12 +121,12 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Psychological Research in R},
+  pdftitle={Psychological Research with R},
   pdfauthor={Anni Tave Overlander},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{Psychological Research in R}
+\title{Psychological Research with R}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -135,7 +135,7 @@
 \makeatother
 \subtitle{An R Intro for psychologists whose dog regularly ate their statistics homework.}
 \author{Anni Tave Overlander}
-\date{Last update: 2024-09-20}
+\date{Last update: 2025-03-06}
 
 \begin{document}
 \maketitle
@@ -159,8 +159,8 @@ This book is based on an in-person introductory R course from the \href{https://
 I tried my very best to cover all the basics on working with R from the ground up.
 Following the whole course should enable you to write your very own R Markdown report, taking full advantage of some of the most important and common features of R.
 
-\subsection*{About\ldots{}}\label{about}
-\addcontentsline{toc}{subsection}{About\ldots{}}
+\subsection*{About}\label{about}
+\addcontentsline{toc}{subsection}{About}
 
 \subsubsection*{\ldots this book}\label{this-book}
 \addcontentsline{toc}{subsubsection}{\ldots this book}
@@ -204,6 +204,12 @@ If you have no prior experience with R, the different names can get a little bit
 There is R, but there is also R Studio and the two serve different purposes in your workflow.
 So in the following I will try to make a clear distinction and guide you through the installation of both R and R Studio.
 
+\begin{figure}
+\centering
+\includegraphics{./img/R_scheme.png}
+\caption{\label{fig:scheme}R and R Studio as a schematic. R Studio is the `pretty frame' for R, which can and should be used with packages that in turn contain different functions. The `tidyverse' is included as a special teaser - it is a meta-package which has many packages that follow a similar workflow and logic.}
+\end{figure}
+
 \section{What is R? What is R Studio?}\label{what-is-r-what-is-r-studio}
 
 First of all, R is a programming language for statistical and data analysis.
@@ -217,7 +223,7 @@ The slightly tricky part is learning how to give those instructions.
 \begin{figure}
 \centering
 \includegraphics{./img/rstudio.png}
-\caption{R Studio - typical layout}
+\caption{\label{fig:rstudio}Typical layout of R Studio.}
 \end{figure}
 
 \section{Installing R and R Studio}\label{installing-r-and-r-studio}
@@ -225,7 +231,7 @@ The slightly tricky part is learning how to give those instructions.
 \begin{itemize}
 \tightlist
 \item
-  Download \& Install the newest R version 4.3.3 (2024-02-29 ucrt) at \url{https://cloud.r-project.org/}
+  Download \& Install the newest R version 4.4.2 (2024-10-31 ucrt) at \url{https://cloud.r-project.org/}
 \item
   Download and install R Studio at \url{https://posit.co/download/rstudio-desktop/}
 \end{itemize}
@@ -378,11 +384,7 @@ Luckily, many many people have developed many many packages that contain differe
 
 \section{Installing Packages}\label{installing-packages}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth,height=0.625in]{./img/hexagons.png}
-\caption{Hexagon Package logos}\label{id}
-\end{figure}
+\includegraphics{./img/hexagons.png}
 
 Most packages are available on CRAN - the Comprehensive R Archive Network.
 That being the case you can easily install the package you want to have with the command \texttt{install.packages("packagename")}.
@@ -397,6 +399,16 @@ To use this package of packages, please install the \texttt{tidyverse}, using \t
 You can test whether it works by running \texttt{iris\ \%\textgreater{}\%\ pull(Sepal.Length)\ \%\textgreater{}\%\ mean()} in your console.
 We will get to know the syntax in depth another time, but just so you know what's going on:
 This line of code takes the data set \texttt{iris}, which is included in R by default, ``pulls'' the variable \texttt{Sepal.Length} out of the data and runs the \texttt{mean()} function on it, to calculate the average sepal length, which should be 5.8433333.
+
+\subsection*{Posit Cloud}\label{posit-cloud}
+\addcontentsline{toc}{subsection}{Posit Cloud}
+
+If you would like to be able to use R with several devices or simply want to start out and see what all the fuss is about, you can use the free online version of R Studio over at \url{https://posit.cloud/}.
+There, you can do most anything that you can also do locally on your own machine, online.
+It's a great way of working with R online without any commitment.
+
+However, if you plan to really learn R or also if your teacher plans you really learn R, I would recommend following the above steps to use it your own computer.
+Some calculations or operations can require a bit more computation power that might be slower via the internet.
 
 \section*{Wrap-Up \& Further Resources}\label{wrap-up-further-resources}
 \addcontentsline{toc}{section}{Wrap-Up \& Further Resources}
@@ -656,11 +668,6 @@ Depending on the analysis you need, you can use any of these so-called ``logic o
 \CommentTok{\# [1] FALSE}
 \NormalTok{x }\SpecialCharTok{\textgreater{}=} \DecValTok{3} \CommentTok{\# greater/ equal}
 \CommentTok{\# [1] TRUE}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{x }\SpecialCharTok{==}\NormalTok{ y }\CommentTok{\# equal to}
 \CommentTok{\# [1] FALSE}
 \NormalTok{x }\SpecialCharTok{!=}\NormalTok{ y }\CommentTok{\# not equal to}
@@ -724,7 +731,7 @@ This happens when R can`t work with the command because there is something missi
 
 \textbf{Fix: Click in your console and use the \texttt{Esc} button to cancel the command. Then, look at the code you were trying to run and see if there is some closing statement such as \texttt{)} missing and try again.}
 
-\subsection*{\texorpdfstring{The pipe operator \texttt{\textbar{}\textgreater{}} or \texttt{\%\textgreater{}\%}}{The pipe operator \textbar\textgreater{} or \%\textgreater\%}}\label{pipe1}
+\subsection*{\texorpdfstring{The pipe operator \texttt{\textbar{}\textgreater{}} or \texttt{\%\textgreater{}\%}}{The pipe operator \textbar\textgreater{} or \%\textgreater\%}}\label{pipe}
 \addcontentsline{toc}{subsection}{The pipe operator \texttt{\textbar{}\textgreater{}} or \texttt{\%\textgreater{}\%}}
 
 Next to missing closing parentheses, a classic source for this behavior is the so-called pipe operator, created with either \texttt{\textbar{}\textgreater{}} (native R pipe, available since R version 4.1.0) or \texttt{\%\textgreater{}\%} (tidyverse pipe from the \texttt{magrittr} package).
@@ -894,7 +901,7 @@ You can achieve most things in many different ways - \emph{best practice} refers
 Some of the things you will read about might not make sense to you intuitively and that's ok.
 Realistically, there are some mistakes that everyone must make for themselves.
 When you do, I just want you to remember that here is some advice that you have either heard before or will read up on now to get out of the pickle you may be in!
-Maybe you would like to bookmark the \hyperref[toolbox]{toolbox} to always find an overview of nifty tips, tricks and hacks?
+Maybe you would like to bookmark the \hyperref[toolbox]{Toolbox} to always find an overview of nifty tips, tricks and hacks?
 
 \section{Naming Conventions}\label{varnames}
 
@@ -1029,11 +1036,11 @@ Solution
 
 \FunctionTok{str}\NormalTok{(scores7a); }\FunctionTok{str}\NormalTok{(scores7b)}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 20 obs. of  2 variables:}
-\CommentTok{\#  $ age: int  15 14 15 14 13 12 13 13 13 15 ...}
-\CommentTok{\#  $ iq : num  98 100 117 103 97 ...}
+\CommentTok{\#  $ age: int  15 13 12 13 14 14 13 12 13 12 ...}
+\CommentTok{\#  $ iq : num  117 113 86 77 112 ...}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 20 obs. of  2 variables:}
-\CommentTok{\#  $ age: int  13 13 14 13 12 12 14 15 12 12 ...}
-\CommentTok{\#  $ iq : num  106.5 92.8 101.5 101 96.6 ...}
+\CommentTok{\#  $ age: int  15 12 12 14 15 15 12 14 12 12 ...}
+\CommentTok{\#  $ iq : num  111.8 117.6 85.3 86.4 102.2 ...}
 
 \CommentTok{\# Add information about the class}
 \NormalTok{scores7a}\SpecialCharTok{$}\NormalTok{class }\OtherTok{\textless{}{-}} \StringTok{"7a"}
@@ -1045,8 +1052,8 @@ Solution
 \CommentTok{\# Check the overall data frame for plausibility}
 \FunctionTok{str}\NormalTok{(allscores)}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 40 obs. of  3 variables:}
-\CommentTok{\#  $ age  : int  15 14 15 14 13 12 13 13 13 15 ...}
-\CommentTok{\#  $ iq   : num  98 100 117 103 97 ...}
+\CommentTok{\#  $ age  : int  15 13 12 13 14 14 13 12 13 12 ...}
+\CommentTok{\#  $ iq   : num  117 113 86 77 112 ...}
 \CommentTok{\#  $ class: chr  "7a" "7a" "7a" "7a" ...}
 \FunctionTok{table}\NormalTok{(allscores}\SpecialCharTok{$}\NormalTok{class)}
 \CommentTok{\# }
@@ -1074,7 +1081,7 @@ Which folder is R working in - is it the one you expected?
 \end{quote}
 
 While this way of structuring your work in folders and directories is very common, it can pose some issues down the line.
-Usually, we will work with our own data files (see Chapter @ref(\#exdata)) and read them into our script to use them for analyses.
+Usually, we will work with our own data files (see Chapter \ref{exdata}) and read them into our script to use them for analyses.
 If they happen to be in a different folder than our working directory, we will need to use the complete file path to tell R where to find this data file.
 When we now ask someone else to try out the code - either because we need help or because we are handing in an assignment - they will raise an eyebrow because chances are that they do not have the specified file path available on their machine.
 
@@ -1176,9 +1183,9 @@ Make R fun and appealing to use FOR YOU!
 
 \href{https://bookdown.org/daniel_dauber_io/r4np_book/starting-your-r-projects.html}{Starting your R projects}
 
-\href{https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/}{RStudio Projects and Directories} (rather thorough)
+\href{https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/}{RStudio Projects and Directories} (rather thorough)\{target=``\_blank''\}
 
-\href{https://www.tidyverse.org/blog/2017/12/workflow-vs-script/}{Some ideas on improving your workflow} (this can seem a bit advanced, but try reading through anyway and see what sticks with you. Building good habits at the beginning of your learning journey will make your life a lot easier down the line!)
+\href{https://www.tidyverse.org/blog/2017/12/workflow-vs-script/}{Some ideas on improving your workflow} (This can seem a bit advanced, but try reading through anyway and see what sticks with you. Building good habits at the beginning of your learning journey will make your life a lot easier down the line!)
 
 \section*{Working with Version Control}\label{working-with-version-control}
 \addcontentsline{toc}{section}{Working with Version Control}
@@ -1260,8 +1267,8 @@ That is also why the definition of an ``opinionated collection of R packages'' i
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=2.08333in]{./img/hexagons.png}
-\caption{Hex Logos}
+\includegraphics{./img/hexagons.png}
+\caption{\label{fig:hexagon2}Hexagonal package logos of some common R packages.}
 \end{figure}
 
 Incidentally, I agree and I will show you why.
@@ -1310,11 +1317,11 @@ It contains information on iris flowers of different species and we will use the
 \NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{glimpse}\NormalTok{(iris)}
 \CommentTok{\# Rows: 150}
 \CommentTok{\# Columns: 5}
-\CommentTok{\# $ Sepal.Length \textless{}dbl\textgreater{} 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.8, 4.8, 4.3, 5.8, 5.7, 5.4, 5.1, 5.7, 5.1, 5.4, 5.1, 4.6, 5.1, \textasciitilde{}}
-\CommentTok{\# $ Sepal.Width  \textless{}dbl\textgreater{} 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.0, 4.0, 4.4, 3.9, 3.5, 3.8, 3.8, 3.4, 3.7, 3.6, 3.3, \textasciitilde{}}
-\CommentTok{\# $ Petal.Length \textless{}dbl\textgreater{} 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.6, 1.4, 1.1, 1.2, 1.5, 1.3, 1.4, 1.7, 1.5, 1.7, 1.5, 1.0, 1.7, \textasciitilde{}}
-\CommentTok{\# $ Petal.Width  \textless{}dbl\textgreater{} 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, \textasciitilde{}}
-\CommentTok{\# $ Species      \textless{}fct\textgreater{} setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, \textasciitilde{}}
+\CommentTok{\# $ Sepal.Length \textless{}dbl\textgreater{} 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.\textasciitilde{}}
+\CommentTok{\# $ Sepal.Width  \textless{}dbl\textgreater{} 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.\textasciitilde{}}
+\CommentTok{\# $ Petal.Length \textless{}dbl\textgreater{} 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.\textasciitilde{}}
+\CommentTok{\# $ Petal.Width  \textless{}dbl\textgreater{} 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.\textasciitilde{}}
+\CommentTok{\# $ Species      \textless{}fct\textgreater{} setosa, setosa, setosa, setosa, setosa, setosa, setosa, s\textasciitilde{}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1618,14 +1625,14 @@ Solution
 \section*{Piping Hot \%\textgreater\%}\label{piping-hot}
 \addcontentsline{toc}{section}{Piping Hot \%\textgreater\%}
 
-You already heard about the pipe operator in Section @ref(\#pipe1).
+You already heard about the pipe operator in Section \ref{pipe}.
 The pipe - available as a native R pipe \textbar\textgreater{} or a \texttt{tidyverse} pipe from the \texttt{magrittr} package \%\textgreater\%\footnote{The two pipes can pretty much the same operations - for specific differences see \url{https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/}} - takes the input from the left-hand to the right-hand.
 In simpler terms, it takes the operation you did before the pipe and uses is as input for the function after the pipe.
 This keeps our code readable and tidy and allows us to keep edits in separate lines, but we still only have to run one command for every task we need
 It's easy to add new commands by using another pipe operator, or to leave edits out but commenting out the respective line of code.
 
 It is important to say that most things can be achieved with or without pipe and you may prefer different versions for different tasks.
-You have seen a basic example of the use of the pipe operator in Section @ref(\#pipe1), so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.
+You have seen a basic example of the use of the pipe operator in Section \ref{pipe}, so now we will look at a more sophisticated example: We will perform similar operations as we did above and code them first with pipe and then without.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1753,6 +1760,8 @@ Cheatsheet: \url{https://github.com/rstudio/cheatsheets/blob/main/data-transform
 \caption{Which idiot\ldots{}}\label{id}
 \end{figure}
 
+\url{https://programmerhumor.io/debugging-memes/well-played-3/}
+
 \chapter{\texorpdfstring{Pretty plots with \texttt{ggplot2}}{Pretty plots with ggplot2}}\label{ggplot2}
 
 As you may have gathered by now, I strongly believe that learning (R) should be fun in order to motivate people to keep going.
@@ -1780,7 +1789,7 @@ We won't get too mathematical, but just know they are trigonometric angle functi
 Commonly in psychology, relation = correlation, which assumes a linear relationship.
 However, when we take a look at both the correlation between sine and cosine as well as their relationship represented visually, we might see a problem:
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-34-1.pdf}
+\includegraphics{_main_files/figure-html/exsincos-1.pdf}
 
 We can see that the two variables clearly have a certain type of relation with each other which is definitely not linear.
 But if we only reported the very very small correlation of .001, one could assume they had no relation at all!
@@ -1838,7 +1847,7 @@ called \emph{ggplot\textbf{2}} while the function call is \emph{ggplot}!
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-35-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/fbarplot-1} \end{flushleft}
 
 \subsection{Making Plots Prettier}\label{making-plots-prettier}
 
@@ -1887,7 +1896,7 @@ called \emph{ggplot\textbf{2}} while the function call is \emph{ggplot}!
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-36-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/bpcf-1} \end{flushleft}
 
 \begin{quote}
 What could cause this distribution?
@@ -1900,7 +1909,7 @@ What could cause this distribution?
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-37-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/bpcf2-1} \end{flushleft}
 
 \begin{quote}
 What do you notice about the code compared to before?
@@ -1955,7 +1964,7 @@ Make sure everything is visible and legible, so try to use an \emph{alpha} of ar
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-39-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/solxyz-1} \end{flushleft}
 
 \section{Adding labels and themes}\label{adding-labels-and-themes}
 
@@ -2018,7 +2027,7 @@ Make sure everything is visible and legible, so try to use an \emph{alpha} of ar
     We can still add color to make existing groups clearer or add a third variable
   \end{itemize}
 \item
-  For a broad overview of which visualization (and statistic) to use for which type of data, visit the \href{https://the-tave.shinyapps.io/Statistics-Picker/}{Statistics Picker} (currently only available in German)
+  For a broad overview of which visualization (and statistic) to use for which type of data, visit the \href{https://the-tave.shinyapps.io/Statistik-Picker/}{Statistics Picker} (currently only available in German)
 
   \begin{itemize}
   \tightlist
@@ -2041,7 +2050,7 @@ As suggested by one of you, we will look at the relationship of preferred music 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-40-1.pdf}
+\includegraphics{_main_files/figure-html/boxex-1.pdf}
 
 \subsection{Exercise: Boxplot}\label{exercise-boxplot}
 
@@ -2061,7 +2070,7 @@ Solution
 \end{Highlighting}
 \end{Shaded}
 
-\begin{flushleft}\includegraphics{_main_files/figure-html/unnamed-chunk-41-1} \end{flushleft}
+\begin{flushleft}\includegraphics{_main_files/figure-html/bpsol-1} \end{flushleft}
 
 \subsection{Inspiration: colors and palettes}\label{inspiration-colors-and-palettes}
 
@@ -2087,7 +2096,7 @@ Solution
   Have fun with it!
 \end{itemize}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-42-1.pdf}
+\includegraphics{_main_files/figure-html/inspo-1.pdf}
 
 \begin{quote}
 Showing plots together like this is easy with \texttt{cowplot::plot\_grid()}!
@@ -2120,13 +2129,13 @@ Color palettes are a great way of elevating a visualization
 
 \href{https://www.rdocumentation.org/packages/papaja/versions/0.1.2}{papaja}
 
+\href{https://www.data-to-viz.com/}{From Data to Viz Guide}
+
 \href{https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/}{Beautiful Plotting Guide} Very extensive, I still profit from this guide a lot :)
 
 \href{http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually}{More color palettes explained}
 
 \includegraphics{_main_files/figure-html/unikn-plot-1.pdf}
-
---\textgreater{}
 
 \part{The Nitty-Gritty}\label{part-the-nitty-gritty}
 
@@ -2226,13 +2235,13 @@ One of the reasons why i prefer this option over others is that a lot of the tim
 
 The \texttt{read\_delim()} function needs the file path to the data file as the minimum input requirement.
 There are many basic edits that can already easily be made in this function, which can also be selected in the menu.
-For example, even though ``csv'' stands for \emph{comma-separated values} these tiypes of files sometimes use a semicolon as a delimiter.
+For example, even though ``csv'' stands for \emph{comma-separated values} these types of files sometimes use a semicolon as a delimiter.
 When reading in the data, this is sometimes recognized automatically, but when the data looks a bit funky in the preview, making sure the right delimiter is selected is a solid first step.
 
 \begin{figure}
 \centering
 \includegraphics{./img/importcsv.png}
-\caption{Example of wonky-looking data in the Import Dataset Menu}
+\caption{\label{fig:wonky}Example of wonky-looking data in the Import Dataset Menu.}
 \end{figure}
 
 \subsection*{\texorpdfstring{Basic Edits }{Basic Edits }}\label{basic-edits}
@@ -2536,7 +2545,7 @@ dplyr's \texttt{group\_by()} and \texttt{summarize()} can output grouped descrip
   \item
     \textbf{if}: define action to take when condition is met (logical)
   \item
-    \textbf{else if}: defince action for another condition
+    \textbf{else if}: define action for another condition
   \item
     \textbf{else}: define action for everything else
   \end{itemize}
@@ -2704,13 +2713,12 @@ Solution
 \end{Highlighting}
 \end{Shaded}
 
-Brainteaser : What is the class() of i here?
+\begin{quote}
+Brainteaser :
+What is the class() of i here?
+\end{quote}
 
-\begin{itemize}
-\tightlist
-\item
-  character
-\end{itemize}
+character
 
 \subsection{More sophisticated}\label{more-sophisticated}
 
@@ -2729,13 +2737,12 @@ Brainteaser : What is the class() of i here?
 \end{Highlighting}
 \end{Shaded}
 
-Brainteaser : And what is the class() of i now?
+\begin{quote}
+Brainteaser :
+And what is the class() of i now?
+\end{quote}
 
-\begin{itemize}
-\tightlist
-\item
-  integer (numeric)
-\end{itemize}
+integer (numeric)
 
 \subsection{With saving values}\label{with-saving-values}
 
@@ -2830,7 +2837,8 @@ Hint: I renamed the variables to make them nicer to work with, so check out name
 
 \section{Loop with Conditional}\label{loop-with-conditional}
 
-In our seminar data, the \textbf{average body height is 167.23 cm}. We want to create a loop that goes through all rows (all seminar students) and outputs their height and whether it is above or below average.
+In our seminar data, the \textbf{average body height is 167.23 cm}.
+We want to create a loop that goes through all rows (all seminar students) and outputs their height and whether it is above or below average.
 
 What do we need for that?
 
@@ -2946,7 +2954,7 @@ Don't forget to play and create fun loops!
 
 \href{https://www.datamentor.io/r-programming/for-loop}{For loops (DataMentor)} Here are also links the the other types of loop and a visualization
 
-\href{https://www.datacamp.com/tutorial/tutorial-on-loops-in-r}{Loops in R (datacamp)}Very thorough! :)
+\href{https://www.datacamp.com/tutorial/tutorial-on-loops-in-r}{Loops in R (datacamp)} Very thorough! :)
 
 \href{https://sjspielman.github.io/datascience_for_biologists/exercises/dplyr.html}{dplyr Exercises} Great to keep practicing over the holidays :)
 
@@ -2958,23 +2966,17 @@ Don't forget to play and create fun loops!
 \caption{For Loop Meme}
 \end{figure}
 
+\url{https://medium.com/nerd-for-tech/what-are-for-loops-b7215db28e83}
+
 \chapter{Difference Statistics}\label{difference-statistics}
 
-\begin{itemize}
-\tightlist
-\item
-  Re-cap of statistics: t-test, Chi\(^2\) and ANOVA
-\item
-  Learn how to calculate in R
-\item
-  Learn how to check assumptions
-\item
-  Go over examples (inspired by your thesis analyses )
-\end{itemize}
+In this chapter, you will learn how to conduct some of the most common statistical analyses in R.
+We will start with a re-cap of the statistics to get everyone on the same page, going over why the \(\chi^2\) test, t-test and ANOVA are all in the same chapter and when to use each.
+Then I want to mention some assumptions we have to check and lastly go over some examples fueled by students' ideas who attended my seminar that this work is based on.
 
 \section{\texorpdfstring{Statistics Re-cap }{Statistics Re-cap }}\label{statistics-re-cap}
 
-What do you remember from statistics:
+Think about what do you remember from statistics and try to answer the two questions below:
 
 \begin{itemize}
 \tightlist
@@ -2984,49 +2986,59 @@ What do you remember from statistics:
   What is the t-test?
 \item
   What is an ANOVA?
-\item
-  What do they have in common \& what differentiates them?
 \end{itemize}
+
+What do they have in common?
+
+Solution
 
 They measure \emph{group differences}
 
-\begin{itemize}
-\tightlist
-\item
-  \(\chi^2\) \(\rightarrow\) nominal data
-\item
-  t-Test \(\rightarrow\) one or two \emph{groups} with a continuous attribute
-\item
-  ANOVA \(\rightarrow\) three or more groups with one (or more) continuous attribute(s)
-\end{itemize}
+What differentiates them?
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-58-1.pdf}
+Solution
+
+They are used for data of different scale levels
+
+\includegraphics{_main_files/figure-html/unnamed-chunk-26-1.pdf}
+
+These three measures all provide us information on \emph{differences} either between naturally occurring groups (e.g.~people of different genders) or between experimentally manipulated sub-samples (e.g.~treatment vs.~control group in a medical drug trial).\footnote{You will usually see the \(Chi^2\) test classified as an association statistic, which is technically more to the point. However, I like to think of it as quantifying differences between groups. After all, if you find systematic differences between groups in two given measures, that must mean that those measures are not independent, i.e.~associated with each other.}
+
+The \(\chi^2\) statistic is commonly used on nominal data, e.g.~if you want to compare proportions.
+Usually, the \(\chi^2\) test is used with two binary variables, but it also works with more categories.
+Considering the setup with the drug trials, we could check whether women and men received the drug and the placebo equally often.
+
+With the t-Test it gets a bit trickier since there is more than one variant: Depending on the situation you can use the one-sample, two-sample or paired-samples t-test.
+Generally speaking, you want to test one or two groups on a continuous attribute.
+
+In the analysis of variance \(\rightarrow\) \emph{ANOVA} you want to test three or more groups with one (or more) continuous attribute(s).
+I like to think of it as an augmentation of the t-test which takes into account some issues that we would face if we just used several t-tests in a setting with more than two groups (spoiler: It's called alpha-inflation and we do not want it).
+
+This is a very basic overview of these tests, but it should give you a reminder if you have heard this before.
+I will go over the purposes again as we look at the coding examples below.
+If you think you might need a refresher on these stats that goes a little deeper, hop on over to the \href{https://the-tave.shinyapps.io/Statistik-Picker}{Stats Picker} and to the Deep Dive tab.
+There you will find some more information on multivariate statistics and how to use them.
 
 \subsection{Pre-Requisites}\label{pre-requisites}
 
-\begin{itemize}
-\tightlist
-\item
-  Load the seminar data using
-\end{itemize}
+If you have been following along with the structure of this book, you will know what an R project is and that you were asked to create a folder called ``data'' in the according project folder in order to make the following command work to load the seminar data.
+If you just want to access the tidily cleaned data directly, you can go to \href{https://github.com/the-tave/psych_research_in_r/blob/main/data/seminar_data.Rds}{the GitHub page} and download the datafile there.
+Alternatively, there is a direct way to include data from GitHub in your script as long as you are connected to the internet, which you can find commented out below:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{seminar }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"./data/seminar\_data.Rds"}\NormalTok{)}
+
+\CommentTok{\# Access the data directly from GitHub}
+\CommentTok{\# seminar \textless{}{-} readRDS(gzcon(url("https://github.com/the{-}tave/psych\_research\_in\_r/raw/main/data/seminar\_data.Rds")))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-- Please make sure you are using the R dataset from the <br>
-zip folder in ILIAS, not the original csv file we first used!
-\end{verbatim}
+Next, we will add a so-called \emph{dummy-variable} about believeing in the soul.
+It is not called ``dummy'' because we want to judge anybody's belief, but rather because it serves as a stand-in for a more complex variable, just like a test dummy is a stand-in for a real person.\footnote{For more in-depth information on dummy variables you can visit: \url{https://stats.oarc.ucla.edu/wp-content/uploads/2016/02/p046.pdf}.}
 
-\begin{itemize}
-\tightlist
-\item
-  Add a ``dummy variable'' (only two possible values 0 and 1)
-  for believing in a soul, where 1 means \emph{yes} and 0 means \emph{no or unsure}
-\end{itemize}
+Here, we basically want to create a dummy variable for believing in the soul where we summarize all those who said they don't know or they definitely don't believe into one category that we can later contrast with all those who said they do believe.
+So in the new variable, 1 means \emph{yes} and 0 means \emph{no or unsure}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3034,34 +3046,22 @@ zip folder in ILIAS, not the original csv file we first used!
 \end{Highlighting}
 \end{Shaded}
 
+\subsection{Statistical Significnace}\label{statistical-significnace}
+
+In parametric statistics (which is the most common/basic kind), we make our test decision based on the distribution of out given test statistic.
+This is because for any test statistic that we can calculate, we can make a prediction about its \textbf{distribution} if the true value were zero, i.e.~no effect.
+We would expected most values to fall in a certain range and if we find an empirical value (based on our data) that falls beyond that range, we conclude that it is so unlikely to find a value that extreme if we actually assume that range to be surrounding the true value.
+We then conclude statistical significance because the empirical value of the test statistic is significantly different to the theoretical value distribution we would have if there were no true effect.
+
+This measure of ``how unlikely is our empirical value'' is reflected in the \textbf{p-value}.
+Commonly, we accept a threshold of \(\alpha = .05\) as sufficiently unlikely.
+It means that we would theoretically expect a value that extreme or more extreme in only 5\% of all cases.
+
 \section{\texorpdfstring{\(\chi^2\)}{\textbackslash chi\^{}2}}\label{chi2}
 
-\begin{itemize}
-\tightlist
-\item
-  \(\chi^2\) Test for Independence: Determines if there is an association between \textbf{two categorical variables} in a contingency table
-
-  \begin{itemize}
-  \tightlist
-  \item
-    compares the observed frequencies in each category of a contingency table to the frequencies expected if the variables were independent
-  \end{itemize}
-\end{itemize}
-
-\includegraphics{./img/chidist.png}k
-
-\subsection{Calculation:}\label{calculation}
-
-\begin{itemize}
-\item
-  \[\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}\]
-\item
-  \(O_i\) is the observed frequency in each category
-\item
-  \(E_i\) is the expected frequency in each category, calculated as: \[E_i = \frac{(row \ total) \times (column \ total)}{grand \ total}\]
-\item
-  Example: Believing in the soul by gender
-\end{itemize}
+The \(\chi^2\) Test for Independence determines if there is an association between \textbf{two categorical variables} in a contingency table.
+To do so, it compares the observed frequencies in each category of that contingency table to the frequencies expected if the variables were independent.
+For example, if there were no association (i.e.~\emph{statistical independence}) between gender and believing in the soul, then the proportion of men and women who believe in a soul should be about equal.
 
 \begin{verbatim}
 #        
@@ -3071,25 +3071,37 @@ zip folder in ILIAS, not the original csv file we first used!
 #   Sum    7  6  13
 \end{verbatim}
 
+The test statistic \(\chi^2\) is calculated as follows:
+
+\[\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}\]
+
+where
+- \(O_i\) is the observed frequency in each category
+- \(E_i\) is the expected frequency in each category, calculated as: \[E_i = \frac{(row \ total) \times (column \ total)}{grand \ total}\]
+
+The distribution of \(\chi^2\) depends on the number of categories k or more precisely, the degrees of freedom, df.
+In a scenario where we have just one variable and we want to test empirical frequencies to expected ones, k is equal to the number of categories and df = k-1.
+If we have two variables and we want to test their association as described above, k is not really relevant here and we focus on the degrees of freedom, calculated as df = (\#rows - 1)x(\#columns - 1).
+
+\begin{figure}
+\centering
+\includegraphics{./img/chidist.png}
+\caption{Chi squared distribution}
+\end{figure}
+
 \subsection{How to in R}\label{how-to-in-r}
 
-\begin{itemize}
-\tightlist
-\item
-  The \texttt{chisq.test()} function only needs (categorical!) \emph{x, y} as input
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Especially with a small sample, we can add the parameter \emph{simulate.p.value = T}, which bootstraps the analysis 2000 times
-  \end{itemize}
-\end{itemize}
+In R, you calculated the \(Chi^2\) test using the function \texttt{chisq.test()}, which only needs (categorical!) \emph{x, y} as input.
+Here, we will look at the previous example of gender and soul belief and therefore add those two variables.
+The function allows some other inputs as you can see in the example.
+Especially with a small sample, we can add the input \emph{simulate.p.value = T}, which bootstraps the analysis 2000 times to better estimate an accurate p-value.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{chisq.test}\NormalTok{(seminar}\SpecialCharTok{$}\NormalTok{v01\_gender, seminar}\SpecialCharTok{$}\NormalTok{soul\_dummy, }\AttributeTok{simulate.p.value =}\NormalTok{ T)}
 \CommentTok{\# }
-\CommentTok{\#   Pearson\textquotesingle{}s Chi{-}squared test with simulated p{-}value (based on 2000 replicates)}
+\CommentTok{\#   Pearson\textquotesingle{}s Chi{-}squared test with simulated p{-}value (based on 2000}
+\CommentTok{\#   replicates)}
 \CommentTok{\# }
 \CommentTok{\# data:  seminar$v01\_gender and seminar$soul\_dummy}
 \CommentTok{\# X{-}squared = 0.014069, df = NA, p{-}value = 1}
@@ -3107,7 +3119,8 @@ Solution
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{chisq.test}\NormalTok{(seminar}\SpecialCharTok{$}\NormalTok{v07\_genre, seminar}\SpecialCharTok{$}\NormalTok{soul\_dummy)}
-\CommentTok{\# Warning in chisq.test(seminar$v07\_genre, seminar$soul\_dummy): Chi{-}squared approximation may be incorrect}
+\CommentTok{\# Warning in chisq.test(seminar$v07\_genre, seminar$soul\_dummy): Chi{-}squared}
+\CommentTok{\# approximation may be incorrect}
 \CommentTok{\# }
 \CommentTok{\#   Pearson\textquotesingle{}s Chi{-}squared test}
 \CommentTok{\# }
@@ -3162,9 +3175,12 @@ How would you interpret this result?
 
 \section{t-Test}\label{t-test}
 
+As I've mentioned before, there is not really \emph{the one} t-test to rule them all.
+Instead, the t-statistic which the t-tests are built around is calculated slightly differently depending on the actual situation.
+There are three categories of t-test:
+
 \begin{itemize}
-\item
-  There are 3 broad categories of t-test:
+\tightlist
 \item
   \textbf{one-sample} t-test:
 
@@ -3193,19 +3209,9 @@ How would you interpret this result?
 
 \subsection{\texorpdfstring{Test statistic \emph{t}}{Test statistic t}}\label{test-statistic-t}
 
-\begin{itemize}
-\tightlist
-\item
-  Test statistic T has a known distribution that depends on the \textbf{degrees of freedom}, calculated as n-1
-\item
-  Most (probable) T values are around 0
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The further away the T value is from 0, the less likely it is caused by chance alone \(\rightarrow\) \emph{significance}
-  \end{itemize}
-\end{itemize}
+The Test statistic T has a known distribution that depends on the \textbf{degrees of freedom df}, calculated as n-1.
+It is similar to what we saw with the \(\chi^2\) distribution but the t-distribution looks a lot more like the normal distribution.
+Most (probable or to be expected) T values are around 0, so te further away or \emph{more extreme} the T value is from 0, the less likely it is caused by chance alone. \(\rightarrow\) \emph{significance}
 
 \begin{figure}
 \centering
@@ -3213,7 +3219,7 @@ How would you interpret this result?
 \caption{T distribution}
 \end{figure}
 
-\subsection{\texorpdfstring{Test statistic \emph{t}}{Test statistic t}}\label{test-statistic-t-1}
+It is calculated as follows:
 
 \begin{itemize}
 \item
@@ -3267,7 +3273,7 @@ How would you interpret this result?
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Two sided using formula \textasciitilde{} }
+\textbf{Two sided using formula notation with the \textasciitilde{} tilde}
 
 Does seminar motivation differ depending on the soul-belief of students?
 
@@ -3492,7 +3498,6 @@ How would you interpret this result?
   Interpretation?
 
   \begin{itemize}
-  \tightlist
   \item
     There are no significant pairwise differences in our (small) sample.
   \item
@@ -3532,55 +3537,101 @@ How would you interpret this result?
 \end{Highlighting}
 \end{Shaded}
 
-\section{\texorpdfstring{Reporting with the \texttt{apa} \& \texttt{papaja} packages}{Reporting with the apa \& papaja packages}}\label{reporting-with-the-apa-papaja-packages}
+Try to formulate a full interpretation of both the original as well as the bootstrapped data!
+You can look at a suggestion below after you are done.
 
-\begin{itemize}
-\tightlist
-\item
-  You know the \texttt{papaja} package already for \texttt{theme\_apa()} in data visualization
-\item
-  The package also has many wrapper functions to make reporting in R \& R Markdown a lot easier
+Solution
 
-  \begin{itemize}
-  \tightlist
-  \item
-    ``apa\_print()''
-  \item
-    Chi\(^2\) Test reporting cannot be achieved with this, so we use apa::chisq\_apa() for that
-  \end{itemize}
-\end{itemize}
+``In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (\(F(2, 10) = 2.56\), \(\mathit{MSE} = 120.80\), \(p = .126\), \(\hat{\eta}^2_G = .339\)). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (\(F(2, 127) = 47.76\), \(\mathit{MSE} = 76.90\), \(p < .001\)), which is also supported by the large effect size (\(\hat{\eta}^2_G = .429\)).''
 
-\subsection{Usage}\label{usage}
+\subsection{ANOVA Exercise}\label{anova-exercise}
+
+Reminder: There are generally 3 steps to an ANOVA
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Chi (add format = "rmarkdown" if needed)}
-\NormalTok{apa}\SpecialCharTok{::}\FunctionTok{chisq\_apa}\NormalTok{(}\FunctionTok{chisq.test}\NormalTok{(seminar}\SpecialCharTok{$}\NormalTok{v07\_genre, seminar}\SpecialCharTok{$}\NormalTok{soul\_dummy))}
-\CommentTok{\# Warning in chisq.test(seminar$v07\_genre, seminar$soul\_dummy): Chi{-}squared approximation may be incorrect}
-\CommentTok{\# chi\^{}2(2) = 2.14, p = .344}
-
-\CommentTok{\# t{-}test}
-\NormalTok{papaja}\SpecialCharTok{::}\FunctionTok{apa\_print}\NormalTok{(}\FunctionTok{t.test}\NormalTok{(v05\_skill\_tech }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v01\_gender, }\AttributeTok{data =}\NormalTok{ seminar, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{))}\SpecialCharTok{$}\NormalTok{full\_result}
-\CommentTok{\# [1] "$\textbackslash{}\textbackslash{}Delta M = 10.50$, 95\textbackslash{}\textbackslash{}\% CI $[{-}109.56, \textbackslash{}\textbackslash{}infty]$, $t(1.28) = 0.39$, $p = .377$"}
-
-\CommentTok{\# ANOVA}
-\NormalTok{papaja}\SpecialCharTok{::}\FunctionTok{apa\_print}\NormalTok{(model)}\SpecialCharTok{$}\NormalTok{full\_result }\SpecialCharTok{|\textgreater{}} \FunctionTok{suppressMessages}\NormalTok{()}
-\CommentTok{\# $as\_factorv07\_genre}
-\CommentTok{\# [1] "$F(2, 10) = 2.56$, $p = .126$, $\textbackslash{}\textbackslash{}hat\{\textbackslash{}\textbackslash{}eta\}\^{}2\_G = .339$, 90\textbackslash{}\textbackslash{}\% CI $[.000, .602]$"}
-\CommentTok{\# suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us "For one{-}way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.""}
+\NormalTok{car}\SpecialCharTok{::}\FunctionTok{leveneTest}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v11\_soul, }\AttributeTok{data =}\NormalTok{ seminar) }\CommentTok{\# 1.}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v11\_soul, }\AttributeTok{data =}\NormalTok{ seminar) }\CommentTok{\# 2.}
+\FunctionTok{summary}\NormalTok{(model)}
+\FunctionTok{TukeyHSD}\NormalTok{(model) }\CommentTok{\# 3.}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Usage in R Markdown}\label{usage-in-r-markdown}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Check assumptions with Levene Test
+\item
+  Build the model to perform an omnibus ANOVA
+\item
+  Perform post-hoc tests to check pairwise differences (usually only if the omnibus ANOVA is significant)
+\end{enumerate}
 
-\begin{itemize}
-\item
-  This presentation is based on R Markdown, so we can make use of the pretty printing options right here
-\item
-  By using \texttt{apa\_print(model)\$full\_result}, we can automatically report results inside our documents:
-\item
-  ``In our sample, ANOVA showed no significant differences between preferred music genre and preferred volume of listening to music (\(F(2, 10) = 2.56\), \(p = .126\), \(\hat{\eta}^2_G = .339\), 90\% CI \([.000, .602]\)). However, bootstrapping with 10 repetitions suggests that this lack of evidence might be due to the small sample size (\(F(2, 127) = 47.76\), \(p < .001\)), which is also supported by the large effect size (\(\hat{\eta}^2_G = .429\), 90\% CI \([.322, .516]\)).''
-\end{itemize}
+\subsection{Exercise}\label{exercise-5}
+
+\textbf{Does the preferred music volume depend on someone's soul philosophy?}
+
+Perform an ANOVA on our seminar data to explore the question (v08 \& v12).
+
+Solution omnibus ANOVA
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{car}\SpecialCharTok{::}\FunctionTok{leveneTest}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v12\_soul\_phil, }\AttributeTok{data =}\NormalTok{ seminar)}
+\CommentTok{\# Warning in leveneTest.default(y = y, group = group, ...): group coerced to}
+\CommentTok{\# factor.}
+\CommentTok{\# Levene\textquotesingle{}s Test for Homogeneity of Variance (center = median)}
+\CommentTok{\#       Df F value Pr(\textgreater{}F)}
+\CommentTok{\# group  2  0.3112 0.7394}
+\CommentTok{\#       10}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v12\_soul\_phil, }\AttributeTok{data =}\NormalTok{ seminar)}
+\FunctionTok{summary}\NormalTok{(model)}
+\CommentTok{\#               Df Sum Sq Mean Sq F value  Pr(\textgreater{}F)   }
+\CommentTok{\# v12\_soul\_phil  2 1164.8   582.4   8.797 0.00625 **}
+\CommentTok{\# Residuals     10  662.1    66.2                   }
+\CommentTok{\# {-}{-}{-}}
+\CommentTok{\# Signif. codes:  0 \textquotesingle{}***\textquotesingle{} 0.001 \textquotesingle{}**\textquotesingle{} 0.01 \textquotesingle{}*\textquotesingle{} 0.05 \textquotesingle{}.\textquotesingle{} 0.1 \textquotesingle{} \textquotesingle{} 1}
+\end{Highlighting}
+\end{Shaded}
+
+Look for pairwise differences even if the overall ANOVA does not reach significance.
+
+Solution pairwise comparison
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{TukeyHSD}\NormalTok{(model)}
+\CommentTok{\#   Tukey multiple comparisons of means}
+\CommentTok{\#     95\% family{-}wise confidence level}
+\CommentTok{\# }
+\CommentTok{\# Fit: aov(formula = v08\_loudness \textasciitilde{} v12\_soul\_phil, data = seminar)}
+\CommentTok{\# }
+\CommentTok{\# $v12\_soul\_phil}
+\CommentTok{\#                      diff        lwr       upr     p adj}
+\CommentTok{\# dunno{-}dualism    9.714286  {-}5.678116 25.106687 0.2419042}
+\CommentTok{\# monism{-}dualism {-}13.666667 {-}31.879202  4.545868 0.1490289}
+\CommentTok{\# monism{-}dunno   {-}23.380952 {-}38.773354 {-}7.988551 0.0049965}
+\end{Highlighting}
+\end{Shaded}
+
+Choose and create an appropriate visualization for this data!
+
+Solution Data Viz
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(seminar, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ v12\_soul\_phil, }\AttributeTok{y =}\NormalTok{ v08\_loudness, }
+                    \AttributeTok{color =}\NormalTok{ v12\_soul\_phil, }\AttributeTok{fill =}\NormalTok{ v12\_soul\_phil)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{7}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Soul Philosophy"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Preferred Volume (arbitrary units)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_brewer}\NormalTok{(}\AttributeTok{palette =} \DecValTok{4}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-html/solvizanova-1.pdf}
 
 \section*{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-6}
 \addcontentsline{toc}{section}{Wrap-Up \& Further Resources}
@@ -3597,7 +3648,7 @@ Always try to imagine/ keep in mind what you might expect and \emph{what the dat
 
 Read the documentation of each function for more options
 
-\href{https://the-tave.shinyapps.io/Statistics-Picker/}{Statistics Picker}
+\href{https://the-tave.shinyapps.io/Statistik-Picker/}{Statistics Picker}
 
 \href{https://www.statology.org/chi-square-test-of-independence-in-r/}{Chi2-test (Statology)}
 
@@ -3613,11 +3664,14 @@ Read the documentation of each function for more options
 \caption{Cute ANOVA curves}
 \end{figure}
 
+\url{https://www.pinterest.de/pin/59180182590147005/}
+
 \chapter{Association Statistics}\label{association-statistics}
 
 In this chapter we will look into the correlation and linear regression model in R.
 
-I will assume that you have a basic understanding of what all statistics mentioned in this book are, as they are commonly used among psychologists. However, let's start with a brief statistics re-cap to be on the same page.
+I will assume that you have a basic understanding of what all statistics mentioned in this book are, as they are commonly used among psychologists.
+However, let's start with a brief statistics re-cap to be on the same page.
 
 Both the correlation - usually reported with Pearson's \emph{r} coefficient - and the regression - also known as (general) linear model - give us measures of \textbf{association}.
 The association can be positive (the larger x, the larger y) or negative (the larger x, the smaller y), which is reflected by the sign of the coefficient: \emph{r = 1} would be a perfect positive correlation and \emph{r = -1} would be a perfect negative correlation.
@@ -3632,62 +3686,27 @@ However, in the regression model we can check whether Y changes on the basis of 
 \caption{\label{fig:tree-age}Age and circumference of orange trees shown in a scatterplot. We can see that there seems to be a positive relationship between the two measures: The older the tree, the larger the circumference.}
 \end{figure}
 
-\subsection{Pre-Requisites}\label{pre-requisites-1}
-
-\begin{itemize}
-\tightlist
-\item
-  Load the seminar data using
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Please make sure you are using the R dataset from the
-    zip folder in ILIAS, not the original csv file we first used!
-  \end{itemize}
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{seminar }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"./data/seminar\_data.Rds"}\NormalTok{) }\CommentTok{\# the filepath might need adjustment for you}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  Some of you were having trouble loading the data - please repeat the different types of data in R and the different commands used to load them! (from week 6)
-\item
-  \textbf{Who is having trouble opening the slides as HTML?}
-\end{itemize}
-
 \section{Correlation}\label{correlation}
 
+The pearson correlation coefficient \emph{r} measures \textbf{association between two numeric variables}.
+The variables need to
+
 \begin{itemize}
 \tightlist
 \item
-  The pearson correlation coefficient r measures association between two numeric variables
+  be \emph{continuous} \& interval-scaled
 \item
-  The variables need to
-
-  \begin{itemize}
-  \tightlist
-  \item
-    be \emph{continuous} \& interval-scaled
-  \item
-    be \emph{normally distributed} \& should have \emph{no outliers}
-  \item
-    have a \emph{linear relationship}
-  \end{itemize}
+  be \emph{normally distributed} \& should have \emph{no outliers}
 \item
-  Its range is from -1 to 1
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The closer to 0, the weaker the correlation
-  \end{itemize}
+  have a \emph{linear relationship}.
 \end{itemize}
+
+Its range is from -1 to 1 which would mean a perfect negative or positive association, respectively.
+The closer \emph{r} is to 0, the weaker the correlation.
+
+Since there will usually be some variation and noise in the data, I believe it makes sense to get a feeling for what different associations might look like.
+So, you can play a game of ``guess the correlation'': Look at the four plots below and guess for each how strong the correlation could be be!
+Remember - a \textbf{positive} correlation means ``\textbf{the more X, the more Y}'' and a \textbf{negative} correlation means ``\textbf{the more X, the less Y}''.
 
 \subsection{Guess the correlation!}\label{guess-the-correlation}
 
@@ -3782,7 +3801,7 @@ r1 = 0.3, r2 = -0.2, r3 = 0.8, r4 = -0.75
 \end{Shaded}
 \end{itemize}
 
-\subsection{Exercise}\label{exercise-5}
+\subsection{Exercise}\label{exercise-6}
 
 Is technology skill associated with seminar motivation?
 
@@ -3826,7 +3845,7 @@ You can look at the explanation for those that would not work below!
 \item
   \texttt{cor(seminar\$v02\_age,\ seminar\$v08\_loudness)} TRUE / FALSE
 \item
-  \texttt{cor(seminar\$v08\_loudness,\ seminar\$v06\_loc)}TRUE / FALSE
+  \texttt{cor(seminar\$v08\_loudness,\ seminar\$v06\_loc)} TRUE / FALSE
 \end{enumerate}
 
 Explanation
@@ -4003,7 +4022,7 @@ What could be problematic here?
   \end{itemize}
 \end{itemize}
 
-\subsection{\texorpdfstring{Exercise }{Exercise  }}\label{exercise-6}
+\subsection{\texorpdfstring{Exercise }{Exercise  }}\label{exercise-7}
 
 Does the age of a person have an influence on how long they took to complete the seminar survey (session length)?
 
@@ -4040,7 +4059,7 @@ Solution (interpretation)
 
 ``The age of a person does not significantly predict the time it took them to complete the survey (p = .148). The model equation is 182.7 -4.19X with age explaining about 18\% of the variance in session length for the survey.''
 
-\includegraphics{_main_files/figure-html/age-sess-1.pdf}
+\includegraphics{_main_files/figure-html/age-sess-viz-1.pdf}
 
 \subsection{A word to the wise}\label{a-word-to-the-wise}
 
@@ -4063,94 +4082,6 @@ Solution (interpretation)
     We \emph{could} also calculate it by hand using the \texttt{cor()} function and squaring the result
   \end{itemize}
 \end{itemize}
-
-\section{ANOVA Exercise}\label{anova-exercise}
-
-Reminder: There are generally 3 steps to an ANOVA
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{car}\SpecialCharTok{::}\FunctionTok{leveneTest}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v11\_soul, }\AttributeTok{data =}\NormalTok{ seminar) }\CommentTok{\# 1.}
-\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v11\_soul, }\AttributeTok{data =}\NormalTok{ seminar) }\CommentTok{\# 2.}
-\FunctionTok{summary}\NormalTok{(model)}
-\FunctionTok{TukeyHSD}\NormalTok{(model) }\CommentTok{\# 3.}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Check assumptions with Levene Test
-\item
-  Build the model to perform an omnibus ANOVA
-\item
-  Perform post-hoc tests to check pairwise differences (usually only if the omnibus ANOVA is significant)
-\end{enumerate}
-
-\subsection{Exercise}\label{exercise-7}
-
-\textbf{Does the preferred music volume depend on someone's soul philosophy?}
-
-Perform an ANOVA on our seminar data to explore the question (v08 \& v12).
-
-Solution omnibus ANOVA
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{car}\SpecialCharTok{::}\FunctionTok{leveneTest}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v12\_soul\_phil, }\AttributeTok{data =}\NormalTok{ seminar)}
-\CommentTok{\# Warning in leveneTest.default(y = y, group = group, ...): group coerced to factor.}
-\CommentTok{\# Levene\textquotesingle{}s Test for Homogeneity of Variance (center = median)}
-\CommentTok{\#       Df F value Pr(\textgreater{}F)}
-\CommentTok{\# group  2  0.3112 0.7394}
-\CommentTok{\#       10}
-\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v12\_soul\_phil, }\AttributeTok{data =}\NormalTok{ seminar)}
-\FunctionTok{summary}\NormalTok{(model)}
-\CommentTok{\#               Df Sum Sq Mean Sq F value  Pr(\textgreater{}F)   }
-\CommentTok{\# v12\_soul\_phil  2 1164.8   582.4   8.797 0.00625 **}
-\CommentTok{\# Residuals     10  662.1    66.2                   }
-\CommentTok{\# {-}{-}{-}}
-\CommentTok{\# Signif. codes:  0 \textquotesingle{}***\textquotesingle{} 0.001 \textquotesingle{}**\textquotesingle{} 0.01 \textquotesingle{}*\textquotesingle{} 0.05 \textquotesingle{}.\textquotesingle{} 0.1 \textquotesingle{} \textquotesingle{} 1}
-\end{Highlighting}
-\end{Shaded}
-
-Look for pairwise differences even if the overall ANOVA does not reach significance.
-
-Solution pairwise comparison
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{TukeyHSD}\NormalTok{(model)}
-\CommentTok{\#   Tukey multiple comparisons of means}
-\CommentTok{\#     95\% family{-}wise confidence level}
-\CommentTok{\# }
-\CommentTok{\# Fit: aov(formula = v08\_loudness \textasciitilde{} v12\_soul\_phil, data = seminar)}
-\CommentTok{\# }
-\CommentTok{\# $v12\_soul\_phil}
-\CommentTok{\#                      diff        lwr       upr     p adj}
-\CommentTok{\# dunno{-}dualism    9.714286  {-}5.678116 25.106687 0.2419042}
-\CommentTok{\# monism{-}dualism {-}13.666667 {-}31.879202  4.545868 0.1490289}
-\CommentTok{\# monism{-}dunno   {-}23.380952 {-}38.773354 {-}7.988551 0.0049965}
-\end{Highlighting}
-\end{Shaded}
-
-Choose and create an appropriate visualization for this data!
-
-Solution Data Viz
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(seminar, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ v12\_soul\_phil, }\AttributeTok{y =}\NormalTok{ v08\_loudness, }
-                    \AttributeTok{color =}\NormalTok{ v12\_soul\_phil, }\AttributeTok{fill =}\NormalTok{ v12\_soul\_phil)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{7}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Soul Philosophy"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Preferred Volume (arbitrary units)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_brewer}\NormalTok{(}\AttributeTok{palette =} \DecValTok{4}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-html/unnamed-chunk-78-1.pdf}
 
 \section*{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-7}
 \addcontentsline{toc}{section}{Wrap-Up \& Further Resources}
@@ -4191,12 +4122,10 @@ In this last part we will learn one of the most nifty features of R, which is be
 Because creating visualizations and statistics in R is great, but we need to able to show and report our work.
 Of course, results can be copied and plots can be exported, but the more steps one needs to take, the more prone to error the work becomes. When you write a report with this feature, analyses and plots can be embedded directly into the document.
 Basically, R Markdown is a text engine based on LaTeX that allows you to create documents, presentations, reports and much more.
-As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot below!
+As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot Figure \ref{fig:maexample} below!
 
 \begin{figure}
-\centering
-\includegraphics[width=\textwidth,height=2.60417in]{./img/MArmdex.png}
-\caption{\emph{\textbf{Example Screenshot of a Thesis written in R Markdown}}}
+\includegraphics[height=0.6\textheight]{./img/MArmdex} \caption{Example Screenshot of a Thesis written in R Markdown.}\label{fig:maexample}
 \end{figure}
 
 \includegraphics[width=\textwidth,height=1.77083in]{./img/rmd-click.png}
@@ -4261,13 +4190,17 @@ The YAML header needs to be indented in a certain way, otheriwse the commands ar
 As you can see above, the YAML header is surrounded by three minus signs --- and has quite specific formatting.
 Setting values like title and author are similar to assigning strings to variables - they have to be put in quotes.
 One exception to this rule can be seen in the subtitle, which starts with a vertical rule \textbar{} - if that is the case, you can define very long text without the quotes and even control the exact format and line break.
-Another nifty feature is being able to use inline R Code, to e.g.~insert today's date automatically with ` r Sys.Date()`.
+Another nifty feature is being able to use inline R Code, to e.g.~insert today's date automatically with ` Sys.Date()`.
 
 For the output, it is important to stick with this type of indentation, where every setting belonging to the document command is indented further than the document definition.
 
 \begin{quote}
 In the YAML header, \texttt{true} and \texttt{false} are not capitalized, unlike in the rest of R!
 \end{quote}
+
+For different types of output there are some different features that may be stylish or useful.
+For example, in HTML you can format the table of contents to float with \textbf{toc\_float: true}.
+In a pdf document, this option would not make sense so it will not work.
 
 \section{Markdown Basics}\label{markdown-basics}
 
@@ -4498,211 +4431,6 @@ Remember these tags should only be used when creating a html document!
 \end{Highlighting}
 \end{Shaded}
 
-\section*{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-8}
-\addcontentsline{toc}{section}{Wrap-Up \& Further Resources}
-
-RMarkdown allows you to create professional documents
-
-You can use it like other text-generating programs (e.g.~MS Word)
-
-Embed plots, code and statistical results directly in your document
-
-Show equations and use other special features
-
-\href{https://www.youtube.com/watch?v=asHhuHRxhvo&ab_channel=EquitableEquations/}{YouTube: What is R Markdown?}
-
-\href{https://wch.github.io/latexsheet/}{LaTeX Cheatsheet}
-
-\href{https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf}{HTML Cheatsheet}
-
-\href{https://bookdown.org/yihui/rmarkdown-cookbook/}{RMarkdown Cookbook}
-
-\href{https://yihui.org/knitr/options/}{RMarkdown Chunk Options}
-
-\href{https://www.youtube.com/watch?v=01KifhHDkFk&ab_channel=EquitableEquations}{YouTube: Presentations with Quarto}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth,height=5.72917in]{img/shakespeare.jpg}
-\caption{Shakespeare writing RMarkdown (AI generated using the \href{https://www.bing.com/images/create}{bing image creator})}
-\end{figure}
-
-\chapter{The Power of R \& R Markdown}\label{the-power-of-r-r-markdown}
-
-\begin{figure}
-\centering
-\includegraphics{./img/papaja.png}
-\caption{Happy Papaya Logo}
-\end{figure}
-
-\section{Quiz - Rmd specific}\label{quiz---rmd-specific}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  What do I need to do to make my text \textbf{\emph{look like this}}?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    **\_look like this\_**
-  \end{itemize}
-\item
-  I want to add a subtitle to my document, where might I do that?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Add `subtitle: ``A great subtitle''\,' to the \textbf{YAML header}
-  \end{itemize}
-\item
-  How do I generate a section header in my document?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    With the pound sign \# Header
-  \end{itemize}
-\item
-  Oh no, my header isn't showing up right! What could have happened?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    There needs to be a space between the \# and the header
-  \end{itemize}
-\end{enumerate}
-
-\subsection{Quiz - general R}\label{quiz---general-r}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  What package contains the functions \texttt{select,\ filter\ \&\ mutate}?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{dplyr} (or \texttt{tidyverse})
-  \end{itemize}
-\item
-  Assume I have created some R project and I read a file with the following command - what does this tell you about the folder on my computer?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{greatdata }\OtherTok{\textless{}{-}}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{read\_csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"./data/somefile.CSV"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The folder containing the R project contains a subfolder called ``data'' and in there is a CSV file called ``somefile.csv''.
-  \end{itemize}
-\end{enumerate}
-
-\subsection{Quiz - general R}\label{quiz---general-r-1}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  I want to load a csv file into R with \texttt{readRDS()}. Why isn't it working?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The read commands are specific to the file format. readRDS() is for R files, read.csv() or readr::read\_csv() are needed for csv files
-  \end{itemize}
-\item
-  What do you know when you look at the command \texttt{bigfive\$extraversion}?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    There is a data set called \texttt{bigfive} and we're accessing a variable called \texttt{extraversion}
-  \end{itemize}
-\end{enumerate}
-
-\subsection{Quiz - general R}\label{quiz---general-r-2}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{4}
-\item
-  What keywords for loops and conditionals do you remember?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{for, while, if, else, ifelse}\ldots{}
-  \end{itemize}
-\item
-  I want to calculate a t-test on soul-belief (yes or no) and age in our seminar data. Why won't this command work?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{t.test}\NormalTok{(v02\_age, soul\_dummy, }\AttributeTok{data =}\NormalTok{ seminar)}
-\end{Highlighting}
-\end{Shaded}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    When we have a grouping variable like soul\_dummy, we need to use formula notation: \texttt{v02\_age\ \textasciitilde{}\ soul\_dummy}
-  \end{itemize}
-\end{enumerate}
-
-\section{Back to Rmd: Last session}\label{back-to-rmd-last-session}
-
-\begin{itemize}
-\tightlist
-\item
-  First off: the option of formatting the table of contents to float in html is \textbf{toc\_float: true}
-\item
-  Create Rmd: \includegraphics[width=\textwidth,height=1.04167in]{./img/rmd-click.png} or File \textgreater{} New File \textgreater{} R Markdown
-\item
-  \textbf{YAML header} defines format of the document as well as key info such as title, date, etc.
-\item
-  Text formatting:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{italics} with \_italics\_
-  \item
-    \textbf{bold} with **bold**
-  \item
-    Unordered lists are created with -
-  \item
-    Ordered lists with 1., 2. \ldots{}
-  \end{itemize}
-\end{itemize}
-
-\subsection{Last session}\label{last-session}
-
-\begin{itemize}
-\tightlist
-\item
-  Code chunks are inserted via the menu Code \textgreater{} Insert Chunk and should look like this:
-\item
-  ```\{r\}
-  \# \emph{code goes here}
-  ```
-
-  \begin{itemize}
-  \tightlist
-  \item
-    keyboard shortcut ctrl + alt + i / command + option + i
-  \item
-    Chunk options can specify how to treat code, e.g.~\texttt{echo\ =\ FALSE} only shows output but does not ``echo'' the actual code
-  \end{itemize}
-\item
-  Indentation and spacing is very important! In the text, it is better to add more. In the YAML header, it may not be recognized properly with improper spacing
-\end{itemize}
-
 \subsection{Including Links \& Images}\label{including-links-images}
 
 \begin{itemize}
@@ -4776,6 +4504,116 @@ Show equations and use other special features
   \end{itemize}
 \end{itemize}
 
+\section*{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-8}
+\addcontentsline{toc}{section}{Wrap-Up \& Further Resources}
+
+RMarkdown allows you to create professional documents
+
+You can use it like other text-generating programs (e.g.~MS Word)
+
+Embed plots, code and statistical results directly in your document
+
+Show equations and use other special features
+
+\href{https://www.youtube.com/watch?v=asHhuHRxhvo&ab_channel=EquitableEquations/}{YouTube: What is R Markdown?}
+
+\href{https://wch.github.io/latexsheet/}{LaTeX Cheatsheet}
+
+\href{https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf}{HTML Cheatsheet}
+
+\href{https://bookdown.org/yihui/rmarkdown-cookbook/}{RMarkdown Cookbook}
+
+\href{https://yihui.org/knitr/options/}{RMarkdown Chunk Options}
+
+\href{https://www.youtube.com/watch?v=01KifhHDkFk&ab_channel=EquitableEquations}{YouTube: Presentations with Quarto}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=5.72917in]{img/shakespeare.jpg}
+\caption{Shakespeare writing RMarkdown (AI generated using the \href{https://www.bing.com/images/create}{bing image creator})}
+\end{figure}
+
+\chapter{The Power of R \& R Markdown}\label{the-power-of-r-r-markdown}
+
+\begin{figure}
+\centering
+\includegraphics{./img/papaja.png}
+\caption{Happy Papaya Logo}
+\end{figure}
+
+Indentation and spacing is very important!
+In the text, it is better to add more.
+In the YAML header, it may not be recognized properly with improper spacing
+
+\section{\texorpdfstring{Reporting with the \texttt{apa} \& \texttt{papaja} packages}{Reporting with the apa \& papaja packages}}\label{reporting-with-the-apa-papaja-packages}
+
+\begin{itemize}
+\tightlist
+\item
+  You know the \texttt{papaja} package already for \texttt{theme\_apa()} in data visualization
+\item
+  The package also has many wrapper functions to make reporting in R \& R Markdown a lot easier
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``apa\_print()''
+  \item
+    Chi\(^2\) Test reporting cannot be achieved with this, so we use apa::chisq\_apa() for that
+  \end{itemize}
+\end{itemize}
+
+\subsection{Usage}\label{usage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Chi (add format = "rmarkdown" if needed)}
+\NormalTok{apa}\SpecialCharTok{::}\FunctionTok{chisq\_apa}\NormalTok{(}\FunctionTok{chisq.test}\NormalTok{(seminar}\SpecialCharTok{$}\NormalTok{v07\_genre, seminar}\SpecialCharTok{$}\NormalTok{soul\_dummy))}
+\CommentTok{\# Warning in chisq.test(seminar$v07\_genre, seminar$soul\_dummy): Chi{-}squared}
+\CommentTok{\# approximation may be incorrect}
+\CommentTok{\# chi\^{}2(2) = 2.14, p = .344}
+
+\CommentTok{\# t{-}test}
+\NormalTok{papaja}\SpecialCharTok{::}\FunctionTok{apa\_print}\NormalTok{(}\FunctionTok{t.test}\NormalTok{(v05\_skill\_tech }\SpecialCharTok{\textasciitilde{}}\NormalTok{ v01\_gender, }\AttributeTok{data =}\NormalTok{ seminar, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{))}\SpecialCharTok{$}\NormalTok{full\_result}
+\CommentTok{\# [1] "$\textbackslash{}\textbackslash{}Delta M = 10.50$, 95\textbackslash{}\textbackslash{}\% CI $[{-}109.56, \textbackslash{}\textbackslash{}infty]$, $t(1.28) = 0.39$, $p = .377$"}
+
+\CommentTok{\# ANOVA}
+\NormalTok{papaja}\SpecialCharTok{::}\FunctionTok{apa\_print}\NormalTok{(}\FunctionTok{aov}\NormalTok{(v08\_loudness }\SpecialCharTok{\textasciitilde{}} \FunctionTok{as.factor}\NormalTok{(v07\_genre), }\AttributeTok{data =}\NormalTok{ seminar))}\SpecialCharTok{$}\NormalTok{full\_result }\SpecialCharTok{|\textgreater{}} \FunctionTok{suppressMessages}\NormalTok{()}
+\CommentTok{\# $as\_factorv07\_genre}
+\CommentTok{\# [1] "$F(2, 10) = 2.56$, $\textbackslash{}\textbackslash{}mathit\{MSE\} = 120.80$, $p = .126$, $\textbackslash{}\textbackslash{}hat\{\textbackslash{}\textbackslash{}eta\}\^{}2\_G = .339$"}
+\CommentTok{\# suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us "For one{-}way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.""}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Usage in R Markdown}\label{usage-in-r-markdown}
+
+\begin{itemize}
+\tightlist
+\item
+  By using \texttt{apa\_print(model)\$full\_result}, we can automatically report results inside our documents:
+\end{itemize}
+
+\section{\texorpdfstring{The \texttt{papaja} Package}{The papaja Package}}\label{the-papaja-package}
+
+\begin{itemize}
+\item
+  reporting is very easy with these packages
+\item
+  they provide ``wrapper'' functions around statistical tests that allow for dynamic, correctly formatted reports
+\item
+  most can be accomplished with the papaja package
+\item
+  only the chi\^{}2 test needs the \texttt{apa} package but the principle is the same
+\end{itemize}
+
+\subsection{Markdown Templates}\label{markdown-templates}
+
+papaja has R Markdown templates and they are awesome for writing scientifically sound papers according to \href{https://apastyle.apa.org/style-grammar-guidelines}{APA guidelines}
+
+There are many other awesome templates that are available for styling and creating R Markdown documents.
+The example in Figure \ref{fig:maexample} was written with the oxforddown template!
+You can write nicely formatted letters with the linl package!
+
 \section{Taking full advantage of R}\label{taking-full-advantage-of-r}
 
 \begin{enumerate}
@@ -4813,8 +4651,6 @@ We will use the package \texttt{palmerpenguins} (\texttt{install.packages("palme
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Walkthrough}\label{walkthrough-1}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Run \& save post{-}hoc Tests}
@@ -4844,13 +4680,12 @@ We will use the package \texttt{palmerpenguins} (\texttt{install.packages("palme
 \end{Shaded}
 \end{itemize}
 
-\subsection{Walkthrough}\label{walkthrough-2}
-
 Create a boxplot and add results right in the caption!
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(ggplot2)}
+
 \FunctionTok{ggplot}\NormalTok{(penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{species, }\AttributeTok{y=}\NormalTok{bill\_length\_mm, }\AttributeTok{color=}\NormalTok{species, }\AttributeTok{fill=}\NormalTok{species), }\AttributeTok{na.rm=}\NormalTok{T) }\SpecialCharTok{+}
   \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{7}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme\_apa}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Penguin Species"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Bill Length (mm)"}\NormalTok{, }
@@ -4860,9 +4695,7 @@ Create a boxplot and add results right in the caption!
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-92-1.pdf}
-
-\subsection{Walkthrough}\label{walkthrough-3}
+\includegraphics{_main_files/figure-html/anal-viz-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -4884,7 +4717,7 @@ Create a boxplot and add results right in the caption!
   \item
     `\emph{r apa\_print(penguinmodel)\$full\_result}`
   \item
-    \(\rightarrow\) { \(F(2, 339) = 410.60\), \(p < .001\), \(\hat{\eta}^2_G = .708\), 90\% CI \([.669, .740]\) }
+    \(\rightarrow\) { \(F(2, 339) = 410.60\), \(\mathit{MSE} = 8.76\), \(p < .001\), \(\hat{\eta}^2_G = .708\) }
   \end{itemize}
 \end{itemize}
 
@@ -4929,6 +4762,10 @@ Single values/ results can be reported with inline code
 
 \href{https://www.markdownguide.org/cheat-sheet/}{Another Markdown Cheatsheet}
 
+\href{https://cran.r-project.org/web/packages/apa/vignettes/introduction.html}{apa package}
+
+\href{https://frederikaust.com/papaja_man/}{papaja package}
+
 \href{https://statisticsglobe.com/ggsignif-package-r}{ggsignif package example}
 
 \href{https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html}{Bibliography and Citation}
@@ -4936,7 +4773,7 @@ Single values/ results can be reported with inline code
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth,height=4.6875in]{./img/palmer_penguins.png}
-\caption{Palmer Penguins}
+\caption{Palmer Penguins from \href{https://github.com/mcnakhaee/palmerpenguins}{the palmer penguins package}}
 \end{figure}
 
 \chapter*{Wrap Up}\label{wrap-up}
@@ -4993,6 +4830,20 @@ One of them is definitely the powerful yet sometimes completely silly and useles
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{cowsay}\SpecialCharTok{::}\FunctionTok{say}\NormalTok{(}\StringTok{"What the duck is this?"}\NormalTok{, }\AttributeTok{by =} \StringTok{"duck"}\NormalTok{)}
+\CommentTok{\# }
+\CommentTok{\#  {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} }
+\CommentTok{\# \textless{} What the duck is this? \textgreater{}}
+\CommentTok{\#  {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} }
+\CommentTok{\#       \textbackslash{}}
+\CommentTok{\#        \textbackslash{}}
+\CommentTok{\# }
+\CommentTok{\#          \_\_}
+\CommentTok{\#         /o \textbackslash{}}
+\CommentTok{\#       \textless{}=   |         ==}
+\CommentTok{\#         |\_\_|        /===}
+\CommentTok{\#         |   \textbackslash{}\_\_\_\_\_\_/  =}
+\CommentTok{\#         \textbackslash{}     ====   /}
+\CommentTok{\#          \textbackslash{}\_\_\_\_\_\_\_\_\_\_/     [ab]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5033,6 +4884,111 @@ Further Resources
 
 \chapter*{Practice}\label{practice}
 \addcontentsline{toc}{chapter}{Practice}
+
+\section{Quiz: R}\label{quiz-r}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  What package contains the functions \texttt{select,\ filter\ \&\ mutate}?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{dplyr} (or \texttt{tidyverse})
+  \end{itemize}
+\item
+  Assume I have created some R project and I read a file with the following command - what does this tell you about the folder on my computer?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{greatdata }\OtherTok{\textless{}{-}}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{read\_csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"./data/somefile.CSV"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The folder containing the R project contains a subfolder called ``data'' and in there is a CSV file called ``somefile.csv''.
+  \end{itemize}
+\item
+  I want to load a csv file into R with \texttt{readRDS()}. Why isn't it working?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The read commands are specific to the file format. readRDS() is for R files, read.csv() or readr::read\_csv() are needed for csv files
+  \end{itemize}
+\item
+  What do you know when you look at the command \texttt{bigfive\$extraversion}?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    There is a data set called \texttt{bigfive} and we're accessing a variable called \texttt{extraversion}
+  \end{itemize}
+\item
+  What keywords for loops and conditionals do you remember?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{for, while, if, else, ifelse}\ldots{}
+  \end{itemize}
+\item
+  I want to calculate a t-test on soul-belief (yes or no) and age in our seminar data. Why won't this command work?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{t.test}\NormalTok{(v02\_age, soul\_dummy, }\AttributeTok{data =}\NormalTok{ seminar)}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    When we have a grouping variable like soul\_dummy, we need to use formula notation: \texttt{v02\_age\ \textasciitilde{}\ soul\_dummy}
+  \end{itemize}
+\end{enumerate}
+
+\section{Quiz: R Markdown}\label{quiz-r-markdown}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What do I need to do to make my text \textbf{\emph{look like this}}?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    **\_look like this\_**
+  \end{itemize}
+\item
+  I want to add a subtitle to my document, where might I do that?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Add `subtitle: ``A great subtitle''\,' to the \textbf{YAML header}
+  \end{itemize}
+\item
+  How do I generate a section header in my document?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    With the pound sign \# Header
+  \end{itemize}
+\item
+  Oh no, my header isn't showing up right! What could have happened?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    There needs to be a space between the \# and the header
+  \end{itemize}
+\end{enumerate}
 
 \section{Loops: Write a for-loop that outputs the first X numbers of the Fibonacci sequence (``golden ratio'')}\label{loops-write-a-for-loop-that-outputs-the-first-x-numbers-of-the-fibonacci-sequence-golden-ratio}
 
@@ -5220,7 +5176,7 @@ Package Name & General Purpose \\
 \endlastfoot
 psych & Advanced statistical testing / modeling e.g.~factor analysis \\
 tibble & Alternative for creating data frames \\
-tidyr & Clean up daata \& simple reshaping \\
+tidyr & Clean up data \& simple reshaping \\
 dropR & Dropout analysis (by experimental condition) \\
 foreign & Handling data from SPSS \\
 corrplot & Create correlation plots/ matrices \\

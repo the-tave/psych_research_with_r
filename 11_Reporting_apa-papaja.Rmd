@@ -13,6 +13,35 @@ Indentation and spacing is very important!
 In the text, it is better to add more. 
 In the YAML header, it may not be recognized properly with improper spacing
 
+## Reporting with the `apa` & `papaja` packages
+
+<br>
+
+- You know the `papaja` package already for `theme_apa()` in data visualization
+- The package also has many wrapper functions to make reporting in R & R Markdown a lot easier
+    - "apa_print()" 
+    - Chi$^2$ Test reporting cannot be achieved with this, so we use apa::chisq_apa() for that
+
+### Usage
+
+```{r apa1}
+# Chi (add format = "rmarkdown" if needed)
+apa::chisq_apa(chisq.test(seminar$v07_genre, seminar$soul_dummy))
+
+# t-test
+papaja::apa_print(t.test(v05_skill_tech ~ v01_gender, data = seminar, alternative = "greater"))$full_result
+
+# ANOVA
+papaja::apa_print(aov(v08_loudness ~ as.factor(v07_genre), data = seminar))$full_result |> suppressMessages()
+# suppressMessages() is a useful helper function that avoids any messages from the function it is used with. Here it would just tell us "For one-way between subjects designs, generalized eta squared is equivalent to eta squared. Returning eta squared.""
+```
+
+### Usage in R Markdown
+
+- By using `apa_print(model)$full_result`, we can automatically report results inside our documents:
+
+
+
 ## The `papaja` Package
 
 - reporting is very easy with these packages
@@ -40,7 +69,7 @@ You can write nicely formatted letters with the linl package!
 
 We will use the package `palmerpenguins` (`install.packages("palmerpenguins")`) and see whether penguins from different islands have different body mass.
 
-```{r }
+```{r pp}
 library(palmerpenguins)
 
 # Test assumption of homoscedasticity
@@ -70,8 +99,9 @@ suppressMessages(apa_result <- apa_print(penguinmodel)$full_result)
 
 Create a boxplot and add results right in the caption!
 
-```{r fig.height = 3, warning=F}
+```{r anal-viz, fig.height = 3, warning=F}
 library(ggplot2)
+
 ggplot(penguins, aes(x=species, y=bill_length_mm, color=species, fill=species), na.rm=T) +
   geom_boxplot(alpha = .7) + theme_apa() + theme(legend.position = "none") +
   labs(x = "Penguin Species", y = "Bill Length (mm)", 
@@ -94,7 +124,7 @@ Please use the `penguins` dataset from the `palmerpenguins` package and take "sp
 
 `r hide("Solution")`
 
-```{r eval = F}
+```{r sol-anova, eval = F}
 leveneTest(aov(flipper_length_mm ~ species, data = penguins))
 penguinmodel2 <- aov(bill_length_mm ~ species, data = penguins)
 posthoc <- TukeyHSD(penguinmodel2)

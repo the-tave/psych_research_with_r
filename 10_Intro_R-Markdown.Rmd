@@ -19,7 +19,7 @@ As I mentioned before, it can be used to write whole theses - an example of whic
 
 <!-- ![_**Example Screenshot of a Thesis written in R Markdown**_](./img/MArmdex.png){height=250px} -->
 
-```{r maexample, echo = F, out.height="60%", fig.cap="Example Screenshot of a Thesis written in R Markdown.", out.extra= 'class="boxshade"'}
+```{r maexample, echo = F, out.height="60%", fig.cap="Example Screenshot of a Thesis written in R Markdown.", out.extra= if (knitr::is_html_output()) 'class="boxshade"'}
 knitr::include_graphics("./img/MArmdex.png")
 ```
 
@@ -44,7 +44,7 @@ Don't worry if that sounds like more programming to you - while it is possible t
 You can also create other types of documents, such as a pdf for which you need a special package to render \LaTeX.
 The most efficient is usually `tinytex`, which first needs to be installed as the package itself and afterwards it can run its own installation of everything you need for your reporting:
 
-```{r eval = F}
+```{r tinytex, eval = F}
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```

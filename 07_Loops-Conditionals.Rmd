@@ -115,7 +115,7 @@ for(i in 10:25){
 
 ## Same function, different variables
 
-```{r print-loop}
+```{r print-loop-1}
 for(i in c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")){
   print(mean(iris[ , i]))
 }
@@ -136,7 +136,7 @@ character
 
 ### More sophisticated 
 
-```{r}
+```{r print-loop-2}
 vector <- c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")
 
 for(i in 1:length(vector)){
@@ -159,7 +159,7 @@ integer (numeric)
 
 ### With saving values
 
-```{r}
+```{r save-vector}
 vector <- c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")
 means <- rep(NA, length(vector)) # create "empty" vector to fill
 
@@ -176,7 +176,7 @@ for(i in 1:length(vector)){
 
 Please download an edited version of our seminar data from ILIAS. You will find it under _data_ as a zip folder. The dataset in it should have ".Rds" as a file ending. Read it in using:
 
-```{r}
+```{r seminar7}
 seminar <- readRDS("./data/seminar_data.Rds")
 ```
 
@@ -186,7 +186,7 @@ Hint: I renamed the variables to make them nicer to work with, so check out name
 
 ### Solution
 
-```{r}
+```{r sol7}
 vector <- c("v02_age", "v04_bodyheight", "v05_skill_tech")
 seminar_means <- rep(NA, length(vector)) # create "empty" vector to fill
 
@@ -250,7 +250,8 @@ for(i in 1:length(vector)){
 
 ## Loop with Conditional
 
-In our seminar data, the **average body height is `r round(mean(seminar$v04_bodyheight), 2)` cm**. We want to create a loop that goes through all rows (all seminar students) and outputs their height and whether it is above or below average.
+In our seminar data, the **average body height is `r round(mean(seminar$v04_bodyheight), 2)` cm**. 
+We want to create a loop that goes through all rows (all seminar students) and outputs their height and whether it is above or below average.
 
 What do we need for that?
 
@@ -269,7 +270,7 @@ What do we need for that?
 
 `r hide("Solution")`
 
-```{r}
+```{r sol-loop}
 for(i in 1:nrow(seminar)){
   if(seminar$v04_bodyheight[i] > mean(seminar$v04_bodyheight)) {
     print(paste("This person is taller than average with", seminar$v04_bodyheight[i], "cm."))
@@ -284,7 +285,7 @@ for(i in 1:nrow(seminar)){
 ### And a more complicated outlook...
 #### What happens here?
 
-```{r eval = F}
+```{r complicated7, eval = F}
 for(i in 1:nrow(seminar)){
   if(seminar$v11_soul[i] == "yes"){ # Check soul belief
     text1 <- "This person belives in the soul and"
@@ -304,7 +305,7 @@ for(i in 1:nrow(seminar)){
 
 ### Result
 
-```{r echo = F}
+```{r echo7, echo = F}
 for(i in 1:nrow(seminar)){
   # Check soul belief
   if(seminar$v11_soul[i] == "yes"){

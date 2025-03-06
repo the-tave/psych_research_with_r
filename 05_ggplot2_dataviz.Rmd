@@ -69,7 +69,7 @@ We won't get too mathematical, but just know  they are trigonometric angle funct
 Commonly in psychology, relation = correlation, which assumes a linear relationship. 
 However, when we take a look at both the correlation between sine and cosine as well as their relationship represented visually, we might see a problem:
 
-```{r echo = F, fig.height=4}
+```{r exsincos, echo = F, fig.height=4}
 x <- sin(1:500)
 y <- cos(1:500)
 
@@ -134,7 +134,7 @@ called _ggplot**2**_ while the function call is _ggplot_!</i>
     
 ## Your First Bar Plot
 
-```{r fig.height=4.5, fig.width=8, fig.align='left'}
+```{r fbarplot, fig.height=4.5, fig.width=8, fig.align='left'}
 ggplot(iris) + 
   geom_bar(aes(x = Petal.Width)) 
 ```
@@ -154,7 +154,7 @@ ggplot(iris) +
 
 ### Example: Bar Plot with color and fill
 
-```{r fig.height=4.5, fig.width=8, fig.align='left'}
+```{r bpcf, fig.height=4.5, fig.width=8, fig.align='left'}
 ggplot(iris) + 
   geom_bar(aes(x = Petal.Width), color = "deepskyblue3", fill = "deepskyblue")
 ```
@@ -163,7 +163,7 @@ ggplot(iris) +
 
 
 
-```{r fig.height=4.5,  fig.width=9.15, fig.align='left'}
+```{r bpcf2, fig.height=4.5,  fig.width=9.15, fig.align='left'}
 ggplot(iris) + 
   geom_bar(aes(x = Petal.Width, color = Species, fill = Species))
 ```
@@ -187,14 +187,14 @@ Create a **density plot** that shows _Sepal.Length_ from the `iris` data set. <b
 _Fill_ in the color depending on the Species and _color_ the outlines with "white". <br>
 Make sure everything is visible and legible, so try to use an _alpha_ of around 0.6.
 
-```{r eval = F}
+```{r exyz, eval = F}
 ggplot(data) + 
   geom_XYZ(aes(), alpha = ?)
 ```
 
 ### Solution
 
-```{r fig.height=4.5,  fig.width=9.15, fig.align='left'}
+```{r solxyz, fig.height=4.5,  fig.width=9.15, fig.align='left'}
 ggplot(iris) + 
   geom_density(aes(x = Sepal.Length, fill = Species), 
                color = "white", alpha = .6)
@@ -233,7 +233,7 @@ ggplot(iris) +
 
 As suggested by one of you, we will look at the relationship of preferred music genre and music volume in our course:
 
-```{r fig.height=2.6,  fig.width=9.15}
+```{r boxex, fig.height=2.6,  fig.width=9.15}
 # seminar <- readRDS("./data/seminar_data.Rds")
 ggplot(seminar, aes(x=v07_genre, y=v08_loudness, colour=v07_genre, fill=v07_genre)) +
   geom_boxplot(alpha = 0.7) + theme_apa() +
@@ -251,7 +251,7 @@ Try to add _labels_ and a _theme_.
 
 `r hide()`
 
-```{r fig.height=4.5,  fig.width=9.15, fig.align='left'}
+```{r bpsol, fig.height=4.5,  fig.width=9.15, fig.align='left'}
 ggplot(iris) + 
   geom_boxplot(aes(x = Species, y = Sepal.Length,
                    color = Species, fill = Species), alpha = .6) +
@@ -270,7 +270,7 @@ ggplot(iris) +
     - Use a predefined color palette from packages like `viridis` or `unikn` or `RColorBrewer`...
 - Have fun with it! 
 
-```{r echo = F, fig.height=5,  fig.width=10}
+```{r inspo, echo = F, fig.height=5,  fig.width=10}
 boxy <- ggplot(seminar, aes(x = v07_genre, y = v08_loudness, colour = v07_genre, fill = v07_genre)) +
   geom_boxplot(alpha = 0.7) +
   theme_apa() +

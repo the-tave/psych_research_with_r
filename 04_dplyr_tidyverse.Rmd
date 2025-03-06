@@ -52,7 +52,9 @@ So packages are pretty cool: They usually come from people who had a specific pr
 Of course everyone has a different preference on how to work, which is why not every package and function will be intuitive to everyone.
 That is also why the definition of an "opinionated collection of R packages" is so fitting because the `tidyverse` is a framework consisting of many different packages that the authors find intuitive and useful.
 
-![Hex Logos](./img/hexagons.png){height=200px}
+```{r hexagon2, echo = F, fig.cap="Hexagonal package logos of some common R packages."}
+knitr::include_graphics("./img/hexagons.png")
+```
 
 Incidentally, I agree and I will show you why. 
 If you figure out at some point that your prefer another way - that's great, but the tidyverse is a solid starting point for most data science needs in psychology.
@@ -176,7 +178,7 @@ table(iris_virginica$Species)
     3. in summarize, define a name for the statistic, use a =, use a function like mean() for the measure
 
 
-```{r}
+```{r gbs}
 str(Orange) # use different default data set
 
 Orange %>% 
@@ -226,7 +228,7 @@ Also include the grouped n.
 
 `r hide("Solution")`
 
-```{r}
+```{r exgbs}
 iris %>% 
   group_by(Species) %>% 
   summarize(m_plength = mean(Petal.Length),
@@ -364,8 +366,6 @@ In the second version, we rename the variable Petal.Length to pl and afterwards 
 </ul>
 
 ![Which idiot...](./img/idiotic.png){#id .class width=auto height=400px}
-
-
 
 <figcaption style = "font-size: 7pt;">[https://programmerhumor.io/debugging-memes/well-played-3/](https://programmerhumor.io/debugging-memes/well-played-3/){target="_blank"}</figcaption>
 

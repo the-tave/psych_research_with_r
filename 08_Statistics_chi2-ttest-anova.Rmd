@@ -91,7 +91,7 @@ So in the new variable,  1 means _yes_ and 0 means _no or unsure_.
 seminar$soul_dummy <- ifelse(seminar$v11_soul == "yes", 1, 0)
 ```
 
-### Statistical Significnace
+### Statistical Significance
 
 In parametric statistics (which is the most common/basic kind), we make our test decision based on the distribution of out given test statistic.
 This is because for any test statistic that we can calculate, we can make a prediction about its **distribution** if the true value were zero, i.e. no effect.
@@ -248,61 +248,92 @@ How would you interpret this result?
 show_fig("./img/anova")
 ```
 
+The ANOVA or **an**alysis **o**f **va**riance is a lot like a t-test that is used to compare more that two groups or categories with each other, conceptually.
+Which begs the question, why do we not just calculate however many t-tests we would need? 
+The reason is a mathematical quirk called $\alpha$ inflation: 
+Each t-test has its own 5% risk of showing significant results by accident and they accumulate with a binomial distribution. 
+We can define this new risk as the counter-probability of making no wrong call about the null-hypothesis in any of the pairwise comparisons we do.
+So, if we want to compare 4 groups with each other and therefore have to calculate 6 pairwise comparisons (A-B, A-C, A-D, B-C, B-D and C-D) we will no longer deal with an alpha level of .05 but instead: 
 
-- Like a t-test for more than two groups
-- Why do we not just calculate several t-tests?
-    - $\alpha$ inflation! 
-    - Significance level of 0.05 means that 1/20 tests will be significant by pure chance, so more tests makes it more likely that we hit that chance and make an alpha error (falsely reject null hypothesis)
-  
-### How to - theoretically
+$$P_e = 1 - (1-.05)^6 = 0.265 = 26.5%$$
 
-1.  Check Assumptions
+To avoid this probability to make at least one statistical mistake of over a fourth, we instead define a statistical model of the data to find out if there is at least one pairwise difference between any of the groups.
+After that, we can dig deeper with pairwise comparisons (so-called _post-hoc tests_) that adjust the alpha rate for several comparisons.
+Alternatively, we can define specific contrasts of which groupdshould show a higher or lower average than another.
+
+The procedure of conducting an ANOVA is always as follows:
+
+**1.  Check Assumptions**
     - Data should be normally distribution & variance in groups should be similar (homogeneous)
-2. Sum of Squares: Sum of Squares total, within & between (_R does this for us_)
+**2. Define the model ** 
+    - Sum of Squares: Sum of Squares total, within & between (_R does this for us_)
     - F-fraction as the measure of variance explained by the grouping variable in comparison to other variability in the dependent variable
-3. Interpretation and post-hoc tests
+**3. Interpretation and post-hoc tests**
     - If there are any significant differences at all, we can use pairwise t-tests (with alpha correction!)
 
 ### Example: Music genre and loudness <i class="fa-solid fa-music"></i> {-}
 
 #### 1. Check assumptions {-}
 
-- Check for Homogeneity of Variance with the Levene Test
-- 
-  ```{r}
-  # Make sure the package "car" is installed first! If not, install.packages("car")
-  # as.factor() forces R to recognize our group as such!
-  car::leveneTest(v08_loudness ~ as.factor(v07_genre), data = seminar, center = mean)
-  ```
+Check for Homogeneity of Variance with the Levene Test:
 
-- Interpretation?
-    - p value < 0.05 would indicate significant differences in variance between the group, so we want it to be > 0.05
-    - Assumption met! <i class="fa-regular fa-face-smile"></i>
+```{r}
+# Make sure the package "car" is installed first! If not, install.packages("car")
+# as.factor() forces R to recognize our group as such!
+car::leveneTest(v08_loudness ~ as.factor(v07_genre), data = seminar, center = mean)
+```
+
+How would you interpret this result?
+
+`r mcq(c("The data are heterogeneous", answer = "The assumption is met, the data are homkogeneous", "p < .05 is always preferable in any test ever"))`
+
+`r hide("More Info")`
+
+Like in any other test, the logic here is that p < .05 would indicate significant _differences_. 
+Since in this test we would rather find homogeneity, i.e. a lack of differences in variances, our assumption is met if p > .05.
+
+`r unhide()`
     
 #### 2. Define the overall model {-}
+
+In R, the basic function for calculating an ANOVA model is `aov()`, where we use formula notation (so using the tilde ~) to describe `aov(dependent variable ~on the basis of~ categorial variable, data)`.
+Commonly, we then examine the results using the `summary()` call.
 
 ```{r genre-loud, message=FALSE}
 model <- aov(v08_loudness ~ as.factor(v07_genre), data = seminar)
 summary(model) # "Pr(>F)" is the p-value
 ```
 
-- Interpretation?
-    - Not significant (likely due to small sample size)
-    - usually we would stop here then, but we will look at the post hoc tests anyway ;)
+Interpretation?
+
+`r mcq(c("The result is significant", answer = "The result is non-significant", "Different music genres predict loudness of the music.", "We definitely need to calculate post-hoc tests now to find out where there may be differences."))`
     
-#### 3. Post Hoc Test {-}
+If an omnibus (_overall_) ANOVA turns out to be significant, we must conduct further tests to find out where there are pairwise differences.
+If it is not significant, we usually don't calculate them, but of course it is possibly interesting to examine trends in the data or to use as a basis for further exploration.
+    
+#### 3. Post-Hoc Test {-}
+
+The most common post-hoc test to use in R is the Tukey Honest Significant Differences `TukeyHSD()` test. 
+It just needs the already defined anova model as input and will give us a list of each (alpha-corrected) pairwise comparison between groups or categories.
 
 ```{r tukey}
 TukeyHSD(model)
 ```
 
-- Interpretation?
-    - There are no significant pairwise differences in our (small) sample.
+Interpretation?
 
+`r mcq(c("There is a significant pairwise difference between rock and pop.", "There is a trend for the difference in volume between techno and rock.", answer = "There are no significant pairwise differences in our (small) sample."))`
     
   - But we can simulate a larger sample (for fun)
 
 ### Addendum for demonstration only: Bootstrapped Data for larger sample size
+
+Since most of the demonstrations here are based on an extremely limited sample size, I wanted to find out where those differences might be significant in a larger sample.
+**Bootstrapping** is a more advanced technique for taking random resamples of the original data and basically pretending like we had a larger sample.
+The results should not be over-interpreted but it can reveal cool new areas of necessary research or theories about the world.
+
+Note that in most undergrad classes, this will probably not be necessary for you to know.
+Regardless, the code is not very complex and the modelling and result interpretation is the same as with a normal sample, so feel free to use it as exercise!
 
 ```{r bs, message=FALSE}
 data <- data.frame()

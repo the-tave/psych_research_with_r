@@ -145,7 +145,7 @@ Luckily, many many people have developed many many packages that contain differe
 
 ## Installing Packages 
 
-```{r hexagon, echo = F, fig.cap="Hexagonal package logos of some common R packages."}
+```{r hex, echo = F, fig.cap="Hexagonal package logos of some common R packages."}
 knitr::include_graphics("./img/hexagons.png")
 ```
 <!-- {height=200px} -->

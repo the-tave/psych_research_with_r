@@ -1,11 +1,12 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-%
 \documentclass[
 ]{book}
+\usepackage{xcolor}
+\usepackage[footnotesep=20pt]{geometry}
 \usepackage{amsmath,amssymb}
-\usepackage{setspace}
+\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -26,6 +27,7 @@
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\usepackage{setspace}
 \makeatletter
 \@ifundefined{KOMAClassName}{% if non-KOMA class
   \IfFileExists{parskip.sty}{%
@@ -36,8 +38,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\usepackage[footnotesep=20pt]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -90,15 +90,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
 \ifLuaTeX
@@ -110,13 +112,8 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-\nocite{R-base, R-bookdown, R-rmarkdown, R-dplyr, R-webexercises, R-ggplot2}
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -135,7 +132,7 @@
 \makeatother
 \subtitle{An R Intro for psychologists whose dog regularly ate their statistics homework.}
 \author{Anni Tave Overlander}
-\date{Last update: 2025-03-06}
+\date{Last update: 2026-03-30}
 
 \begin{document}
 \maketitle
@@ -205,9 +202,7 @@ There is R, but there is also R Studio and the two serve different purposes in y
 So in the following I will try to make a clear distinction and guide you through the installation of both R and R Studio.
 
 \begin{figure}
-\centering
-\includegraphics{./img/R_scheme.png}
-\caption{\label{fig:scheme}R and R Studio as a schematic. R Studio is the `pretty frame' for R, which can and should be used with packages that in turn contain different functions. The `tidyverse' is included as a special teaser - it is a meta-package which has many packages that follow a similar workflow and logic.}
+\includegraphics[width=26.67in]{./img/R_scheme} \caption{R and R Studio as a schematic. R Studio is the 'pretty frame' for R, which can and should be used with packages that in turn contain different functions. The 'tidyverse' is included as a special teaser - it is a meta-package which has many packages that follow a similar workflow and logic.}\label{fig:scheme}
 \end{figure}
 
 \section{What is R? What is R Studio?}\label{what-is-r-what-is-r-studio}
@@ -221,9 +216,7 @@ That might all sound intimidating at first but more than anything else it means 
 The slightly tricky part is learning how to give those instructions.
 
 \begin{figure}
-\centering
-\includegraphics{./img/rstudio.png}
-\caption{\label{fig:rstudio}Typical layout of R Studio.}
+\includegraphics[width=26.67in]{./img/rstudio} \caption{Typical layout of R Studio.}\label{fig:rstudio}
 \end{figure}
 
 \section{Installing R and R Studio}\label{installing-r-and-r-studio}
@@ -231,7 +224,7 @@ The slightly tricky part is learning how to give those instructions.
 \begin{itemize}
 \tightlist
 \item
-  Download \& Install the newest R version 4.4.2 (2024-10-31 ucrt) at \url{https://cloud.r-project.org/}
+  Download \& Install the newest R version 4.5.1 (2025-06-13 ucrt) at \url{https://cloud.r-project.org/}
 \item
   Download and install R Studio at \url{https://posit.co/download/rstudio-desktop/}
 \end{itemize}
@@ -255,7 +248,7 @@ The way to choose which one you want is fairly simple:
 \end{itemize}
 
 For most things - especially during the learning phase - it makes sense to write a Script in the Editor in order to be able to save and access the work.
-To do so, simply click the \includegraphics[width=\textwidth,height=0.16667in]{./img/newfile.png} button and choose `R Script'.
+To do so, simply click the \includegraphics[width=\linewidth,height=0.16667in,keepaspectratio]{./img/newfile.png} button and choose `R Script'.
 
 Once we have a new script created, we can learn some basic things that R is capable of and save it to check out later.
 Let's try to use R as a calculator first.
@@ -303,7 +296,7 @@ We also added \textbf{variables} containing values (here a and b hold values 3 a
 As they only contain numbers, the variables a and b are called \textbf{numeric}.
 We can check this property of a variable, e.g.~\texttt{a} using the function \texttt{class(a)}, which gives us ``numeric'' as output.
 
-Usually when we fire up R, we don't just want to work with single values numeric but with \textbf{data frames} or \textbf{vectors} \includegraphics[width=\textwidth,height=0.20833in]{./img/vector.png} that can contain different classes of variables and several values respectively.
+Usually when we fire up R, we don't just want to work with single values numeric but with \textbf{data frames} or \textbf{vectors} \includegraphics[width=\linewidth,height=0.20833in,keepaspectratio]{./img/vector.png} that can contain different classes of variables and several values respectively.
 
 \subsubsection*{Vectors}\label{vectors}
 \addcontentsline{toc}{subsubsection}{Vectors}
@@ -384,7 +377,9 @@ Luckily, many many people have developed many many packages that contain differe
 
 \section{Installing Packages}\label{installing-packages}
 
-\includegraphics{./img/hexagons.png}
+\begin{figure}
+\includegraphics[width=12.29in]{./img/hexagons} \caption{Hexagonal package logos of some common R packages.}\label{fig:hex}
+\end{figure}
 
 Most packages are available on CRAN - the Comprehensive R Archive Network.
 That being the case you can easily install the package you want to have with the command \texttt{install.packages("packagename")}.
@@ -429,7 +424,7 @@ Packages make working with R easier and more fun!
 
 \chapter{R Basics \& Error Messages}\label{basics}
 
-\includegraphics[width=\textwidth,height=1.5625in]{img/iris.png}
+\includegraphics[width=\linewidth,height=1.5625in,keepaspectratio]{img/iris.png}
 
 \section{Basics}\label{basics-1}
 
@@ -948,7 +943,7 @@ You will see it appear in your working environment, but accessing the variable i
 If you just type \texttt{hi\ there} in the console and hit Enter, R will give you an error à la \emph{``unexpected symbol''}.
 But if you type \texttt{"hi\ there"}, it will echo the text back to you.
 
-\includegraphics[width=\textwidth,height=2.08333in]{./img/varname.png}
+\includegraphics[width=\linewidth,height=2.08333in,keepaspectratio]{./img/varname.png}
 
 \url{https://www.reddit.com/r/ProgrammerHumor/comments/6stwag/can_you_stick_to_any_naming_convention/}
 
@@ -1036,11 +1031,11 @@ Solution
 
 \FunctionTok{str}\NormalTok{(scores7a); }\FunctionTok{str}\NormalTok{(scores7b)}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 20 obs. of  2 variables:}
-\CommentTok{\#  $ age: int  15 13 12 13 14 14 13 12 13 12 ...}
-\CommentTok{\#  $ iq : num  117 113 86 77 112 ...}
+\CommentTok{\#  $ age: int  14 12 12 13 15 12 14 12 12 14 ...}
+\CommentTok{\#  $ iq : num  104.4 100.5 97.1 123.1 109.8 ...}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 20 obs. of  2 variables:}
-\CommentTok{\#  $ age: int  15 12 12 14 15 15 12 14 12 12 ...}
-\CommentTok{\#  $ iq : num  111.8 117.6 85.3 86.4 102.2 ...}
+\CommentTok{\#  $ age: int  14 13 14 15 15 12 15 14 13 13 ...}
+\CommentTok{\#  $ iq : num  115.5 97.2 54.3 108.5 113.2 ...}
 
 \CommentTok{\# Add information about the class}
 \NormalTok{scores7a}\SpecialCharTok{$}\NormalTok{class }\OtherTok{\textless{}{-}} \StringTok{"7a"}
@@ -1052,8 +1047,8 @@ Solution
 \CommentTok{\# Check the overall data frame for plausibility}
 \FunctionTok{str}\NormalTok{(allscores)}
 \CommentTok{\# \textquotesingle{}data.frame\textquotesingle{}: 40 obs. of  3 variables:}
-\CommentTok{\#  $ age  : int  15 13 12 13 14 14 13 12 13 12 ...}
-\CommentTok{\#  $ iq   : num  117 113 86 77 112 ...}
+\CommentTok{\#  $ age  : int  14 12 12 13 15 12 14 12 12 14 ...}
+\CommentTok{\#  $ iq   : num  104.4 100.5 97.1 123.1 109.8 ...}
 \CommentTok{\#  $ class: chr  "7a" "7a" "7a" "7a" ...}
 \FunctionTok{table}\NormalTok{(allscores}\SpecialCharTok{$}\NormalTok{class)}
 \CommentTok{\# }
@@ -1094,7 +1089,7 @@ Moreover, it is quite easy to forget which folder you are currently working in, 
 
 This may all sound like quite the hassle, but luckily there is a simple solution built right into R Studio that will make self-organization easy.
 
-\section[R Projects ]{\texorpdfstring{R Projects \protect\includegraphics[width=\textwidth,height=0.3125in]{./img/rproj.png}}{R Projects R Project}}\label{r-projects-r-project}
+\section[R Projects ]{\texorpdfstring{R Projects \protect\includegraphics[width=\linewidth,height=0.3125in,keepaspectratio]{./img/rproj.png}}{R Projects R Project}}\label{r-projects-r-project}
 
 A project in R is essentially a bookmark to a specific folder on your computer.
 It lets you organize your projects very clearly, so you can e.g.~create a folder for your thesis where you save the data you collected and the R scripts to wrangle that data.
@@ -1109,7 +1104,7 @@ Let's try that out under \texttt{File} \(\rightarrow\) \texttt{New\ project...}
 This is also great for sharing your code and projects:
 If someone else has the same data file in their R project then they will be able to use your scripts containing just the relative path and be able to execute the code.
 
-\includegraphics[width=\textwidth,height=2.08333in]{./img/code_lifespan.png}
+\includegraphics[width=\linewidth,height=2.08333in,keepaspectratio]{./img/code_lifespan.png}
 
 \url{https://xkcd.com/2730/}
 
@@ -1144,7 +1139,7 @@ In the following, you can try to create your own R project and see how to use th
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=\textwidth,height=2.08333in]{./img/code_reuse.jpg}
+\includegraphics[width=\linewidth,height=2.08333in,keepaspectratio]{./img/code_reuse.jpg}
 
 \url{https://www.reddit.com/r/ProgrammerHumor/comments/11a1fqi/code_reuse/\#lightbox}
 
@@ -1155,7 +1150,7 @@ However, in my experience the best basis for a good workflow means nothing if it
 Therefore, I want to introduce you to a really nifty feature in R Studio: customizing the appearance.
 
 \begin{quote}
-\texttt{Tools} \(\rightarrow\) \texttt{Global\ Options} \(\rightarrow\) \texttt{Appearance} \includegraphics[width=\textwidth,height=0.3125in]{./img/appearance.png}
+\texttt{Tools} \(\rightarrow\) \texttt{Global\ Options} \(\rightarrow\) \texttt{Appearance} \includegraphics[width=\linewidth,height=0.3125in,keepaspectratio]{./img/appearance.png}
 \end{quote}
 
 Because honestly? it's fun, and if a program is fun you will want to use it more.
@@ -1266,9 +1261,7 @@ Of course everyone has a different preference on how to work, which is why not e
 That is also why the definition of an ``opinionated collection of R packages'' is so fitting because the \texttt{tidyverse} is a framework consisting of many different packages that the authors find intuitive and useful.
 
 \begin{figure}
-\centering
-\includegraphics{./img/hexagons.png}
-\caption{\label{fig:hexagon2}Hexagonal package logos of some common R packages.}
+\includegraphics[width=12.29in]{./img/hexagons} \caption{Hexagonal package logos of some common R packages.}\label{fig:hexagon2}
 \end{figure}
 
 Incidentally, I agree and I will show you why.
@@ -1285,7 +1278,7 @@ Generally, I would recommend installing them once, but loading packages individu
 \texttt{install.packages("tidyverse")}
 \end{quote}
 
-\subsection[What is \texttt{dplyr}? ]{\texorpdfstring{What is \texttt{dplyr}? \protect\includegraphics[width=\textwidth,height=0.83333in]{./img/dplyr.png}}{What is dplyr? dplyr logo}}\label{what-is-dplyr-dplyr-logo}
+\subsection[What is \texttt{dplyr}? ]{\texorpdfstring{What is \texttt{dplyr}? \protect\includegraphics[width=\linewidth,height=0.83333in,keepaspectratio]{./img/dplyr.png}}{What is dplyr? dplyr logo}}\label{what-is-dplyr-dplyr-logo}
 
 The \texttt{dplyr} package is probably the best and most important package in R \emph{imho}.
 It is a powerful tool for editing data in data frames and a great way to keep your workflow clear and reproducible.
@@ -1305,7 +1298,7 @@ Also check the \hyperref[wrapupdplyr]{further resources} and an overview of the 
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=1.5625in]{./img/iris-setosa.png}
+\includegraphics[width=\linewidth,height=1.5625in,keepaspectratio]{./img/iris-setosa.png}
 \caption{Types of Iris Flowers}
 \end{figure}
 
@@ -1369,7 +1362,7 @@ We will go more into depth
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=1.04167in]{./img/filter.png}
+\includegraphics[width=\linewidth,height=1.04167in,keepaspectratio]{./img/filter.png}
 \caption{filter scheme}
 \end{figure}
 
@@ -1401,7 +1394,7 @@ We will go more into depth
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=1.04167in]{./img/select.png}
+\includegraphics[width=\linewidth,height=1.04167in,keepaspectratio]{./img/select.png}
 \caption{select scheme}
 \end{figure}
 
@@ -1592,7 +1585,7 @@ Solution
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=2.08333in]{./img/hadley-meme.png}
+\includegraphics[width=\linewidth,height=2.08333in,keepaspectratio]{./img/hadley-meme.png}
 \caption{Hadley Wickham, developer of the tidyverse}
 \end{figure}
 
@@ -1756,7 +1749,7 @@ Cheatsheet: \url{https://github.com/rstudio/cheatsheets/blob/main/data-transform
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=4.16667in]{./img/idiotic.png}
+\includegraphics[width=\linewidth,height=4.16667in,keepaspectratio]{./img/idiotic.png}
 \caption{Which idiot\ldots{}}\label{id}
 \end{figure}
 
@@ -1774,7 +1767,17 @@ Data Visualization or data viz for short is an important part of reporting any d
 Drawing a pirate map where X marks the spot could be data visualization as well as a professional statistic of political vote tallies in bar plots.
 In general, humans are very visual creatures, so readers/ listeners can follow along more when there is something to look at that illustrates the point.
 
-\includegraphics{_main_files/figure-html/flametrees-1.pdf}
+\begin{verbatim}
+# Warning: package 'flametree' was built under R version 4.5.3
+# Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+# i Please use `linewidth` instead.
+# i The deprecated feature was likely used in the flametree package.
+#   Please report the issue at <https://github.com/djnavarro/flametree/issues>.
+# This warning is displayed once per session.
+# Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/flametrees-1.pdf}}
 
 The type of visualization to choose strongly depends on what we want to accomplish, who the audience is and of course on the general setting.
 While the so-called \emph{flametrees} above are nice to look at, the don't tell us too much about any data as-is.
@@ -1789,7 +1792,7 @@ We won't get too mathematical, but just know they are trigonometric angle functi
 Commonly in psychology, relation = correlation, which assumes a linear relationship.
 However, when we take a look at both the correlation between sine and cosine as well as their relationship represented visually, we might see a problem:
 
-\includegraphics{_main_files/figure-html/exsincos-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/exsincos-1.pdf}}
 
 We can see that the two variables clearly have a certain type of relation with each other which is definitely not linear.
 But if we only reported the very very small correlation of .001, one could assume they had no relation at all!
@@ -1805,7 +1808,7 @@ Once installed, you can load it with \texttt{library(ggplot2)}.
 With \texttt{ggplot2} you can build your plots layer by layer.
 Here you can see a schematic of the different elements that can be added to any plot:
 
-\includegraphics{./img/ggplot2layers.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./img/ggplot2layers.png}}
 
 \url{https://ggplot2.tidyverse.org/articles/ggplot2.html}
 
@@ -2050,7 +2053,7 @@ As suggested by one of you, we will look at the relationship of preferred music 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/boxex-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/boxex-1.pdf}}
 
 \subsection{Exercise: Boxplot}\label{exercise-boxplot}
 
@@ -2096,7 +2099,7 @@ Solution
   Have fun with it!
 \end{itemize}
 
-\includegraphics{_main_files/figure-html/inspo-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/inspo-1.pdf}}
 
 \begin{quote}
 Showing plots together like this is easy with \texttt{cowplot::plot\_grid()}!
@@ -2135,7 +2138,7 @@ Color palettes are a great way of elevating a visualization
 
 \href{http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually}{More color palettes explained}
 
-\includegraphics{_main_files/figure-html/unikn-plot-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/unikn-plot-1.pdf}}
 
 \part{The Nitty-Gritty}\label{part-the-nitty-gritty}
 
@@ -2214,7 +2217,7 @@ SPSS (SAV) & \texttt{foreign::read.spss("data.sav")} \\
 You can follow along these exact code examples if you download the \emph{seminar\_data\_raw} data frame from GitHub and save it in the data subfolder in your R-Project.
 You can find it under this link: \url{https://github.com/the-tave/psych_research_in_r/raw/main/data/PsychResearchR_data.csv}.\footnote{If you are connected to the internet anyway you can also use this link as the file path without downloading the data first!}
 
-\includegraphics[width=\textwidth,height=0.625in]{./img/import_dataset.png}
+\includegraphics[width=\linewidth,height=0.625in,keepaspectratio]{./img/import_dataset.png}
 
 Use the ``Import Dataset'' Menu under the \emph{Environment} tab in the upper right corner of R Studio.
 In that menu, there are different options for different operations, but for CSV files I recommend the \emph{From Text (readr)} option.
@@ -2239,9 +2242,7 @@ For example, even though ``csv'' stands for \emph{comma-separated values} these 
 When reading in the data, this is sometimes recognized automatically, but when the data looks a bit funky in the preview, making sure the right delimiter is selected is a solid first step.
 
 \begin{figure}
-\centering
-\includegraphics{./img/importcsv.png}
-\caption{\label{fig:wonky}Example of wonky-looking data in the Import Dataset Menu.}
+\includegraphics[width=24.26in]{./img/importcsv} \caption{Example of wonky-looking data in the Import Dataset Menu.}\label{fig:wonky}
 \end{figure}
 
 \subsection*{\texorpdfstring{Basic Edits }{Basic Edits }}\label{basic-edits}
@@ -2267,7 +2268,7 @@ This automatically gives us a nice structure to start a new script for analyses 
 As a best practice, we will change the name of our raw data set in R to ``raw''.
 This data set can remain untouched throughout all other data munging steps which allows us to revise edits or go back a step if something goes wrong with having to reload the data (especially with a big data set, reading it in can take a bit of time).
 
-As a last first step, we will use the \texttt{namepref0()} (``name-prefix-zero'') function from the \texttt{wobblynameR} package to add the prefix ``v'' to every variable name.
+As a last first step, we will use the \texttt{namepref0()} (``name-prefix-zero'') function from the \texttt{rextor} package to add the prefix ``v'' to every variable name.
 There are different reasons why a consistent prefix might be useful - in this case the variable names start with a number, which can cause problems in R.
 The function takes the whole data frame as input and outputs that data frame with all variables renamed, which we will save in a new data frame called ``seminar''.
 The resulting code - the first part of which can be completely generated by the menu - looks like this:
@@ -2279,7 +2280,7 @@ The resulting code - the first part of which can be completely generated by the 
 \begin{Highlighting}[]
 \CommentTok{\# Library commands on top}
 \FunctionTok{library}\NormalTok{(readr)}
-\FunctionTok{library}\NormalTok{(wobblynameR)}
+\FunctionTok{library}\NormalTok{(rextor)}
 
 \CommentTok{\# Generated code}
 \NormalTok{raw }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"./data/seminar\_data\_raw.csv"}\NormalTok{, }
@@ -2962,7 +2963,7 @@ Don't forget to play and create fun loops!
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=6.25in]{./img/forbeep.png}
+\includegraphics[width=\linewidth,height=6.25in,keepaspectratio]{./img/forbeep.png}
 \caption{For Loop Meme}
 \end{figure}
 
@@ -3000,7 +3001,7 @@ Solution
 
 They are used for data of different scale levels
 
-\includegraphics{_main_files/figure-html/unnamed-chunk-26-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/unnamed-chunk-26-1.pdf}}
 
 These three measures all provide us information on \emph{differences} either between naturally occurring groups (e.g.~people of different genders) or between experimentally manipulated sub-samples (e.g.~treatment vs.~control group in a medical drug trial).\footnote{You will usually see the \(Chi^2\) test classified as an association statistic, which is technically more to the point. However, I like to think of it as quantifying differences between groups. After all, if you find systematic differences between groups in two given measures, that must mean that those measures are not independent, i.e.~associated with each other.}
 
@@ -3046,7 +3047,7 @@ So in the new variable, 1 means \emph{yes} and 0 means \emph{no or unsure}.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Statistical Significnace}\label{statistical-significnace}
+\subsection{Statistical Significance}\label{statistical-significance}
 
 In parametric statistics (which is the most common/basic kind), we make our test decision based on the distribution of out given test statistic.
 This is because for any test statistic that we can calculate, we can make a prediction about its \textbf{distribution} if the true value were zero, i.e.~no effect.
@@ -3085,7 +3086,7 @@ If we have two variables and we want to test their association as described abov
 
 \begin{figure}
 \centering
-\includegraphics{./img/chidist.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./img/chidist.png}}
 \caption{Chi squared distribution}
 \end{figure}
 
@@ -3215,7 +3216,7 @@ Most (probable or to be expected) T values are around 0, so te further away or \
 
 \begin{figure}
 \centering
-\includegraphics{./img/tdist.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./img/tdist.png}}
 \caption{T distribution}
 \end{figure}
 
@@ -3362,56 +3363,33 @@ How would you interpret this result?
 
 \begin{figure}
 \centering
-\includegraphics{./img/anova.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{./img/anova.pdf}}
 \caption{\label{fig:anovaprince}ANOVA principle}
 \end{figure}
 
-\begin{itemize}
-\tightlist
-\item
-  Like a t-test for more than two groups
-\item
-  Why do we not just calculate several t-tests?
+The ANOVA or \textbf{an}alysis \textbf{o}f \textbf{va}riance is a lot like a t-test that is used to compare more that two groups or categories with each other, conceptually.
+Which begs the question, why do we not just calculate however many t-tests we would need?
+The reason is a mathematical quirk called \(\alpha\) inflation:
+Each t-test has its own 5\% risk of showing significant results by accident and they accumulate with a binomial distribution.
+We can define this new risk as the counter-probability of making no wrong call about the null-hypothesis in any of the pairwise comparisons we do.
+So, if we want to compare 4 groups with each other and therefore have to calculate 6 pairwise comparisons (A-B, A-C, A-D, B-C, B-D and C-D) we will no longer deal with an alpha level of .05 but instead:
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \(\alpha\) inflation!
-  \item
-    Significance level of 0.05 means that 1/20 tests will be significant by pure chance, so more tests makes it more likely that we hit that chance and make an alpha error (falsely reject null hypothesis)
-  \end{itemize}
-\end{itemize}
+\[P_e = 1 - (1-.05)^6 = 0.265 = 26.5%
+\]
 
-\subsection{How to - theoretically}\label{how-to---theoretically}
+To avoid this probability to make at least one statistical mistake of over a fourth, we instead define a statistical model of the data to find out if there is at least one pairwise difference between any of the groups.
+After that, we can dig deeper with pairwise comparisons (so-called \emph{post-hoc tests}) that adjust the alpha rate for several comparisons.
+Alternatively, we can define specific contrasts of which groupdshould show a higher or lower average than another.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Check Assumptions
+The procedure of conducting an ANOVA is always as follows:
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Data should be normally distribution \& variance in groups should be similar (homogeneous)
-  \end{itemize}
-\item
-  Sum of Squares: Sum of Squares total, within \& between (\emph{R does this for us})
-
-  \begin{itemize}
-  \tightlist
-  \item
-    F-fraction as the measure of variance explained by the grouping variable in comparison to other variability in the dependent variable
-  \end{itemize}
-\item
-  Interpretation and post-hoc tests
-
-  \begin{itemize}
-  \tightlist
-  \item
-    If there are any significant differences at all, we can use pairwise t-tests (with alpha correction!)
-  \end{itemize}
-\end{enumerate}
+\textbf{1. Check Assumptions}
+- Data should be normally distribution \& variance in groups should be similar (homogeneous)
+\textbf{2. Define the model }
+- Sum of Squares: Sum of Squares total, within \& between (\emph{R does this for us})
+- F-fraction as the measure of variance explained by the grouping variable in comparison to other variability in the dependent variable
+\textbf{3. Interpretation and post-hoc tests}
+- If there are any significant differences at all, we can use pairwise t-tests (with alpha correction!)
 
 \subsection*{\texorpdfstring{Example: Music genre and loudness }{Example: Music genre and loudness }}\label{example-music-genre-and-loudness}
 \addcontentsline{toc}{subsection}{Example: Music genre and loudness }
@@ -3419,10 +3397,8 @@ How would you interpret this result?
 \subsubsection*{1. Check assumptions}\label{check-assumptions}
 \addcontentsline{toc}{subsubsection}{1. Check assumptions}
 
-\begin{itemize}
-\item
-  Check for Homogeneity of Variance with the Levene Test
-\item
+Check for Homogeneity of Variance with the Levene Test:
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Make sure the package "car" is installed first! If not, install.packages("car")}
@@ -3434,20 +3410,46 @@ How would you interpret this result?
 \CommentTok{\#       10}
 \end{Highlighting}
 \end{Shaded}
-\item
-  Interpretation?
 
-  \begin{itemize}
+How would you interpret this result?
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
   \tightlist
   \item
-    p value \textless{} 0.05 would indicate significant differences in variance between the group, so we want it to be \textgreater{} 0.05
+    The data are heterogeneous\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
   \item
-    Assumption met!
-  \end{itemize}
+    The assumption is met, the data are homkogeneous\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    p \textless{} .05 is always preferable in any test ever
+  \end{enumerate}
 \end{itemize}
+
+More Info
+
+Like in any other test, the logic here is that p \textless{} .05 would indicate significant \emph{differences}.
+Since in this test we would rather find homogeneity, i.e.~a lack of differences in variances, our assumption is met if p \textgreater{} .05.
 
 \subsubsection*{2. Define the overall model}\label{define-the-overall-model}
 \addcontentsline{toc}{subsubsection}{2. Define the overall model}
+
+In R, the basic function for calculating an ANOVA model is \texttt{aov()}, where we use formula notation (so using the tilde \textasciitilde) to describe \texttt{aov(dependent\ variable\ \textasciitilde{}on\ the\ basis\ of\textasciitilde{}\ categorial\ variable,\ data)}.
+Commonly, we then examine the results using the \texttt{summary()} call.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3459,22 +3461,51 @@ How would you interpret this result?
 \end{Highlighting}
 \end{Shaded}
 
+Interpretation?
+
 \begin{itemize}
 \tightlist
 \item
-  Interpretation?
-
-  \begin{itemize}
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
   \tightlist
   \item
-    Not significant (likely due to small sample size)
+    The result is significant\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
   \item
-    usually we would stop here then, but we will look at the post hoc tests anyway ;)
-  \end{itemize}
+    The result is non-significant\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Different music genres predict loudness of the music.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    We definitely need to calculate post-hoc tests now to find out where there may be differences.
+  \end{enumerate}
 \end{itemize}
 
-\subsubsection*{3. Post Hoc Test}\label{post-hoc-test}
-\addcontentsline{toc}{subsubsection}{3. Post Hoc Test}
+If an omnibus (\emph{overall}) ANOVA turns out to be significant, we must conduct further tests to find out where there are pairwise differences.
+If it is not significant, we usually don't calculate them, but of course it is possibly interesting to examine trends in the data or to use as a basis for further exploration.
+
+\subsubsection*{3. Post-Hoc Test}\label{post-hoc-test}
+\addcontentsline{toc}{subsubsection}{3. Post-Hoc Test}
+
+The most common post-hoc test to use in R is the Tukey Honest Significant Differences \texttt{TukeyHSD()} test.
+It just needs the already defined anova model as input and will give us a list of each (alpha-corrected) pairwise comparison between groups or categories.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3492,20 +3523,48 @@ How would you interpret this result?
 \end{Highlighting}
 \end{Shaded}
 
-\begin{itemize}
-\tightlist
-\item
-  Interpretation?
+Interpretation?
 
-  \begin{itemize}
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    There is a significant pairwise difference between rock and pop.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    There is a trend for the difference in volume between techno and rock.\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
   \item
     There are no significant pairwise differences in our (small) sample.
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
   \item
     But we can simulate a larger sample (for fun)
   \end{itemize}
 \end{itemize}
 
 \subsection{Addendum for demonstration only: Bootstrapped Data for larger sample size}\label{addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size}
+
+Since most of the demonstrations here are based on an extremely limited sample size, I wanted to find out where those differences might be significant in a larger sample.
+\textbf{Bootstrapping} is a more advanced technique for taking random resamples of the original data and basically pretending like we had a larger sample.
+The results should not be over-interpreted but it can reveal cool new areas of necessary research or theories about the world.
+
+Note that in most undergrad classes, this will probably not be necessary for you to know.
+Regardless, the code is not very complex and the modelling and result interpretation is the same as with a normal sample, so feel free to use it as exercise!
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3631,7 +3690,7 @@ Solution Data Viz
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/solvizanova-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/solvizanova-1.pdf}}
 
 \section*{Wrap-Up \& Further Resources}\label{wrap-up-further-resources-6}
 \addcontentsline{toc}{section}{Wrap-Up \& Further Resources}
@@ -3660,7 +3719,7 @@ Read the documentation of each function for more options
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=2.08333in]{./img/sweet-anova.png}
+\includegraphics[width=\linewidth,height=2.08333in,keepaspectratio]{./img/sweet-anova.png}
 \caption{Cute ANOVA curves}
 \end{figure}
 
@@ -3682,7 +3741,7 @@ However, in the regression model we can check whether Y changes on the basis of 
 
 \begin{figure}
 \centering
-\includegraphics{_main_files/figure-html/tree-age-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/tree-age-1.pdf}}
 \caption{\label{fig:tree-age}Age and circumference of orange trees shown in a scatterplot. We can see that there seems to be a positive relationship between the two measures: The older the tree, the larger the circumference.}
 \end{figure}
 
@@ -3710,7 +3769,7 @@ Remember - a \textbf{positive} correlation means ``\textbf{the more X, the more 
 
 \subsection{Guess the correlation!}\label{guess-the-correlation}
 
-\includegraphics{_main_files/figure-html/corr1-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/corr1-1.pdf}}
 
 Solution
 
@@ -3917,7 +3976,7 @@ Explanation
 
 \begin{figure}
 \centering
-\includegraphics{_main_files/figure-html/tree-age-elaborate-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/tree-age-elaborate-1.pdf}}
 \caption{\label{fig:tree-age-elaborate}Scatterplot of orange tree age and cirumference from before with the regression line added. Notice that the variable which is used as the independent X (age) is plotted on the X axis for intuitive reading of the plot.}
 \end{figure}
 
@@ -4059,7 +4118,7 @@ Solution (interpretation)
 
 ``The age of a person does not significantly predict the time it took them to complete the survey (p = .148). The model equation is 182.7 -4.19X with age explaining about 18\% of the variance in session length for the survey.''
 
-\includegraphics{_main_files/figure-html/age-sess-viz-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/age-sess-viz-1.pdf}}
 
 \subsection{A word to the wise}\label{a-word-to-the-wise}
 
@@ -4110,13 +4169,13 @@ Problems such as overfitting or heteroscedasticity reduce the interpretability o
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/orange-pretty-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/orange-pretty-1.pdf}}
 
 \part{Reporting in R}\label{part-reporting-in-r}
 
 \chapter{R Markdown}\label{r-markdown}
 
-\includegraphics[width=\textwidth,height=1.04167in]{./img/rmd.png}
+\includegraphics[width=\linewidth,height=1.04167in,keepaspectratio]{./img/rmd.png}
 
 In this last part we will learn one of the most nifty features of R, which is being able to create whole documents from the comfort of your R Studio.
 Because creating visualizations and statistics in R is great, but we need to able to show and report our work.
@@ -4125,10 +4184,10 @@ Basically, R Markdown is a text engine based on LaTeX that allows you to create 
 As I mentioned before, it can be used to write whole theses - an example of which you can see in the screenshot Figure \ref{fig:maexample} below!
 
 \begin{figure}
-\includegraphics[height=0.6\textheight]{./img/MArmdex} \caption{Example Screenshot of a Thesis written in R Markdown.}\label{fig:maexample}
+\includegraphics[width=12.07in,height=0.6\textheight]{./img/MArmdex} \caption{Example Screenshot of a Thesis written in R Markdown.}\label{fig:maexample}
 \end{figure}
 
-\includegraphics[width=\textwidth,height=1.77083in]{./img/rmd-click.png}
+\includegraphics[width=\linewidth,height=1.77083in,keepaspectratio]{./img/rmd-click.png}
 
 There are many possibilities and luckily, there are also usually templates and guidelines to go along with them.
 For your first R Markdown document, you can create a demo Rmd with the ``New File'' menu as shown, or go to File \textgreater{} New File \textgreater{} R Markdown to create a new Rmd document.
@@ -4474,13 +4533,13 @@ Remember these tags should only be used when creating a html document!
 \item
   When including an image, make sure you are using the right file path, image name \& file extension! So that\ldots{}
 \item
-  ``\includegraphics{"./img/rmd.png"}''
+  ``\pandocbounded{\includegraphics[keepaspectratio]{"./img/rmd.png"}}''
 \item
   \ldots becomes\ldots{}
 \item
   \begin{figure}
   \centering
-  \includegraphics{./img/rmd.png}
+  \pandocbounded{\includegraphics[keepaspectratio]{./img/rmd.png}}
   \caption{RMarkdown Logo}
   \end{figure}
 \end{itemize}
@@ -4529,7 +4588,7 @@ Show equations and use other special features
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=5.72917in]{img/shakespeare.jpg}
+\includegraphics[width=\linewidth,height=5.72917in,keepaspectratio]{img/shakespeare.jpg}
 \caption{Shakespeare writing RMarkdown (AI generated using the \href{https://www.bing.com/images/create}{bing image creator})}
 \end{figure}
 
@@ -4537,7 +4596,7 @@ Show equations and use other special features
 
 \begin{figure}
 \centering
-\includegraphics{./img/papaja.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./img/papaja.png}}
 \caption{Happy Papaya Logo}
 \end{figure}
 
@@ -4695,7 +4754,7 @@ Create a boxplot and add results right in the caption!
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-html/anal-viz-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-html/anal-viz-1.pdf}}
 
 \begin{itemize}
 \tightlist
@@ -4772,7 +4831,7 @@ Single values/ results can be reported with inline code
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=4.6875in]{./img/palmer_penguins.png}
+\includegraphics[width=\linewidth,height=4.6875in,keepaspectratio]{./img/palmer_penguins.png}
 \caption{Palmer Penguins from \href{https://github.com/mcnakhaee/palmerpenguins}{the palmer penguins package}}
 \end{figure}
 
@@ -4808,7 +4867,7 @@ Therefore, I suggest you have a look at \url{cs50.ai}, an AI developed to help w
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=3.125in]{./img/cs50ai.png}
+\includegraphics[width=\linewidth,height=3.125in,keepaspectratio]{./img/cs50ai.png}
 \caption{CS50.ai example chat}
 \end{figure}
 
@@ -4831,7 +4890,7 @@ One of them is definitely the powerful yet sometimes completely silly and useles
 \begin{Highlighting}[]
 \NormalTok{cowsay}\SpecialCharTok{::}\FunctionTok{say}\NormalTok{(}\StringTok{"What the duck is this?"}\NormalTok{, }\AttributeTok{by =} \StringTok{"duck"}\NormalTok{)}
 \CommentTok{\# }
-\CommentTok{\#  {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} }
+\CommentTok{\#  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ }
 \CommentTok{\# \textless{} What the duck is this? \textgreater{}}
 \CommentTok{\#  {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} }
 \CommentTok{\#       \textbackslash{}}
@@ -4994,7 +5053,7 @@ Further Resources
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=2.08333in]{./img/fibonacci.jpg}
+\includegraphics[width=\linewidth,height=2.08333in,keepaspectratio]{./img/fibonacci.jpg}
 \caption{Fibonacci Spiral}
 \end{figure}
 
@@ -5038,7 +5097,7 @@ Be mindful of which elements need to be defined in the YAML header and which nee
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth,height=5.72917in]{./img/Rmd-exc1.png}
+\includegraphics[width=\linewidth,height=5.72917in,keepaspectratio]{./img/Rmd-exc1.png}
 \caption{Rmd Example Template}
 \end{figure}
 
@@ -5120,8 +5179,8 @@ SPSS (SAV) & \texttt{foreign::read.spss("data.sav")} \\
 \addcontentsline{toc}{section}{Logic}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4667}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5333}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5333}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Symbol
@@ -5182,6 +5241,7 @@ foreign & Handling data from SPSS \\
 corrplot & Create correlation plots/ matrices \\
 \end{longtable}
 
-  \bibliography{book.bib,packages.bib}
+\nocite{R-base, R-bookdown, R-rmarkdown, R-dplyr, R-webexercises, R-ggplot2}
+\bibliography{book.bib,packages.bib}
 
 \end{document}

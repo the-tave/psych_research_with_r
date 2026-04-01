@@ -9,7 +9,7 @@
 It should guide the reader through the first challenges in working with R
 and provide the tools and skills to write a whole report with data analysis and visualization
 directly in R and R Markdown.</p>" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Best Practice | Psychological Research with R" />
   <meta property="og:type" content="book" />
@@ -69,8 +69,9 @@ directly in R and R Markdown.</p>" />
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +81,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -341,7 +342,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.1" data-path="difference-statistics.html"><a href="difference-statistics.html#statistics-re-cap"><i class="fa fa-check"></i><b>8.1</b> Statistics Re-cap <i class="fa-solid fa-graduation-cap" style="color: darkred;"></i></a>
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="difference-statistics.html"><a href="difference-statistics.html#pre-requisites"><i class="fa fa-check"></i><b>8.1.1</b> Pre-Requisites</a></li>
-<li class="chapter" data-level="8.1.2" data-path="difference-statistics.html"><a href="difference-statistics.html#statistical-significnace"><i class="fa fa-check"></i><b>8.1.2</b> Statistical Significnace</a></li>
+<li class="chapter" data-level="8.1.2" data-path="difference-statistics.html"><a href="difference-statistics.html#statistical-significance"><i class="fa fa-check"></i><b>8.1.2</b> Statistical Significance</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="difference-statistics.html"><a href="difference-statistics.html#chi2"><i class="fa fa-check"></i><b>8.2</b> <span class="math inline">\(\chi^2\)</span></a>
 <ul>
@@ -357,11 +358,10 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="difference-statistics.html"><a href="difference-statistics.html#anova"><i class="fa fa-check"></i><b>8.4</b> ANOVA</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="difference-statistics.html"><a href="difference-statistics.html#how-to---theoretically"><i class="fa fa-check"></i><b>8.4.1</b> How to - theoretically</a></li>
 <li class="chapter" data-level="" data-path="difference-statistics.html"><a href="difference-statistics.html#example-music-genre-and-loudness"><i class="fa fa-check"></i>Example: Music genre and loudness <i class="fa-solid fa-music"></i></a></li>
-<li class="chapter" data-level="8.4.2" data-path="difference-statistics.html"><a href="difference-statistics.html#addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size"><i class="fa fa-check"></i><b>8.4.2</b> Addendum for demonstration only: Bootstrapped Data for larger sample size</a></li>
-<li class="chapter" data-level="8.4.3" data-path="difference-statistics.html"><a href="difference-statistics.html#anova-exercise"><i class="fa fa-check"></i><b>8.4.3</b> ANOVA Exercise</a></li>
-<li class="chapter" data-level="8.4.4" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-5"><i class="fa fa-check"></i><b>8.4.4</b> Exercise</a></li>
+<li class="chapter" data-level="8.4.1" data-path="difference-statistics.html"><a href="difference-statistics.html#addendum-for-demonstration-only-bootstrapped-data-for-larger-sample-size"><i class="fa fa-check"></i><b>8.4.1</b> Addendum for demonstration only: Bootstrapped Data for larger sample size</a></li>
+<li class="chapter" data-level="8.4.2" data-path="difference-statistics.html"><a href="difference-statistics.html#anova-exercise"><i class="fa fa-check"></i><b>8.4.2</b> ANOVA Exercise</a></li>
+<li class="chapter" data-level="8.4.3" data-path="difference-statistics.html"><a href="difference-statistics.html#exercise-5"><i class="fa fa-check"></i><b>8.4.3</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="difference-statistics.html"><a href="difference-statistics.html#wrap-up-further-resources-6"><i class="fa fa-check"></i>Wrap-Up &amp; Further Resources</a></li>
 </ul></li>
@@ -576,11 +576,11 @@ Solution
 <span id="cb28-8"><a href="best-practice.html#cb28-8" tabindex="-1"></a></span>
 <span id="cb28-9"><a href="best-practice.html#cb28-9" tabindex="-1"></a><span class="fu">str</span>(scores7a); <span class="fu">str</span>(scores7b)</span>
 <span id="cb28-10"><a href="best-practice.html#cb28-10" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb28-11"><a href="best-practice.html#cb28-11" tabindex="-1"></a><span class="co">#  $ age: int  12 15 14 14 13 14 15 14 13 12 ...</span></span>
-<span id="cb28-12"><a href="best-practice.html#cb28-12" tabindex="-1"></a><span class="co">#  $ iq : num  107.4 94.4 84.8 97.5 91.1 ...</span></span>
+<span id="cb28-11"><a href="best-practice.html#cb28-11" tabindex="-1"></a><span class="co">#  $ age: int  12 15 12 14 14 14 13 13 15 14 ...</span></span>
+<span id="cb28-12"><a href="best-practice.html#cb28-12" tabindex="-1"></a><span class="co">#  $ iq : num  115 75.4 98.5 128 93.8 ...</span></span>
 <span id="cb28-13"><a href="best-practice.html#cb28-13" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 20 obs. of  2 variables:</span></span>
-<span id="cb28-14"><a href="best-practice.html#cb28-14" tabindex="-1"></a><span class="co">#  $ age: int  12 13 12 13 12 12 12 13 13 13 ...</span></span>
-<span id="cb28-15"><a href="best-practice.html#cb28-15" tabindex="-1"></a><span class="co">#  $ iq : num  103.4 106.1 90.6 107.4 78.7 ...</span></span>
+<span id="cb28-14"><a href="best-practice.html#cb28-14" tabindex="-1"></a><span class="co">#  $ age: int  12 14 14 14 14 15 13 15 12 15 ...</span></span>
+<span id="cb28-15"><a href="best-practice.html#cb28-15" tabindex="-1"></a><span class="co">#  $ iq : num  105.8 105.9 105.3 95.4 96.6 ...</span></span>
 <span id="cb28-16"><a href="best-practice.html#cb28-16" tabindex="-1"></a></span>
 <span id="cb28-17"><a href="best-practice.html#cb28-17" tabindex="-1"></a><span class="co"># Add information about the class</span></span>
 <span id="cb28-18"><a href="best-practice.html#cb28-18" tabindex="-1"></a>scores7a<span class="sc">$</span>class <span class="ot">&lt;-</span> <span class="st">&quot;7a&quot;</span></span>
@@ -592,8 +592,8 @@ Solution
 <span id="cb28-24"><a href="best-practice.html#cb28-24" tabindex="-1"></a><span class="co"># Check the overall data frame for plausibility</span></span>
 <span id="cb28-25"><a href="best-practice.html#cb28-25" tabindex="-1"></a><span class="fu">str</span>(allscores)</span>
 <span id="cb28-26"><a href="best-practice.html#cb28-26" tabindex="-1"></a><span class="co"># &#39;data.frame&#39;: 40 obs. of  3 variables:</span></span>
-<span id="cb28-27"><a href="best-practice.html#cb28-27" tabindex="-1"></a><span class="co">#  $ age  : int  12 15 14 14 13 14 15 14 13 12 ...</span></span>
-<span id="cb28-28"><a href="best-practice.html#cb28-28" tabindex="-1"></a><span class="co">#  $ iq   : num  107.4 94.4 84.8 97.5 91.1 ...</span></span>
+<span id="cb28-27"><a href="best-practice.html#cb28-27" tabindex="-1"></a><span class="co">#  $ age  : int  12 15 12 14 14 14 13 13 15 14 ...</span></span>
+<span id="cb28-28"><a href="best-practice.html#cb28-28" tabindex="-1"></a><span class="co">#  $ iq   : num  115 75.4 98.5 128 93.8 ...</span></span>
 <span id="cb28-29"><a href="best-practice.html#cb28-29" tabindex="-1"></a><span class="co">#  $ class: chr  &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; &quot;7a&quot; ...</span></span>
 <span id="cb28-30"><a href="best-practice.html#cb28-30" tabindex="-1"></a><span class="fu">table</span>(allscores<span class="sc">$</span>class)</span>
 <span id="cb28-31"><a href="best-practice.html#cb28-31" tabindex="-1"></a><span class="co"># </span></span>
@@ -969,42 +969,42 @@ window.onload = function() {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": false,
-"linkedin": true,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["instapaper", "linkedin", "github"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/the-tave/psych_research_with_r/issues/03_BestPractice.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": true,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["instapaper", "linkedin", "github"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/the-tave/psych_research_with_r/issues/03_BestPractice.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>
